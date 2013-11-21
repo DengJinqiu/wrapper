@@ -7,6 +7,7 @@
 //
 
 #import "YearlyViewController.h"
+#import "Yearlyview.h"
 #import "MainMode.h"
 
 @interface YearlyViewController ()
@@ -17,23 +18,33 @@
 
 @implementation YearlyViewController
 
+@synthesize mainMode = _mainMode;
+
+- (MainMode*)mainMode
+{
+    if (!_mainMode) {
+        _mainMode = [[MainMode alloc] init];
+    }
+    return _mainMode;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         CGRect screenRect = [[UIScreen mainScreen] bounds];
-        CGFloat screenWidth = screenRect.size.width;
-        CGFloat screenHeight = screenRect.size.height;
-        UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, self.view.frame.size.height)];
-        NSInteger viewcount= 4;
-        for(int i = 0; i< viewcount; i++) {
-            
-            CGFloat y = i * self.view.frame.size.height;
-            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, y,self.view.frame.size.width, self .view.frame.size.height)];
-            view.backgroundColor = [UIColor greenColor];
-            [scrollview addSubview:view];
+        
+        CGRect yearlyViewRect = screenRect;
+        yearlyViewRect.size.height /= 2;
+        
+        int totalYearNumber = [self.mainMode totalYearNumber];
+        UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:screenRect];
+        
+        for(int i = 0; i< totalYearNumber; i++) {
+            yearlyViewRect.origin.y = i * yearlyViewRect.size.height;
+            [scrollview addSubview:[[YearlyView alloc] initWithFrame:yearlyViewRect]];
         }
-        scrollview.contentSize = CGSizeMake(screenWidth, self.view.frame.size.height *viewcount);
+        scrollview.contentSize = CGSizeMake(yearlyViewRect.size.width, yearlyViewRect.size.height*totalYearNumber);
         self.view = scrollview;
     }
     return self;

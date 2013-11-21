@@ -52,4 +52,9 @@
     return [[self.calendar currentDate] weekday];
 }
 
+- (NSInteger)totalYearNumber
+{
+    return [self currentYear] - [self startYear] + 1;
+}
+
 @end

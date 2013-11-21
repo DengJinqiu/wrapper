@@ -14,6 +14,8 @@
 
 - (NSInteger)currentYear;
 
+- (NSInteger)totalYearNumber;
+
 - (NSInteger)currentMonth;
 
 - (NSInteger)currentDate;
