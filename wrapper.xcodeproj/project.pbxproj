@@ -10,6 +10,7 @@
 		659D9CD2183DBFF6008EBA12 /* YearlyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659D9CD1183DBFF6008EBA12 /* YearlyViewController.m */; };
 		659D9CD5183DCF6C008EBA12 /* MainMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 659D9CD4183DCF6C008EBA12 /* MainMode.m */; };
 		659D9CD9183DD5D8008EBA12 /* YearlyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 659D9CD8183DD5D8008EBA12 /* YearlyView.m */; };
+		659D9CDB183DE8FE008EBA12 /* YearlyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 659D9CDA183DE8FE008EBA12 /* YearlyView.xib */; };
 		A564F49C183D795300785E9E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A564F49B183D795300785E9E /* Foundation.framework */; };
 		A564F49E183D795300785E9E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A564F49D183D795300785E9E /* CoreGraphics.framework */; };
 		A564F4A0183D795300785E9E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A564F49F183D795300785E9E /* UIKit.framework */; };
@@ -45,6 +46,7 @@
 		659D9CD4183DCF6C008EBA12 /* MainMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMode.m; sourceTree = "<group>"; };
 		659D9CD7183DD5D8008EBA12 /* YearlyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearlyView.h; sourceTree = "<group>"; };
 		659D9CD8183DD5D8008EBA12 /* YearlyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearlyView.m; sourceTree = "<group>"; };
+		659D9CDA183DE8FE008EBA12 /* YearlyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearlyView.xib; sourceTree = "<group>"; };
 		A564F498183D795300785E9E /* wrapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wrapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A564F49B183D795300785E9E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A564F49D183D795300785E9E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,6 +101,7 @@
 			children = (
 				659D9CD7183DD5D8008EBA12 /* YearlyView.h */,
 				659D9CD8183DD5D8008EBA12 /* YearlyView.m */,
+				659D9CDA183DE8FE008EBA12 /* YearlyView.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				659D9CDB183DE8FE008EBA12 /* YearlyView.xib in Resources */,
 				A564F4A6183D795300785E9E /* InfoPlist.strings in Resources */,
 				A564F4AE183D795300785E9E /* Images.xcassets in Resources */,
 				A564F4CB183D799D00785E9E /* iphone.storyboard in Resources */,

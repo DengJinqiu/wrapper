@@ -8,6 +8,12 @@
 
 #import "YearlyView.h"
 
+@interface YearlyView ()
+
+@property (strong, nonatomic, readwrite) NSMutableArray *months;
+
+@end
+
 @implementation YearlyView
 
 - (id)initWithFrame:(CGRect)frame
@@ -15,11 +21,20 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        CGFloat hue = (arc4random()%256) / 256.0f;
-        self.backgroundColor = [UIColor colorWithHue:hue
-                                          saturation:hue
-                                          brightness:hue
-                                               alpha:hue];
+//        CGFloat hue = (arc4random()%256) / 256.0f;
+//        self.backgroundColor = [UIColor colorWithHue:hue
+//                                          saturation:hue
+//                                          brightness:hue
+//                                               alpha:hue];
+   
+    }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame year:(int)year
+{
+    self = [super initWithFrame:frame];
+    if (self) {
     }
     return self;
 }

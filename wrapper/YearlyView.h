@@ -10,4 +10,6 @@
 
 @interface YearlyView : UIView
 
+- (id)initWithFrame:(CGRect)frame year:(int)year;
+
 @end

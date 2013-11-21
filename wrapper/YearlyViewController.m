@@ -40,9 +40,17 @@
         int totalYearNumber = [self.mainMode totalYearNumber];
         UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:screenRect];
         
+        UINib *nib = [UINib nibWithNibName: @"YearlyView" bundle:nil];
+        YearlyView *yearlyView = [[nib instantiateWithOwner:scrollview options:nil] objectAtIndex:0];
+        [scrollview addSubview:yearlyView];
+        
         for(int i = 0; i< totalYearNumber; i++) {
             yearlyViewRect.origin.y = i * yearlyViewRect.size.height;
-            [scrollview addSubview:[[YearlyView alloc] initWithFrame:yearlyViewRect]];
+//            [scrollview addSubview:[[YearlyView alloc] initWithFrame:yearlyViewRect
+//                                                                year:[self.mainMode startYear]+i]];
+//            UINib *nib = [UINib nibWithNibName: @"YearlyView" bundle:nil];
+//            YearlyView *yearlyView = [[nib instantiateWithOwner:scrollview options:nil] objectAtIndex:i];
+//            [scrollview addSubview:yearlyView];
         }
         scrollview.contentSize = CGSizeMake(yearlyViewRect.size.width, yearlyViewRect.size.height*totalYearNumber);
         self.view = scrollview;
