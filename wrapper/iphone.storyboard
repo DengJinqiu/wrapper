@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LJC-t0-qnX">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Signin View Controller - Sign in-->
@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign in"/>
                                 <connections>
-                                    <segue destination="xAD-gq-1W3" kind="push" id="vDz-dq-lax"/>
+                                    <action selector="signIn:" destination="ckH-0f-NRo" eventType="touchUpInside" id="2Lj-Pf-sEg"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w4m-4U-8s6">
@@ -47,26 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FFm-Wy-6Qe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056" y="946"/>
-        </scene>
-        <!--Monthly View Controller-->
-        <scene sceneID="WF7-Zq-Il5">
-            <objects>
-                <viewController id="xAD-gq-1W3" customClass="MonthlyViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HgA-e0-8qa"/>
-                        <viewControllerLayoutGuide type="bottom" id="TFy-cA-2cZ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="UP1-NR-a3V">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="kNB-i1-sdJ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UKN-g5-5lk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1492" y="946"/>
+            <point key="canvasLocation" x="662" y="450"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="K4I-ZE-8VM">
@@ -85,7 +66,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DJr-1b-EhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="590" y="946"/>
+            <point key="canvasLocation" x="196" y="450"/>
         </scene>
     </scenes>
     <resources>

@@ -7,6 +7,7 @@
 //
 
 #import "SigninViewController.h"
+#import "YearlyViewController.h"
 
 @interface SigninViewController ()
 
@@ -31,6 +32,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+- (IBAction)signIn:(UIButton *)sender {
+    YearlyViewController *yearlyViewController = [[YearlyViewController alloc] init];
+    [self.navigationController pushViewController:yearlyViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

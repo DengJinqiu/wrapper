@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong, readwrite) NSMutableArray *dates;
 
+
+
 @end
 
 @implementation MonthlyViewController
@@ -32,10 +34,7 @@
     
     
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button setTitle:@"ssss" forState:UIControlStateNormal];
-    button.frame = CGRectMake(100.f, 100.f, 50.f, 50.f);
-    [[self view] addSubview:button];
+
     
 }
 

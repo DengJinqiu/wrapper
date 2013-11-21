@@ -10,4 +10,18 @@
 
 @implementation Calendar
 
+@synthesize currentDate = _currentDate;
+
+- (NSDateComponents*) currentDate
+{
+    if (!_currentDate) {
+        NSDate *today = [NSDate date];
+        NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        _currentDate = [gregorianCalendar components:(kCFCalendarUnitYear | kCFCalendarUnitMonth |
+                                              kCFCalendarUnitDay | kCFCalendarUnitWeekday)
+                                    fromDate:today];
+    }
+    return _currentDate;
+}
+
 @end

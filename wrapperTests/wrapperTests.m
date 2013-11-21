@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "Calendar.h"
 
 @interface wrapperTests : XCTestCase
 
@@ -28,7 +29,13 @@
 
 - (void)testExample
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    NSLog(@"day: %d", [[[[Calendar alloc] init] currentDate] day]);
+    NSLog(@"day: %d", [[[[Calendar alloc] init] currentDate] month]);
+    NSLog(@"day: %d", [[[[Calendar alloc] init] currentDate] year]);
+    NSLog(@"day: %d", [[[[Calendar alloc] init] currentDate] weekday]);
+    NSLog(@"day: %d", [[[[Calendar alloc] init] currentDate] weekdayOrdinal]);
+    NSLog(@"day: %d", [[[[Calendar alloc] init] currentDate] weekOfMonth]);
 }
 
 @end

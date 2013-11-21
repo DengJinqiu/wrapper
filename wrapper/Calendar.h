@@ -10,10 +10,6 @@
 
 @interface Calendar : NSObject
 
-- (NSDate*) currentDate;
-
-- (void) dayOfWeek;
+@property (strong, nonatomic, readonly) NSDateComponents *currentDate;
 
 @end
-
-
