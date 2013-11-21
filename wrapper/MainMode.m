@@ -29,7 +29,12 @@
 
 - (NSInteger)startYear
 {
-    return 2004;
+    return 2013;
+}
+
+- (NSInteger)endYear
+{
+    return 2014;
 }
 
 - (NSInteger)currentYear
@@ -50,11 +55,6 @@
 - (NSInteger)currentWeekDay
 {
     return [[self.calendar currentDate] weekday];
-}
-
-- (NSInteger)totalYearNumber
-{
-    return [self currentYear] - [self startYear] + 1;
 }
 
 @end

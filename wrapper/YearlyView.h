@@ -10,6 +10,6 @@
 
 @interface YearlyView : UIView
 
-- (id)initWithFrame:(CGRect)frame year:(int)year;
+- (id)initWithYear:(NSInteger)year index:(NSInteger)index;
 
 @end

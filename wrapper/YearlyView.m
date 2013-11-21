@@ -10,7 +10,9 @@
 
 @interface YearlyView ()
 
-@property (strong, nonatomic, readwrite) NSMutableArray *months;
+@property (strong, nonatomic, readwrite) NSMutableArray *monthButtons;
+
+@property (readwrite, nonatomic, assign) NSInteger year;
 
 @end
 
@@ -21,20 +23,61 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-//        CGFloat hue = (arc4random()%256) / 256.0f;
-//        self.backgroundColor = [UIColor colorWithHue:hue
-//                                          saturation:hue
-//                                          brightness:hue
-//                                               alpha:hue];
-   
     }
     return self;
 }
 
-- (id)initWithFrame:(CGRect)frame year:(int)year
+- (NSMutableArray*)months
 {
-    self = [super initWithFrame:frame];
+    if (!_monthButtons) {
+        _monthButtons = [[NSMutableArray alloc] init];
+    }
+    return _monthButtons;
+}
+
+- (NSArray*)monthLabels
+{
+    return @[@"JAN", @"FEB", @"MAR", @"APR", @"MAY", @"JUN",
+             @"JUL", @"AUG", @"SEP", @"OCT", @"NOV", @"DEC"];
+}
+
+#define HEIGHT_RADIUS 0.6
+
+- (id)initWithYear:(int)year index:(NSInteger)index
+{
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    screenRect.size.height = screenRect.size.width * HEIGHT_RADIUS;
+    screenRect.origin.y = index * screenRect.size.height;
+    
+    self = [super initWithFrame:screenRect];
     if (self) {
+        self.year = year;
+        
+        UILabel *yearLabel = [[UILabel alloc] init];
+        yearLabel.text = [NSString stringWithFormat:@"%d", self.year];
+        yearLabel.frame = CGRectMake(20, 20, 40, 20);
+        [self addSubview:yearLabel];
+        
+        UIView *line = [[UIView alloc] init];
+        line.frame = CGRectMake(20, 50, 280, 2);
+        line.backgroundColor = [UIColor blackColor];
+        [self addSubview:line];
+        
+        int i = 0;
+        int j = 0;
+        for (NSString* label in [self monthLabels]) {
+            UIButton *monthButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [monthButton setTitle:label forState:UIControlStateNormal];
+            monthButton.frame = CGRectMake(20+i*81, 60+j*40, 35, 35);
+            [self.monthButtons addObject:monthButton];
+            [self addSubview:monthButton];
+            if (i >= 3) {
+                i = 0;
+                j++;
+            } else {
+                i++;
+            }
+        }
     }
     return self;
 }

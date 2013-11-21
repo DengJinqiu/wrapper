@@ -36,6 +36,9 @@
 
 - (IBAction)signIn:(UIButton *)sender {
     YearlyViewController *yearlyViewController = [[YearlyViewController alloc] init];
+    
+    UIBarButtonItem *signOutButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign out" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    [[self navigationItem] setBackBarButtonItem:signOutButtonItem];
     [self.navigationController pushViewController:yearlyViewController animated:YES];
 }
 

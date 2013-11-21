@@ -12,9 +12,9 @@
 
 - (NSInteger)startYear;
 
-- (NSInteger)currentYear;
+- (NSInteger)endYear;
 
-- (NSInteger)totalYearNumber;
+- (NSInteger)currentYear;
 
 - (NSInteger)currentMonth;
 

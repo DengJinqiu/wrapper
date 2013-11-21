@@ -12,7 +12,9 @@
 
 @interface YearlyViewController ()
 
-@property (strong, readonly) MainMode *mainMode;
+@property (strong, nonatomic, readonly) MainMode *mainMode;
+
+@property (strong, nonatomic, readwrite) NSMutableArray *yearlyViews;
 
 @end
 
@@ -28,32 +30,38 @@
     return _mainMode;
 }
 
+- (NSMutableArray*)yearlyViews
+{
+    if (!_yearlyViews) {
+        _yearlyViews = [[NSMutableArray alloc] init];
+    }
+    return _yearlyViews;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         
-        CGRect yearlyViewRect = screenRect;
-        yearlyViewRect.size.height /= 2;
+        NSInteger startYear = [self.mainMode startYear];
+        NSInteger endYear = [self.mainMode endYear];
+        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
+        scrollView.backgroundColor = [UIColor whiteColor];
         
-        int totalYearNumber = [self.mainMode totalYearNumber];
-        UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:screenRect];
+        NSInteger scrollViewHeight = 0;
         
-        UINib *nib = [UINib nibWithNibName: @"YearlyView" bundle:nil];
-        YearlyView *yearlyView = [[nib instantiateWithOwner:scrollview options:nil] objectAtIndex:0];
-        [scrollview addSubview:yearlyView];
-        
-        for(int i = 0; i< totalYearNumber; i++) {
-            yearlyViewRect.origin.y = i * yearlyViewRect.size.height;
-//            [scrollview addSubview:[[YearlyView alloc] initWithFrame:yearlyViewRect
-//                                                                year:[self.mainMode startYear]+i]];
-//            UINib *nib = [UINib nibWithNibName: @"YearlyView" bundle:nil];
-//            YearlyView *yearlyView = [[nib instantiateWithOwner:scrollview options:nil] objectAtIndex:i];
-//            [scrollview addSubview:yearlyView];
+        for(int i = startYear; i <= endYear; i++) {
+            YearlyView *yearlyView = [[YearlyView alloc] initWithYear:i index:i-startYear];
+            [scrollView addSubview:yearlyView];
+            [self.yearlyViews addObject:yearlyView];
+            scrollViewHeight += yearlyView.frame.size.height;
         }
-        scrollview.contentSize = CGSizeMake(yearlyViewRect.size.width, yearlyViewRect.size.height*totalYearNumber);
-        self.view = scrollview;
+        
+        scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollViewHeight);
+        self.view = scrollView;
+        
+
     }
     return self;
 }
@@ -62,18 +70,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    [button setTitle:@"ssss" forState:UIControlStateNormal];
-//    button.frame = CGRectMake(100.f, 400.f, 50.f, 50.f);
-//    [[self view] addSubview:button];
-    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-
 }
 
 @end

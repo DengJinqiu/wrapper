@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		653642EA183EAAF30057D41A /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 653642E9183EAAF30057D41A /* View.xib */; };
 		659D9CD2183DBFF6008EBA12 /* YearlyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659D9CD1183DBFF6008EBA12 /* YearlyViewController.m */; };
 		659D9CD5183DCF6C008EBA12 /* MainMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 659D9CD4183DCF6C008EBA12 /* MainMode.m */; };
 		659D9CD9183DD5D8008EBA12 /* YearlyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 659D9CD8183DD5D8008EBA12 /* YearlyView.m */; };
-		659D9CDB183DE8FE008EBA12 /* YearlyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 659D9CDA183DE8FE008EBA12 /* YearlyView.xib */; };
 		A564F49C183D795300785E9E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A564F49B183D795300785E9E /* Foundation.framework */; };
 		A564F49E183D795300785E9E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A564F49D183D795300785E9E /* CoreGraphics.framework */; };
 		A564F4A0183D795300785E9E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A564F49F183D795300785E9E /* UIKit.framework */; };
@@ -40,13 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		653642E9183EAAF30057D41A /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		659D9CD0183DBFF6008EBA12 /* YearlyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearlyViewController.h; sourceTree = "<group>"; };
 		659D9CD1183DBFF6008EBA12 /* YearlyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearlyViewController.m; sourceTree = "<group>"; };
 		659D9CD3183DCF6C008EBA12 /* MainMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMode.h; sourceTree = "<group>"; };
 		659D9CD4183DCF6C008EBA12 /* MainMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMode.m; sourceTree = "<group>"; };
 		659D9CD7183DD5D8008EBA12 /* YearlyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearlyView.h; sourceTree = "<group>"; };
 		659D9CD8183DD5D8008EBA12 /* YearlyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearlyView.m; sourceTree = "<group>"; };
-		659D9CDA183DE8FE008EBA12 /* YearlyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearlyView.xib; sourceTree = "<group>"; };
 		A564F498183D795300785E9E /* wrapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wrapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A564F49B183D795300785E9E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A564F49D183D795300785E9E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -101,7 +101,6 @@
 			children = (
 				659D9CD7183DD5D8008EBA12 /* YearlyView.h */,
 				659D9CD8183DD5D8008EBA12 /* YearlyView.m */,
-				659D9CDA183DE8FE008EBA12 /* YearlyView.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -143,6 +142,7 @@
 				A564F4D2183DA42600785E9E /* controller */,
 				A564F4D3183DA49F00785E9E /* model */,
 				A564F4CA183D799D00785E9E /* iphone.storyboard */,
+				653642E9183EAAF30057D41A /* View.xib */,
 				A564F4AD183D795300785E9E /* Images.xcassets */,
 				A564F4A2183D795300785E9E /* Supporting Files */,
 			);
@@ -279,7 +279,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				659D9CDB183DE8FE008EBA12 /* YearlyView.xib in Resources */,
+				653642EA183EAAF30057D41A /* View.xib in Resources */,
 				A564F4A6183D795300785E9E /* InfoPlist.strings in Resources */,
 				A564F4AE183D795300785E9E /* Images.xcassets in Resources */,
 				A564F4CB183D799D00785E9E /* iphone.storyboard in Resources */,
