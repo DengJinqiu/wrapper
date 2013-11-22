@@ -14,10 +14,6 @@
 
 @property (strong, nonatomic, readwrite) NSMutableArray *monthlyViews;
 
-@property (assign, nonatomic, readwrite) NSInteger yearNavigateTo;
-
-@property (assign, nonatomic, readwrite) NSInteger monthNavigateTo;
-
 @property (weak, nonatomic, readwrite) MainMode* mainMode;
 
 @end
@@ -33,7 +29,7 @@
     return self;
 }
 
-- (void)initLayout
+- (void)initLayoutWithYearNavigateTo:(NSInteger)year monthNavigateTo:(NSInteger)month
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
@@ -48,7 +44,10 @@
     for(NSInteger i = startYear; i <= endYear; i++) {
         for (NSInteger j = 1; j <= 12; j++) {
             
-            MonthlyView *monthlyView = [[MonthlyView alloc] initWithYear:i month:j index:index delegate:self];
+            MonthlyView *monthlyView = [[MonthlyView alloc] initWithYear:i month:j];
+            CGRect frame = monthlyView.frame;
+            frame.origin.y = scrollViewHeight;
+            monthlyView.frame = frame;
             [scrollView addSubview:monthlyView];
             [self.monthlyViews addObject:monthlyView];
             scrollViewHeight += monthlyView.frame.size.height;
@@ -66,9 +65,7 @@
 {
     self = [self init];
     self.mainMode = mainMode;
-    self.yearNavigateTo = year;
-    self.monthNavigateTo = month;
-    [self initLayout];
+    [self initLayoutWithYearNavigateTo:year monthNavigateTo:month];
     return self;
 }
 

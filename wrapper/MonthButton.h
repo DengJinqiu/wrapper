@@ -16,4 +16,6 @@
 
 - (void)month:(NSInteger)month year:(NSInteger)year;
 
++ (NSArray*)monthLabels;
+
 @end

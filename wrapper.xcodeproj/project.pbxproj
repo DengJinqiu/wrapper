@@ -10,6 +10,7 @@
 		653642EA183EAAF30057D41A /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 653642E9183EAAF30057D41A /* View.xib */; };
 		653642ED183EB36F0057D41A /* MonthlyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 653642EC183EB36F0057D41A /* MonthlyView.m */; };
 		653642F1183EC1B50057D41A /* MonthButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 653642F0183EC1B50057D41A /* MonthButton.m */; };
+		653642F4183EF61D0057D41A /* DayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 653642F3183EF61D0057D41A /* DayButton.m */; };
 		659D9CD2183DBFF6008EBA12 /* YearlyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659D9CD1183DBFF6008EBA12 /* YearlyViewController.m */; };
 		659D9CD5183DCF6C008EBA12 /* MainMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 659D9CD4183DCF6C008EBA12 /* MainMode.m */; };
 		659D9CD9183DD5D8008EBA12 /* YearlyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 659D9CD8183DD5D8008EBA12 /* YearlyView.m */; };
@@ -47,6 +48,8 @@
 		653642EC183EB36F0057D41A /* MonthlyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthlyView.m; sourceTree = "<group>"; };
 		653642EF183EC1B50057D41A /* MonthButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthButton.h; sourceTree = "<group>"; };
 		653642F0183EC1B50057D41A /* MonthButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthButton.m; sourceTree = "<group>"; };
+		653642F2183EF61D0057D41A /* DayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayButton.h; sourceTree = "<group>"; };
+		653642F3183EF61D0057D41A /* DayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayButton.m; sourceTree = "<group>"; };
 		659D9CD0183DBFF6008EBA12 /* YearlyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearlyViewController.h; sourceTree = "<group>"; };
 		659D9CD1183DBFF6008EBA12 /* YearlyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearlyViewController.m; sourceTree = "<group>"; };
 		659D9CD3183DCF6C008EBA12 /* MainMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMode.h; sourceTree = "<group>"; };
@@ -111,6 +114,8 @@
 				659D9CD8183DD5D8008EBA12 /* YearlyView.m */,
 				653642EF183EC1B50057D41A /* MonthButton.h */,
 				653642F0183EC1B50057D41A /* MonthButton.m */,
+				653642F2183EF61D0057D41A /* DayButton.h */,
+				653642F3183EF61D0057D41A /* DayButton.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -311,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				653642F4183EF61D0057D41A /* DayButton.m in Sources */,
 				659D9CD9183DD5D8008EBA12 /* YearlyView.m in Sources */,
 				A564F4D1183D98F800785E9E /* SigninViewController.m in Sources */,
 				653642F1183EC1B50057D41A /* MonthButton.m in Sources */,

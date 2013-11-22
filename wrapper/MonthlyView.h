@@ -10,7 +10,7 @@
 
 @interface MonthlyView : UIView
 
-- (instancetype)initWithYear:(NSInteger)year month:(NSInteger)month
-               index:(NSInteger)index delegate:(id)delegate;
+- (instancetype)initWithYear:(NSInteger)year month:(NSInteger)month;
+
 
 @end

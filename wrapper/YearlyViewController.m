@@ -54,10 +54,12 @@
         NSInteger scrollViewHeight = 0;
         
         for(NSInteger i = startYear; i <= endYear; i++) {
-            YearlyView *yearlyView = [[YearlyView alloc] initWithYear:i
-                                                                index:i-startYear
-                                                             delegate:self];
+            YearlyView *yearlyView = [[YearlyView alloc] initWithYear:i delegate:self];
+            CGRect frame = yearlyView.frame;
+            frame.origin.y = scrollViewHeight;
+            yearlyView.frame = frame;
             [scrollView addSubview:yearlyView];
+            [self addMonthButtonToYearlyView:yearlyView];
             [self.yearlyViews addObject:yearlyView];
             scrollViewHeight += yearlyView.frame.size.height;
         }
@@ -66,6 +68,32 @@
         self.view = scrollView;
     }
     return self;
+}
+
+- (void)addMonthButtonToYearlyView:(YearlyView*)yearlyView
+{
+    int i = 0;
+    int j = 0;
+    for (NSInteger month = 1; month <= 12; month++) {
+        MonthButton *monthButton = [MonthButton buttonWithType:UIButtonTypeRoundedRect];
+        monthButton.frame = CGRectMake(20+i*81, 60+j*40, 35, 35);
+        
+        [monthButton month:month year:yearlyView.year];
+        
+        [monthButton addTarget:self
+                        action:@selector(navigateToMonthlyView:)
+              forControlEvents:UIControlEventTouchUpInside];
+        
+        [yearlyView.monthButtons addObject:monthButton];
+        [yearlyView addSubview:monthButton];
+        if (i >= 3) {
+            i = 0;
+            j++;
+        } else {
+            i++;
+        }
+    }
+
 }
 
 - (void)navigateToMonthlyView:(MonthButton*)sender

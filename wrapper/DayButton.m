@@ -1,19 +1,23 @@
 //
-//  MonthButton.m
+//  DayButton.m
 //  wrapper
 //
 //  Created by xcode-dev on 11/21/13.
 //  Copyright (c) 2013 MusicKids. All rights reserved.
 //
 
-#import "MonthButton.h"
+#import "DayButton.h"
 
-@implementation MonthButton
+@implementation DayButton
 
-+ (NSArray*)monthLabels
+@synthesize day = _day;
+@synthesize month = _month;
+@synthesize year = _year;
+@synthesize weekday = _weekday;
+
+- (void)setDay:(NSInteger)day
 {
-    return @[@"", @"JAN", @"FEB", @"MAR", @"APR", @"MAY", @"JUN",
-             @"JUL", @"AUG", @"SEP", @"OCT", @"NOV", @"DEC"];
+    _day = day;
 }
 
 - (void)setMonth:(NSInteger)month
@@ -26,6 +30,11 @@
     _year = year;
 }
 
+- (void)setWeekday:(NSInteger)weekday
+{
+    _weekday = weekday;
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -35,11 +44,14 @@
     return self;
 }
 
-- (void)month:(NSInteger)month year:(NSInteger)year
+- (void)initWithYear:(NSInteger)year month:(NSInteger)month
+             weekday:(NSInteger)weekday day:(NSInteger)day
 {
+    self.day = day;
+    self.weekday = weekday;
     self.month = month;
     self.year = year;
-    [self setTitle:[MonthButton monthLabels][month] forState:UIControlStateNormal];
+    [self setTitle:[NSString stringWithFormat:@"%d", day] forState:UIControlStateNormal];
 }
 
 /*

@@ -10,6 +10,10 @@
 
 @interface YearlyView : UIView
 
-- (id)initWithYear:(NSInteger)year index:(NSInteger)index delegate:(id)delegate;
+- (id)initWithYear:(NSInteger)year delegate:(id)delegate;
+
+@property (readonly, nonatomic, assign) NSInteger year;
+
+@property (strong, nonatomic, readwrite) NSMutableArray *monthButtons;
 
 @end
