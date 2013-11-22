@@ -83,6 +83,14 @@
         
         [monthButton month:month year:yearPanel.year];
         
+        if (month == [self.calendar.currentDate month] &&
+            yearPanel.year == [self.calendar.currentDate year]) {
+            monthButton.backgroundColor = [UIColor colorWithRed:1.0f
+                                                          green:0.0f
+                                                           blue:0.0f
+                                                          alpha:0.6f];
+        }
+        
         [monthButton addTarget:self
                         action:@selector(navigateToMonthlyView:)
               forControlEvents:UIControlEventTouchUpInside];

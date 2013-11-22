@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		653642EA183EAAF30057D41A /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 653642E9183EAAF30057D41A /* View.xib */; };
 		653642ED183EB36F0057D41A /* MonthPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 653642EC183EB36F0057D41A /* MonthPanel.m */; };
 		653642F1183EC1B50057D41A /* MonthButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 653642F0183EC1B50057D41A /* MonthButton.m */; };
 		653642F4183EF61D0057D41A /* DayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 653642F3183EF61D0057D41A /* DayButton.m */; };
@@ -43,7 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		653642E9183EAAF30057D41A /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		653642EB183EB36F0057D41A /* MonthPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthPanel.h; sourceTree = "<group>"; };
 		653642EC183EB36F0057D41A /* MonthPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthPanel.m; sourceTree = "<group>"; };
 		653642EF183EC1B50057D41A /* MonthButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthButton.h; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 				A564F4D2183DA42600785E9E /* controller */,
 				A564F4D3183DA49F00785E9E /* model */,
 				A564F4CA183D799D00785E9E /* iphone.storyboard */,
-				653642E9183EAAF30057D41A /* View.xib */,
 				A564F4AD183D795300785E9E /* Images.xcassets */,
 				A564F4A2183D795300785E9E /* Supporting Files */,
 			);
@@ -294,7 +291,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				653642EA183EAAF30057D41A /* View.xib in Resources */,
 				A564F4A6183D795300785E9E /* InfoPlist.strings in Resources */,
 				A564F4AE183D795300785E9E /* Images.xcassets in Resources */,
 				A564F4CB183D799D00785E9E /* iphone.storyboard in Resources */,

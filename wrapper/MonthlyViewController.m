@@ -20,9 +20,13 @@
 
 @property (assign, nonatomic, readwrite) NSInteger scrollViewHeight;
 
+@property (strong, nonatomic, readwrite) UIScrollView *scrollView;
+
 @end
 
 @implementation MonthlyViewController
+
+#define NAVBAR_HEIGHT 64
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,8 +43,8 @@
     
     NSInteger startYear = [self.calendar startYear];
     NSInteger endYear = [self.calendar endYear];
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
-    scrollView.backgroundColor = [UIColor whiteColor];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
+    self.scrollView.backgroundColor = [UIColor whiteColor];
     
     self.scrollViewHeight = 0;
     
@@ -54,7 +58,7 @@
             CGRect frame = monthPanel.frame;
             frame.origin.y = self.scrollViewHeight;
             monthPanel.frame = frame;
-            [scrollView addSubview:monthPanel];
+            [self.scrollView addSubview:monthPanel];
             [self addDayButtonToMonthPanel:monthPanel];
             [self.monthPanels addObject:monthPanel];
             self.scrollViewHeight += monthPanel.frame.size.height;
@@ -66,15 +70,25 @@
         }
     }
     
-    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, self.scrollViewHeight);
-    [scrollView scrollRectToVisible:
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, self.scrollViewHeight);
+    
+    [self.scrollView scrollRectToVisible:
         CGRectMake(pointScrollTo.x, pointScrollTo.y,
                    screenRect.size.width, screenRect.size.height)
                            animated:NO];
+    
     [self updateLeftBarButtonItem:year];
     
-    scrollView.delegate = self;
-    self.view = scrollView;
+    UIBarButtonItem *today =
+    [[UIBarButtonItem alloc] initWithTitle:@"Today"
+                                     style:UIBarButtonItemStyleBordered
+                                    target:self
+                                    action:@selector(today)];
+    
+    [[self navigationItem] setRightBarButtonItem:today];
+    
+    self.scrollView.delegate = self;
+    [self.view addSubview:self.scrollView];
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView
@@ -96,6 +110,19 @@
                                     action:@selector(back)];
     
     [[self navigationItem] setLeftBarButtonItem:yearlyViewButtonItem];
+}
+
+- (void)today
+{
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    
+    int numberMonth = (self.calendar.endYear - self.calendar.startYear + 1)*12;
+    int y = ([self.calendar.currentDate month]-1) * abs(self.scrollViewHeight/numberMonth);
+    
+    [self.scrollView scrollRectToVisible:
+     CGRectMake(0, y,
+                screenRect.size.width, screenRect.size.height-NAVBAR_HEIGHT)
+                           animated:YES];
 }
 
 - (void)back
@@ -121,6 +148,16 @@
         [dayButton addTarget:self
                       action:@selector(navigateToDailyView:)
             forControlEvents:UIControlEventTouchUpInside];
+        
+        if (monthPanel.month == [self.calendar.currentDate month] &&
+            monthPanel.year == [self.calendar.currentDate year] &&
+            day == [self.calendar.currentDate day]) {
+            dayButton.backgroundColor = [UIColor colorWithRed:1.0f
+                                                          green:0.0f
+                                                           blue:0.0f
+                                                          alpha:0.6f];
+        }
+        
         [monthPanel.dayButtons addObject:dayButton];
         [monthPanel addSubview:dayButton];
         if (weekday >= 7) {
