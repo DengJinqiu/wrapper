@@ -13,7 +13,7 @@
 
 @interface YearlyViewController ()
 
-@property (strong, nonatomic, readwrite) Calendar *calendar;
+@property (weak, nonatomic, readwrite) Calendar *calendar;
 
 @property (strong, nonatomic, readwrite) NSMutableArray *yearPanels;
 
@@ -21,20 +21,19 @@
 
 @implementation YearlyViewController
 
-- (Calendar*)calendar
-{
-    if (!_calendar) {
-        _calendar = [[Calendar alloc] init];
-    }
-    return _calendar;
-}
-
 - (NSMutableArray*)yearPanels
 {
     if (!_yearPanels) {
         _yearPanels = [[NSMutableArray alloc] init];
     }
     return _yearPanels;
+}
+
+- (instancetype)initWithCalendar:(Calendar*)calendar
+{
+    self.calendar = calendar;
+    self = [self init];
+    return self;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -97,7 +96,8 @@
 {
     MonthlyViewController *monthlyViewController =
         [[MonthlyViewController alloc]initWithCalendar:self.calendar
-                                        yearNavigateTo:sender.year monthNavigateTo:sender.month];
+                                        yearNavigateTo:sender.year
+                                       monthNavigateTo:sender.month];
     
     UIBarButtonItem *yearlyViewButtonItem =
         [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%d", sender.year]

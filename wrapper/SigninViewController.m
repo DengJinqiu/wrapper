@@ -8,16 +8,23 @@
 
 #import "SigninViewController.h"
 #import "YearlyViewController.h"
+#import "MonthlyViewController.h"
 
 @interface SigninViewController ()
 
-//@property (weak, nonatomic) IBOutlet UITextField *email;
-//@property (weak, nonatomic) IBOutlet UITextField *password;
-//@property (weak, nonatomic) IBOutlet UIButton *Signin;
+@property (strong, nonatomic, readwrite) Calendar *calendar;
 
 @end
 
 @implementation SigninViewController
+
+- (Calendar*)calendar
+{
+    if (!_calendar) {
+        _calendar = [[Calendar alloc] init];
+    }
+    return _calendar;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,11 +42,23 @@
 }
 
 - (IBAction)signIn:(UIButton *)sender {
-    YearlyViewController *yearlyViewController = [[YearlyViewController alloc] init];
+    YearlyViewController *yearlyViewController =
+        [[YearlyViewController alloc] initWithCalendar:self.calendar];
     
-    UIBarButtonItem *signOutButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign out" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    UIBarButtonItem *signOutButtonItem =
+        [[UIBarButtonItem alloc] initWithTitle:@"Sign out"
+                                         style:UIBarButtonItemStyleBordered
+                                        target:nil
+                                        action:nil];
     [[self navigationItem] setBackBarButtonItem:signOutButtonItem];
-    [self.navigationController pushViewController:yearlyViewController animated:YES];
+    [self.navigationController pushViewController:yearlyViewController animated:NO];
+    
+    
+    MonthlyViewController *monthlyViewController =
+        [[MonthlyViewController alloc] initWithCalendar:self.calendar
+                                         yearNavigateTo:self.calendar.currentDate.year
+                                        monthNavigateTo:self.calendar.currentDate.month];
+    [self.navigationController pushViewController:monthlyViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

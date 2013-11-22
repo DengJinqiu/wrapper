@@ -89,8 +89,8 @@
 - (instancetype)initWithCalendar:(Calendar*)calendar
                   yearNavigateTo:(NSInteger)year monthNavigateTo:(NSInteger)month
 {
-    self = [self init];
     self.calendar = calendar;
+    self = [self init];
     [self initLayoutWithYearNavigateTo:year monthNavigateTo:month];
     return self;
 }
