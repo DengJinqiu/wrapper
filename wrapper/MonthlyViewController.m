@@ -10,11 +10,13 @@
 #import "MonthPanel.h"
 #import "DayButton.h"
 
-@interface MonthlyViewController ()
+@interface MonthlyViewController () <UIScrollViewDelegate>
 
 @property (strong, nonatomic, readwrite) NSMutableArray *monthPanels;
 
 @property (weak, nonatomic, readwrite) Calendar* calendar;
+
+@property (assign, nonatomic, readwrite) NSInteger scrollViewHeight;
 
 @end
 
@@ -38,7 +40,7 @@
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
     scrollView.backgroundColor = [UIColor whiteColor];
     
-    NSInteger scrollViewHeight = 0;
+    self.scrollViewHeight = 0;
     
     CGPoint pointScrollTo = CGPointMake(0, 0);
     
@@ -48,12 +50,12 @@
 
             MonthPanel *monthPanel = [[MonthPanel alloc] initWithYear:i month:j];
             CGRect frame = monthPanel.frame;
-            frame.origin.y = scrollViewHeight;
+            frame.origin.y = self.scrollViewHeight;
             monthPanel.frame = frame;
             [scrollView addSubview:monthPanel];
             [self addDayButtonToMonthPanel:monthPanel];
             [self.monthPanels addObject:monthPanel];
-            scrollViewHeight += monthPanel.frame.size.height;
+            self.scrollViewHeight += monthPanel.frame.size.height;
             index++;
             
             if (i == year && j == month) {
@@ -62,13 +64,40 @@
         }
     }
     
-    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollViewHeight);
+    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, self.scrollViewHeight);
     [scrollView scrollRectToVisible:
         CGRectMake(pointScrollTo.x, pointScrollTo.y,
                    screenRect.size.width, screenRect.size.height)
                            animated:NO];
+    [self updateLeftBarButtonItem:year];
+    
+    scrollView.delegate = self;
     self.view = scrollView;
+}
 
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView
+                     withVelocity:(CGPoint)velocity
+              targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    int yearNumber = self.calendar.endYear - self.calendar.startYear + 1;
+    int height = self.scrollViewHeight / yearNumber;
+    int year = self.calendar.startYear + abs(targetContentOffset->y/height);
+    [self updateLeftBarButtonItem:year];
+}
+
+- (void)updateLeftBarButtonItem:(NSInteger)year
+{
+    UIBarButtonItem *yearlyViewButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%d", year]
+                                     style:UIBarButtonItemStyleBordered
+                                    target:self
+                                    action:@selector(popItself)];
+    [[self navigationItem] setLeftBarButtonItem:yearlyViewButtonItem];
+}
+
+- (void)popItself
+{
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 - (void)addDayButtonToMonthPanel:(MonthPanel*)monthPanel

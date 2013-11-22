@@ -57,14 +57,6 @@
         [[MonthlyViewController alloc] initWithCalendar:self.calendar
                                          yearNavigateTo:self.calendar.currentDate.year
                                         monthNavigateTo:self.calendar.currentDate.month];
-    
-    UIBarButtonItem *yearlyViewButtonItem =
-        [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%d",
-                                                [self.calendar.currentDate year]]
-                                         style:UIBarButtonItemStyleBordered
-                                        target:nil
-                                        action:nil];
-    [[yearlyViewController navigationItem] setBackBarButtonItem:yearlyViewButtonItem];
     [self.navigationController pushViewController:monthlyViewController animated:YES];
 }
 
