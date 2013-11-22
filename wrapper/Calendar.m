@@ -52,7 +52,7 @@
 
 - (NSInteger)startYear
 {
-    return 2013;
+    return 2012;
 }
 
 - (NSInteger)endYear

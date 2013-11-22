@@ -20,7 +20,7 @@
     return self;
 }
 
-#define HEIGHT_RADIUS 0.6
+#define HEIGHT_RADIUS 1
 
 - (instancetype)initWithYear:(NSInteger)year month:(NSInteger)month
 {

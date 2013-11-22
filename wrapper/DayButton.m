@@ -44,8 +44,8 @@
     return self;
 }
 
-- (void)initWithYear:(NSInteger)year month:(NSInteger)month
-             weekday:(NSInteger)weekday day:(NSInteger)day
+- (void)year:(NSInteger)year month:(NSInteger)month
+     weekday:(NSInteger)weekday day:(NSInteger)day
 {
     self.day = day;
     self.weekday = weekday;

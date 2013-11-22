@@ -8,6 +8,7 @@
 
 #import "MonthlyViewController.h"
 #import "MonthPanel.h"
+#import "DayButton.h"
 
 @interface MonthlyViewController ()
 
@@ -62,13 +63,27 @@
 
 - (void)addDayButtonToMonthPanel:(MonthPanel*)monthPanel
 {
-    int monthLength = 1;
-    int i = 0;
-    int j = 0;
-    for (NSInteger day = 1; day <= monthLength; day++) {
-      
+    NSDateComponents *dayComponents;
+    int weekday = [[self.calendar year:monthPanel.year month:monthPanel.month day:1] weekday];
+    int week = 0;
+    for (NSInteger day = 1; ; day++) {
+        dayComponents  = [self.calendar year:monthPanel.year month:monthPanel.month day:day];
+        if (dayComponents.month != monthPanel.month) {
+            break;
+        }
+        DayButton *dayButton = [DayButton buttonWithType:UIButtonTypeRoundedRect];
+        dayButton.frame = CGRectMake(20+weekday*30, 60+week*40, 35, 35);
+        
+        [dayButton year:monthPanel.year month:monthPanel.month weekday:weekday day:day];
+        
+        [monthPanel addSubview:dayButton];
+        if (weekday >= 7) {
+            weekday = 1;
+            week++;
+        } else {
+            weekday++;
+        }
     }
-    
 }
 
 - (instancetype)initWithCalendar:(Calendar*)calendar

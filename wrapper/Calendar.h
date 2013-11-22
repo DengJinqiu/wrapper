@@ -12,6 +12,8 @@
 
 - (NSDateComponents*) currentDate;
 
+- (NSDateComponents*)year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
+
 - (NSInteger) startYear;
 
 - (NSInteger) endYear;
