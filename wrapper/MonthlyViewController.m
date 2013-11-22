@@ -7,12 +7,12 @@
 //
 
 #import "MonthlyViewController.h"
+#import "MonthlyView.h"
+#import "MainMode.h"
 
 @interface MonthlyViewController ()
 
-@property (nonatomic, strong, readwrite) NSMutableArray *dates;
-
-
+@property (strong, nonatomic, readwrite) NSMutableArray *monthlyView;
 
 @end
 

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MonthButton.h"
 
 @interface YearlyViewController : UIViewController
+
+- (void)navigateToMonthlyView:(MonthButton*)sender;
 
 @end

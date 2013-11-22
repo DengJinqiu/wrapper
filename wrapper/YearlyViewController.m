@@ -8,6 +8,8 @@
 
 #import "YearlyViewController.h"
 #import "Yearlyview.h"
+#import "MonthlyViewController.h"
+#import "MonthButton.h"
 #import "MainMode.h"
 
 @interface YearlyViewController ()
@@ -51,8 +53,10 @@
         
         NSInteger scrollViewHeight = 0;
         
-        for(int i = startYear; i <= endYear; i++) {
-            YearlyView *yearlyView = [[YearlyView alloc] initWithYear:i index:i-startYear];
+        for(NSInteger i = startYear; i <= endYear; i++) {
+            YearlyView *yearlyView = [[YearlyView alloc] initWithYear:i
+                                                                index:i-startYear
+                                                             delegate:self];
             [scrollView addSubview:yearlyView];
             [self.yearlyViews addObject:yearlyView];
             scrollViewHeight += yearlyView.frame.size.height;
@@ -60,10 +64,23 @@
         
         scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollViewHeight);
         self.view = scrollView;
-        
-
     }
     return self;
+}
+
+- (void)navigateToMonthlyView:(MonthButton*)sender
+{
+    MonthlyViewController *monthlyViewController = [[MonthlyViewController alloc] init];
+    monthlyViewController.startYear = sender.year;
+    monthlyViewController.startMonth = sender.month;
+    
+    UIBarButtonItem *yearlyViewButtonItem =
+        [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%d", sender.year]
+                                         style:UIBarButtonItemStyleBordered
+                                        target:nil
+                                        action:nil];
+    [[self navigationItem] setBackBarButtonItem:yearlyViewButtonItem];
+    [self.navigationController pushViewController:monthlyViewController animated:YES];
 }
 
 - (void)viewDidLoad

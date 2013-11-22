@@ -7,12 +7,15 @@
 //
 
 #import "YearlyView.h"
+#import "MonthButton.h"
 
 @interface YearlyView ()
 
 @property (strong, nonatomic, readwrite) NSMutableArray *monthButtons;
 
 @property (readwrite, nonatomic, assign) NSInteger year;
+
+@property (readwrite, nonatomic, weak) id delegate;
 
 @end
 
@@ -43,7 +46,7 @@
 
 #define HEIGHT_RADIUS 0.6
 
-- (id)initWithYear:(int)year index:(NSInteger)index
+- (id)initWithYear:(NSInteger)year index:(NSInteger)index delegate:(id)delegate
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     screenRect.size.height = screenRect.size.width * HEIGHT_RADIUS;
@@ -52,9 +55,10 @@
     self = [super initWithFrame:screenRect];
     if (self) {
         self.year = year;
+        self.delegate = delegate;
         
         UILabel *yearLabel = [[UILabel alloc] init];
-        yearLabel.text = [NSString stringWithFormat:@"%d", self.year];
+        yearLabel.text = [NSString stringWithFormat:@"%ld", (long)self.year];
         yearLabel.frame = CGRectMake(20, 20, 40, 20);
         [self addSubview:yearLabel];
         
@@ -65,10 +69,19 @@
         
         int i = 0;
         int j = 0;
+        NSInteger month = 1;
         for (NSString* label in [self monthLabels]) {
-            UIButton *monthButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-            [monthButton setTitle:label forState:UIControlStateNormal];
+            MonthButton *monthButton = [MonthButton buttonWithType:UIButtonTypeRoundedRect];
             monthButton.frame = CGRectMake(20+i*81, 60+j*40, 35, 35);
+ 
+            [monthButton setTitle:label forState:UIControlStateNormal];
+            [monthButton month:month year:self.year];
+            
+            SEL selector = sel_registerName("navigateToMonthlyView:");
+            [monthButton addTarget:delegate
+                            action:selector
+                  forControlEvents:UIControlEventTouchUpInside];
+
             [self.monthButtons addObject:monthButton];
             [self addSubview:monthButton];
             if (i >= 3) {
@@ -77,6 +90,7 @@
             } else {
                 i++;
             }
+            month++;
         }
     }
     return self;

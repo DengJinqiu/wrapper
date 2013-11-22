@@ -1,5 +1,5 @@
 //
-//  YearlyView.h
+//  MonthlyView.h
 //  wrapper
 //
 //  Created by xcode-dev on 11/21/13.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YearlyView : UIView
-
-- (id)initWithYear:(NSInteger)year index:(NSInteger)index delegate:(id)delegate;
+@interface MonthlyView : UIView
 
 @end
