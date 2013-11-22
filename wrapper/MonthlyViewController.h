@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MainMode.h"
+#import "Calendar.h"
 
 @interface MonthlyViewController : UIViewController
 
 
-- (instancetype)initWithMainMode:(MainMode*)mainMode
+- (instancetype)initWithCalendar:(Calendar*)calendar
                   yearNavigateTo:(NSInteger)year monthNavigateTo:(NSInteger)month;
 
 @end

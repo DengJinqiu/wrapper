@@ -10,6 +10,10 @@
 
 @interface Calendar : NSObject
 
-@property (strong, nonatomic, readonly) NSDateComponents *currentDate;
+- (NSDateComponents*) currentDate;
+
+- (NSInteger) startYear;
+
+- (NSInteger) endYear;
 
 @end

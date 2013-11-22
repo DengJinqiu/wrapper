@@ -1,28 +1,15 @@
 //
-//  YearlyView.m
+//  MonthlyView.m
 //  wrapper
 //
 //  Created by xcode-dev on 11/21/13.
 //  Copyright (c) 2013 MusicKids. All rights reserved.
 //
 
-#import "YearlyView.h"
+#import "MonthPanel.h"
 #import "MonthButton.h"
 
-@interface YearlyView ()
-
-@property (readwrite, nonatomic, weak) id delegate;
-
-@end
-
-@implementation YearlyView
-
-@synthesize year = _year;
-
-- (void)setYear:(NSInteger)year
-{
-    _year = year;
-}
+@implementation MonthPanel
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -33,17 +20,9 @@
     return self;
 }
 
-- (NSMutableArray*)months
-{
-    if (!_monthButtons) {
-        _monthButtons = [[NSMutableArray alloc] init];
-    }
-    return _monthButtons;
-}
-
 #define HEIGHT_RADIUS 0.6
 
-- (id)initWithYear:(NSInteger)year delegate:(id)delegate
+- (instancetype)initWithYear:(NSInteger)year month:(NSInteger)month
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     screenRect.size.height = screenRect.size.width * HEIGHT_RADIUS;
@@ -51,12 +30,12 @@
     self = [super initWithFrame:screenRect];
     if (self) {
         self.year = year;
-        self.delegate = delegate;
+        self.month = month;
         
-        UILabel *yearLabel = [[UILabel alloc] init];
-        yearLabel.text = [NSString stringWithFormat:@"%d", self.year];
-        yearLabel.frame = CGRectMake(20, 20, 40, 20);
-        [self addSubview:yearLabel];
+        UILabel *monthLabel = [[UILabel alloc] init];
+        monthLabel.text = [MonthButton monthLabels][self.month];
+        monthLabel.frame = CGRectMake(20, 20, 40, 20);
+        [self addSubview:monthLabel];
         
         UIView *line = [[UIView alloc] init];
         line.frame = CGRectMake(20, 50, 280, 2);

@@ -8,20 +8,56 @@
 
 #import "Calendar.h"
 
-@implementation Calendar
+@interface Calendar ()
 
-@synthesize currentDate = _currentDate;
+@property (strong, nonatomic, readwrite) NSCalendar *calender;
+
+@end
+
+@implementation Calendar
 
 - (NSDateComponents*) currentDate
 {
-    if (!_currentDate) {
-        NSDate *today = [NSDate date];
-        NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-        _currentDate = [gregorianCalendar components:(kCFCalendarUnitYear | kCFCalendarUnitMonth |
-                                              kCFCalendarUnitDay | kCFCalendarUnitWeekday)
-                                    fromDate:today];
+    NSDate *today = [NSDate date];
+        
+    NSDateComponents *currentDate =
+        [self.calender components:(kCFCalendarUnitYear | kCFCalendarUnitMonth |
+                                   kCFCalendarUnitDay | kCFCalendarUnitWeekday)
+                         fromDate:today];
+    return currentDate;
+}
+
+- (NSDateComponents*)year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
+{
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setDay:day];
+    [comps setMonth:month];
+    [comps setYear:year];
+    NSDate *date = [self.calender dateFromComponents:comps];
+    
+    NSDateComponents *currentDate =
+    [self.calender components:(kCFCalendarUnitYear | kCFCalendarUnitMonth |
+                               kCFCalendarUnitDay | kCFCalendarUnitWeekday)
+                     fromDate:date];
+    return currentDate;
+}
+
+- (NSCalendar*)calender
+{
+    if (!_calender) {
+        _calender = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     }
-    return _currentDate;
+    return _calender;
+}
+
+- (NSInteger)startYear
+{
+    return 2013;
+}
+
+- (NSInteger)endYear
+{
+    return 2014;
 }
 
 @end

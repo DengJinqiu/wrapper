@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MonthlyView : UIView
+@interface MonthPanel : UIView
 
 - (instancetype)initWithYear:(NSInteger)year month:(NSInteger)month;
 
+@property (assign, nonatomic, readwrite) NSInteger year;
+
+@property (assign, nonatomic, readwrite) NSInteger month;
 
 @end

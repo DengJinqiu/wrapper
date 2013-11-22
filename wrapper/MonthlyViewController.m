@@ -7,14 +7,13 @@
 //
 
 #import "MonthlyViewController.h"
-#import "MonthlyView.h"
-#import "MainMode.h"
+#import "MonthPanel.h"
 
 @interface MonthlyViewController ()
 
-@property (strong, nonatomic, readwrite) NSMutableArray *monthlyViews;
+@property (strong, nonatomic, readwrite) NSMutableArray *monthPanels;
 
-@property (weak, nonatomic, readwrite) MainMode* mainMode;
+@property (weak, nonatomic, readwrite) Calendar* calendar;
 
 @end
 
@@ -33,8 +32,8 @@
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
-    NSInteger startYear = [self.mainMode startYear];
-    NSInteger endYear = [self.mainMode endYear];
+    NSInteger startYear = [self.calendar startYear];
+    NSInteger endYear = [self.calendar endYear];
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
     scrollView.backgroundColor = [UIColor whiteColor];
     
@@ -44,13 +43,14 @@
     for(NSInteger i = startYear; i <= endYear; i++) {
         for (NSInteger j = 1; j <= 12; j++) {
             
-            MonthlyView *monthlyView = [[MonthlyView alloc] initWithYear:i month:j];
-            CGRect frame = monthlyView.frame;
+            MonthPanel *monthPanel = [[MonthPanel alloc] initWithYear:i month:j];
+            CGRect frame = monthPanel.frame;
             frame.origin.y = scrollViewHeight;
-            monthlyView.frame = frame;
-            [scrollView addSubview:monthlyView];
-            [self.monthlyViews addObject:monthlyView];
-            scrollViewHeight += monthlyView.frame.size.height;
+            monthPanel.frame = frame;
+            [scrollView addSubview:monthPanel];
+            [self addDayButtonToMonthPanel:monthPanel];
+            [self.monthPanels addObject:monthPanel];
+            scrollViewHeight += monthPanel.frame.size.height;
             index++;
         }
     }
@@ -60,11 +60,22 @@
 
 }
 
-- (instancetype)initWithMainMode:(MainMode*)mainMode
+- (void)addDayButtonToMonthPanel:(MonthPanel*)monthPanel
+{
+    int monthLength = 1;
+    int i = 0;
+    int j = 0;
+    for (NSInteger day = 1; day <= monthLength; day++) {
+      
+    }
+    
+}
+
+- (instancetype)initWithCalendar:(Calendar*)calendar
                   yearNavigateTo:(NSInteger)year monthNavigateTo:(NSInteger)month
 {
     self = [self init];
-    self.mainMode = mainMode;
+    self.calendar = calendar;
     [self initLayoutWithYearNavigateTo:year monthNavigateTo:month];
     return self;
 }

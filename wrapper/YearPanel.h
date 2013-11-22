@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YearlyView : UIView
+@interface YearPanel : UIView
 
-- (id)initWithYear:(NSInteger)year delegate:(id)delegate;
+- (id)initWithYear:(NSInteger)year;
 
 @property (readonly, nonatomic, assign) NSInteger year;
 
