@@ -70,9 +70,9 @@
 
 - (void)navigateToMonthlyView:(MonthButton*)sender
 {
-    MonthlyViewController *monthlyViewController = [[MonthlyViewController alloc] init];
-    monthlyViewController.startYear = sender.year;
-    monthlyViewController.startMonth = sender.month;
+    MonthlyViewController *monthlyViewController =
+        [[MonthlyViewController alloc]initWithMainMode:self.mainMode
+                                        yearNavigateTo:sender.year monthNavigateTo:sender.month];
     
     UIBarButtonItem *yearlyViewButtonItem =
         [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%d", sender.year]

@@ -58,7 +58,7 @@
         self.delegate = delegate;
         
         UILabel *yearLabel = [[UILabel alloc] init];
-        yearLabel.text = [NSString stringWithFormat:@"%ld", (long)self.year];
+        yearLabel.text = [NSString stringWithFormat:@"%d", self.year];
         yearLabel.frame = CGRectMake(20, 20, 40, 20);
         [self addSubview:yearLabel];
         

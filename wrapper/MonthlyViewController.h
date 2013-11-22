@@ -11,10 +11,8 @@
 
 @interface MonthlyViewController : UIViewController
 
-@property (assign, nonatomic, readwrite) NSInteger startYear;
 
-@property (assign, nonatomic, readwrite) NSInteger startMonth;
-
-@property (weak, nonatomic, readonly) MainMode* mainMode;
+- (instancetype)initWithMainMode:(MainMode*)mainMode
+                  yearNavigateTo:(NSInteger)year monthNavigateTo:(NSInteger)month;
 
 @end
