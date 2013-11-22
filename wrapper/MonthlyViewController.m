@@ -7,8 +7,10 @@
 //
 
 #import "MonthlyViewController.h"
+#import "DailyViewController.h"
 #import "MonthPanel.h"
 #import "DayButton.h"
+#import "MonthButton.h"
 
 @interface MonthlyViewController () <UIScrollViewDelegate>
 
@@ -91,11 +93,12 @@
     [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%d", year]
                                      style:UIBarButtonItemStyleBordered
                                     target:self
-                                    action:@selector(popItself)];
+                                    action:@selector(back)];
+    
     [[self navigationItem] setLeftBarButtonItem:yearlyViewButtonItem];
 }
 
-- (void)popItself
+- (void)back
 {
     [[self navigationController] popViewControllerAnimated:YES];
 }
@@ -115,6 +118,9 @@
         
         [dayButton year:monthPanel.year month:monthPanel.month weekday:weekday day:day];
         
+        [dayButton addTarget:self
+                      action:@selector(navigateToDailyView:)
+            forControlEvents:UIControlEventTouchUpInside];
         [monthPanel.dayButtons addObject:dayButton];
         [monthPanel addSubview:dayButton];
         if (weekday >= 7) {
@@ -126,11 +132,30 @@
     }
 }
 
+- (void)navigateToDailyView:(DayButton*)sender
+{
+    DailyViewController *dailyViewController =
+        [[DailyViewController alloc]initWithCalendar:self.calendar
+                                                 day:sender.day
+                                             weekday:sender.weekday
+                                               month:sender.month
+                                                year:sender.year];
+    
+    UIBarButtonItem *signOutButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:[MonthButton monthFullNames][sender.month]
+                                     style:UIBarButtonItemStyleBordered
+                                    target:nil
+                                    action:nil];
+    [[self navigationItem] setBackBarButtonItem:signOutButtonItem];
+    
+    [self.navigationController pushViewController:dailyViewController animated:YES];
+}
+
 - (instancetype)initWithCalendar:(Calendar*)calendar
                   yearNavigateTo:(NSInteger)year monthNavigateTo:(NSInteger)month
 {
-    self.calendar = calendar;
     self = [self init];
+    self.calendar = calendar;
     [self initLayoutWithYearNavigateTo:year monthNavigateTo:month];
     return self;
 }

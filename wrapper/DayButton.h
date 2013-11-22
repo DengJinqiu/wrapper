@@ -23,4 +23,5 @@
 
 + (NSArray*)weekdayLabels;
 
++ (NSArray*)weekdayFullNames;
 @end

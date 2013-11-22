@@ -31,8 +31,9 @@
 
 - (instancetype)initWithCalendar:(Calendar*)calendar
 {
-    self.calendar = calendar;
     self = [self init];
+    self.calendar = calendar;
+    [self initLayout];
     return self;
 }
 
@@ -40,30 +41,36 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        CGRect screenRect = [[UIScreen mainScreen] bounds];
-        
-        NSInteger startYear = [self.calendar startYear];
-        NSInteger endYear = [self.calendar endYear];
-        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
-        scrollView.backgroundColor = [UIColor whiteColor];
-        
-        NSInteger scrollViewHeight = 0;
-        
-        for(NSInteger i = startYear; i <= endYear; i++) {
-            YearPanel *yearPanel = [[YearPanel alloc] initWithYear:i];
-            CGRect frame = yearPanel.frame;
-            frame.origin.y = scrollViewHeight;
-            yearPanel.frame = frame;
-            [scrollView addSubview:yearPanel];
-            [self addMonthButtonToYearPanel:yearPanel];
-            [self.yearPanels addObject:yearPanel];
-            scrollViewHeight += yearPanel.frame.size.height;
-        }
-        
-        scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollViewHeight);
-        self.view = scrollView;
+    
     }
     return self;
+}
+
+- (void)initLayout
+{
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    
+    NSInteger startYear = [self.calendar startYear];
+    NSInteger endYear = [self.calendar endYear];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
+    scrollView.backgroundColor = [UIColor whiteColor];
+    
+    NSInteger scrollViewHeight = 0;
+    
+    for(NSInteger i = startYear; i <= endYear; i++) {
+        YearPanel *yearPanel = [[YearPanel alloc] initWithYear:i];
+        CGRect frame = yearPanel.frame;
+        frame.origin.y = scrollViewHeight;
+        yearPanel.frame = frame;
+        [scrollView addSubview:yearPanel];
+        [self addMonthButtonToYearPanel:yearPanel];
+        [self.yearPanels addObject:yearPanel];
+        scrollViewHeight += yearPanel.frame.size.height;
+    }
+    
+    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollViewHeight);
+    self.view = scrollView;
+
 }
 
 - (void)addMonthButtonToYearPanel:(YearPanel*)yearPanel
@@ -99,12 +106,6 @@
                                         yearNavigateTo:sender.year
                                        monthNavigateTo:sender.month];
     
-    UIBarButtonItem *yearlyViewButtonItem =
-        [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%d", sender.year]
-                                         style:UIBarButtonItemStyleBordered
-                                        target:nil
-                                        action:nil];
-    [[self navigationItem] setBackBarButtonItem:yearlyViewButtonItem];
     [self.navigationController pushViewController:monthlyViewController animated:YES];
 }
 

@@ -11,6 +11,7 @@
 		653642ED183EB36F0057D41A /* MonthPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 653642EC183EB36F0057D41A /* MonthPanel.m */; };
 		653642F1183EC1B50057D41A /* MonthButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 653642F0183EC1B50057D41A /* MonthButton.m */; };
 		653642F4183EF61D0057D41A /* DayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 653642F3183EF61D0057D41A /* DayButton.m */; };
+		6597E34B183F516F00849302 /* DailyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6597E34A183F516F00849302 /* DailyViewController.m */; };
 		659D9CD2183DBFF6008EBA12 /* YearlyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659D9CD1183DBFF6008EBA12 /* YearlyViewController.m */; };
 		659D9CD9183DD5D8008EBA12 /* YearPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 659D9CD8183DD5D8008EBA12 /* YearPanel.m */; };
 		A564F49C183D795300785E9E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A564F49B183D795300785E9E /* Foundation.framework */; };
@@ -49,6 +50,8 @@
 		653642F0183EC1B50057D41A /* MonthButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthButton.m; sourceTree = "<group>"; };
 		653642F2183EF61D0057D41A /* DayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayButton.h; sourceTree = "<group>"; };
 		653642F3183EF61D0057D41A /* DayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayButton.m; sourceTree = "<group>"; };
+		6597E349183F516F00849302 /* DailyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyViewController.h; sourceTree = "<group>"; };
+		6597E34A183F516F00849302 /* DailyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyViewController.m; sourceTree = "<group>"; };
 		659D9CD0183DBFF6008EBA12 /* YearlyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearlyViewController.h; sourceTree = "<group>"; };
 		659D9CD1183DBFF6008EBA12 /* YearlyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearlyViewController.m; sourceTree = "<group>"; };
 		659D9CD7183DD5D8008EBA12 /* YearPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearPanel.h; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 		A564F4D2183DA42600785E9E /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				6597E349183F516F00849302 /* DailyViewController.h */,
+				6597E34A183F516F00849302 /* DailyViewController.m */,
 				A564F4CC183D98AA00785E9E /* MonthlyViewController.h */,
 				A564F4CD183D98AA00785E9E /* MonthlyViewController.m */,
 				659D9CD0183DBFF6008EBA12 /* YearlyViewController.h */,
@@ -317,6 +322,7 @@
 				653642F1183EC1B50057D41A /* MonthButton.m in Sources */,
 				A564F4AC183D795300785E9E /* AppDelegate.m in Sources */,
 				653642ED183EB36F0057D41A /* MonthPanel.m in Sources */,
+				6597E34B183F516F00849302 /* DailyViewController.m in Sources */,
 				A564F4D6183DA55F00785E9E /* Calendar.m in Sources */,
 				A564F4CE183D98AA00785E9E /* MonthlyViewController.m in Sources */,
 				659D9CD2183DBFF6008EBA12 /* YearlyViewController.m in Sources */,

@@ -18,4 +18,6 @@
 
 + (NSArray*)monthLabels;
 
++ (NSArray*)monthFullNames;
+
 @end

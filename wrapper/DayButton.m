@@ -15,6 +15,11 @@
     return @[@"", @"S", @"M", @"T", @"W", @"T", @"F", @"S"];
 }
 
++ (NSArray*)weekdayFullNames
+{
+    return @[@"", @"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday"];
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
