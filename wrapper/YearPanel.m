@@ -31,7 +31,7 @@
     return self;
 }
 
-- (NSMutableArray*)months
+- (NSMutableArray*)monthButtons
 {
     if (!_monthButtons) {
         _monthButtons = [[NSMutableArray alloc] init];

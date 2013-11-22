@@ -40,10 +40,12 @@
     
     NSInteger scrollViewHeight = 0;
     
+    CGPoint pointScrollTo = CGPointMake(0, 0);
+    
     NSInteger index = 0;
     for(NSInteger i = startYear; i <= endYear; i++) {
         for (NSInteger j = 1; j <= 12; j++) {
-            
+
             MonthPanel *monthPanel = [[MonthPanel alloc] initWithYear:i month:j];
             CGRect frame = monthPanel.frame;
             frame.origin.y = scrollViewHeight;
@@ -53,10 +55,18 @@
             [self.monthPanels addObject:monthPanel];
             scrollViewHeight += monthPanel.frame.size.height;
             index++;
+            
+            if (i == year && j == month) {
+                pointScrollTo = monthPanel.frame.origin;
+            }
         }
     }
     
     scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollViewHeight);
+    [scrollView scrollRectToVisible:
+        CGRectMake(pointScrollTo.x, pointScrollTo.y,
+                   screenRect.size.width, screenRect.size.height)
+                           animated:NO];
     self.view = scrollView;
 
 }
@@ -76,6 +86,7 @@
         
         [dayButton year:monthPanel.year month:monthPanel.month weekday:weekday day:day];
         
+        [monthPanel.dayButtons addObject:dayButton];
         [monthPanel addSubview:dayButton];
         if (weekday >= 7) {
             weekday = 1;

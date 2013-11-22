@@ -16,4 +16,6 @@
 
 @property (assign, nonatomic, readwrite) NSInteger month;
 
+@property (strong, nonatomic, readwrite) NSMutableArray *dayButtons;
+
 @end

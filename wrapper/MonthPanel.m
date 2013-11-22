@@ -12,6 +12,14 @@
 
 @implementation MonthPanel
 
+- (NSMutableArray*)dayButtons
+{
+    if (!_dayButtons) {
+        _dayButtons = [[NSMutableArray alloc] init];
+    }
+    return _dayButtons;
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
