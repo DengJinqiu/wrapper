@@ -8,6 +8,7 @@
 
 #import "MonthPanel.h"
 #import "MonthButton.h"
+#import "DayButton.h"
 
 @implementation MonthPanel
 
@@ -20,7 +21,7 @@
     return self;
 }
 
-#define HEIGHT_RADIUS 1
+#define HEIGHT_RADIUS 0.9
 
 - (instancetype)initWithYear:(NSInteger)year month:(NSInteger)month
 {
@@ -37,8 +38,19 @@
         monthLabel.frame = CGRectMake(20, 20, 40, 20);
         [self addSubview:monthLabel];
         
+        int i = 0;
+        for (NSString *s in [DayButton weekdayLabels]) {
+            UILabel *weekdayLabel = [[UILabel alloc] init];
+            weekdayLabel.text = s;
+            weekdayLabel.frame = CGRectMake(i*40-20, 40, 35, 10);
+            weekdayLabel.textAlignment = NSTextAlignmentCenter;
+            [weekdayLabel setFont:[UIFont systemFontOfSize:9]];
+            [self addSubview:weekdayLabel];
+            i++;
+        }
+        
         UIView *line = [[UIView alloc] init];
-        line.frame = CGRectMake(20, 50, 280, 2);
+        line.frame = CGRectMake(20, 50, 280, 1);
         line.backgroundColor = [UIColor blackColor];
         [self addSubview:line];
     }

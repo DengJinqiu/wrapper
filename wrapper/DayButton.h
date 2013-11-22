@@ -10,15 +10,17 @@
 
 @interface DayButton : UIButton
 
-@property (nonatomic, assign, readonly) NSInteger day;
+@property (nonatomic, assign, readwrite) NSInteger day;
 
-@property (nonatomic, assign, readonly) NSInteger month;
+@property (nonatomic, assign, readwrite) NSInteger month;
 
-@property (nonatomic, assign, readonly) NSInteger year;
+@property (nonatomic, assign, readwrite) NSInteger year;
 
-@property (nonatomic, assign, readonly) NSInteger weekday;
+@property (nonatomic, assign, readwrite) NSInteger weekday;
 
 - (void)year:(NSInteger)year month:(NSInteger)month
      weekday:(NSInteger)weekday day:(NSInteger)day;
+
++ (NSArray*)weekdayLabels;
 
 @end

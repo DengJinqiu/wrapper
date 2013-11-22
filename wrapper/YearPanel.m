@@ -56,7 +56,7 @@
         [self addSubview:yearLabel];
         
         UIView *line = [[UIView alloc] init];
-        line.frame = CGRectMake(20, 50, 280, 2);
+        line.frame = CGRectMake(20, 50, 280, 1);
         line.backgroundColor = [UIColor blackColor];
         [self addSubview:line];
     }

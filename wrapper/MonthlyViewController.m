@@ -72,7 +72,7 @@
             break;
         }
         DayButton *dayButton = [DayButton buttonWithType:UIButtonTypeRoundedRect];
-        dayButton.frame = CGRectMake(20+weekday*30, 60+week*40, 35, 35);
+        dayButton.frame = CGRectMake(weekday*40-20, 60+week*40, 35, 35);
         
         [dayButton year:monthPanel.year month:monthPanel.month weekday:weekday day:day];
         

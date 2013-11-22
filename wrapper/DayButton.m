@@ -10,29 +10,9 @@
 
 @implementation DayButton
 
-@synthesize day = _day;
-@synthesize month = _month;
-@synthesize year = _year;
-@synthesize weekday = _weekday;
-
-- (void)setDay:(NSInteger)day
++ (NSArray*)weekdayLabels
 {
-    _day = day;
-}
-
-- (void)setMonth:(NSInteger)month
-{
-    _month = month;
-}
-
-- (void)setYear:(NSInteger)year
-{
-    _year = year;
-}
-
-- (void)setWeekday:(NSInteger)weekday
-{
-    _weekday = weekday;
+    return @[@"", @"S", @"M", @"T", @"W", @"T", @"F", @"S"];
 }
 
 - (id)initWithFrame:(CGRect)frame
