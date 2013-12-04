@@ -15,8 +15,6 @@
 
 @implementation YearPanel
 
-@synthesize year = _year;
-
 - (void)setYear:(NSInteger)year
 {
     _year = year;
