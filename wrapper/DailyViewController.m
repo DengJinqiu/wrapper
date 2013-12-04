@@ -7,13 +7,11 @@
 //
 
 #import "DailyViewController.h"
-#import "Calendar.h"
+#import "Schedule.h"
 #import "MonthButton.h"
 #import "DayButton.h"
 
 @interface DailyViewController ()
-
-@property (strong, nonatomic, readwrite) Calendar *calendar;
 
 @property (assign, nonatomic, readwrite) NSInteger year;
 
@@ -36,10 +34,9 @@
     return self;
 }
 
-- (instancetype)initWithCalendar:(Calendar *)calendar day:(NSInteger)day
-                         weekday:(NSInteger)weekday month:(NSInteger)month year:(NSInteger)year
+- (instancetype)initWithDay:(NSInteger)day weekday:(NSInteger)weekday
+                      month:(NSInteger)month year:(NSInteger)year
 {
-    self.calendar = calendar;
     self.year = year;
     self.month = month;
     self.weekday = weekday;
@@ -67,18 +64,6 @@
     [title setFont:[UIFont systemFontOfSize:12]];
     [scrollView addSubview:title];
     self.view = scrollView;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -8,12 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "MonthButton.h"
-#import "Calendar.h"
+#import "Schedule.h"
 
 @interface YearlyViewController : UIViewController
 
 - (void)navigateToMonthlyView:(MonthButton*)sender;
-
-- (instancetype)initWithCalendar:(Calendar*)calendar;
 
 @end

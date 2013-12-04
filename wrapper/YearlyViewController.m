@@ -13,8 +13,6 @@
 
 @interface YearlyViewController ()
 
-@property (weak, nonatomic, readwrite) Calendar *calendar;
-
 @property (strong, nonatomic, readwrite) NSMutableArray *yearPanels;
 
 @end
@@ -29,29 +27,12 @@
     return _yearPanels;
 }
 
-- (instancetype)initWithCalendar:(Calendar*)calendar
-{
-    self = [self init];
-    self.calendar = calendar;
-    [self initLayout];
-    return self;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    
-    }
-    return self;
-}
-
-- (void)initLayout
+- (void)loadView
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
-    NSInteger startYear = [self.calendar startYear];
-    NSInteger endYear = [self.calendar endYear];
+    NSInteger startYear = [[Schedule getInstance] startYear];
+    NSInteger endYear = [[Schedule getInstance] endYear];
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
     scrollView.backgroundColor = [UIColor whiteColor];
     
@@ -70,7 +51,6 @@
     
     scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollViewHeight);
     self.view = scrollView;
-
 }
 
 - (void)addMonthButtonToYearPanel:(YearPanel*)yearPanel
@@ -83,8 +63,8 @@
         
         [monthButton month:month year:yearPanel.year];
         
-        if (month == [self.calendar.currentDate month] &&
-            yearPanel.year == [self.calendar.currentDate year]) {
+        if (month == [[Schedule getInstance].currentDate month] &&
+            yearPanel.year == [[Schedule getInstance].currentDate year]) {
             monthButton.backgroundColor = [UIColor colorWithRed:1.0f
                                                           green:0.0f
                                                            blue:0.0f
@@ -109,24 +89,9 @@
 
 - (void)navigateToMonthlyView:(MonthButton*)sender
 {
-    MonthlyViewController *monthlyViewController =
-        [[MonthlyViewController alloc]initWithCalendar:self.calendar
-                                        yearNavigateTo:sender.year
-                                       monthNavigateTo:sender.month];
+    MonthlyViewController *monthlyViewController = [[MonthlyViewController alloc] init];
     
     [self.navigationController pushViewController:monthlyViewController animated:YES];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Calendar.h"
+#import "Schedule.h"
 
-@interface DailyViewController : UIViewController
+@interface DailyViewController : UITableViewController
 
-- (instancetype)initWithCalendar:(Calendar*)calendar
-                             day:(NSInteger)day weekday:(NSInteger)weekday
-                           month:(NSInteger)month year:(NSInteger)year;
+- (instancetype)initWithDay:(NSInteger)day weekday:(NSInteger)weekday
+                      month:(NSInteger)month year:(NSInteger)year;
 @end

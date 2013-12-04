@@ -6,15 +6,25 @@
 //  Copyright (c) 2013 MusicKids. All rights reserved.
 //
 
-#import "Calendar.h"
+#import "Schedule.h"
 
-@interface Calendar ()
+@interface Schedule ()
 
 @property (strong, nonatomic, readwrite) NSCalendar *calender;
 
 @end
 
-@implementation Calendar
+@implementation Schedule
+
+static Schedule* _schedule;
+
++ (Schedule*)getInstance
+{
+    if (!_schedule) {
+        _schedule = [[Schedule alloc] init];
+    }
+    return _schedule;
+}
 
 - (NSDateComponents*) currentDate
 {
@@ -58,6 +68,11 @@
 - (NSInteger)endYear
 {
     return 2014;
+}
+
+- (NSInteger)totalYearNumber
+{
+    return [self endYear] - [self startYear] + 1;
 }
 
 @end

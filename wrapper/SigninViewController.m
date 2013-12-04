@@ -10,36 +10,7 @@
 #import "YearlyViewController.h"
 #import "MonthlyViewController.h"
 
-@interface SigninViewController ()
-
-@property (strong, nonatomic, readwrite) Calendar *calendar;
-
-@end
-
 @implementation SigninViewController
-
-- (Calendar*)calendar
-{
-    if (!_calendar) {
-        _calendar = [[Calendar alloc] init];
-    }
-    return _calendar;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -54,8 +25,7 @@
 }
 
 - (IBAction)signIn:(UIButton *)sender {
-    YearlyViewController *yearlyViewController =
-        [[YearlyViewController alloc] initWithCalendar:self.calendar];
+    YearlyViewController *yearlyViewController = [[YearlyViewController alloc] init];
     UIBarButtonItem *signOutButtonItem =
         [[UIBarButtonItem alloc] initWithTitle:@"Sign out"
                                          style:UIBarButtonItemStyleBordered
@@ -64,18 +34,9 @@
     [[self navigationItem] setBackBarButtonItem:signOutButtonItem];
     [self.navigationController pushViewController:yearlyViewController animated:NO];
     
+    MonthlyViewController *monthlyViewController = [[MonthlyViewController alloc] init];
     
-    MonthlyViewController *monthlyViewController =
-        [[MonthlyViewController alloc] initWithCalendar:self.calendar
-                                         yearNavigateTo:self.calendar.currentDate.year
-                                        monthNavigateTo:self.calendar.currentDate.month];
     [self.navigationController pushViewController:monthlyViewController animated:YES];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

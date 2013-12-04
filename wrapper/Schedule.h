@@ -8,14 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Calendar : NSObject
+@interface Schedule : NSObject
 
-- (NSDateComponents*) currentDate;
++ (Schedule*)getInstance;
+
+- (NSDateComponents*)currentDate;
 
 - (NSDateComponents*)year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 
-- (NSInteger) startYear;
+- (NSInteger)startYear;
 
-- (NSInteger) endYear;
+- (NSInteger)endYear;
+
+- (NSInteger)totalYearNumber;
 
 @end
