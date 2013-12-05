@@ -39,10 +39,8 @@
     NSInteger scrollViewHeight = 0;
     
     for(NSInteger i = startYear; i <= endYear; i++) {
-        YearPanel *yearPanel = [[YearPanel alloc] initWithYear:i];
-        CGRect frame = yearPanel.frame;
-        frame.origin.y = scrollViewHeight;
-        yearPanel.frame = frame;
+        YearPanel *yearPanel = [[YearPanel alloc] initWithYear:i originY:scrollViewHeight];
+        
         [scrollView addSubview:yearPanel];
         [self addMonthButtonToYearPanel:yearPanel];
         [self.yearPanels addObject:yearPanel];
@@ -58,11 +56,9 @@
     int i = 0;
     int j = 0;
     for (NSInteger month = 1; month <= 12; month++) {
-        MonthButton *monthButton = [MonthButton buttonWithType:UIButtonTypeRoundedRect];
-        monthButton.frame = CGRectMake(20+i*81, 60+j*40, 35, 35);
-        
-        [monthButton month:month year:yearPanel.year];
-        
+        MonthButton *monthButton = [[MonthButton alloc] initWithYear:yearPanel.year
+                                                               month:month originX:i*81+20 originY:j*40+60];
+    
         if (month == [[Schedule getInstance].currentDate month] &&
             yearPanel.year == [[Schedule getInstance].currentDate year]) {
             monthButton.backgroundColor = [UIColor colorWithRed:1.0f
@@ -75,7 +71,7 @@
                         action:@selector(navigateToMonthlyView:)
               forControlEvents:UIControlEventTouchUpInside];
         
-        [yearPanel.monthButtons addObject:monthButton];
+        [yearPanel.calendarButtons addObject:monthButton];
         [yearPanel addSubview:monthButton];
         if (i >= 3) {
             i = 0;
@@ -90,7 +86,7 @@
 - (void)navigateToMonthlyView:(MonthButton*)sender
 {
     MonthlyViewController *monthlyViewController = [[MonthlyViewController alloc] init];
-    [monthlyViewController initWithStartYear:sender.year startMonth:sender.month];
+    [monthlyViewController setStartYear:sender.year startMonth:sender.month];
     
     [self.navigationController pushViewController:monthlyViewController animated:YES];
 }

@@ -10,42 +10,16 @@
 
 @implementation DayButton
 
-+ (NSArray*)weekdayLabels
+- (id)initWithYear:(NSInteger)year month:(NSInteger)month weekday:(NSInteger)weekday
+               day:(NSInteger)day originX:(NSInteger)x originY:(NSInteger)y
 {
-    return @[@"", @"S", @"M", @"T", @"W", @"T", @"F", @"S"];
-}
-
-+ (NSArray*)weekdayFullNames
-{
-    return @[@"", @"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday"];
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
+    self = [super initWithYear:year month:month originX:x originY:y];
     if (self) {
-        // Initialization code
+        _weekday = weekday;
+        _day = day;
+        [self setTitle:[NSString stringWithFormat:@"%ld", (long)self.day] forState:UIControlStateNormal];
     }
     return self;
 }
-
-- (void)year:(NSInteger)year month:(NSInteger)month
-     weekday:(NSInteger)weekday day:(NSInteger)day
-{
-    self.day = day;
-    self.weekday = weekday;
-    self.month = month;
-    self.year = year;
-    [self setTitle:[NSString stringWithFormat:@"%d", day] forState:UIControlStateNormal];
-}
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

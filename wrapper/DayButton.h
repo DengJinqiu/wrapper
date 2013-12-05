@@ -7,21 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CalendarButton.h"
 
-@interface DayButton : UIButton
+@interface DayButton : CalendarButton
 
-@property (nonatomic, assign, readwrite) NSInteger day;
+@property (nonatomic) NSInteger day;
 
-@property (nonatomic, assign, readwrite) NSInteger month;
+@property (nonatomic) NSInteger weekday;
 
-@property (nonatomic, assign, readwrite) NSInteger year;
+- (id)initWithYear:(NSInteger)year month:(NSInteger)month weekday:(NSInteger)weekday
+               day:(NSInteger)day originX:(NSInteger)x originY:(NSInteger)y;
 
-@property (nonatomic, assign, readwrite) NSInteger weekday;
-
-- (void)year:(NSInteger)year month:(NSInteger)month
-     weekday:(NSInteger)weekday day:(NSInteger)day;
-
-+ (NSArray*)weekdayLabels;
-
-+ (NSArray*)weekdayFullNames;
 @end

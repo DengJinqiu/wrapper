@@ -9,65 +9,15 @@
 #import "YearPanel.h"
 #import "MonthButton.h"
 
-@interface YearPanel ()
-
-@end
-
 @implementation YearPanel
 
-- (void)setYear:(NSInteger)year
+- (id)initWithYear:(NSInteger)year originY:(NSInteger)y
 {
-    _year = year;
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
+    self = [super initWithYear:year originY:y];
     if (self) {
-        // Initialization code
+        [[super panelLabel] setText:[NSString stringWithFormat:@"%ld", (long)self.year]];
     }
     return self;
 }
-
-- (NSMutableArray*)monthButtons
-{
-    if (!_monthButtons) {
-        _monthButtons = [[NSMutableArray alloc] init];
-    }
-    return _monthButtons;
-}
-
-#define HEIGHT_RADIUS 0.6
-
-- (id)initWithYear:(NSInteger)year
-{
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    screenRect.size.height = screenRect.size.width * HEIGHT_RADIUS;
-    
-    self = [super initWithFrame:screenRect];
-    if (self) {
-        self.year = year;
-        
-        UILabel *yearLabel = [[UILabel alloc] init];
-        yearLabel.text = [NSString stringWithFormat:@"%d", self.year];
-        yearLabel.frame = CGRectMake(20, 20, 40, 20);
-        [self addSubview:yearLabel];
-        
-        UIView *line = [[UIView alloc] init];
-        line.frame = CGRectMake(20, 50, 280, 1);
-        line.backgroundColor = [UIColor blackColor];
-        [self addSubview:line];
-    }
-    return self;
-}
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

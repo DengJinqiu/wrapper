@@ -10,6 +10,7 @@
 #import "Schedule.h"
 #import "MonthButton.h"
 #import "DayButton.h"
+#import "CalendarLabels.h"
 
 @interface DailyViewController ()
 
@@ -53,8 +54,8 @@
     scrollView.backgroundColor = [UIColor whiteColor];
     
     NSString *titleString = [NSString stringWithFormat:@"%@ %@ %d, %d",
-                             [DayButton weekdayFullNames][self.weekday],
-                             [MonthButton monthFullNames][self.month],
+                             [CalendarLabels weekdayFullNames][self.weekday],
+                             [CalendarLabels monthFullNames][self.month],
                              self.day, self.year];
     
     UILabel *title = [[UILabel alloc] init];

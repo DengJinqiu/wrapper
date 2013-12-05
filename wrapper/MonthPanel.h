@@ -7,15 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CalendarPanel.h"
 
-@interface MonthPanel : UIView
+@interface MonthPanel : CalendarPanel
 
-- (instancetype)initWithYear:(NSInteger)year month:(NSInteger)month;
+@property (nonatomic, readonly) NSInteger month;
 
-@property (assign, nonatomic, readwrite) NSInteger year;
-
-@property (assign, nonatomic, readwrite) NSInteger month;
-
-@property (strong, nonatomic, readwrite) NSMutableArray *dayButtons;
+- (id)initWithYear:(NSInteger)year month:(NSInteger)month originY:(NSInteger)y;
 
 @end

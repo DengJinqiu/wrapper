@@ -11,6 +11,7 @@
 #import "MonthPanel.h"
 #import "DayButton.h"
 #import "MonthButton.h"
+#import "CalendarLabels.h"
 
 @interface MonthlyViewController () <UIScrollViewDelegate>
 
@@ -26,7 +27,7 @@
 
 @implementation MonthlyViewController
 
-- (void)initWithStartYear:(NSInteger)startYear startMonth:(NSInteger)startMonth
+- (void)setStartYear:(NSInteger)startYear startMonth:(NSInteger)startMonth
 {
     self.startYear = [NSNumber numberWithInt:startYear];
     self.startMonth = [NSNumber numberWithInt:startMonth];
@@ -67,11 +68,8 @@
     NSInteger index = 0;
     for(NSInteger i = startYear; i <= endYear; i++) {
         for (NSInteger j = 1; j <= 12; j++) {
-
-            MonthPanel *monthPanel = [[MonthPanel alloc] initWithYear:i month:j];
-            CGRect frame = monthPanel.frame;
-            frame.origin.y = scrollViewHeight;
-            monthPanel.frame = frame;
+            MonthPanel *monthPanel = [[MonthPanel alloc] initWithYear:i month:j originY:scrollViewHeight];
+            
             [scrollView addSubview:monthPanel];
             [self addDayButtonToMonthPanel:monthPanel];
             [self.monthPanels addObject:monthPanel];
@@ -153,10 +151,8 @@
         if (dayComponents.month != monthPanel.month) {
             break;
         }
-        DayButton *dayButton = [DayButton buttonWithType:UIButtonTypeRoundedRect];
-        dayButton.frame = CGRectMake(weekday*40-20, 60+week*40, 35, 35);
-        
-        [dayButton year:monthPanel.year month:monthPanel.month weekday:weekday day:day];
+        DayButton *dayButton = [[DayButton alloc] initWithYear:monthPanel.year month:monthPanel.month
+                                                       weekday:weekday day:day originX:weekday*40-20 originY:week*40+60];
         
         [dayButton addTarget:self
                       action:@selector(navigateToDailyView:)
@@ -165,13 +161,10 @@
         if (monthPanel.month == [[Schedule getInstance].currentDate month] &&
             monthPanel.year == [[Schedule getInstance].currentDate year] &&
             day == [[Schedule getInstance].currentDate day]) {
-            dayButton.backgroundColor = [UIColor colorWithRed:1.0f
-                                                          green:0.0f
-                                                           blue:0.0f
-                                                          alpha:0.6f];
+            [dayButton markCurrent];
         }
         
-        [monthPanel.dayButtons addObject:dayButton];
+        [monthPanel.calendarButtons addObject:dayButton];
         [monthPanel addSubview:dayButton];
         if (weekday >= 7) {
             weekday = 1;
@@ -191,7 +184,7 @@
                                            year:sender.year];
     
     UIBarButtonItem *signOutButtonItem =
-    [[UIBarButtonItem alloc] initWithTitle:[MonthButton monthFullNames][sender.month]
+    [[UIBarButtonItem alloc] initWithTitle:[CalendarLabels monthFullNames][sender.month]
                                      style:UIBarButtonItemStyleBordered
                                     target:nil
                                     action:nil];

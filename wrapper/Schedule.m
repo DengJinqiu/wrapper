@@ -10,7 +10,7 @@
 
 @interface Schedule ()
 
-@property (strong, nonatomic, readwrite) NSCalendar *calender;
+@property (strong, nonatomic, readwrite) NSCalendar *calendar;
 
 @end
 
@@ -31,7 +31,7 @@ static Schedule* _schedule;
     NSDate *today = [NSDate date];
         
     NSDateComponents *currentDate =
-        [self.calender components:(kCFCalendarUnitYear | kCFCalendarUnitMonth |
+        [self.calendar components:(kCFCalendarUnitYear | kCFCalendarUnitMonth |
                                    kCFCalendarUnitDay | kCFCalendarUnitWeekday)
                          fromDate:today];
     return currentDate;
@@ -43,21 +43,21 @@ static Schedule* _schedule;
     [comps setDay:day];
     [comps setMonth:month];
     [comps setYear:year];
-    NSDate *date = [self.calender dateFromComponents:comps];
+    NSDate *date = [self.calendar dateFromComponents:comps];
     
     NSDateComponents *currentDate =
-    [self.calender components:(kCFCalendarUnitYear | kCFCalendarUnitMonth |
+    [self.calendar components:(kCFCalendarUnitYear | kCFCalendarUnitMonth |
                                kCFCalendarUnitDay | kCFCalendarUnitWeekday)
                      fromDate:date];
     return currentDate;
 }
 
-- (NSCalendar*)calender
+- (NSCalendar*)calendar
 {
-    if (!_calender) {
-        _calender = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    if (!_calendar) {
+        _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     }
-    return _calender;
+    return _calendar;
 }
 
 - (NSInteger)startYear

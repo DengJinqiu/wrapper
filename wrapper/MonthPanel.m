@@ -9,45 +9,18 @@
 #import "MonthPanel.h"
 #import "MonthButton.h"
 #import "DayButton.h"
+#import "CalendarLabels.h"
 
 @implementation MonthPanel
 
-- (NSMutableArray*)dayButtons
+- (id)initWithYear:(NSInteger)year month:(NSInteger)month originY:(NSInteger)y
 {
-    if (!_dayButtons) {
-        _dayButtons = [[NSMutableArray alloc] init];
-    }
-    return _dayButtons;
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
+    self = [super initWithYear:year originY:y];
     if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-#define HEIGHT_RADIUS 0.9
-
-- (instancetype)initWithYear:(NSInteger)year month:(NSInteger)month
-{
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    screenRect.size.height = screenRect.size.width * HEIGHT_RADIUS;
-    
-    self = [super initWithFrame:screenRect];
-    if (self) {
-        self.year = year;
-        self.month = month;
-        
-        UILabel *monthLabel = [[UILabel alloc] init];
-        monthLabel.text = [MonthButton monthLabels][self.month];
-        monthLabel.frame = CGRectMake(20, 20, 40, 20);
-        [self addSubview:monthLabel];
+        _month = month;
         
         int i = 0;
-        for (NSString *s in [DayButton weekdayLabels]) {
+        for (NSString *s in [CalendarLabels weekdayLabels]) {
             UILabel *weekdayLabel = [[UILabel alloc] init];
             weekdayLabel.text = s;
             weekdayLabel.frame = CGRectMake(i*40-20, 40, 35, 10);
@@ -57,21 +30,9 @@
             i++;
         }
         
-        UIView *line = [[UIView alloc] init];
-        line.frame = CGRectMake(20, 50, 280, 1);
-        line.backgroundColor = [UIColor blackColor];
-        [self addSubview:line];
+        [[self panelLabel] setText:[CalendarLabels monthLabels][self.month]];
     }
     return self;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

@@ -7,54 +7,17 @@
 //
 
 #import "MonthButton.h"
+#import "CalendarLabels.h"
 
 @implementation MonthButton
 
-+ (NSArray*)monthLabels
+- (id)initWithYear:(NSInteger)year month:(NSInteger)month originX:(NSInteger)x originY:(NSInteger)y
 {
-    return @[@"", @"JAN", @"FEB", @"MAR", @"APR", @"MAY", @"JUN",
-             @"JUL", @"AUG", @"SEP", @"OCT", @"NOV", @"DEC"];
-}
-
-+ (NSArray*)monthFullNames
-{
-    return @[@"", @"January", @"February", @"March", @"April", @"May", @"June",
-             @"July", @"August", @"September", @"October", @"November", @"December"];
-}
-
-- (void)setMonth:(NSInteger)month
-{
-    _month = month;
-}
-
-- (void)setYear:(NSInteger)year
-{
-    _year = year;
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
+    self = [super initWithYear:year month:month originX:x originY:y];
     if (self) {
-        // Initialization code
+        [self setTitle:[CalendarLabels monthLabels][self.month] forState:UIControlStateNormal];
     }
     return self;
 }
-
-- (void)month:(NSInteger)month year:(NSInteger)year
-{
-    self.month = month;
-    self.year = year;
-    [self setTitle:[MonthButton monthLabels][month] forState:UIControlStateNormal];
-}
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end
