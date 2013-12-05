@@ -177,11 +177,10 @@
 
 - (void)navigateToDailyView:(DayButton*)sender
 {
+    
     DailyViewController *dailyViewController =
-        [[DailyViewController alloc]initWithDay:sender.day
-                                        weekday:sender.weekday
-                                          month:sender.month
-                                           year:sender.year];
+    [[DailyViewController alloc] initWithDay:sender.day weekday:sender.weekday
+                                       month:sender.month year:sender.year];
     
     UIBarButtonItem *signOutButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:[CalendarLabels monthFullNames][sender.month]

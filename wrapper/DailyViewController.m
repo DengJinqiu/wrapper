@@ -12,7 +12,7 @@
 #import "DayButton.h"
 #import "CalendarLabels.h"
 
-@interface DailyViewController ()
+@interface DailyViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (assign, nonatomic, readwrite) NSInteger year;
 
@@ -26,45 +26,54 @@
 
 @implementation DailyViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithDay:(NSInteger)day weekday:(NSInteger)weekday month:(NSInteger)month year:(NSInteger)year
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [self init];
     if (self) {
-        // Custom initialization
+        self.year = year;
+        self.month = month;
+        self.weekday = weekday;
+        self.day = day;
     }
     return self;
 }
 
-- (instancetype)initWithDay:(NSInteger)day weekday:(NSInteger)weekday
-                      month:(NSInteger)month year:(NSInteger)year
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    self.year = year;
-    self.month = month;
-    self.weekday = weekday;
-    self.day = day;
-    self = [self init];
-    [self initLayout];
-    return self;
+    return 3;
 }
 
-- (void)initLayout
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
     CGRect screenRect = [[UIScreen mainScreen] bounds];
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
-    scrollView.backgroundColor = [UIColor whiteColor];
     
     NSString *titleString = [NSString stringWithFormat:@"%@ %@ %d, %d",
                              [CalendarLabels weekdayFullNames][self.weekday],
                              [CalendarLabels monthFullNames][self.month],
                              self.day, self.year];
     
-    UILabel *title = [[UILabel alloc] init];
-    title.frame = CGRectMake(20, 0, 280, 30);
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 280, 30)];
     title.text = titleString;
     title.textAlignment = NSTextAlignmentCenter;
     [title setFont:[UIFont systemFontOfSize:12]];
-    [scrollView addSubview:title];
-    self.view = scrollView;
+    [self.view addSubview:title];
+    
+    NSInteger titleHeight = title.frame.size.height;
+    CGRect tableFrame = CGRectMake(0, titleHeight, screenRect.size.width, screenRect.size.height-titleHeight);
+
+    UITableView *table = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
+    table.dataSource = self;
+    table.delegate = self;
+    [self.view addSubview:table];
+    
+    [self.view setBackgroundColor:[UIColor whiteColor]];
 }
 
 @end

@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Schedule.h"
 
-@interface DailyViewController : UITableViewController
+@interface DailyViewController : UIViewController
 
-- (instancetype)initWithDay:(NSInteger)day weekday:(NSInteger)weekday
-                      month:(NSInteger)month year:(NSInteger)year;
+- (id)initWithDay:(NSInteger)day weekday:(NSInteger)weekday
+         month:(NSInteger)month year:(NSInteger)year;
 @end
