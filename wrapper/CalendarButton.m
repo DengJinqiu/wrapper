@@ -26,6 +26,7 @@
     if (self) {
         [self setTitleColor:self.defaultTitleColor forState:UIControlStateNormal];
         self.titleLabel.font = [UIFont systemFontOfSize:14];
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.frame = CGRectMake(x, y, SIZE, SIZE);
         self.layer.cornerRadius = SIZE / 2;
         _month = month;
@@ -34,10 +35,12 @@
     return self;
 }
 
-- (void)markCurrent
+- (void)markAsCurrent
 {
     self.backgroundColor = [UIColor colorWithRed:1.0f green:0.0f
                                             blue:0.0f alpha:0.6f];
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:14];
 }
 
 - (UIColor*)defaultTitleColor

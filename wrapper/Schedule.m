@@ -67,7 +67,7 @@ static Schedule* _schedule;
 
 - (NSInteger)endYear
 {
-    return 2018;
+    return 2014;
 }
 
 - (NSInteger)totalYearNumber

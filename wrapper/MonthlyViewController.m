@@ -161,7 +161,7 @@
         if (monthPanel.month == [[Schedule getInstance].currentDate month] &&
             monthPanel.year == [[Schedule getInstance].currentDate year] &&
             day == [[Schedule getInstance].currentDate day]) {
-            [dayButton markCurrent];
+            [dayButton markAsCurrent];
         }
         
         [monthPanel.calendarButtons addObject:dayButton];

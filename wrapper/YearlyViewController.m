@@ -61,10 +61,7 @@
     
         if (month == [[Schedule getInstance].currentDate month] &&
             yearPanel.year == [[Schedule getInstance].currentDate year]) {
-            monthButton.backgroundColor = [UIColor colorWithRed:1.0f
-                                                          green:0.0f
-                                                           blue:0.0f
-                                                          alpha:0.6f];
+            [monthButton markAsCurrent];
         }
         
         [monthButton addTarget:self

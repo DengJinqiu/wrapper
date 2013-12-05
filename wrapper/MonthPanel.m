@@ -37,7 +37,7 @@
 
 - (CGFloat)getHeightRadius
 {
-    return 0.8;
+    return 0.9;
 }
 
 @end
