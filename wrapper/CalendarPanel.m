@@ -10,8 +10,6 @@
 
 @implementation CalendarPanel
 
-static const CGFloat HEIGHT_RADIUS = 0.6;
-
 - (UILabel*) panelLabel
 {
     UILabel *label = [[UILabel alloc] init];
@@ -23,7 +21,7 @@ static const CGFloat HEIGHT_RADIUS = 0.6;
 - (id)initWithYear:(NSInteger)year originY:(NSInteger)y
 {
     NSInteger width = [[UIScreen mainScreen] bounds].size.width;
-    self = [super initWithFrame:CGRectMake(0, y, width, width*HEIGHT_RADIUS)];
+    self = [super initWithFrame:CGRectMake(0, y, width, width*[self getHeightRadius])];
     if (self) {
         _year = year;
 
@@ -43,6 +41,11 @@ static const CGFloat HEIGHT_RADIUS = 0.6;
         _calendarButtons = [[NSMutableArray alloc] init];
     }
     return _calendarButtons;
+}
+
+- (CGFloat)getHeightRadius
+{
+    return 0;
 }
 
 @end

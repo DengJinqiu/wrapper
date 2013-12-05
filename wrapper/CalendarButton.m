@@ -25,6 +25,7 @@
     self = [super initWithFrame:CGRectMake(x, y, SIZE, SIZE)];
     if (self) {
         [self setTitleColor:self.defaultTitleColor forState:UIControlStateNormal];
+        self.titleLabel.font = [UIFont systemFontOfSize:14];
         self.frame = CGRectMake(x, y, SIZE, SIZE);
         self.layer.cornerRadius = SIZE / 2;
         _month = month;

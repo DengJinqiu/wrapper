@@ -20,4 +20,9 @@
     return self;
 }
 
+- (CGFloat)getHeightRadius
+{
+    return 0.6;
+}
+
 @end
