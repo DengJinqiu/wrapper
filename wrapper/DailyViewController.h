@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Schedule.h"
+#import "TitleTableViewController.h"
 
-@interface DailyViewController : UIViewController
+@interface DailyViewController : TitleTableViewController
 
 - (id)initWithDay:(NSInteger)day weekday:(NSInteger)weekday
          month:(NSInteger)month year:(NSInteger)year;

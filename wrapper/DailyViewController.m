@@ -11,8 +11,9 @@
 #import "MonthButton.h"
 #import "DayButton.h"
 #import "CalendarLabels.h"
+#import "ClassViewController.h"
 
-@interface DailyViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface DailyViewController () 
 
 @property (assign, nonatomic, readwrite) NSInteger year;
 
@@ -45,35 +46,23 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    return cell;
 }
 
-- (void)viewDidLoad
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    [super viewDidLoad];
-    
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    
-    NSString *titleString = [NSString stringWithFormat:@"%@ %@ %d, %d",
-                             [CalendarLabels weekdayFullNames][self.weekday],
-                             [CalendarLabels monthFullNames][self.month],
-                             self.day, self.year];
-    
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 280, 30)];
-    title.text = titleString;
-    title.textAlignment = NSTextAlignmentCenter;
-    [title setFont:[UIFont systemFontOfSize:12]];
-    [self.view addSubview:title];
-    
-    NSInteger titleHeight = title.frame.size.height;
-    CGRect tableFrame = CGRectMake(0, titleHeight, screenRect.size.width, screenRect.size.height-titleHeight);
+    ClassViewController *classViewController = [[ClassViewController alloc] init];
+    [self.navigationController pushViewController:classViewController animated:YES];
+}
 
-    UITableView *table = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
-    table.dataSource = self;
-    table.delegate = self;
-    [self.view addSubview:table];
-    
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+- (NSString*)tableTitle
+{
+    return [NSString stringWithFormat:@"%@ %@ %d, %d",
+            [CalendarLabels weekdayFullNames][self.weekday],
+            [CalendarLabels monthFullNames][self.month],
+            self.day, self.year];
 }
 
 @end
