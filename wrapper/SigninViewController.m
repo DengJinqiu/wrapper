@@ -14,12 +14,12 @@
 
 - (IBAction)signIn:(UIButton *)sender {
     YearlyViewController *yearlyViewController = [[YearlyViewController alloc] init];
-    UIBarButtonItem *signOutButtonItem =
+    UIBarButtonItem *backButtonItem =
         [[UIBarButtonItem alloc] initWithTitle:@"Sign out"
                                          style:UIBarButtonItemStyleBordered
                                         target:nil
                                         action:nil];
-    [[self navigationItem] setBackBarButtonItem:signOutButtonItem];
+    [[self navigationItem] setBackBarButtonItem:backButtonItem];
     [self.navigationController pushViewController:yearlyViewController animated:NO];
     
     MonthlyViewController *monthlyViewController = [[MonthlyViewController alloc] init];

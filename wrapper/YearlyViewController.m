@@ -90,6 +90,7 @@
 - (void)navigateToMonthlyView:(MonthButton*)sender
 {
     MonthlyViewController *monthlyViewController = [[MonthlyViewController alloc] init];
+    [monthlyViewController initWithStartYear:sender.year startMonth:sender.month];
     
     [self.navigationController pushViewController:monthlyViewController animated:YES];
 }

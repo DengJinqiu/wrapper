@@ -11,4 +11,6 @@
 
 @interface MonthlyViewController : UIViewController
 
+- (void)initWithStartYear:(NSInteger)startYear startMonth:(NSInteger)startMonth;
+
 @end

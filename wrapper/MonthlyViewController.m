@@ -16,18 +16,47 @@
 
 @property (strong, nonatomic, readwrite) NSMutableArray *monthPanels;
 
+@property (strong, nonatomic, readwrite) NSNumber *startYear;
+
+@property (strong, nonatomic, readwrite) NSNumber *startMonth;
+
+@property (weak, nonatomic, readwrite) UIViewController* viewControllerBelow;
+
 @end
 
 @implementation MonthlyViewController
 
+- (void)initWithStartYear:(NSInteger)startYear startMonth:(NSInteger)startMonth
+{
+    self.startYear = [NSNumber numberWithInt:startYear];
+    self.startMonth = [NSNumber numberWithInt:startMonth];
+}
+
+- (NSNumber*)startYear
+{
+    if (!_startYear) {
+        _startYear = [NSNumber numberWithInt:[Schedule getInstance].currentDate.year];
+    }
+    return _startYear;
+}
+
+- (NSNumber*)startMonth
+{
+    if (!_startMonth) {
+        _startMonth = [NSNumber numberWithInt:[Schedule getInstance].currentDate.month];
+    }
+    return _startMonth;
+}
+
 - (void)loadView
 {
+    NSArray* viewControllers = self.navigationController.viewControllers;
+    self.viewControllerBelow = viewControllers[viewControllers.count-2];
+    
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
     NSInteger startYear = [Schedule getInstance].startYear;
     NSInteger endYear = [Schedule getInstance].endYear;
-    NSInteger currentYear = [Schedule getInstance].currentDate.year;
-    NSInteger currentMonth = [Schedule getInstance].currentDate.month;
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
     scrollView.backgroundColor = [UIColor whiteColor];
     
@@ -49,7 +78,7 @@
             scrollViewHeight += monthPanel.frame.size.height;
             index++;
             
-            if (i == currentYear && j == currentMonth) {
+            if (i == [self.startYear intValue] && j == [self.startMonth intValue]) {
                 pointScrollTo = monthPanel.frame.origin;
             }
         }
@@ -62,7 +91,7 @@
                    screenRect.size.width, screenRect.size.height)
                            animated:NO];
     
-    [self updateLeftBarButtonItem:currentYear];
+    [self updateLeftBarButtonItem:[self.startYear intValue]];
     
     UIBarButtonItem *today =
     [[UIBarButtonItem alloc] initWithTitle:@"Today"
@@ -93,13 +122,16 @@
 
 - (void)updateLeftBarButtonItem:(NSInteger)year
 {
-    UIBarButtonItem *yearlyViewButtonItem =
-    [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%d", year]
-                                     style:UIBarButtonItemStyleBordered
-                                    target:self
-                                    action:@selector(back)];
+    NSString *yearString = [NSString stringWithFormat:@"%d", year];
+    if (![self.viewControllerBelow.navigationItem.backBarButtonItem.title isEqualToString:yearString]) {
+        UIBarButtonItem *backButtonItem =
+            [[UIBarButtonItem alloc] initWithTitle:yearString
+                                             style:UIBarButtonItemStyleBordered
+                                            target:nil
+                                            action:nil];
+        [self.viewControllerBelow.navigationItem setBackBarButtonItem:backButtonItem];
+    }
     
-    [[self navigationItem] setLeftBarButtonItem:yearlyViewButtonItem];
 }
 
 - (void)today
@@ -109,11 +141,6 @@
     
     [(UIScrollView*)self.view scrollRectToVisible:CGRectMake(0, y, self.view.frame.size.width, self.view.frame.size.height)
                                          animated:YES];
-}
-
-- (void)back
-{
-    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 - (void)addDayButtonToMonthPanel:(MonthPanel*)monthPanel
