@@ -12,18 +12,6 @@
 
 @implementation SigninViewController
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
-}
-
 - (IBAction)signIn:(UIButton *)sender {
     YearlyViewController *yearlyViewController = [[YearlyViewController alloc] init];
     UIBarButtonItem *signOutButtonItem =

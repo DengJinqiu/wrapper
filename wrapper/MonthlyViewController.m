@@ -81,9 +81,14 @@
               targetContentOffset:(inout CGPoint *)targetContentOffset
 {
     int yearNumber = [[Schedule getInstance] totalYearNumber];
-    int height = self.view.frame.size.height / yearNumber;
+    int height = [self scrollViewContentHeight] / yearNumber;
     int year = [Schedule getInstance].startYear + abs(targetContentOffset->y/height);
     [self updateLeftBarButtonItem:year];
+}
+
+- (CGFloat)scrollViewContentHeight
+{
+    return ((UIScrollView*)self.view).contentSize.height;
 }
 
 - (void)updateLeftBarButtonItem:(NSInteger)year
@@ -99,12 +104,10 @@
 
 - (void)today
 {
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    
     int numberMonth = [[Schedule getInstance] totalYearNumber] * 12;
-    int y = ([[Schedule getInstance].currentDate month]-1) * abs(self.view.frame.size.height/numberMonth);
+    int y = ([[Schedule getInstance].currentDate month]-1) * abs([self scrollViewContentHeight] / numberMonth);
     
-    [(UIScrollView*)self.view scrollRectToVisible:CGRectMake(0, y, screenRect.size.width, screenRect.size.height)
+    [(UIScrollView*)self.view scrollRectToVisible:CGRectMake(0, y, self.view.frame.size.width, self.view.frame.size.height)
                                          animated:YES];
 }
 

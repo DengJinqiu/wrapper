@@ -13,11 +13,11 @@
                         <viewControllerLayoutGuide type="bottom" id="oS8-Ze-DSI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ul4-9R-1oO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5s-Ps-aFx">
-                                <rect key="frame" x="20" y="415" width="280" height="30"/>
+                                <rect key="frame" x="20" y="333" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign in"/>
                                 <connections>
@@ -25,19 +25,19 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w4m-4U-8s6">
-                                <rect key="frame" x="20" y="339" width="280" height="30"/>
+                                <rect key="frame" x="20" y="257" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zH1-iG-Re0">
-                                <rect key="frame" x="20" y="377" width="280" height="30"/>
+                                <rect key="frame" x="20" y="295" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="YKD-K2-FWC">
-                                <rect key="frame" x="40" y="167" width="240" height="112"/>
+                                <rect key="frame" x="40" y="85" width="240" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -49,7 +49,7 @@
                             <constraint firstAttribute="trailing" secondItem="w4m-4U-8s6" secondAttribute="trailing" constant="20" symbolic="YES" id="NUR-wC-hCJ"/>
                             <constraint firstAttribute="centerX" secondItem="YKD-K2-FWC" secondAttribute="centerX" id="PAS-5m-2dL"/>
                             <constraint firstItem="w4m-4U-8s6" firstAttribute="leading" secondItem="Ul4-9R-1oO" secondAttribute="leading" constant="20" symbolic="YES" id="Sxi-dL-POW"/>
-                            <constraint firstAttribute="centerY" secondItem="w4m-4U-8s6" secondAttribute="centerY" constant="-70" id="T43-b9-YQ8"/>
+                            <constraint firstAttribute="centerY" secondItem="w4m-4U-8s6" secondAttribute="centerY" constant="-20" id="T43-b9-YQ8"/>
                             <constraint firstAttribute="trailing" secondItem="x5s-Ps-aFx" secondAttribute="trailing" constant="20" symbolic="YES" id="TcA-kW-PHJ"/>
                             <constraint firstAttribute="centerX" secondItem="w4m-4U-8s6" secondAttribute="centerX" id="UQo-s9-Ed2"/>
                             <constraint firstItem="w4m-4U-8s6" firstAttribute="top" secondItem="YKD-K2-FWC" secondAttribute="bottom" constant="60" id="W5A-aa-oca"/>
@@ -100,7 +100,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LJC-t0-qnX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="i2m-Jb-mSf"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vaO-XB-W15">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="vaO-XB-W15">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
