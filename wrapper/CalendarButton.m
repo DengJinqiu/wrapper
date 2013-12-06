@@ -43,6 +43,11 @@
     self.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:14];
 }
 
+- (void)markAsGray
+{
+    [self setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+}
+
 - (UIColor*)defaultTitleColor
 {
     if (!_defaultTitleColor) {

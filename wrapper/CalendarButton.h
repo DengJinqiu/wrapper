@@ -18,4 +18,6 @@
 
 - (void)markAsCurrent;
 
+- (void)markAsGray;
+
 @end

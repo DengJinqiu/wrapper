@@ -164,6 +164,10 @@
             [dayButton markAsCurrent];
         }
         
+        if (weekday == 1 || weekday == 7) {
+            [dayButton markAsGray];
+        }
+        
         [monthPanel.calendarButtons addObject:dayButton];
         [monthPanel addSubview:dayButton];
         if (weekday >= 7) {
