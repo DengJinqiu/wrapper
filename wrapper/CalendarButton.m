@@ -35,12 +35,18 @@
     return self;
 }
 
-- (void)markAsCurrent
+- (void)markAsRed
 {
     self.backgroundColor = [UIColor colorWithRed:1.0f green:0.0f
                                             blue:0.0f alpha:0.6f];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:14];
+}
+
+- (void)markAsGreen
+{
+    self.layer.borderWidth = 2;
+    self.layer.borderColor = [[UIColor greenColor] CGColor];
 }
 
 - (void)markAsGray

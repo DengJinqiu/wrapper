@@ -16,8 +16,10 @@
 
 - (id)initWithYear:(NSInteger)year month:(NSInteger)month originX:(NSInteger)x originY:(NSInteger)y;
 
-- (void)markAsCurrent;
+- (void)markAsRed;
 
 - (void)markAsGray;
+
+- (void)markAsGreen;
 
 @end

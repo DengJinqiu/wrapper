@@ -153,19 +153,23 @@
         }
         DayButton *dayButton = [[DayButton alloc] initWithYear:monthPanel.year month:monthPanel.month
                                                        weekday:weekday day:day originX:weekday*40-20 originY:week*40+60];
-        
-        [dayButton addTarget:self
-                      action:@selector(navigateToDailyView:)
-            forControlEvents:UIControlEventTouchUpInside];
-        
+            
         if (monthPanel.month == [[Schedule getInstance].currentDate month] &&
             monthPanel.year == [[Schedule getInstance].currentDate year] &&
             day == [[Schedule getInstance].currentDate day]) {
-            [dayButton markAsCurrent];
+            [dayButton markAsRed];
         }
         
         if (weekday == 1 || weekday == 7) {
             [dayButton markAsGray];
+        }
+        
+        if ([[Schedule getInstance] containClassOnYear:monthPanel.year month:monthPanel.month day:day]) {
+            [dayButton markAsGreen];
+            
+            [dayButton addTarget:self
+                          action:@selector(navigateToDailyView:)
+                forControlEvents:UIControlEventTouchUpInside];
         }
         
         [monthPanel.calendarButtons addObject:dayButton];

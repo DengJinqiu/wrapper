@@ -37,6 +37,24 @@ static Schedule* _schedule;
     return currentDate;
 }
 
+- (BOOL)containClassOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
+{
+    if ([self containClassOnYear:year month:month] && day % 2 == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+- (BOOL)containClassOnYear:(NSInteger)year month:(NSInteger)month
+{
+    if (month % 2 == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 - (NSDateComponents*)year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
 {
     NSDateComponents *comps = [[NSDateComponents alloc] init];

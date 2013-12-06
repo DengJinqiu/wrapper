@@ -61,7 +61,12 @@
     
         if (month == [[Schedule getInstance].currentDate month] &&
             yearPanel.year == [[Schedule getInstance].currentDate year]) {
-            [monthButton markAsCurrent];
+            [monthButton markAsRed];
+        }
+        
+        if ([[Schedule getInstance] containClassOnYear:yearPanel.year month:month]) {
+            [monthButton markAsGreen];
+            
         }
         
         [monthButton addTarget:self
