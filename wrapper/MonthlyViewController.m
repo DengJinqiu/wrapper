@@ -188,9 +188,7 @@
 {
     
     DailyViewController *dailyViewController =
-    [[DailyViewController alloc] initWithDay:sender.day weekday:sender.weekday
-                                       month:sender.month year:sender.year];
-    
+    [[DailyViewController alloc] initWithYear:sender.year month:sender.month weekday:sender.weekday day:sender.day];
     UIBarButtonItem *signOutButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:[CalendarLabels monthFullNames][sender.month]
                                      style:UIBarButtonItemStyleBordered

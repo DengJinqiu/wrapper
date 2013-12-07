@@ -22,10 +22,10 @@
 
 - (void)markStudent:(NSString*)id attendance:(BOOL)attendance
 {
-    if (!_attendance) {
-        _attendance = [[NSMutableDictionary alloc] init];
+    if (!_studentAttendance) {
+        _studentAttendance = [[NSMutableDictionary alloc] init];
     }
-    [self.attendance setValue:[[NSNumber alloc] initWithBool:attendance] forKey:id];
+    [self.studentAttendance setValue:[[NSNumber alloc] initWithBool:attendance] forKey:id];
 }
 
 @end

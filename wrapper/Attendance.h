@@ -10,7 +10,7 @@
 
 @interface Attendance : NSObject
 
-@property (nonatomic, readonly) NSMutableDictionary* attendance;
+@property (nonatomic) NSMutableDictionary* studentAttendance;
 
 @property (nonatomic, readonly) NSInteger startTime; // hour
 

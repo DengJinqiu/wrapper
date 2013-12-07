@@ -17,19 +17,29 @@
 
 @interface DailyViewController () 
 
-@property (assign, nonatomic, readwrite) NSInteger year;
+@property (nonatomic) NSInteger year;
 
-@property (assign, nonatomic, readwrite) NSInteger month;
+@property (nonatomic) NSInteger month;
 
-@property (assign, nonatomic, readwrite) NSInteger weekday;
+@property (nonatomic) NSInteger weekday;
 
-@property (assign, nonatomic, readwrite) NSInteger day;
+@property (nonatomic) NSInteger day;
+
+@property (nonatomic) NSMutableDictionary* cellToCourse;
 
 @end
 
 @implementation DailyViewController
 
-- (id)initWithDay:(NSInteger)day weekday:(NSInteger)weekday month:(NSInteger)month year:(NSInteger)year
+- (NSMutableDictionary*)cellToCourse
+{
+    if (!_cellToCourse) {
+        _cellToCourse = [[NSMutableDictionary alloc] init];
+    }
+    return _cellToCourse;
+}
+
+- (id)initWithYear:(NSInteger)year month:(NSInteger)month weekday:(NSInteger)weekday day:(NSInteger)day
 {
     self = [self init];
     if (self) {
@@ -45,7 +55,7 @@
 {
     int num = 0;
     for (NSString* courseId in [User getInstance].courseIds) {
-        if ([[Course getCourseById:courseId] scheduleOnYear:self.year month:self.month day:self.day]) {
+        if ([[Course getCourseById:courseId] attendanceOnYear:self.year month:self.month day:self.day]) {
             num += 1;
         }
     }
@@ -56,12 +66,18 @@
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    
+    for (NSString* courseId in [Course courseIds] ) {
+        Course* course = [Course getCourseById:courseId];
+        [self.cellToCourse setValue:course forKey:[NSString stringWithFormat:@"%d", [indexPath indexAtPosition:1]]];
+    }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    AttendanceViewController *attendanceViewController = [[AttendanceViewController alloc] init];
+    Attendance* attendance = [[self.cellToCourse objectForKey:[NSString stringWithFormat:@"%d", [indexPath indexAtPosition:1]]] attendanceOnYear:self.year month:self.month day:self.day];
+    AttendanceViewController *attendanceViewController = [[AttendanceViewController alloc] initWithYear:self.year month:self.month weekday:self.weekday day:self.day attendance:attendance];
     [self.navigationController pushViewController:attendanceViewController animated:YES];
 }
 

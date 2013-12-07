@@ -60,7 +60,7 @@ static User* _user;
 - (BOOL)hasCourseOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
 {
     for (NSString* courseId in self.courseIds) {
-        if ([[Course getCourseById:courseId] scheduleOnYear:year month:month day:day]) {
+        if ([[Course getCourseById:courseId] attendanceOnYear:year month:month day:day]) {
             return TRUE;
         }
     }
@@ -92,14 +92,15 @@ static User* _user;
         day++;
         NSDateComponents* currentDate = [[Schedule getInstance] year:year month:month day:day];
         if (currentDate.weekday == 2) {
-            Attendance* attendance = [course1 setScheduleeOnYear:currentDate.year month:currentDate.month
+            Attendance* attendance = [course1 setAttendanceOnYear:currentDate.year month:currentDate.month
                                                                    day:currentDate.day at:10 last:40];
             [attendance markStudent:student1.id attendance:FALSE];
             [attendance markStudent:student2.id attendance:FALSE];
         }
         if (currentDate.weekday == 2 || currentDate.weekday == 5) {
-            Attendance* attendance = [course2 setScheduleeOnYear:currentDate.year month:currentDate.month
+            Attendance* attendance = [course2 setAttendanceOnYear:currentDate.year month:currentDate.month
                                                                    day:currentDate.day at:13 last:200];
+            [attendance markStudent:student2.id attendance:FALSE];
             [attendance markStudent:student3.id attendance:FALSE];
             [attendance markStudent:student4.id attendance:FALSE];
         }

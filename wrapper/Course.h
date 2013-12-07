@@ -21,13 +21,13 @@
 
 - (BOOL)hasScheduleOnYear:(NSInteger)year month:(NSInteger)month;
 
-- (Attendance*)scheduleOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
+- (Attendance*)attendanceOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 
-- (Attendance*)setScheduleeOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
-                        at:(NSInteger)startTime last:(NSInteger)duration;
+- (Attendance*)setAttendanceOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
+                                at:(NSInteger)startTime last:(NSInteger)duration;
 
 + (Course*)getCourseById:(NSString*)id;
 
-+ (NSMutableDictionary*)courses;
++ (NSMutableDictionary*)courseIds;
 
 @end

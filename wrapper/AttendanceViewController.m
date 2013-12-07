@@ -26,7 +26,7 @@
 
 @implementation AttendanceViewController
 
-- (id)initWithDay:(NSInteger)day weekday:(NSInteger)weekday month:(NSInteger)month year:(NSInteger)year attendance:(Attendance *)attendance
+- (id)initWithYear:(NSInteger)year month:(NSInteger)month weekday:(NSInteger)weekday day:(NSInteger)day attendance:(Attendance *)attendance
 {
     self = [super init];
     if (self) {
@@ -43,8 +43,8 @@
 {
     NSInteger num = 0;
     
-    for (Course* course in [User getInstance].courseIds) {
-
+    for (NSString* studentId in self.attendance.studentAttendance) {
+        num++;
     }
     
     return num;
