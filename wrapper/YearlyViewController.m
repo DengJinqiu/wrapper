@@ -65,7 +65,7 @@
             [monthButton markAsRed];
         }
         
-        if ([[User getInstance] hasClassOnYear:yearPanel.year month:month]) {
+        if ([[User getInstance] hasCourseOnYear:yearPanel.year month:month]) {
             [monthButton markAsGreen];
             
         }

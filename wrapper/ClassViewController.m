@@ -7,6 +7,8 @@
 //
 
 #import "ClassViewController.h"
+#import "User.h"
+#import "Course.h"
 
 @interface ClassViewController ()
 
@@ -16,7 +18,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    NSInteger num = 0;
+    
+    for (Course* course in [User getInstance].courses) {
+
+    }
+    
+    return num;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

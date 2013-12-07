@@ -22,8 +22,8 @@
 
 - (NSInteger)totalYearNumber;
 
-- (BOOL)hasClassOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
+- (BOOL)hasCourseOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 
-- (BOOL)hasClassOnYear:(NSInteger)year month:(NSInteger)month;
+- (BOOL)hasCourseOnYear:(NSInteger)year month:(NSInteger)month;
 
 @end

@@ -154,18 +154,18 @@
         }
         DayButton *dayButton = [[DayButton alloc] initWithYear:monthPanel.year month:monthPanel.month
                                                        weekday:weekday day:day originX:weekday*40-20 originY:week*40+60];
-            
+     
+        if (weekday == 1 || weekday == 7) {
+            [dayButton markAsGray];
+        }
+        
         if (monthPanel.month == [[Schedule getInstance].currentDate month] &&
             monthPanel.year == [[Schedule getInstance].currentDate year] &&
             day == [[Schedule getInstance].currentDate day]) {
             [dayButton markAsRed];
         }
         
-        if (weekday == 1 || weekday == 7) {
-            [dayButton markAsGray];
-        }
-        
-        if ([[User getInstance] hasClassOnYear:monthPanel.year month:monthPanel.month day:day]) {
+        if ([[User getInstance] hasCourseOnYear:monthPanel.year month:monthPanel.month day:day]) {
             [dayButton markAsGreen];
             
             [dayButton addTarget:self
