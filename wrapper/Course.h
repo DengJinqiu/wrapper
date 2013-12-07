@@ -11,14 +11,10 @@
 
 @interface Course : NSObject
 
-@property (nonatomic) NSDateComponents* startDate;
-
-@property (nonatomic) NSDateComponents* endDate;
-
-@property (nonatomic) NSString* className;
+@property (nonatomic) NSString* courseName;
 
 @property (nonatomic) NSString* schoolName;
 
-@property (nonatomic) CourseSchedule* schedule;
+@property (nonatomic) NSMutableArray* schedule;
 
 @end

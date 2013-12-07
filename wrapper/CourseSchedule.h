@@ -10,7 +10,7 @@
 
 @interface CourseSchedule : NSObject
 
-@property (nonatomic) NSDictionary* studentsAttendance;
+@property (nonatomic) NSMutableDictionary* studentsAttendance;
 
 @property (nonatomic) NSDateComponents* startTime;
 

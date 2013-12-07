@@ -12,6 +12,7 @@
 #import "DayButton.h"
 #import "MonthButton.h"
 #import "CalendarLabels.h"
+#import "User.h"
 
 @interface MonthlyViewController () <UIScrollViewDelegate>
 
@@ -56,8 +57,8 @@
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
-    NSInteger startYear = [Schedule getInstance].startYear;
-    NSInteger endYear = [Schedule getInstance].endYear;
+    NSInteger startYear = [User getInstance].startYear;
+    NSInteger endYear = [User getInstance].endYear;
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
     scrollView.backgroundColor = [UIColor whiteColor];
     
@@ -107,9 +108,9 @@
                      withVelocity:(CGPoint)velocity
               targetContentOffset:(inout CGPoint *)targetContentOffset
 {
-    int yearNumber = [[Schedule getInstance] totalYearNumber];
+    int yearNumber = [[User getInstance] totalYearNumber];
     int height = [self scrollViewContentHeight] / yearNumber;
-    int year = [Schedule getInstance].startYear + abs(targetContentOffset->y/height);
+    int year = [User getInstance].startYear + abs(targetContentOffset->y/height);
     [self updateLeftBarButtonItem:year];
 }
 
@@ -134,7 +135,7 @@
 
 - (void)today
 {
-    int numberMonth = [[Schedule getInstance] totalYearNumber] * 12;
+    int numberMonth = [[User getInstance] totalYearNumber] * 12;
     int y = ([[Schedule getInstance].currentDate month]-1) * abs([self scrollViewContentHeight] / numberMonth);
     
     [(UIScrollView*)self.view scrollRectToVisible:CGRectMake(0, y, self.view.frame.size.width, self.view.frame.size.height)
@@ -164,7 +165,7 @@
             [dayButton markAsGray];
         }
         
-        if ([[Schedule getInstance] containClassOnYear:monthPanel.year month:monthPanel.month day:day]) {
+        if ([[User getInstance] hasClassOnYear:monthPanel.year month:monthPanel.month day:day]) {
             [dayButton markAsGreen];
             
             [dayButton addTarget:self

@@ -26,36 +26,19 @@ static Schedule* _schedule;
     return _schedule;
 }
 
-- (NSDateComponents*) currentDate
+- (Date*) currentDate
 {
     NSDate *today = [NSDate date];
         
-    NSDateComponents *currentDate =
-        [self.calendar components:(kCFCalendarUnitYear | kCFCalendarUnitMonth |
-                                   kCFCalendarUnitDay | kCFCalendarUnitWeekday)
-                         fromDate:today];
+    Date *currentDate =
+    [[Date alloc] initWithDateComponents:
+     [self.calendar components:(kCFCalendarUnitYear | kCFCalendarUnitMonth |
+                                kCFCalendarUnitDay | kCFCalendarUnitWeekday)
+                      fromDate:today]];
     return currentDate;
 }
 
-- (BOOL)containClassOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
-{
-    if ([self containClassOnYear:year month:month] && day % 2 == 0) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-- (BOOL)containClassOnYear:(NSInteger)year month:(NSInteger)month
-{
-    if (month % 2 == 0) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-- (NSDateComponents*)year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
+- (Date*)year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
 {
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     [comps setDay:day];
@@ -63,10 +46,11 @@ static Schedule* _schedule;
     [comps setYear:year];
     NSDate *date = [self.calendar dateFromComponents:comps];
     
-    NSDateComponents *currentDate =
-    [self.calendar components:(kCFCalendarUnitYear | kCFCalendarUnitMonth |
-                               kCFCalendarUnitDay | kCFCalendarUnitWeekday)
-                     fromDate:date];
+    Date *currentDate =
+    [[Date alloc] initWithDateComponents:
+     [self.calendar components:(kCFCalendarUnitYear | kCFCalendarUnitMonth |
+                                kCFCalendarUnitDay | kCFCalendarUnitWeekday)
+                      fromDate:date]];
     return currentDate;
 }
 
@@ -76,21 +60,6 @@ static Schedule* _schedule;
         _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     }
     return _calendar;
-}
-
-- (NSInteger)startYear
-{
-    return 2013;
-}
-
-- (NSInteger)endYear
-{
-    return 2014;
-}
-
-- (NSInteger)totalYearNumber
-{
-    return [self endYear] - [self startYear] + 1;
 }
 
 @end

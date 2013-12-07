@@ -7,23 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Date.h"
 
 @interface Schedule : NSObject
 
 + (Schedule*)getInstance;
 
-- (NSDateComponents*)currentDate;
+- (Date*)currentDate;
 
-- (NSDateComponents*)year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
-
-- (NSInteger)startYear;
-
-- (NSInteger)endYear;
-
-- (NSInteger)totalYearNumber;
-
-- (BOOL)containClassOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
-
-- (BOOL)containClassOnYear:(NSInteger)year month:(NSInteger)month;
+- (Date*)year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 
 @end

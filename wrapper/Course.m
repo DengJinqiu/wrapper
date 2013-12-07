@@ -10,4 +10,12 @@
 
 @implementation Course
 
+- (NSMutableArray*)schedule
+{
+    if (_schedule) {
+        _schedule = [[NSMutableArray alloc] init];
+    }
+    return _schedule;
+}
+
 @end
