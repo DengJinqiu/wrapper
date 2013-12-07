@@ -18,10 +18,10 @@
     return _studentsAttendance;
 }
 
-- (Date*)startTime
+- (NSDateComponents*)startTime
 {
     if (_startTime) {
-        _startTime = [[Date alloc] init];
+        _startTime = [[NSDateComponents alloc] init];
     }
     return _startTime;
 }

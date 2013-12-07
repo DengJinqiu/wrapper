@@ -26,19 +26,18 @@ static Schedule* _schedule;
     return _schedule;
 }
 
-- (Date*) currentDate
+- (NSDateComponents*) currentDate
 {
     NSDate *today = [NSDate date];
         
-    Date *currentDate =
-    [[Date alloc] initWithDateComponents:
-     [self.calendar components:(kCFCalendarUnitYear | kCFCalendarUnitMonth |
-                                kCFCalendarUnitDay | kCFCalendarUnitWeekday)
-                      fromDate:today]];
+    NSDateComponents *currentDate =
+    [self.calendar components:(kCFCalendarUnitYear | kCFCalendarUnitMonth |
+                               kCFCalendarUnitDay | kCFCalendarUnitWeekday)
+                     fromDate:today];
     return currentDate;
 }
 
-- (Date*)year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
+- (NSDateComponents*)year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
 {
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     [comps setDay:day];
@@ -46,11 +45,10 @@ static Schedule* _schedule;
     [comps setYear:year];
     NSDate *date = [self.calendar dateFromComponents:comps];
     
-    Date *currentDate =
-    [[Date alloc] initWithDateComponents:
-     [self.calendar components:(kCFCalendarUnitYear | kCFCalendarUnitMonth |
-                                kCFCalendarUnitDay | kCFCalendarUnitWeekday)
-                      fromDate:date]];
+    NSDateComponents *currentDate =
+    [self.calendar components:(kCFCalendarUnitYear | kCFCalendarUnitMonth |
+                               kCFCalendarUnitDay | kCFCalendarUnitWeekday)
+                     fromDate:date];
     return currentDate;
 }
 

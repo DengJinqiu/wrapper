@@ -12,6 +12,10 @@
 
 @interface User ()
 
+@property (nonatomic) NSMutableSet* monthsContainClass;
+
+@property (nonatomic) NSMutableSet* daysContainClass;
+
 @end
 
 @implementation User
@@ -25,6 +29,22 @@ static User* _user;
         [_user hardCodeInit];
     }
     return _user;
+}
+
+- (NSMutableSet*)monthsContainClass
+{
+    if (!_monthsContainClass) {
+        _monthsContainClass = [[NSMutableSet alloc] init];
+    }
+    return _monthsContainClass;
+}
+
+- (NSMutableSet*)daysContainClass
+{
+    if (!_daysContainClass) {
+        _daysContainClass = [[NSMutableSet alloc] init];
+    }
+    return _daysContainClass;
 }
 
 - (NSMutableArray*)courses
@@ -52,12 +72,14 @@ static User* _user;
 
 - (BOOL)hasClassOnYear:(NSInteger)year month:(NSInteger)month
 {
-    return FALSE;
+    NSString* key = [NSString stringWithFormat:@"%d%d", year, month];
+    return [self.monthsContainClass containsObject:key];
 }
 
 - (BOOL)hasClassOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
 {
-    return FALSE;
+    NSString* key = [NSString stringWithFormat:@"%d%d%d", year, month, day];
+    return [self.daysContainClass containsObject:key];
 }
 
 #warning "hard code"
@@ -89,8 +111,8 @@ static User* _user;
     
     for (int i = 0; i < 180; i++) {
         day++;
-        Date* currentDate = [[Schedule getInstance] year:year month:month day:day];
-        if (currentDate.weekday == 1 || currentDate.weekday == 3) {
+        NSDateComponents* currentDate = [[Schedule getInstance] year:year month:month day:day];
+        if (currentDate.weekday == 2 || currentDate.weekday == 4) {
             CourseSchedule* courseSchedule = [[CourseSchedule alloc] init];
             courseSchedule.startTime = currentDate;
             courseSchedule.startTime.hour = 10;
@@ -100,8 +122,11 @@ static User* _user;
             [courseSchedule.studentsAttendance setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Phil Gold"];
             [courseSchedule.studentsAttendance setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Christopher Venghaus"];
             [course1.schedule addObject:courseSchedule];
+            [self.monthsContainClass addObject:[NSString stringWithFormat:@"%d%d", currentDate.year, currentDate.month]];
+            [self.daysContainClass addObject:[NSString stringWithFormat:@"%d%d%d", currentDate.year,
+                                              currentDate.month, currentDate.day]];
         }
-        if (currentDate.weekday == 2 || currentDate.weekday == 4) {
+        if (currentDate.weekday == 3 || currentDate.weekday == 5) {
             CourseSchedule* courseSchedule = [[CourseSchedule alloc] init];
             courseSchedule.startTime = currentDate;
             courseSchedule.startTime.hour = 13;
@@ -119,14 +144,20 @@ static User* _user;
             [courseSchedule.studentsAttendance setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Adam Lopez"];
             [courseSchedule.studentsAttendance setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"James Mayfield"];
             [course2.schedule addObject:courseSchedule];
+            [self.monthsContainClass addObject:[NSString stringWithFormat:@"%d%d", currentDate.year, currentDate.month]];
+            [self.daysContainClass addObject:[NSString stringWithFormat:@"%d%d%d", currentDate.year,
+                                              currentDate.month, currentDate.day]];
         }
-        if (currentDate.weekday == 5) {
+        if (currentDate.weekday == 6) {
             CourseSchedule* courseSchedule = [[CourseSchedule alloc] init];
             courseSchedule.startTime = currentDate;
             courseSchedule.startTime.hour = 16;
             courseSchedule.duration = 100;
             [courseSchedule.studentsAttendance setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Nicolas Padoy"];
             [course3.schedule addObject:courseSchedule];
+            [self.monthsContainClass addObject:[NSString stringWithFormat:@"%d%d", currentDate.year, currentDate.month]];
+            [self.daysContainClass addObject:[NSString stringWithFormat:@"%d%d%d", currentDate.year,
+                                              currentDate.month, currentDate.day]];
         }
     }
 

@@ -7,14 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Date.h"
 
 @interface Schedule : NSObject
 
 + (Schedule*)getInstance;
 
-- (Date*)currentDate;
+- (NSDateComponents*)currentDate;
 
-- (Date*)year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
+- (NSDateComponents*)year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 
 @end
