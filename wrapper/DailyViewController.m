@@ -79,6 +79,12 @@
 {
     Attendance* attendance = [[self.courseIndexOnCell objectAtIndex:[indexPath indexAtPosition:1]] attendanceOnYear:self.year month:self.month day:self.day];
     AttendanceViewController *attendanceViewController = [[AttendanceViewController alloc] initWithYear:self.year month:self.month weekday:self.weekday day:self.day attendance:attendance];
+    UIBarButtonItem *signOutButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:@"Course"
+                                     style:UIBarButtonItemStyleBordered
+                                    target:nil
+                                    action:nil];
+    [[self navigationItem] setBackBarButtonItem:signOutButtonItem];
     [self.navigationController pushViewController:attendanceViewController animated:YES];
 }
 
