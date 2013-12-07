@@ -25,18 +25,18 @@
 
 @property (nonatomic) NSInteger day;
 
-@property (nonatomic) NSMutableDictionary* cellToCourse;
+@property (nonatomic) NSMutableArray* courseIndexOnCell;
 
 @end
 
 @implementation DailyViewController
 
-- (NSMutableDictionary*)cellToCourse
+- (NSMutableArray*)courseIndexOnCell
 {
-    if (!_cellToCourse) {
-        _cellToCourse = [[NSMutableDictionary alloc] init];
+    if (!_courseIndexOnCell) {
+        _courseIndexOnCell = [[NSMutableArray alloc] init];
     }
-    return _cellToCourse;
+    return _courseIndexOnCell;
 }
 
 - (id)initWithYear:(NSInteger)year month:(NSInteger)month weekday:(NSInteger)weekday day:(NSInteger)day
@@ -57,6 +57,7 @@
     for (NSString* courseId in [User getInstance].courseIds) {
         if ([[Course getCourseById:courseId] attendanceOnYear:self.year month:self.month day:self.day]) {
             num += 1;
+            [self.courseIndexOnCell addObject:[Course getCourseById:courseId]];
         }
     }
     return num;
@@ -67,16 +68,12 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     
-    for (NSString* courseId in [Course courseIds] ) {
-        Course* course = [Course getCourseById:courseId];
-        [self.cellToCourse setValue:course forKey:[NSString stringWithFormat:@"%d", [indexPath indexAtPosition:1]]];
-    }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    Attendance* attendance = [[self.cellToCourse objectForKey:[NSString stringWithFormat:@"%d", [indexPath indexAtPosition:1]]] attendanceOnYear:self.year month:self.month day:self.day];
+    Attendance* attendance = [[self.courseIndexOnCell objectAtIndex:[indexPath indexAtPosition:1]] attendanceOnYear:self.year month:self.month day:self.day];
     AttendanceViewController *attendanceViewController = [[AttendanceViewController alloc] initWithYear:self.year month:self.month weekday:self.weekday day:self.day attendance:attendance];
     [self.navigationController pushViewController:attendanceViewController animated:YES];
 }
