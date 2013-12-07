@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Date.h"
 
 @interface CourseSchedule : NSObject
 
 @property (nonatomic) NSMutableDictionary* studentsAttendance;
 
-@property (nonatomic) NSDateComponents* startTime;
+@property (nonatomic) Date* startTime;
 
-@property (nonatomic) NSDateComponents* duration;
+@property (nonatomic) NSInteger duration;
 
 @end

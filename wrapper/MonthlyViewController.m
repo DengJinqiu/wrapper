@@ -144,7 +144,7 @@
 
 - (void)addDayButtonToMonthPanel:(MonthPanel*)monthPanel
 {
-    NSDateComponents *dayComponents;
+    Date *dayComponents;
     int weekday = [[[Schedule getInstance] year:monthPanel.year month:monthPanel.month day:1] weekday];
     int week = 0;
     for (NSInteger day = 1; ; day++) {

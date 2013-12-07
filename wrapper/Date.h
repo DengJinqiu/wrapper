@@ -10,18 +10,20 @@
 
 @interface Date : NSObject
 
+@property (nonatomic) NSInteger year;
+
+@property (nonatomic) NSInteger month;
+
+@property (nonatomic) NSInteger weekday;
+
+@property (nonatomic) NSInteger day;
+
+@property (nonatomic) NSInteger hour;
+
 - (id)initWithDateComponents:(NSDateComponents*)dateComponents;
 
 - (NSString*)yearMonthDescription;
 
 - (NSString*)yearMonthDayDescription;
-
-- (NSInteger)year;
-
-- (NSInteger)month;
-
-- (NSInteger)weekday;
-
-- (NSInteger)day;
 
 @end

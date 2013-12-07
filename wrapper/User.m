@@ -89,12 +89,12 @@ static User* _user;
     
     for (int i = 0; i < 180; i++) {
         day++;
-        NSDateComponents* currentDate = [[Schedule getInstance] year:year month:month day:day];
+        Date* currentDate = [[Schedule getInstance] year:year month:month day:day];
         if (currentDate.weekday == 1 || currentDate.weekday == 3) {
             CourseSchedule* courseSchedule = [[CourseSchedule alloc] init];
             courseSchedule.startTime = currentDate;
             courseSchedule.startTime.hour = 10;
-            courseSchedule.duration.hour = 40;
+            courseSchedule.duration = 40;
             [courseSchedule.studentsAttendance setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Steve Rifkin"];
             [courseSchedule.studentsAttendance setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Steve DeBlasio"];
             [courseSchedule.studentsAttendance setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Phil Gold"];
@@ -105,7 +105,7 @@ static User* _user;
             CourseSchedule* courseSchedule = [[CourseSchedule alloc] init];
             courseSchedule.startTime = currentDate;
             courseSchedule.startTime.hour = 13;
-            courseSchedule.duration.hour = 200;
+            courseSchedule.duration = 200;
             [courseSchedule.studentsAttendance setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Amihood Amir"];
             [courseSchedule.studentsAttendance setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Mitra Basu"];
             [courseSchedule.studentsAttendance setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Philippe Burlina"];
@@ -124,7 +124,7 @@ static User* _user;
             CourseSchedule* courseSchedule = [[CourseSchedule alloc] init];
             courseSchedule.startTime = currentDate;
             courseSchedule.startTime.hour = 16;
-            courseSchedule.duration.hour = 100;
+            courseSchedule.duration = 100;
             [courseSchedule.studentsAttendance setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Nicolas Padoy"];
             [course3.schedule addObject:courseSchedule];
         }
