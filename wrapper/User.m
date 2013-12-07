@@ -9,6 +9,7 @@
 #import "User.h"
 #import "Course.h"
 #import "Schedule.h"
+#import "Student.h"
 
 @implementation User
 
@@ -75,6 +76,11 @@ static User* _user;
     Course* course1 = [[Course alloc] initWithCourseName:@"Software Engineering" schoolName:@"Johns Hopkins" id:@"1"];
     Course* course2 = [[Course alloc] initWithCourseName:@"Compiler" schoolName:@"Baltimore University" id:@"2"];
     
+    Student* student1 = [[Student alloc] initWithFirstName:@"Steve" lastName:@"Rifkin" id:@"1"];
+    Student* student2 = [[Student alloc] initWithFirstName:@"Steve" lastName:@"DeBlasio" id:@"2"];
+    Student* student3 = [[Student alloc] initWithFirstName:@"Phil" lastName:@"Gold" id:@"3"];
+    Student* student4 = [[Student alloc] initWithFirstName:@"Christopher" lastName:@"Venghaus" id:@"4"];
+    
     [self.courseIds addObject:course1.id];
     [self.courseIds addObject:course2.id];
     
@@ -86,33 +92,16 @@ static User* _user;
         day++;
         NSDateComponents* currentDate = [[Schedule getInstance] year:year month:month day:day];
         if (currentDate.weekday == 2) {
-            NSMutableDictionary* students = [[NSMutableDictionary alloc] init];
-            [students setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Steve Rifkin"];
-            [students setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Steve DeBlasio"];
-            [students setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Phil Gold"];
-            [students setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Christopher Venghaus"];
-            
-            [course1 setScheduleeOnYear:currentDate.year month:currentDate.month
-                                    day:currentDate.day at:10 last:40 students:students];
+            Attendance* attendance = [course1 setScheduleeOnYear:currentDate.year month:currentDate.month
+                                                                   day:currentDate.day at:10 last:40];
+            [attendance markStudent:student1.id attendance:FALSE];
+            [attendance markStudent:student2.id attendance:FALSE];
         }
         if (currentDate.weekday == 2 || currentDate.weekday == 5) {
-            NSMutableDictionary* students = [[NSMutableDictionary alloc] init];
-            [students setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Amihood Amir"];
-            [students setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Mitra Basu"];
-            [students setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Philippe Burlina"];
-            [students setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Kenneth Church"];
-            [students setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Bharat Doshi"];
-            [students setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Gabor Fichtinger"];
-            [students setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Brian Haberman"];
-            [students setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Sheela Kosaraju"];
-            [students setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Harold Lehmann"];
-            [students setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Han Liu"];
-            [students setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"Adam Lopez"];
-            [students setValue:[[NSNumber alloc] initWithBool:FALSE] forKey:@"James Mayfield"];
-            
-            
-            [course2 setScheduleeOnYear:currentDate.year month:currentDate.month
-                                    day:currentDate.day at:13 last:200 students:students];
+            Attendance* attendance = [course2 setScheduleeOnYear:currentDate.year month:currentDate.month
+                                                                   day:currentDate.day at:13 last:200];
+            [attendance markStudent:student3.id attendance:FALSE];
+            [attendance markStudent:student4.id attendance:FALSE];
         }
     }
 }

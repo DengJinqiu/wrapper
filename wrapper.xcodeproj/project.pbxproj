@@ -30,13 +30,13 @@
 		A564F4D1183D98F800785E9E /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A564F4D0183D98F800785E9E /* SigninViewController.m */; };
 		A564F4D6183DA55F00785E9E /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = A564F4D5183DA55F00785E9E /* Schedule.m */; };
 		FE90AAC118527884001AD462 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90AAC018527884001AD462 /* Course.m */; };
-		FE90AAC41852806E001AD462 /* CourseAttendance.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90AAC31852806E001AD462 /* CourseAttendance.m */; };
+		FE90AAC41852806E001AD462 /* Attendance.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90AAC31852806E001AD462 /* Attendance.m */; };
 		FE90AAC71852834D001AD462 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90AAC61852834D001AD462 /* User.m */; };
 		FE90AACD1852F412001AD462 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90AACC1852F412001AD462 /* Student.m */; };
 		FEEFB3F718501C2B00F5F182 /* CalendarPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEFB3F618501C2B00F5F182 /* CalendarPanel.m */; };
 		FEEFB3FA18501C3900F5F182 /* CalendarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEFB3F918501C3900F5F182 /* CalendarButton.m */; };
 		FEEFB3FF18501ED700F5F182 /* CalendarLabels.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEFB3FE18501ED700F5F182 /* CalendarLabels.m */; };
-		FEEFB408185078C600F5F182 /* ClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEFB407185078C600F5F182 /* ClassViewController.m */; };
+		FEEFB408185078C600F5F182 /* AttendanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEFB407185078C600F5F182 /* AttendanceViewController.m */; };
 		FEEFB40B1850837D00F5F182 /* TitleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEFB40A1850837D00F5F182 /* TitleTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -88,8 +88,8 @@
 		A564F4D5183DA55F00785E9E /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		FE90AABF18527884001AD462 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
 		FE90AAC018527884001AD462 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
-		FE90AAC21852806E001AD462 /* CourseAttendance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseAttendance.h; sourceTree = "<group>"; };
-		FE90AAC31852806E001AD462 /* CourseAttendance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseAttendance.m; sourceTree = "<group>"; };
+		FE90AAC21852806E001AD462 /* Attendance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attendance.h; sourceTree = "<group>"; };
+		FE90AAC31852806E001AD462 /* Attendance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attendance.m; sourceTree = "<group>"; };
 		FE90AAC51852834D001AD462 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		FE90AAC61852834D001AD462 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		FE90AACB1852F412001AD462 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
@@ -100,8 +100,8 @@
 		FEEFB3F918501C3900F5F182 /* CalendarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarButton.m; sourceTree = "<group>"; };
 		FEEFB3FD18501ED700F5F182 /* CalendarLabels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarLabels.h; sourceTree = "<group>"; };
 		FEEFB3FE18501ED700F5F182 /* CalendarLabels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarLabels.m; sourceTree = "<group>"; };
-		FEEFB406185078C600F5F182 /* ClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewController.h; sourceTree = "<group>"; };
-		FEEFB407185078C600F5F182 /* ClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewController.m; sourceTree = "<group>"; };
+		FEEFB406185078C600F5F182 /* AttendanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttendanceViewController.h; sourceTree = "<group>"; };
+		FEEFB407185078C600F5F182 /* AttendanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttendanceViewController.m; sourceTree = "<group>"; };
 		FEEFB4091850837D00F5F182 /* TitleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleTableViewController.h; sourceTree = "<group>"; };
 		FEEFB40A1850837D00F5F182 /* TitleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -220,8 +220,8 @@
 			children = (
 				FEEFB4091850837D00F5F182 /* TitleTableViewController.h */,
 				FEEFB40A1850837D00F5F182 /* TitleTableViewController.m */,
-				FEEFB406185078C600F5F182 /* ClassViewController.h */,
-				FEEFB407185078C600F5F182 /* ClassViewController.m */,
+				FEEFB406185078C600F5F182 /* AttendanceViewController.h */,
+				FEEFB407185078C600F5F182 /* AttendanceViewController.m */,
 				6597E349183F516F00849302 /* DailyViewController.h */,
 				6597E34A183F516F00849302 /* DailyViewController.m */,
 				A564F4CC183D98AA00785E9E /* MonthlyViewController.h */,
@@ -243,8 +243,8 @@
 				FE90AAC61852834D001AD462 /* User.m */,
 				FE90AABF18527884001AD462 /* Course.h */,
 				FE90AAC018527884001AD462 /* Course.m */,
-				FE90AAC21852806E001AD462 /* CourseAttendance.h */,
-				FE90AAC31852806E001AD462 /* CourseAttendance.m */,
+				FE90AAC21852806E001AD462 /* Attendance.h */,
+				FE90AAC31852806E001AD462 /* Attendance.m */,
 				FE90AACB1852F412001AD462 /* Student.h */,
 				FE90AACC1852F412001AD462 /* Student.m */,
 			);
@@ -376,7 +376,7 @@
 				FEEFB3F718501C2B00F5F182 /* CalendarPanel.m in Sources */,
 				653642F4183EF61D0057D41A /* DayButton.m in Sources */,
 				659D9CD9183DD5D8008EBA12 /* YearPanel.m in Sources */,
-				FE90AAC41852806E001AD462 /* CourseAttendance.m in Sources */,
+				FE90AAC41852806E001AD462 /* Attendance.m in Sources */,
 				FEEFB3FA18501C3900F5F182 /* CalendarButton.m in Sources */,
 				FE90AAC118527884001AD462 /* Course.m in Sources */,
 				FEEFB3FF18501ED700F5F182 /* CalendarLabels.m in Sources */,
@@ -387,7 +387,7 @@
 				653642ED183EB36F0057D41A /* MonthPanel.m in Sources */,
 				6597E34B183F516F00849302 /* DailyViewController.m in Sources */,
 				A564F4D6183DA55F00785E9E /* Schedule.m in Sources */,
-				FEEFB408185078C600F5F182 /* ClassViewController.m in Sources */,
+				FEEFB408185078C600F5F182 /* AttendanceViewController.m in Sources */,
 				A564F4CE183D98AA00785E9E /* MonthlyViewController.m in Sources */,
 				FE90AAC71852834D001AD462 /* User.m in Sources */,
 				659D9CD2183DBFF6008EBA12 /* YearlyViewController.m in Sources */,

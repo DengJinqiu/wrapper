@@ -17,8 +17,24 @@
         self.firstName = firstName;
         self.lastName = lastName;
         self.id = id;
+        if (!_students) {
+            _students = [[NSMutableDictionary alloc] init];
+            [_students setValue:self forKey:id];
+        }
     }
     return self;
+}
+
+static NSMutableDictionary* _students;
+
++ (Student*)getStudentById:(NSString*)id
+{
+    return [_students objectForKey:id];
+}
+
++ (NSMutableDictionary*)students
+{
+    return _students;
 }
 
 @end

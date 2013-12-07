@@ -18,4 +18,8 @@
 
 - (id)initWithFirstName:(NSString*)firstName lastName:(NSString*)lastName id:(NSString*)id;
 
++ (Student*)getStudentById:(NSString*)id;
+
++ (NSMutableDictionary*)students;
+
 @end

@@ -11,7 +11,7 @@
 #import "MonthButton.h"
 #import "DayButton.h"
 #import "CalendarLabels.h"
-#import "ClassViewController.h"
+#import "AttendanceViewController.h"
 #import "Course.h"
 #import "User.h"
 
@@ -61,8 +61,8 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    ClassViewController *classViewController = [[ClassViewController alloc] init];
-    [self.navigationController pushViewController:classViewController animated:YES];
+    AttendanceViewController *attendanceViewController = [[AttendanceViewController alloc] init];
+    [self.navigationController pushViewController:attendanceViewController animated:YES];
 }
 
 - (NSString*)tableTitle

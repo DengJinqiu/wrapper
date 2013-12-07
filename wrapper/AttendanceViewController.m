@@ -6,17 +6,38 @@
 //  Copyright (c) 2013 MusicKids. All rights reserved.
 //
 
-#import "ClassViewController.h"
+#import "AttendanceViewController.h"
 #import "User.h"
 #import "Course.h"
 
-@interface ClassViewController ()
+@interface AttendanceViewController ()
 
-@property (nonatomic) NSInteger courseId;
+@property (nonatomic) NSInteger year;
+
+@property (nonatomic) NSInteger month;
+
+@property (nonatomic) NSInteger weekday;
+
+@property (nonatomic) NSInteger day;
+
+@property (nonatomic) Attendance* attendance;
 
 @end
 
-@implementation ClassViewController
+@implementation AttendanceViewController
+
+- (id)initWithDay:(NSInteger)day weekday:(NSInteger)weekday month:(NSInteger)month year:(NSInteger)year attendance:(Attendance *)attendance
+{
+    self = [super init];
+    if (self) {
+        self.year = year;
+        self.month = month;
+        self.weekday = weekday;
+        self.day = day;
+        self.attendance = attendance;
+    }
+    return self;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

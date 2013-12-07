@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CourseAttendance.h"
+#import "Attendance.h"
 
 @interface Course : NSObject
 
@@ -21,10 +21,10 @@
 
 - (BOOL)hasScheduleOnYear:(NSInteger)year month:(NSInteger)month;
 
-- (CourseAttendance*)scheduleOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
+- (Attendance*)scheduleOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 
-- (void)setScheduleeOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
-                        at:(NSInteger)startTime last:(NSInteger)duration students:(NSMutableDictionary*)students;
+- (Attendance*)setScheduleeOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
+                        at:(NSInteger)startTime last:(NSInteger)duration;
 
 + (Course*)getCourseById:(NSString*)id;
 
