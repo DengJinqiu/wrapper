@@ -10,6 +10,7 @@
 #import "Course.h"
 #import "Schedule.h"
 #import "Student.h"
+#import "Attendance.h"
 
 @implementation User
 

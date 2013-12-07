@@ -8,6 +8,7 @@
 
 #import "Course.h"
 #import "Student.h"
+#import "Attendance.h"
 
 @interface Course ()
 
@@ -70,7 +71,7 @@ static NSMutableDictionary* _courses;
 - (Attendance*)setAttendanceOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
                                 at:(NSInteger)startTime last:(NSInteger)duration
 {
-    Attendance* attendance = [[Attendance alloc] initWithStartTime:startTime duration:duration];
+    Attendance* attendance = [[Attendance alloc] initWithStartTime:startTime duration:duration course:self];
     [self.schedule setObject:attendance
                       forKey:[NSString stringWithFormat:@"%d,%d,%d", year, month, day]];
     [self.monthsContainCourses addObject:[NSString stringWithFormat:@"%d,%d", year, month]];

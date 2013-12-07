@@ -20,6 +20,6 @@
 
 + (Student*)getStudentById:(NSString*)id;
 
-+ (NSMutableDictionary*)students;
++ (NSMutableDictionary*)studentIds;
 
 @end

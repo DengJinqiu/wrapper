@@ -9,6 +9,7 @@
 #import "AttendanceViewController.h"
 #import "User.h"
 #import "Course.h"
+#import "Student.h"
 
 @interface AttendanceViewController ()
 
@@ -21,6 +22,8 @@
 @property (nonatomic) NSInteger day;
 
 @property (nonatomic) Attendance* attendance;
+
+@property (nonatomic) NSMutableArray* students;
 
 @end
 
@@ -39,11 +42,20 @@
     return self;
 }
 
+- (NSMutableArray*)students
+{
+    if (!_students) {
+        _students = [[NSMutableArray alloc] init];
+    }
+    return _students;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger num = 0;
     
     for (NSString* studentId in self.attendance.studentAttendance) {
+        [self.students addObject:[Student getStudentById:studentId]];
         num++;
     }
     
@@ -54,12 +66,15 @@
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    
+    Student* student = [self.students objectAtIndex:[indexPath indexAtPosition:1]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [student firstName], [student lastName]];
     return cell;
 }
 
 - (NSString*)tableTitle
 {
-    return @"class name";
+    return [NSString stringWithFormat:@"%@, %@", self.attendance.course.courseName, self.attendance.course.schoolName];
 }
 
 @end

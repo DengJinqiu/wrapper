@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Attendance.h"
+
+@class Attendance;
 
 @interface Course : NSObject
 

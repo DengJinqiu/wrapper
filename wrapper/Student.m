@@ -19,8 +19,8 @@
         self.id = id;
         if (!_students) {
             _students = [[NSMutableDictionary alloc] init];
-            [_students setValue:self forKey:id];
         }
+        [_students setValue:self forKey:id];
     }
     return self;
 }
@@ -32,7 +32,7 @@ static NSMutableDictionary* _students;
     return [_students objectForKey:id];
 }
 
-+ (NSMutableDictionary*)students
++ (NSMutableDictionary*)studentIds
 {
     return _students;
 }

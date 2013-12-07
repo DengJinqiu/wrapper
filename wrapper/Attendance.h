@@ -7,16 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Course;
 
 @interface Attendance : NSObject
 
 @property (nonatomic) NSMutableDictionary* studentAttendance;
 
+@property (weak, nonatomic) Course* course;
+
 @property (nonatomic, readonly) NSInteger startTime; // hour
 
 @property (nonatomic, readonly) NSInteger duration; // minute
 
-- (id)initWithStartTime:(NSInteger)startTime duration:(NSInteger)duration;
+- (id)initWithStartTime:(NSInteger)startTime duration:(NSInteger)duration course:(Course*)course;
 
 - (void)markStudent:(NSString*)id attendance:(BOOL)attendance;
 

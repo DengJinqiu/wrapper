@@ -67,6 +67,10 @@
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+
+    Course* course = [self.courseIndexOnCell objectAtIndex:[indexPath indexAtPosition:1]];
+    cell.textLabel.text = course.courseName;
+    cell.detailTextLabel.text = course.schoolName;
     
     return cell;
 }

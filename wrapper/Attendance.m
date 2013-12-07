@@ -10,12 +10,13 @@
 
 @implementation Attendance
 
-- (id)initWithStartTime:(NSInteger)startTime duration:(NSInteger)duration
+- (id)initWithStartTime:(NSInteger)startTime duration:(NSInteger)duration course:(Course*)course;
 {
     self = [super init];
     if (self) {
         _startTime = startTime;
         _duration = duration;
+        _course = course;
     }
     return self;
 }
