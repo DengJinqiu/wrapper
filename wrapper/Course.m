@@ -7,6 +7,7 @@
 //
 
 #import "Course.h"
+#import "Student.h"
 
 @interface Course ()
 
@@ -17,6 +18,33 @@
 @end
 
 @implementation Course
+
+static NSMutableDictionary* _courses;
+
++ (NSMutableDictionary*)courses
+{
+    return _courses;
+}
+
+- (id)initWithCourseName:(NSString *)courseName schoolName:(NSString *)schoolName id:(NSString*)id
+{
+    self = [self init];
+    if (self) {
+        self.courseName = courseName;
+        self.schoolName = schoolName;
+        self.id = id;
+        if (!_courses) {
+            _courses = [[NSMutableDictionary alloc] init];
+        }
+        [_courses setValue:self forKey:id];
+    }
+    return self;
+}
+
++ (Course*)getCourseById:(NSString *)id
+{
+    return [_courses objectForKey:id];
+}
 
 - (NSMutableSet*)monthsContainCourses
 {
@@ -39,11 +67,17 @@
     return [self.monthsContainCourses containsObject:[NSString stringWithFormat:@"%d,%d", year, month]];
 }
 
-- (void)setScheduleeOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day at:(NSInteger)startTime last:(NSInteger)duration students:(NSMutableDictionary*)students
+- (void)setScheduleeOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
+                        at:(NSInteger)startTime last:(NSInteger)duration students:(NSMutableDictionary*)students
 {
     [self.schedule setObject:[[CourseAttendance alloc] initWithStartTime:startTime duration:duration students:students]
                       forKey:[NSString stringWithFormat:@"%d,%d,%d", year, month, day]];
     [self.monthsContainCourses addObject:[NSString stringWithFormat:@"%d,%d", year, month]];
+}
+
+- (void)addStudent:(Student*)student
+{
+    [self.schedule setValue:student forKey:student.id];
 }
 
 - (CourseAttendance*)scheduleOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;

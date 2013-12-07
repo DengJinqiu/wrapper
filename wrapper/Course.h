@@ -11,9 +11,13 @@
 
 @interface Course : NSObject
 
+@property (nonatomic) NSString* id;
+
 @property (nonatomic) NSString* courseName;
 
 @property (nonatomic) NSString* schoolName;
+
+- (id)initWithCourseName:(NSString*)courseName schoolName:(NSString*)schoolName id:(NSString*)id;
 
 - (BOOL)hasScheduleOnYear:(NSInteger)year month:(NSInteger)month;
 
@@ -21,5 +25,9 @@
 
 - (void)setScheduleeOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
                         at:(NSInteger)startTime last:(NSInteger)duration students:(NSMutableDictionary*)students;
+
++ (Course*)getCourseById:(NSString*)id;
+
++ (NSMutableDictionary*)courses;
 
 @end

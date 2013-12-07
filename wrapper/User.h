@@ -14,7 +14,7 @@
 
 @property (nonatomic) NSString* name;
 
-@property (nonatomic) NSMutableArray* courses;
+@property (nonatomic) NSMutableSet* courseIds;
 
 - (NSInteger)startYear;
 

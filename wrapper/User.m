@@ -23,12 +23,12 @@ static User* _user;
     return _user;
 }
 
-- (NSMutableArray*)courses
+- (NSMutableSet*)courseIds
 {
-    if (!_courses) {
-        _courses = [[NSMutableArray alloc] init];
+    if (!_courseIds) {
+        _courseIds = [[NSMutableSet alloc] init];
     }
-    return _courses;
+    return _courseIds;
 }
 
 - (NSInteger)startYear
@@ -48,8 +48,8 @@ static User* _user;
 
 - (BOOL)hasCourseOnYear:(NSInteger)year month:(NSInteger)month
 {
-    for (Course* course in self.courses) {
-        if ([course hasScheduleOnYear:year month:month]) {
+    for (NSString* courseId in self.courseIds) {
+        if ([[Course getCourseById:courseId] hasScheduleOnYear:year month:month]) {
             return TRUE;
         }
     }
@@ -58,8 +58,8 @@ static User* _user;
 
 - (BOOL)hasCourseOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
 {
-    for (Course* course in self.courses) {
-        if ([course scheduleOnYear:year month:month day:day]) {
+    for (NSString* courseId in self.courseIds) {
+        if ([[Course getCourseById:courseId] scheduleOnYear:year month:month day:day]) {
             return TRUE;
         }
     }
@@ -72,17 +72,11 @@ static User* _user;
 {
     self.name = @"Jinqiu Deng";
     
-    Course* course1 = [[Course alloc] init];
-    Course* course2 = [[Course alloc] init];
+    Course* course1 = [[Course alloc] initWithCourseName:@"Software Engineering" schoolName:@"Johns Hopkins" id:@"1"];
+    Course* course2 = [[Course alloc] initWithCourseName:@"Compiler" schoolName:@"Baltimore University" id:@"2"];
     
-    [self.courses addObject:course1];
-    [self.courses addObject:course2];
-    
-    course1.schoolName = @"Johns Hopkins";
-    course1.courseName = @"Software Engineering";
-    
-    course2.schoolName = @"Baltimore University";
-    course2.courseName = @"Compiler";
+    [self.courseIds addObject:course1.id];
+    [self.courseIds addObject:course2.id];
     
     NSInteger year = 2013;
     NSInteger month = 9;

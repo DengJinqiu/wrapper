@@ -12,6 +12,8 @@
 
 @interface ClassViewController ()
 
+@property (nonatomic) NSInteger courseId;
+
 @end
 
 @implementation ClassViewController
@@ -20,7 +22,7 @@
 {
     NSInteger num = 0;
     
-    for (Course* course in [User getInstance].courses) {
+    for (Course* course in [User getInstance].courseIds) {
 
     }
     

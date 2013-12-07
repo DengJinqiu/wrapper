@@ -12,6 +12,8 @@
 #import "DayButton.h"
 #import "CalendarLabels.h"
 #import "ClassViewController.h"
+#import "Course.h"
+#import "User.h"
 
 @interface DailyViewController () 
 
@@ -41,7 +43,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    int num = 0;
+    for (NSString* courseId in [User getInstance].courseIds) {
+        if ([[Course getCourseById:courseId] scheduleOnYear:self.year month:self.month day:self.day]) {
+            num += 1;
+        }
+    }
+    return num;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
