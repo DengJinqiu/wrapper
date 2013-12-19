@@ -22,7 +22,9 @@
     [[self navigationItem] setBackBarButtonItem:backButtonItem];
     [self.navigationController pushViewController:yearlyViewController animated:NO];
     
-    MonthlyViewController *monthlyViewController = [[MonthlyViewController alloc] init];
+    MonthlyViewController *monthlyViewController =
+    [[MonthlyViewController alloc] initWithStartYear:[Schedule getInstance].currentDate.year
+                                          startMonth:[Schedule getInstance].currentDate.month];
     
     [self.navigationController pushViewController:monthlyViewController animated:YES];
 }

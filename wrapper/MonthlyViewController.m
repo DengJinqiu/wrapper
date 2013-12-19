@@ -16,38 +16,26 @@
 
 @interface MonthlyViewController () <UIScrollViewDelegate>
 
-@property (strong, nonatomic, readwrite) NSMutableArray *monthPanels;
+@property (nonatomic) NSMutableArray *monthPanels;
 
-@property (strong, nonatomic, readwrite) NSNumber *startYear;
+@property (nonatomic) NSInteger startYear;
 
-@property (strong, nonatomic, readwrite) NSNumber *startMonth;
+@property (nonatomic) NSInteger startMonth;
 
-@property (weak, nonatomic, readwrite) UIViewController* viewControllerBelow;
+@property (weak, nonatomic) UIViewController* viewControllerBelow;
 
 @end
 
 @implementation MonthlyViewController
 
-- (void)setStartYear:(NSInteger)startYear startMonth:(NSInteger)startMonth
+- (id)initWithStartYear:(NSInteger)startYear startMonth:(NSInteger)startMonth
 {
-    self.startYear = [NSNumber numberWithInt:startYear];
-    self.startMonth = [NSNumber numberWithInt:startMonth];
-}
-
-- (NSNumber*)startYear
-{
-    if (!_startYear) {
-        _startYear = [NSNumber numberWithInt:[Schedule getInstance].currentDate.year];
+    self = [self init];
+    if (self != nil) {
+        self.startYear = startYear;
+        self.startMonth = startMonth;
     }
-    return _startYear;
-}
-
-- (NSNumber*)startMonth
-{
-    if (!_startMonth) {
-        _startMonth = [NSNumber numberWithInt:[Schedule getInstance].currentDate.month];
-    }
-    return _startMonth;
+    return self;
 }
 
 - (void)loadView
@@ -77,7 +65,7 @@
             scrollViewHeight += monthPanel.frame.size.height;
             index++;
             
-            if (i == [self.startYear intValue] && j == [self.startMonth intValue]) {
+            if (i == self.startYear && j == self.startMonth) {
                 pointScrollTo = monthPanel.frame.origin;
             }
         }
@@ -90,7 +78,7 @@
                    screenRect.size.width, screenRect.size.height)
                            animated:NO];
     
-    [self updateLeftBarButtonItem:[self.startYear intValue]];
+    [self updateLeftBarButtonItem:self.startYear];
     
     UIBarButtonItem *today =
     [[UIBarButtonItem alloc] initWithTitle:@"Today"
@@ -108,9 +96,9 @@
                      withVelocity:(CGPoint)velocity
               targetContentOffset:(inout CGPoint *)targetContentOffset
 {
-    int yearNumber = [[User getInstance] totalYearNumber];
-    int height = [self scrollViewContentHeight] / yearNumber;
-    int year = [User getInstance].startYear + abs(targetContentOffset->y/height);
+    NSInteger yearNumber = [[User getInstance] totalYearNumber];
+    NSInteger height = [self scrollViewContentHeight] / yearNumber;
+    NSInteger year = [User getInstance].startYear + abs(targetContentOffset->y/height);
     [self updateLeftBarButtonItem:year];
 }
 
@@ -121,7 +109,7 @@
 
 - (void)updateLeftBarButtonItem:(NSInteger)year
 {
-    NSString *yearString = [NSString stringWithFormat:@"%d", year];
+    NSString *yearString = [NSString stringWithFormat:@"%ld", (long)year];
     if (![self.viewControllerBelow.navigationItem.backBarButtonItem.title isEqualToString:yearString]) {
         UIBarButtonItem *backButtonItem =
             [[UIBarButtonItem alloc] initWithTitle:yearString
@@ -135,8 +123,8 @@
 
 - (void)today
 {
-    int numberMonth = [[User getInstance] totalYearNumber] * 12;
-    int y = ([[Schedule getInstance].currentDate month]-1) * abs([self scrollViewContentHeight] / numberMonth);
+    NSInteger numberMonth = [[User getInstance] totalYearNumber] * 12;
+    NSInteger y = ([[Schedule getInstance].currentDate month]-1) * abs([self scrollViewContentHeight] / numberMonth);
     
     [(UIScrollView*)self.view scrollRectToVisible:CGRectMake(0, y, self.view.frame.size.width, self.view.frame.size.height)
                                          animated:YES];
@@ -145,8 +133,8 @@
 - (void)addDayButtonToMonthPanel:(MonthPanel*)monthPanel
 {
     NSDateComponents *dayComponents;
-    int weekday = [[[Schedule getInstance] year:monthPanel.year month:monthPanel.month day:1] weekday];
-    int week = 0;
+    NSInteger weekday = [[[Schedule getInstance] year:monthPanel.year month:monthPanel.month day:1] weekday];
+    NSInteger week = 0;
     for (NSInteger day = 1; ; day++) {
         dayComponents  = [[Schedule getInstance] year:monthPanel.year month:monthPanel.month day:day];
         if (dayComponents.month != monthPanel.month) {

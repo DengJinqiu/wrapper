@@ -90,10 +90,10 @@
 
 - (NSString*)tableTitle
 {
-    return [NSString stringWithFormat:@"%@ %@ %d, %d",
+    return [NSString stringWithFormat:@"%@ %@ %ld, %ld",
             [CalendarLabels weekdayFullNames][self.weekday],
             [CalendarLabels monthFullNames][self.month],
-            self.day, self.year];
+            (long)self.day, (long)self.year];
 }
 
 @end

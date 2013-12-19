@@ -65,7 +65,7 @@ static NSMutableDictionary* _courses;
 
 - (BOOL)hasScheduleOnYear:(NSInteger)year month:(NSInteger)month
 {
-    return [self.monthsContainCourses containsObject:[NSString stringWithFormat:@"%d,%d", year, month]];
+    return [self.monthsContainCourses containsObject:[NSString stringWithFormat:@"%ld,%ld", (long)year, (long)month]];
 }
 
 - (Attendance*)setAttendanceOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
@@ -73,15 +73,15 @@ static NSMutableDictionary* _courses;
 {
     Attendance* attendance = [[Attendance alloc] initWithStartTime:startTime duration:duration course:self];
     [self.schedule setObject:attendance
-                      forKey:[NSString stringWithFormat:@"%d,%d,%d", year, month, day]];
-    [self.monthsContainCourses addObject:[NSString stringWithFormat:@"%d,%d", year, month]];
+                      forKey:[NSString stringWithFormat:@"%ld,%ld,%ld", (long)year, (long)month, (long)day]];
+    [self.monthsContainCourses addObject:[NSString stringWithFormat:@"%ld,%ld", (long)year, (long)month]];
     
     return attendance;
 }
 
 - (Attendance*)attendanceOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 {
-    return [self.schedule objectForKey:[NSString stringWithFormat:@"%d,%d,%d", year, month, day]];
+    return [self.schedule objectForKey:[NSString stringWithFormat:@"%ld,%ld,%ld", (long)year, (long)month, (long)day]];
 }
 
 @end
