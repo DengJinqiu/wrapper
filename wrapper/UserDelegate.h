@@ -10,6 +10,8 @@
 
 @protocol UserDelegate <NSObject>
 
--(void)createUserSuccessfully;
+- (void)createUserSuccess;
+
+- (void)createUserFailed;
 
 @end

@@ -23,11 +23,10 @@ static User* _user;
     [[HTTPManager getInstance] GET:@"users/verify" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         _user = [[User alloc] init];
         _user.id = (long)[(NSDictionary*)responseObject objectForKey:@"id"];
-        NSLog(@"true");
-        [delegate createUserSuccessfully];
+        [delegate createUserSuccess];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         _user = nil;
-        NSLog(@"false");
+        [delegate createUserFailed];
     }];
 }
 
