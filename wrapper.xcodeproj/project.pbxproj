@@ -251,6 +251,7 @@
 				A564F4D5183DA55F00785E9E /* Schedule.m */,
 				FE90AAC51852834D001AD462 /* User.h */,
 				FE90AAC61852834D001AD462 /* User.m */,
+				FE70BC9618641467009B0FC2 /* UserDelegate.h */,
 				FE90AABF18527884001AD462 /* Course.h */,
 				FE90AAC018527884001AD462 /* Course.m */,
 				FE90AAC21852806E001AD462 /* Attendance.h */,
@@ -259,7 +260,6 @@
 				FE90AACC1852F412001AD462 /* Student.m */,
 				FE70BC9318641280009B0FC2 /* HTTPManager.h */,
 				FE70BC9418641280009B0FC2 /* HTTPManager.m */,
-				FE70BC9618641467009B0FC2 /* UserDelegate.h */,
 			);
 			name = model;
 			sourceTree = "<group>";

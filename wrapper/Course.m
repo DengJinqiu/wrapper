@@ -32,19 +32,16 @@ static NSMutableDictionary* _courses;
     _courses = nil;
 }
 
-- (id)initWithCourseName:(NSString *)courseName schoolName:(NSString *)schoolName courseId:(NSString*)courseId
++ (void)addWithCourseName:(NSString*)courseName schoolName:(NSString*)schoolName courseId:(NSString*)courseId
 {
-    self = [self init];
-    if (self) {
-        self.courseName = courseName;
-        self.schoolName = schoolName;
-        self.courseId = courseId;
-        if (!_courses) {
-            _courses = [[NSMutableDictionary alloc] init];
-        }
-        [_courses setValue:self forKey:courseId];
+    Course *course = [[Course alloc] init];
+    course.courseName = courseName;
+    course.schoolName = schoolName;
+    course.courseId = courseId;
+    if (!_courses) {
+        _courses = [[NSMutableDictionary alloc] init];
     }
-    return self;
+    [_courses setValue:course forKey:courseId];
 }
 
 + (Course*)getCourseById:(NSString *)id

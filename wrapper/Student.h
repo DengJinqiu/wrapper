@@ -16,7 +16,7 @@
 
 @property (nonatomic) NSString* lastName;
 
-- (id)initWithFirstName:(NSString*)firstName lastName:(NSString*)lastName studentId:(NSString*)id;
++ (void)addWithFirstName:(NSString*)firstName lastName:(NSString*)lastName studentId:(NSString*)studentId;
 
 + (Student*)getStudentById:(NSString*)id;
 

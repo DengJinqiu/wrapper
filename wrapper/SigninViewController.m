@@ -96,8 +96,9 @@
 
 - (void)loadingDataSuccess
 {
-    NSLog(@"loaddingDataSuccess");
     self.wrongEmailAndPassword.text = @"";
+    self.email.text = @"";
+    self.password.text = @"";
     self.signIn.enabled = YES;
     
     YearlyViewController *yearlyViewController = [[YearlyViewController alloc] init];

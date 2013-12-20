@@ -18,7 +18,7 @@
 
 @property (nonatomic) NSString* schoolName;
 
-- (id)initWithCourseName:(NSString*)courseName schoolName:(NSString*)schoolName courseId:(NSString*)courseId;
++ (void)addWithCourseName:(NSString*)courseName schoolName:(NSString*)schoolName courseId:(NSString*)courseId;
 
 - (BOOL)hasScheduleOnYear:(NSInteger)year month:(NSInteger)month;
 
