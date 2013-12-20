@@ -10,8 +10,16 @@
 
 @protocol UserDelegate <NSObject>
 
-- (void)createUserSuccess;
+- (void)creatingUserStart;
 
-- (void)createUserFailed;
+- (void)creatingUserSuccess;
+
+- (void)creatingUserFailed;
+
+- (void)loadingDataStart;
+
+- (void)loadingDataSuccess;
+
+- (void)loadingDataFailed;
 
 @end

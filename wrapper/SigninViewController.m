@@ -10,14 +10,17 @@
 #import "YearlyViewController.h"
 #import "MonthlyViewController.h"
 #import "User.h"
+#import "Course.h"
 
-@interface SigninViewController () <UITextFieldDelegate>
+@interface SigninViewController () <UITextFieldDelegate, UserDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *email;
 
 @property (weak, nonatomic) IBOutlet UITextField *password;
 
 @property (weak, nonatomic) IBOutlet UILabel *wrongEmailAndPassword;
+
+@property (weak, nonatomic) IBOutlet UIButton *signIn;
 
 @end
 
@@ -53,14 +56,49 @@
 }
 
 - (IBAction)signIn:(UIButton *)sender {
+    [self creatingUserStart];
+
     [User createInstanceWithEmail:self.email.text
                          password:self.password.text
                          delegate:self];
 }
 
-- (void)createUserSuccess
+- (void)creatingUserStart
 {
+    self.wrongEmailAndPassword.text = @"Verifying ...";
+    self.wrongEmailAndPassword.textColor = [UIColor greenColor];
+    self.signIn.enabled = NO;
+}
+
+- (void)creatingUserSuccess
+{
+    self.wrongEmailAndPassword.text = @"Loading ...";
+    self.wrongEmailAndPassword.textColor = [UIColor greenColor];
+    self.signIn.enabled = NO;
+    
+    [self loadingDataStart];
+    [[User getInstance] loadCourseStudentsAndAttendancesWithDelegate:self];
+}
+
+
+- (void)creatingUserFailed
+{
+    self.wrongEmailAndPassword.text = @"The email or password is incorrect.";
+    self.wrongEmailAndPassword.textColor = [UIColor redColor];
+    self.password.text = @"";
+    self.signIn.enabled = YES;
+}
+
+- (void)loadingDataStart
+{
+    
+}
+
+- (void)loadingDataSuccess
+{
+    NSLog(@"loaddingDataSuccess");
     self.wrongEmailAndPassword.text = @"";
+    self.signIn.enabled = YES;
     
     YearlyViewController *yearlyViewController = [[YearlyViewController alloc] init];
     UIBarButtonItem *backButtonItem =
@@ -78,10 +116,12 @@
     [self.navigationController pushViewController:monthlyViewController animated:YES];
 }
 
-- (void)createUserFailed
+- (void)loadingDataFailed
 {
-    self.wrongEmailAndPassword.text = @"The email or password is incorrect.";
+    self.wrongEmailAndPassword.text = @"Cannot load data for this user.";
+    self.wrongEmailAndPassword.textColor = [UIColor redColor];
     self.password.text = @"";
+    self.signIn.enabled = YES;
 }
 
 @end

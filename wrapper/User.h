@@ -15,11 +15,9 @@
 
 + (User*)getInstance;
 
-@property (nonatomic) NSString* name;
-
 @property (nonatomic) NSMutableSet* courseIds;
 
-@property (nonatomic) NSInteger id;
+@property (nonatomic) NSString* userId;
 
 - (NSInteger)startYear;
 
@@ -30,5 +28,7 @@
 - (BOOL)hasCourseOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 
 - (BOOL)hasCourseOnYear:(NSInteger)year month:(NSInteger)month;
+
+- (void)loadCourseStudentsAndAttendancesWithDelegate:(id<UserDelegate>)delegate;
 
 @end

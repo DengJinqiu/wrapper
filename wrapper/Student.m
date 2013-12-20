@@ -10,17 +10,17 @@
 
 @implementation Student
 
-- (id)initWithFirstName:(NSString *)firstName lastName:(NSString *)lastName id:(NSString *)id
+- (id)initWithFirstName:(NSString *)firstName lastName:(NSString *)lastName studentId:(NSString *)studentId
 {
     self = [self init];
     if (self) {
         self.firstName = firstName;
         self.lastName = lastName;
-        self.id = id;
+        self.studentId = studentId;
         if (!_students) {
             _students = [[NSMutableDictionary alloc] init];
         }
-        [_students setValue:self forKey:id];
+        [_students setValue:self forKey:studentId];
     }
     return self;
 }
@@ -35,6 +35,11 @@ static NSMutableDictionary* _students;
 + (NSMutableDictionary*)studentIds
 {
     return _students;
+}
+
++ (void)clearStudentIds
+{
+    _students = nil;
 }
 
 @end

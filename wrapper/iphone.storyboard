@@ -78,6 +78,7 @@
                     <connections>
                         <outlet property="email" destination="w4m-4U-8s6" id="IUW-Z5-wZa"/>
                         <outlet property="password" destination="zH1-iG-Re0" id="Q2s-Sq-LuJ"/>
+                        <outlet property="signIn" destination="x5s-Ps-aFx" id="12C-nP-bMo"/>
                         <outlet property="wrongEmailAndPassword" destination="zFX-Wc-SuH" id="rgR-yY-dNG"/>
                     </connections>
                 </viewController>

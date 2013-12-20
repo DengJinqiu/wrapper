@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "UserDelegate.h"
 
-@interface SigninViewController : UIViewController <UserDelegate>
+@interface SigninViewController : UIViewController
 
 @end

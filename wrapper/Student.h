@@ -10,16 +10,18 @@
 
 @interface Student : NSObject
 
-@property (nonatomic) NSString* id;
+@property (nonatomic) NSString* studentId;
 
 @property (nonatomic) NSString* firstName;
 
 @property (nonatomic) NSString* lastName;
 
-- (id)initWithFirstName:(NSString*)firstName lastName:(NSString*)lastName id:(NSString*)id;
+- (id)initWithFirstName:(NSString*)firstName lastName:(NSString*)lastName studentId:(NSString*)id;
 
 + (Student*)getStudentById:(NSString*)id;
 
 + (NSMutableDictionary*)studentIds;
+
++ (void)clearStudentIds;
 
 @end
