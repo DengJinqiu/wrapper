@@ -11,17 +11,28 @@
 #import "Schedule.h"
 #import "Student.h"
 #import "Attendance.h"
+#import "HTTPManager.h"
 
 @implementation User
 
 static User* _user;
 
++ (void)createInstanceWithEmail:(NSString*)email password:(NSString*)password delegate:(id<UserDelegate>)delegate {
+    NSDictionary *parameters = @{@"email": email, @"password": password};
+    
+    [[HTTPManager getInstance] GET:@"users/verify" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        _user = [[User alloc] init];
+        _user.id = (long)[(NSDictionary*)responseObject objectForKey:@"id"];
+        NSLog(@"true");
+        [delegate createUserSuccessfully];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        _user = nil;
+        NSLog(@"false");
+    }];
+}
+
 + (User*)getInstance
 {
-    if (!_user) {
-        _user = [[User alloc] init];
-        [_user hardCodeInit];
-    }
     return _user;
 }
 

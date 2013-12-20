@@ -7,14 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UserDelegate.h"
 
 @interface User : NSObject
+
++ (void)createInstanceWithEmail:(NSString*)email password:(NSString*)password delegate:(id<UserDelegate>)delegate;
 
 + (User*)getInstance;
 
 @property (nonatomic) NSString* name;
 
 @property (nonatomic) NSMutableSet* courseIds;
+
+@property (nonatomic) NSInteger id;
 
 - (NSInteger)startYear;
 

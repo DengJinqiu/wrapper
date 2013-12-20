@@ -9,16 +9,22 @@
 #import "SigninViewController.h"
 #import "YearlyViewController.h"
 #import "MonthlyViewController.h"
+#import "User.h"
 
 @implementation SigninViewController
 
 - (IBAction)signIn:(UIButton *)sender {
+    [User createInstanceWithEmail:@"admin@gmail.com" password:@"123" delegate:self];
+}
+
+- (void)createUserSuccessfully
+{
     YearlyViewController *yearlyViewController = [[YearlyViewController alloc] init];
     UIBarButtonItem *backButtonItem =
-        [[UIBarButtonItem alloc] initWithTitle:@"Sign out"
-                                         style:UIBarButtonItemStyleBordered
-                                        target:nil
-                                        action:nil];
+    [[UIBarButtonItem alloc] initWithTitle:@"Sign out"
+                                     style:UIBarButtonItemStyleBordered
+                                    target:nil
+                                    action:nil];
     [[self navigationItem] setBackBarButtonItem:backButtonItem];
     [self.navigationController pushViewController:yearlyViewController animated:NO];
     

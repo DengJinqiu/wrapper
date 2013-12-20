@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserDelegate.h"
 
-@interface SigninViewController : UIViewController
+@interface SigninViewController : UIViewController <UserDelegate>
 
 @end
