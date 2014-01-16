@@ -25,7 +25,7 @@
 - (Attendance*)attendanceOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 
 - (Attendance*)setAttendanceOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
-                                at:(NSInteger)startTime last:(NSInteger)duration;
+                              hour:(NSInteger)hour min:(NSInteger)min duration:(NSInteger)duration;
 
 + (Course*)getCourseById:(NSString*)id;
 

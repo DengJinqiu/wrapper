@@ -71,9 +71,9 @@ static NSMutableDictionary* _courses;
 }
 
 - (Attendance*)setAttendanceOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
-                                at:(NSInteger)startTime last:(NSInteger)duration
+                              hour:(NSInteger)hour min:(NSInteger)min duration:(NSInteger)duration
 {
-    Attendance* attendance = [[Attendance alloc] initWithStartTime:startTime duration:duration course:self];
+    Attendance* attendance = [[Attendance alloc] initWithStartHour:hour startMin:min duration:duration course:self];
     [self.schedule setObject:attendance
                       forKey:[NSString stringWithFormat:@"%ld,%ld,%ld", (long)year, (long)month, (long)day]];
     [self.monthsContainCourses addObject:[NSString stringWithFormat:@"%ld,%ld", (long)year, (long)month]];

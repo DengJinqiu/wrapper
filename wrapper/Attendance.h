@@ -15,11 +15,13 @@
 
 @property (weak, nonatomic) Course* course;
 
-@property (nonatomic, readonly) NSInteger startTime; // hour
+@property (nonatomic, readonly) NSInteger startHour; // hour
 
-@property (nonatomic, readonly) NSInteger duration; // minute
+@property (nonatomic, readonly) NSInteger startMin;  // minute
 
-- (id)initWithStartTime:(NSInteger)startTime duration:(NSInteger)duration course:(Course*)course;
+@property (nonatomic, readonly) NSInteger duration;  // minute
+
+- (id)initWithStartHour:(NSInteger)hour startMin:(NSInteger)min duration:(NSInteger)duration course:(Course*)course;
 
 - (void)markStudent:(NSString*)id attendance:(BOOL)attendance;
 

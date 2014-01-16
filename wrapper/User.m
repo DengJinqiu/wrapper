@@ -54,7 +54,6 @@ static User* _user;
         [self loadStudentWithDelegate:delegate];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [delegate loadingDataFailed];
-        
     }];
 }
 
@@ -71,7 +70,6 @@ static User* _user;
         [self loadAttendanceWithDelegate:delegate];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [delegate loadingDataFailed];
-        
     }];
 }
 
@@ -86,14 +84,14 @@ static User* _user;
                                       setAttendanceOnYear:[[dateTime objectForKey:@"year"] intValue]
                                       month:[[dateTime objectForKey:@"month"] intValue]
                                       day:[[dateTime objectForKey:@"day"] intValue]
-                                      at:[[dateTime objectForKey:@"hour"] intValue]
-                                      last:[[attendanceData objectForKey:@"duration"] intValue]];
+                                      hour:[[dateTime objectForKey:@"hour"] intValue]
+                                      min:[[dateTime objectForKey:@"min"] intValue]
+                                      duration:[[attendanceData objectForKey:@"duration"] intValue]];
             [attendance markStudent:[attendanceData objectForKey:@"student_id"] attendance:FALSE];
         }
         [delegate loadingDataSuccess];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [delegate loadingDataFailed];
-        
     }];
 }
 
@@ -103,6 +101,7 @@ static User* _user;
     [dic setValue:[time substringWithRange:NSMakeRange(5, 2)] forKey:@"month"];
     [dic setValue:[time substringWithRange:NSMakeRange(8, 2)] forKey:@"day"];
     [dic setValue:[time substringWithRange:NSMakeRange(11, 2)] forKey:@"hour"];
+    [dic setValue:[time substringWithRange:NSMakeRange(13, 2)] forKey:@"min"];
     
     return dic;
 }
