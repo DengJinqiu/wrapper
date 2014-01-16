@@ -124,7 +124,8 @@
 - (void)today
 {
     NSInteger numberMonth = [[User getInstance] totalYearNumber] * 12;
-    NSInteger y = ([[Schedule getInstance].currentDate month]-1) * abs([self scrollViewContentHeight] / numberMonth);
+    NSInteger y = (([[Schedule getInstance].currentDate year] - [[User getInstance] startYear])*12 +
+                    [[Schedule getInstance].currentDate month]-1) * abs([self scrollViewContentHeight] / numberMonth);
     
     [(UIScrollView*)self.view scrollRectToVisible:CGRectMake(0, y, self.view.frame.size.width, self.view.frame.size.height)
                                          animated:YES];
