@@ -65,10 +65,16 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    
+
     Student* student = [self.students objectAtIndex:[indexPath indexAtPosition:1]];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [student firstName], [student lastName]];
+    
+    if ([[self.attendance.studentAttendance objectForKey:student.studentId] boolValue]) {
+    	cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
     return cell;
 }
 

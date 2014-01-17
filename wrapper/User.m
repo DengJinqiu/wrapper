@@ -87,7 +87,11 @@ static User* _user;
                                       hour:[[dateTime objectForKey:@"hour"] intValue]
                                       min:[[dateTime objectForKey:@"min"] intValue]
                                       duration:[[attendanceData objectForKey:@"duration"] intValue]];
-            [attendance markStudent:[attendanceData objectForKey:@"student_id"] attendance:FALSE];
+            if ([[attendanceData objectForKey:@"mark"] isEqualToString:@"attend"]) {
+                [attendance markStudent:[attendanceData objectForKey:@"student_id"] attendance:TRUE];
+            } else {
+                [attendance markStudent:[attendanceData objectForKey:@"student_id"] attendance:FALSE];
+            }
         }
         [delegate loadingDataSuccess];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

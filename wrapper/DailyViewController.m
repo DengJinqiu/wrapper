@@ -66,7 +66,7 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
-    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
     Course* course = [self.courseIndexOnCell objectAtIndex:[indexPath indexAtPosition:1]];
     cell.textLabel.text = course.courseName;
@@ -75,7 +75,7 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Attendance* attendance = [[self.courseIndexOnCell objectAtIndex:[indexPath indexAtPosition:1]] attendanceOnYear:self.year month:self.month day:self.day];
     AttendanceViewController *attendanceViewController = [[AttendanceViewController alloc] initWithYear:self.year month:self.month weekday:self.weekday day:self.day attendance:attendance];
