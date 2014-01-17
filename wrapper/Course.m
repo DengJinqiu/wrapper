@@ -44,9 +44,9 @@ static NSMutableDictionary* _courses;
     [_courses setObject:course forKey:courseId];
 }
 
-+ (Course*)getCourseById:(NSString *)id
++ (Course*)getCourse:(NSNumber *)courseId
 {
-    return [_courses objectForKey:id];
+    return [_courses objectForKey:courseId];
 }
 
 - (NSMutableSet*)monthsContainCourses

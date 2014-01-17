@@ -27,7 +27,7 @@
 - (Attendance*)setAttendanceOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
                               hour:(NSInteger)hour min:(NSInteger)min duration:(NSInteger)duration;
 
-+ (Course*)getCourseById:(NSNumber*)id;
++ (Course*)getCourse:(NSNumber*)courseId;
 
 + (NSMutableDictionary*)courseIds;
 

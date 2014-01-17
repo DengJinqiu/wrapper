@@ -55,7 +55,7 @@
     NSInteger num = 0;
     
     for (NSNumber* studentId in self.attendance.studentAttendance) {
-        [self.students addObject:[Student getStudentById:studentId]];
+        [self.students addObject:[Student getStudent:studentId]];
         num++;
     }
     
@@ -67,6 +67,7 @@
     Student* student = [self.students objectAtIndex:[indexPath indexAtPosition:1]];
     [self.attendance changeAttendance:student.studentId];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
     if ([[self.attendance.studentAttendance objectForKey:student.studentId] boolValue]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {

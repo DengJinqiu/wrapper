@@ -18,7 +18,7 @@
 
 + (void)addWithFirstName:(NSString*)firstName lastName:(NSString*)lastName studentId:(NSNumber*)studentId;
 
-+ (Student*)getStudentById:(NSNumber*)id;
++ (Student*)getStudent:(NSNumber*)studentId;
 
 + (NSMutableDictionary*)studentIds;
 

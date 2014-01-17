@@ -80,7 +80,7 @@ static User* _user;
         for (NSDictionary *attendanceData in (NSDictionary*)responseObject) {
             NSDictionary *dateTime = [self parseTime:[attendanceData objectForKey:@"start_time"]];
             
-            Attendance *attendance = [[Course getCourseById:[attendanceData objectForKey:@"course_id"]]
+            Attendance *attendance = [[Course getCourse:[attendanceData objectForKey:@"course_id"]]
                                       setAttendanceOnYear:[[dateTime objectForKey:@"year"] intValue]
                                       month:[[dateTime objectForKey:@"month"] intValue]
                                       day:[[dateTime objectForKey:@"day"] intValue]
@@ -133,7 +133,7 @@ static User* _user;
 - (BOOL)hasCourseOnYear:(NSInteger)year month:(NSInteger)month
 {
     for (NSNumber* courseId in self.courseIds) {
-        if ([[Course getCourseById:courseId] hasScheduleOnYear:year month:month]) {
+        if ([[Course getCourse:courseId] hasScheduleOnYear:year month:month]) {
             return TRUE;
         }
     }
@@ -143,7 +143,7 @@ static User* _user;
 - (BOOL)hasCourseOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
 {
     for (NSNumber* courseId in self.courseIds) {
-        if ([[Course getCourseById:courseId] attendanceOnYear:year month:month day:day]) {
+        if ([[Course getCourse:courseId] attendanceOnYear:year month:month day:day]) {
             return TRUE;
         }
     }

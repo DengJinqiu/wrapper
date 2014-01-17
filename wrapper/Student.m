@@ -25,9 +25,9 @@
 
 static NSMutableDictionary* _students;
 
-+ (Student*)getStudentById:(NSString*)id
++ (Student*)getStudent:(NSString*)studentId
 {
-    return [_students objectForKey:id];
+    return [_students objectForKey:studentId];
 }
 
 + (NSMutableDictionary*)studentIds

@@ -55,9 +55,9 @@
 {
     int num = 0;
     for (NSNumber* courseId in [User getInstance].courseIds) {
-        if ([[Course getCourseById:courseId] attendanceOnYear:self.year month:self.month day:self.day]) {
+        if ([[Course getCourse:courseId] attendanceOnYear:self.year month:self.month day:self.day]) {
             num += 1;
-            [self.courseIndexOnCell addObject:[Course getCourseById:courseId]];
+            [self.courseIndexOnCell addObject:[Course getCourse:courseId]];
         }
     }
     return num;

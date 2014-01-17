@@ -23,8 +23,8 @@
 
 - (id)initWithStartHour:(NSInteger)hour startMin:(NSInteger)min duration:(NSInteger)duration course:(Course*)course;
 
-- (void)markStudent:(NSNumber*)id attendance:(BOOL)attendance;
+- (void)markStudent:(NSNumber*)studentId attendance:(BOOL)attendance;
 
-- (void)changeAttendance:(NSNumber*)id;
+- (void)changeAttendance:(NSNumber*)studentId;
 
 @end
