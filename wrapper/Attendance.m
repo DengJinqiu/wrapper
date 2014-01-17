@@ -22,12 +22,21 @@
     return self;
 }
 
-- (void)markStudent:(NSString*)id attendance:(BOOL)attendance
+- (void)markStudent:(NSNumber*)id attendance:(BOOL)attendance
 {
     if (!_studentAttendance) {
         _studentAttendance = [[NSMutableDictionary alloc] init];
     }
-    [self.studentAttendance setValue:[[NSNumber alloc] initWithBool:attendance] forKey:id];
+    [self.studentAttendance setObject:[NSNumber numberWithBool:attendance] forKey:id];
+}
+
+- (void)changeAttendance:(NSNumber*)id
+{
+    if ([[self.studentAttendance objectForKey:id] boolValue]) {
+        [self.studentAttendance setObject:[NSNumber numberWithBool:FALSE] forKey:id];
+    } else {
+        [self.studentAttendance setObject:[NSNumber numberWithBool:TRUE] forKey:id];
+    }
 }
 
 @end

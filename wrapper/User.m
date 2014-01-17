@@ -87,11 +87,8 @@ static User* _user;
                                       hour:[[dateTime objectForKey:@"hour"] intValue]
                                       min:[[dateTime objectForKey:@"min"] intValue]
                                       duration:[[attendanceData objectForKey:@"duration"] intValue]];
-            if ([[attendanceData objectForKey:@"mark"] isEqualToString:@"attend"]) {
-                [attendance markStudent:[attendanceData objectForKey:@"student_id"] attendance:TRUE];
-            } else {
-                [attendance markStudent:[attendanceData objectForKey:@"student_id"] attendance:FALSE];
-            }
+            [attendance markStudent:[attendanceData objectForKey:@"student_id"]
+                         attendance:[[attendanceData objectForKey:@"mark"] isEqualToString:@"attend"]];
         }
         [delegate loadingDataSuccess];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -101,11 +98,11 @@ static User* _user;
 
 - (NSMutableDictionary*)parseTime:(NSString*) time {
     NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:[time substringWithRange:NSMakeRange(0, 4)] forKey:@"year"];
-    [dic setValue:[time substringWithRange:NSMakeRange(5, 2)] forKey:@"month"];
-    [dic setValue:[time substringWithRange:NSMakeRange(8, 2)] forKey:@"day"];
-    [dic setValue:[time substringWithRange:NSMakeRange(11, 2)] forKey:@"hour"];
-    [dic setValue:[time substringWithRange:NSMakeRange(13, 2)] forKey:@"min"];
+    [dic setObject:[time substringWithRange:NSMakeRange(0, 4)] forKey:@"year"];
+    [dic setObject:[time substringWithRange:NSMakeRange(5, 2)] forKey:@"month"];
+    [dic setObject:[time substringWithRange:NSMakeRange(8, 2)] forKey:@"day"];
+    [dic setObject:[time substringWithRange:NSMakeRange(11, 2)] forKey:@"hour"];
+    [dic setObject:[time substringWithRange:NSMakeRange(13, 2)] forKey:@"min"];
     
     return dic;
 }
@@ -135,7 +132,7 @@ static User* _user;
 
 - (BOOL)hasCourseOnYear:(NSInteger)year month:(NSInteger)month
 {
-    for (NSString* courseId in self.courseIds) {
+    for (NSNumber* courseId in self.courseIds) {
         if ([[Course getCourseById:courseId] hasScheduleOnYear:year month:month]) {
             return TRUE;
         }
@@ -145,7 +142,7 @@ static User* _user;
 
 - (BOOL)hasCourseOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
 {
-    for (NSString* courseId in self.courseIds) {
+    for (NSNumber* courseId in self.courseIds) {
         if ([[Course getCourseById:courseId] attendanceOnYear:year month:month day:day]) {
             return TRUE;
         }

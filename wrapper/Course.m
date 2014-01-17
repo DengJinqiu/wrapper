@@ -32,7 +32,7 @@ static NSMutableDictionary* _courses;
     _courses = nil;
 }
 
-+ (void)addWithCourseName:(NSString*)courseName schoolName:(NSString*)schoolName courseId:(NSString*)courseId
++ (void)addWithCourseName:(NSString*)courseName schoolName:(NSString*)schoolName courseId:(NSNumber*)courseId
 {
     Course *course = [[Course alloc] init];
     course.courseName = courseName;
@@ -41,7 +41,7 @@ static NSMutableDictionary* _courses;
     if (!_courses) {
         _courses = [[NSMutableDictionary alloc] init];
     }
-    [_courses setValue:course forKey:courseId];
+    [_courses setObject:course forKey:courseId];
 }
 
 + (Course*)getCourseById:(NSString *)id

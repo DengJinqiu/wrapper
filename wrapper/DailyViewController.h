@@ -13,4 +13,5 @@
 @interface DailyViewController : TitleTableViewController
 
 - (id)initWithYear:(NSInteger)year month:(NSInteger)month weekday:(NSInteger)weekday day:(NSInteger)day;
+
 @end

@@ -17,7 +17,7 @@
 
 @property (nonatomic) NSMutableSet* courseIds;
 
-@property (nonatomic) NSString* userId;
+@property (nonatomic) NSNumber* userId;
 
 - (NSInteger)startYear;
 

@@ -54,7 +54,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     int num = 0;
-    for (NSString* courseId in [User getInstance].courseIds) {
+    for (NSNumber* courseId in [User getInstance].courseIds) {
         if ([[Course getCourseById:courseId] attendanceOnYear:self.year month:self.month day:self.day]) {
             num += 1;
             [self.courseIndexOnCell addObject:[Course getCourseById:courseId]];

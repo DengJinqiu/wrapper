@@ -10,7 +10,7 @@
 
 @implementation Student
 
-+ (void)addWithFirstName:(NSString*)firstName lastName:(NSString*)lastName studentId:(NSString*)studentId
++ (void)addWithFirstName:(NSString*)firstName lastName:(NSString*)lastName studentId:(NSNumber*)studentId
 {
     Student* student = [[Student alloc] init];
 
@@ -20,7 +20,7 @@
     if (!_students) {
         _students = [[NSMutableDictionary alloc] init];
     }
-    [_students setValue:student forKey:studentId];
+    [_students setObject:student forKey:studentId];
 }
 
 static NSMutableDictionary* _students;

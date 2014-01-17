@@ -54,12 +54,24 @@
 {
     NSInteger num = 0;
     
-    for (NSString* studentId in self.attendance.studentAttendance) {
+    for (NSNumber* studentId in self.attendance.studentAttendance) {
         [self.students addObject:[Student getStudentById:studentId]];
         num++;
     }
     
     return num;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Student* student = [self.students objectAtIndex:[indexPath indexAtPosition:1]];
+    [self.attendance changeAttendance:student.studentId];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([[self.attendance.studentAttendance objectForKey:student.studentId] boolValue]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
