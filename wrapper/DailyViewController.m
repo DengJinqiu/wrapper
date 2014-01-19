@@ -7,7 +7,7 @@
 //
 
 #import "DailyViewController.h"
-#import "Schedule.h"
+#import "SchoolCalendar.h"
 #import "MonthButton.h"
 #import "DayButton.h"
 #import "CalendarLabels.h"

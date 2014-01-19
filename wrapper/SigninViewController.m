@@ -111,8 +111,8 @@
     [self.navigationController pushViewController:yearlyViewController animated:NO];
     
     MonthlyViewController *monthlyViewController =
-    [[MonthlyViewController alloc] initWithStartYear:[Schedule getInstance].currentDate.year
-                                          startMonth:[Schedule getInstance].currentDate.month];
+    [[MonthlyViewController alloc] initWithStartYear:[SchoolCalendar getInstance].currentDate.year
+                                          startMonth:[SchoolCalendar getInstance].currentDate.month];
     
     [self.navigationController pushViewController:monthlyViewController animated:YES];
 }

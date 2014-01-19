@@ -37,6 +37,8 @@
     } else {
         [self.studentAttendance setObject:[NSNumber numberWithBool:TRUE] forKey:studentId];
     }
+    
+    NSString *relativeURL = [NSString stringWithFormat:@"attendances/%@", ];
 }
 
 @end

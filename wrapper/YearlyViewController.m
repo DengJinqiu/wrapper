@@ -60,8 +60,8 @@
         MonthButton *monthButton = [[MonthButton alloc] initWithYear:yearPanel.year
                                                                month:month originX:i*81+20 originY:j*40+60];
     
-        if (month == [[Schedule getInstance].currentDate month] &&
-            yearPanel.year == [[Schedule getInstance].currentDate year]) {
+        if (month == [[SchoolCalendar getInstance].currentDate month] &&
+            yearPanel.year == [[SchoolCalendar getInstance].currentDate year]) {
             [monthButton markAsRed];
         }
         

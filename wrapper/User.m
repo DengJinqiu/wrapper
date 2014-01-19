@@ -8,7 +8,7 @@
 
 #import "User.h"
 #import "Course.h"
-#import "Schedule.h"
+#import "SchoolCalendar.h"
 #import "Student.h"
 #import "Attendance.h"
 #import "HTTPManager.h"

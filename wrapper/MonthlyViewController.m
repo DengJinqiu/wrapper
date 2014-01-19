@@ -124,8 +124,8 @@
 - (void)today
 {
     NSInteger numberMonth = [[User getInstance] totalYearNumber] * 12;
-    NSInteger y = (([[Schedule getInstance].currentDate year] - [[User getInstance] startYear])*12 +
-                    [[Schedule getInstance].currentDate month]-1) * abs([self scrollViewContentHeight] / numberMonth);
+    NSInteger y = (([[SchoolCalendar getInstance].currentDate year] - [[User getInstance] startYear])*12 +
+                    [[SchoolCalendar getInstance].currentDate month]-1) * abs([self scrollViewContentHeight] / numberMonth);
     
     [(UIScrollView*)self.view scrollRectToVisible:CGRectMake(0, y, self.view.frame.size.width, self.view.frame.size.height)
                                          animated:YES];
@@ -134,10 +134,10 @@
 - (void)addDayButtonToMonthPanel:(MonthPanel*)monthPanel
 {
     NSDateComponents *dayComponents;
-    NSInteger weekday = [[[Schedule getInstance] year:monthPanel.year month:monthPanel.month day:1] weekday];
+    NSInteger weekday = [[[SchoolCalendar getInstance] year:monthPanel.year month:monthPanel.month day:1] weekday];
     NSInteger week = 0;
     for (NSInteger day = 1; ; day++) {
-        dayComponents  = [[Schedule getInstance] year:monthPanel.year month:monthPanel.month day:day];
+        dayComponents  = [[SchoolCalendar getInstance] year:monthPanel.year month:monthPanel.month day:day];
         if (dayComponents.month != monthPanel.month) {
             break;
         }
@@ -148,9 +148,9 @@
             [dayButton markAsGray];
         }
         
-        if (monthPanel.month == [[Schedule getInstance].currentDate month] &&
-            monthPanel.year == [[Schedule getInstance].currentDate year] &&
-            day == [[Schedule getInstance].currentDate day]) {
+        if (monthPanel.month == [[SchoolCalendar getInstance].currentDate month] &&
+            monthPanel.year == [[SchoolCalendar getInstance].currentDate year] &&
+            day == [[SchoolCalendar getInstance].currentDate day]) {
             [dayButton markAsRed];
         }
         

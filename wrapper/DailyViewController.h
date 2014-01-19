@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Schedule.h"
+#import "SchoolCalendar.h"
 #import "TitleTableViewController.h"
 
 @interface DailyViewController : TitleTableViewController

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MonthButton.h"
-#import "Schedule.h"
+#import "SchoolCalendar.h"
 
 @interface YearlyViewController : UIViewController
 

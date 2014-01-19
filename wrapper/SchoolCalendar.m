@@ -1,27 +1,27 @@
 //
-//  Calendar.m
+//  SchoolCalendar.m
 //  wrapper
 //
 //  Created by Jinqiu Deng on 11/20/13.
 //  Copyright (c) 2013 MusicKids. All rights reserved.
 //
 
-#import "Schedule.h"
+#import "SchoolCalendar.h"
 
-@interface Schedule ()
+@interface SchoolCalendar ()
 
 @property (strong, nonatomic, readwrite) NSCalendar *calendar;
 
 @end
 
-@implementation Schedule
+@implementation SchoolCalendar
 
-static Schedule* _schedule;
+static SchoolCalendar* _schedule;
 
-+ (Schedule*)getInstance
++ (SchoolCalendar*)getInstance
 {
     if (!_schedule) {
-        _schedule = [[Schedule alloc] init];
+        _schedule = [[SchoolCalendar alloc] init];
     }
     return _schedule;
 }

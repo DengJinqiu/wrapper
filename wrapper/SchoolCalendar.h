@@ -1,5 +1,5 @@
 //
-//  Calendar.h
+//  SchoolCalendar.h
 //  wrapper
 //
 //  Created by Jinqiu Deng on 11/20/13.
@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Schedule : NSObject
+@interface SchoolCalendar : NSObject
 
-+ (Schedule*)getInstance;
++ (SchoolCalendar*)getInstance;
 
 - (NSDateComponents*)currentDate;
 
