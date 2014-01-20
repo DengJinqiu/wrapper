@@ -12,6 +12,8 @@
 
 static NSMutableDictionary* _courses;
 
+static NSMutableArray* _index;
+
 static NSMutableDictionary* _schedule;
 
 static NSMutableSet* _monthsContainCourses;
@@ -19,6 +21,7 @@ static NSMutableSet* _monthsContainCourses;
 + (void)clearCourses
 {
     _courses = nil;
+    _index = nil;
     _schedule = nil;
     _monthsContainCourses = nil;
 }
@@ -30,10 +33,38 @@ static NSMutableSet* _monthsContainCourses;
     if (!_courses) {
         _courses = [[NSMutableDictionary alloc] init];
     }
+    if (!_index) {
+        _index = [[NSMutableArray alloc] init];
+    }
+    if (!_schedule) {
+        _schedule = [[NSMutableDictionary alloc] init];
+    }
+    if (!_monthsContainCourses) {
+        _monthsContainCourses = [[NSMutableSet alloc] init];
+    }
     [_courses setObject:course forKey:courseId];
+    [_index addObject:courseId];
 }
 
-+ (NSArray*)coursesOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
++ (void)addScheduleForCourse:(NSNumber*)courseId onYear:(NSInteger)year month:(NSInteger)month andDay:(NSInteger)day
+{
+    if ([_schedule objectForKey:[NSString stringWithFormat:@"%d,%d,%d", year, month, day]] == NULL) {
+        [_schedule setObject:[[NSMutableArray alloc] init] forKey:[NSString stringWithFormat:@"%d,%d,%d", year, month, day]];
+    }
+    [[_schedule objectForKey:[NSString stringWithFormat:@"%d,%d,%d", year, month, day]] addObject:courseId];
+}
+
++ (Course*)courseOfIndex:(NSInteger)index
+{
+    return [self courseOfId:[_index objectAtIndex:index]];
+}
+
++ (Course*)courseOfId:(NSNumber*)couseId
+{
+    return [_courses objectForKey:couseId];
+}
+
++ (NSMutableArray*)coursesOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
 {
     return [_schedule objectForKey:[NSString stringWithFormat:@"%d,%d,%d", year, month, day]];
 }
@@ -50,7 +81,7 @@ static NSMutableSet* _monthsContainCourses;
 
 + (NSInteger)coursesNum
 {
-    return [_courses count];
+    return [_index count];
 }
 
 @end

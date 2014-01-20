@@ -59,8 +59,8 @@
     [self creatingUserStart];
 
     [HTTPManager loadTeacherWithEmail:self.email.text
-                          password:self.password.text
-                          delegate:self];
+                             password:self.password.text
+                             delegate:self];
 }
 
 - (void)creatingUserStart

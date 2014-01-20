@@ -11,6 +11,7 @@
 #import "DateTimeParser.h"
 #import "Teacher.h"
 #import "Schedule.h"
+#import "SchoolCalendar.h"
 
 @implementation HTTPManager
 
@@ -30,10 +31,8 @@ static HTTPManager *_manager;
     NSDictionary *parameters = @{@"email": email, @"password": password};
     
     [[HTTPManager getInstance] GET:@"users/verify" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"%@",[(NSDictionary*)responseObject objectForKey:@"id"]);
-         if ([[(NSDictionary*)responseObject objectForKey:@"type"] isEqualToString:@"Teacher"]) {
+        if ([[(NSDictionary*)responseObject objectForKey:@"type"] isEqualToString:@"Teacher"]) {
              [Teacher createInstanceWithUserId:[(NSDictionary*)responseObject objectForKey:@"id"]];
-            [self loadTermWithDelegate:delegate];
             [delegate creatingUserSuccess];
         } else {
             [delegate creatingUserFailed];
@@ -60,9 +59,9 @@ static HTTPManager *_manager;
 {
     NSString *relativeURL = [NSString stringWithFormat:@"teachers/%@/courses", [Teacher getInstance].teacherId];
     [[HTTPManager getInstance] GET:relativeURL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        [Term createInstanceWithStartYear:[[(NSDictionary*)responseObject objectForKey:@"start_date"] intValue]
-                                  endYear:[[(NSDictionary*)responseObject objectForKey:@"end_date"] intValue]
-                                andTermId:[(NSDictionary*)responseObject objectForKey:@"id"]];
+        for (NSDictionary* course in (NSArray*)responseObject) {
+            [Schedule addWithCourseId:[course objectForKey:@"id"]];
+        }
         [self loadScheduleFor:0 WithDelegate:delegate];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [delegate loadingDataFailed];
@@ -72,7 +71,37 @@ static HTTPManager *_manager;
 + (void)loadScheduleFor:(NSInteger)courseIndex WithDelegate:(id<HTTPManagerDelegate>)delegate
 {
     if (courseIndex < [Schedule coursesNum]) {
-        
+        NSString *relativeURL = [NSString stringWithFormat:@"courses/%@/schedules", [Schedule courseOfIndex:courseIndex].courseId];
+        [[HTTPManager getInstance] GET:relativeURL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSNumber* courseId = [Schedule courseOfIndex:courseIndex].courseId;
+            for (NSDictionary* schedule in (NSArray*)responseObject) {
+                NSInteger weekDay = [[schedule objectForKey:@"day_of_week"] intValue];
+                
+                NSString* startDate = [schedule objectForKey:@"start_date"];
+                NSInteger startYear = [DateTimeParser year:startDate];
+                NSInteger startMonth = [DateTimeParser month:startDate];
+                NSInteger startDay = [DateTimeParser day:startDate];
+                
+                NSString* endDate = [schedule objectForKey:@"end_date"];
+                NSInteger endYear = [DateTimeParser year:endDate];
+                NSInteger endMonth = [DateTimeParser month:endDate];
+                NSInteger endDay = [DateTimeParser day:endDate];
+                
+                for (NSInteger day = 0; ; day++) {
+                    NSDateComponents* dayComponents = [[SchoolCalendar getInstance] year:startYear month:startMonth day:startDay+day];
+                    if (dayComponents.weekday == weekDay) {
+                        [Schedule addScheduleForCourse:courseId onYear:dayComponents.year
+                                                 month:dayComponents.month andDay:dayComponents.day];
+                    }
+                    if (dayComponents.day == endDay && dayComponents.month == endMonth && dayComponents.year == endYear) {
+                        break;
+                    }
+                }
+            }
+            [self loadScheduleFor:courseIndex+1 WithDelegate:delegate];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [delegate loadingDataFailed];
+        }];
     } else {
         [delegate loadingDataSuccess];
     }

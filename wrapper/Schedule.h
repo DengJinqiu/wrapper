@@ -15,7 +15,13 @@
 
 + (NSInteger)coursesNum;
 
-+ (NSArray*)coursesOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
++ (void)addScheduleForCourse:(NSNumber*)courseId onYear:(NSInteger)year month:(NSInteger)month andDay:(NSInteger)day;
+
++ (NSMutableArray*)coursesOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
+
++ (Course*)courseOfIndex:(NSInteger)index;
+
++ (Course*)courseOfId:(NSNumber*)couseId;
 
 + (void)clearCourses;
 
