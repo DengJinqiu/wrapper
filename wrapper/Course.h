@@ -18,19 +18,10 @@
 
 @property (nonatomic) NSString* schoolName;
 
-+ (void)addWithCourseName:(NSString*)courseName schoolName:(NSString*)schoolName courseId:(NSNumber*)courseId;
+@property (nonatomic) NSString* instrumentName;
 
-- (BOOL)hasScheduleOnYear:(NSInteger)year month:(NSInteger)month;
+@property (nonatomic) NSString* programType;
 
-- (Attendance*)attendanceOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
-
-- (Attendance*)setAttendanceOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
-                              hour:(NSInteger)hour min:(NSInteger)min duration:(NSInteger)duration;
-
-+ (Course*)getCourse:(NSNumber*)courseId;
-
-+ (NSMutableDictionary*)courseIds;
-
-+ (void)clearCourseIds;
+@property (nonatomic) NSString* courseType;
 
 @end

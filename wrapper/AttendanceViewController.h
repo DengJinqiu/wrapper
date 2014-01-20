@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "TitleTableViewController.h"
-#import "Attendance.h"
 
 @interface AttendanceViewController : TitleTableViewController
 
 - (id)initWithYear:(NSInteger)year month:(NSInteger)month weekday:(NSInteger)weekday
-               day:(NSInteger)day attendance:(Attendance*)attendance;
+               day:(NSInteger)day;
 
 @end

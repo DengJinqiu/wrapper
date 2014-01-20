@@ -10,7 +10,8 @@
 #import "YearPanel.h"
 #import "MonthlyViewController.h"
 #import "MonthButton.h"
-#import "User.h"
+#import "Term.h"
+#import "Schedule.h"
 
 @interface YearlyViewController ()
 
@@ -32,8 +33,8 @@
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
-    NSInteger startYear = [[User getInstance] startYear];
-    NSInteger endYear = [[User getInstance] endYear];
+    NSInteger startYear = [[Term getInstance] startYear];
+    NSInteger endYear = [[Term getInstance] endYear];
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
     scrollView.backgroundColor = [UIColor whiteColor];
     
@@ -65,7 +66,7 @@
             [monthButton markAsRed];
         }
         
-        if ([[User getInstance] hasCourseOnYear:yearPanel.year month:month]) {
+        if ([Schedule hasCourseOnYear:yearPanel.year month:month]) {
             [monthButton markAsGreen];
             
         }

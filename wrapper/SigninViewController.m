@@ -9,10 +9,10 @@
 #import "SigninViewController.h"
 #import "YearlyViewController.h"
 #import "MonthlyViewController.h"
-#import "User.h"
-#import "Course.h"
+#import "HTTPManagerDelegate.h"
+#import "HTTPManager.h"
 
-@interface SigninViewController () <UITextFieldDelegate, UserDelegate>
+@interface SigninViewController () <UITextFieldDelegate, HTTPManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *email;
 
@@ -58,9 +58,9 @@
 - (IBAction)signIn:(UIButton *)sender {
     [self creatingUserStart];
 
-    [User createInstanceWithEmail:self.email.text
-                         password:self.password.text
-                         delegate:self];
+    [HTTPManager loadTeacherWithEmail:self.email.text
+                          password:self.password.text
+                          delegate:self];
 }
 
 - (void)creatingUserStart
@@ -77,9 +77,8 @@
     self.signIn.enabled = NO;
     
     [self loadingDataStart];
-    [[User getInstance] loadCourseStudentsAndAttendancesWithDelegate:self];
+    [HTTPManager loadTermWithDelegate:self];
 }
-
 
 - (void)creatingUserFailed
 {

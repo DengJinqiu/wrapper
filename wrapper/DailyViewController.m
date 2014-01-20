@@ -13,7 +13,7 @@
 #import "CalendarLabels.h"
 #import "AttendanceViewController.h"
 #import "Course.h"
-#import "User.h"
+#import "Teacher.h"
 
 @interface DailyViewController () 
 
@@ -51,17 +51,17 @@
     return self;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    int num = 0;
-    for (NSNumber* courseId in [User getInstance].courseIds) {
-        if ([[Course getCourse:courseId] attendanceOnYear:self.year month:self.month day:self.day]) {
-            num += 1;
-            [self.courseIndexOnCell addObject:[Course getCourse:courseId]];
-        }
-    }
-    return num;
-}
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    int num = 0;
+//    for (NSNumber* courseId in [User getInstance].courseIds) {
+//        if ([[Course getCourse:courseId] attendanceOnYear:self.year month:self.month day:self.day]) {
+//            num += 1;
+//            [self.courseIndexOnCell addObject:[Course getCourse:courseId]];
+//        }
+//    }
+//    return num;
+//}
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -75,18 +75,18 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    Attendance* attendance = [[self.courseIndexOnCell objectAtIndex:[indexPath indexAtPosition:1]] attendanceOnYear:self.year month:self.month day:self.day];
-    AttendanceViewController *attendanceViewController = [[AttendanceViewController alloc] initWithYear:self.year month:self.month weekday:self.weekday day:self.day attendance:attendance];
-    UIBarButtonItem *signOutButtonItem =
-    [[UIBarButtonItem alloc] initWithTitle:@"Course"
-                                     style:UIBarButtonItemStyleBordered
-                                    target:nil
-                                    action:nil];
-    [[self navigationItem] setBackBarButtonItem:signOutButtonItem];
-    [self.navigationController pushViewController:attendanceViewController animated:YES];
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    Attendance* attendance = [[self.courseIndexOnCell objectAtIndex:[indexPath indexAtPosition:1]] attendanceOnYear:self.year month:self.month day:self.day];
+//    AttendanceViewController *attendanceViewController = [[AttendanceViewController alloc] initWithYear:self.year month:self.month weekday:self.weekday day:self.day attendance:attendance];
+//    UIBarButtonItem *signOutButtonItem =
+//    [[UIBarButtonItem alloc] initWithTitle:@"Course"
+//                                     style:UIBarButtonItemStyleBordered
+//                                    target:nil
+//                                    action:nil];
+//    [[self navigationItem] setBackBarButtonItem:signOutButtonItem];
+//    [self.navigationController pushViewController:attendanceViewController animated:YES];
+//}
 
 - (NSString*)tableTitle
 {

@@ -12,7 +12,8 @@
 #import "DayButton.h"
 #import "MonthButton.h"
 #import "CalendarLabels.h"
-#import "User.h"
+#import "Term.h"
+#import "Schedule.h"
 
 @interface MonthlyViewController () <UIScrollViewDelegate>
 
@@ -45,8 +46,8 @@
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
-    NSInteger startYear = [User getInstance].startYear;
-    NSInteger endYear = [User getInstance].endYear;
+    NSInteger startYear = [Term getInstance].startYear;
+    NSInteger endYear = [Term getInstance].endYear;
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
     scrollView.backgroundColor = [UIColor whiteColor];
     
@@ -96,9 +97,9 @@
                      withVelocity:(CGPoint)velocity
               targetContentOffset:(inout CGPoint *)targetContentOffset
 {
-    NSInteger yearNumber = [[User getInstance] totalYearNumber];
+    NSInteger yearNumber = [[Term getInstance] totalYearNumber];
     NSInteger height = [self scrollViewContentHeight] / yearNumber;
-    NSInteger year = [User getInstance].startYear + abs(targetContentOffset->y/height);
+    NSInteger year = [Term getInstance].startYear + abs(targetContentOffset->y/height);
     [self updateLeftBarButtonItem:year];
 }
 
@@ -123,8 +124,8 @@
 
 - (void)today
 {
-    NSInteger numberMonth = [[User getInstance] totalYearNumber] * 12;
-    NSInteger y = (([[SchoolCalendar getInstance].currentDate year] - [[User getInstance] startYear])*12 +
+    NSInteger numberMonth = [[Term getInstance] totalYearNumber] * 12;
+    NSInteger y = (([[SchoolCalendar getInstance].currentDate year] - [[Term getInstance] startYear])*12 +
                     [[SchoolCalendar getInstance].currentDate month]-1) * abs([self scrollViewContentHeight] / numberMonth);
     
     [(UIScrollView*)self.view scrollRectToVisible:CGRectMake(0, y, self.view.frame.size.width, self.view.frame.size.height)
@@ -154,7 +155,7 @@
             [dayButton markAsRed];
         }
         
-        if ([[User getInstance] hasCourseOnYear:monthPanel.year month:monthPanel.month day:day]) {
+        if ([Schedule hasCourseOnYear:monthPanel.year month:monthPanel.month day:day]) {
             [dayButton markAsGreen];
             
             [dayButton addTarget:self

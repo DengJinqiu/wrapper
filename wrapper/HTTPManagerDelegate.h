@@ -1,5 +1,5 @@
 //
-//  UserDelegate.h
+//  HTTPManagerDelegate.h
 //  wrapper
 //
 //  Created by Jinqiu Deng on 12/20/13.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol UserDelegate <NSObject>
+@protocol HTTPManagerDelegate <NSObject>
 
 - (void)creatingUserStart;
 
@@ -23,3 +23,4 @@
 - (void)loadingDataFailed;
 
 @end
+    
