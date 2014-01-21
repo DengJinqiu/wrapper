@@ -119,7 +119,6 @@
                                             action:nil];
         [self.viewControllerBelow.navigationItem setBackBarButtonItem:backButtonItem];
     }
-    
 }
 
 - (void)today

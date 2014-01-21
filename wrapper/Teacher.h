@@ -14,6 +14,8 @@
 
 + (Teacher*)getInstance;
 
++ (void)signOut;
+
 @property (nonatomic) NSNumber* teacherId;
 
 @end

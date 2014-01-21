@@ -12,6 +12,7 @@
 #import "MonthButton.h"
 #import "Term.h"
 #import "Schedule.h"
+#import "Teacher.h"
 
 @interface YearlyViewController ()
 
@@ -68,7 +69,6 @@
         
         if ([Schedule hasCourseOnYear:yearPanel.year month:month]) {
             [monthButton markAsGreen];
-            
         }
         
         [monthButton addTarget:self

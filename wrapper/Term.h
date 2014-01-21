@@ -14,6 +14,8 @@
 
 + (Term*)getInstance;
 
++ (void)clearTerm;
+
 @property (nonatomic) NSNumber* termId;
 
 @property (nonatomic) NSInteger startYear;

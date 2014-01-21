@@ -11,6 +11,7 @@
 #import "MonthlyViewController.h"
 #import "HTTPManagerDelegate.h"
 #import "HTTPManager.h"
+#import "Teacher.h"
 
 @interface SigninViewController () <UITextFieldDelegate, HTTPManagerDelegate>
 
@@ -28,7 +29,7 @@
 
 #define OFFSET_FOR_KEYBOARD 80.0
 
--(void)viewMoveUp:(Boolean)up
+- (void)viewMoveUp:(Boolean)up
 {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3]; // if you want to slide up the view
@@ -44,7 +45,7 @@
     [UIView commitAnimations];
 }
 
--(void)textFieldDidBeginEditing:(UITextField *)sender
+- (void)textFieldDidBeginEditing:(UITextField *)sender
 {
     [self viewMoveUp:TRUE];
 }
@@ -53,6 +54,11 @@
 {
     self.email.delegate = self;
     self.password.delegate = self;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [Teacher signOut];
 }
 
 - (IBAction)signIn:(UIButton *)sender {

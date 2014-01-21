@@ -18,7 +18,7 @@ static NSMutableDictionary* _schedule;
 
 static NSMutableSet* _monthsContainCourses;
 
-+ (void)clearCourses
++ (void)clearSchedule
 {
     _courses = nil;
     _index = nil;
@@ -51,7 +51,11 @@ static NSMutableSet* _monthsContainCourses;
     if ([_schedule objectForKey:[NSString stringWithFormat:@"%d,%d,%d", year, month, day]] == NULL) {
         [_schedule setObject:[[NSMutableArray alloc] init] forKey:[NSString stringWithFormat:@"%d,%d,%d", year, month, day]];
     }
+    if (!_monthsContainCourses) {
+        _monthsContainCourses = [[NSMutableSet alloc] init];
+    }
     [[_schedule objectForKey:[NSString stringWithFormat:@"%d,%d,%d", year, month, day]] addObject:courseId];
+    [_monthsContainCourses addObject:[NSString stringWithFormat:@"%d,%d", year, month]];
 }
 
 + (Course*)courseOfIndex:(NSInteger)index

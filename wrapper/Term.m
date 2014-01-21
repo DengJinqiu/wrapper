@@ -30,4 +30,9 @@ static Term* _term;
     return self.endYear - self.startYear + 1;
 }
 
++ (void)clearTerm
+{
+    _term = nil;
+}
+
 @end

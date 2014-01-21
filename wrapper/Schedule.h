@@ -23,7 +23,7 @@
 
 + (Course*)courseOfId:(NSNumber*)couseId;
 
-+ (void)clearCourses;
++ (void)clearSchedule;
 
 + (BOOL)hasCourseOnYear:(NSInteger)year month:(NSInteger)month;
 
