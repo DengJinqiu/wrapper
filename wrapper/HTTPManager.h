@@ -19,6 +19,8 @@
 
 + (void)loadCoursesWithDelegate:(id<HTTPManagerDelegate>)delegate;
 
-+ (void)loadScheduleFor:(NSInteger)courseIndex WithDelegate:(id<HTTPManagerDelegate>)delegate;
++ (void)loadScheduleFor:(NSInteger)courseIndex withDelegate:(id<HTTPManagerDelegate>)delegate;
+
++ (void)loadRosterFor:(NSNumber*)courseId onDate:(NSString*)date withDelegate:(id<HTTPManagerDelegate>)delegate;
 
 @end

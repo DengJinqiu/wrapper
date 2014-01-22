@@ -9,6 +9,7 @@
 #import "AttendanceViewController.h"
 #import "Teacher.h"
 #import "Course.h"
+#import "Attendance.h"
 
 @interface AttendanceViewController ()
 
@@ -28,7 +29,7 @@
 
 @implementation AttendanceViewController
 
-- (id)initWithYear:(NSInteger)year month:(NSInteger)month weekday:(NSInteger)weekday day:(NSInteger)day attendance:(Attendance *)attendance
+- (id)initWithYear:(NSInteger)year month:(NSInteger)month weekday:(NSInteger)weekday day:(NSInteger)day
 {
     self = [super init];
     if (self) {
@@ -36,7 +37,6 @@
         self.month = month;
         self.weekday = weekday;
         self.day = day;
-        self.attendance = attendance;
     }
     return self;
 }
@@ -47,18 +47,11 @@
         _students = [[NSMutableArray alloc] init];
     }
     return _students;
-}
+}	
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger num = 0;
-    
-//    for (NSNumber* studentId in self.attendance.studentAttendance) {
-//        [self.students addObject:[Student getStudent:studentId]];
-//        num++;
-//    }
-    
-    return num;
+    return [Attendance AttendancesNum];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,9 +83,10 @@
     return cell;
 }
 
-//- (NSString*)tableTitle
-//{
+- (NSString*)tableTitle
+{
 //    return [NSString stringWithFormat:@"%@, %@", self.attendance.course.courseName, self.attendance.course.schoolName];
-//}
+    return @"ddd";
+}
 
 @end

@@ -10,17 +10,23 @@
 
 @protocol HTTPManagerDelegate <NSObject>
 
-- (void)creatingUserStart;
+- (void)loadingUserStart;
 
-- (void)creatingUserSuccess;
+- (void)loadingUserSuccess;
 
-- (void)creatingUserFailed;
+- (void)loadingUserFailed;
 
 - (void)loadingScheduleStart;
 
 - (void)loadingScheduleSuccess;
 
 - (void)loadingScheduleFailed;
+
+- (void)loadingRosterStart;
+
+- (void)loadingRosterSuccess;
+
+- (void)loadingRosterFailed;
 
 @end
     

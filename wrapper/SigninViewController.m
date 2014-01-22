@@ -62,21 +62,21 @@
 }
 
 - (IBAction)signIn:(UIButton *)sender {
-    [self creatingUserStart];
+    [self loadingUserStart];
 
     [HTTPManager loadTeacherWithEmail:self.email.text
                              password:self.password.text
                              delegate:self];
 }
 
-- (void)creatingUserStart
+- (void)loadingUserStart
 {
     self.wrongEmailAndPassword.text = @"Verifying ...";
     self.wrongEmailAndPassword.textColor = [UIColor greenColor];
     self.signIn.enabled = NO;
 }
 
-- (void)creatingUserSuccess
+- (void)loadingUserSuccess
 {
     self.wrongEmailAndPassword.text = @"Loading ...";
     self.wrongEmailAndPassword.textColor = [UIColor greenColor];
@@ -86,7 +86,7 @@
     [HTTPManager loadTermWithDelegate:self];
 }
 
-- (void)creatingUserFailed
+- (void)loadingUserFailed
 {
     self.wrongEmailAndPassword.text = @"The email or password is incorrect.";
     self.wrongEmailAndPassword.textColor = [UIColor redColor];
@@ -127,10 +127,10 @@
     self.signIn.enabled = YES;
 }
 
-- (void)loadingCourseStart{}
+- (void)loadingRosterStart{}
 
-- (void)loadingCourseSuccess{}
+- (void)loadingRosterFailed{}
 
-- (void)loadingCourseFailed{}
+- (void)loadingRosterSuccess{}
 
 @end

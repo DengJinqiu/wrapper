@@ -14,12 +14,15 @@
               schoolName:(NSString *)schoolName instrumentName:(NSString *)instrumentName
              programType:(NSString *)programType courseType:(NSString *)courseType
 {
-    self.courseId = courseId;
-    self.courseName = courseName;
-    self.schoolName = schoolName;
-    self.instrumentName = instrumentName;
-    self.programType = programType;
-    self.courseType = courseType;
+    self = [super init];
+    if (self) {
+        self.courseId = courseId;
+        self.courseName = courseName;
+        self.schoolName = schoolName;
+        self.instrumentName = instrumentName;
+        self.programType = programType;
+        self.courseType = courseType;
+    }
     return self;
 }
 

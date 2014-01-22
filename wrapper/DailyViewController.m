@@ -16,8 +16,9 @@
 #import "Teacher.h"
 #import "Schedule.h"
 #import "HTTPManagerDelegate.h"
+#import "HTTPManager.h"
 
-@interface DailyViewController ()
+@interface DailyViewController () <HTTPManagerDelegate>
 
 @property (nonatomic) NSInteger year;
 
@@ -26,8 +27,6 @@
 @property (nonatomic) NSInteger weekday;
 
 @property (nonatomic) NSInteger day;
-
-@property (nonatomic) NSMutableArray* courseIds;
 
 @end
 
@@ -41,17 +40,13 @@
         self.month = month;
         self.weekday = weekday;
         self.day = day;
-        _courseIds = [[NSMutableArray alloc] init];
-        for (NSNumber* courseId in [Schedule coursesOnYear:year month:month day:day]) {
-            [_courseIds addObject:courseId];
-        }
     }
     return self;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.courseIds count];
+    return [[Schedule coursesOnYear:self.year month:self.month day:self.day] count];
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -59,26 +54,57 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
-    Course* course = [Schedule courseOfId:[self.courseIds objectAtIndex:[indexPath indexAtPosition:1]]];
+    Course* course = [Schedule courseOfId:[[Schedule coursesOnYear:self.year month:self.month day:self.day]
+                                           objectAtIndex:[indexPath indexAtPosition:1]]];
     
-    cell.textLabel.text = course.courseName;
-    cell.detailTextLabel.text = course.schoolName;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", course.courseName, course.courseType];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@ - %@", course.schoolName, course.instrumentName, course.programType];
     
     return cell;
 }
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    Attendance* attendance = [[self.courseIndexOnCell objectAtIndex:[indexPath indexAtPosition:1]] attendanceOnYear:self.year month:self.month day:self.day];
-//    AttendanceViewController *attendanceViewController = [[AttendanceViewController alloc] initWithYear:self.year month:self.month weekday:self.weekday day:self.day attendance:attendance];
-//    UIBarButtonItem *signOutButtonItem =
-//    [[UIBarButtonItem alloc] initWithTitle:@"Course"
-//                                     style:UIBarButtonItemStyleBordered
-//                                    target:nil
-//                                    action:nil];
-//    [[self navigationItem] setBackBarButtonItem:signOutButtonItem];
-//    [self.navigationController pushViewController:attendanceViewController animated:YES];
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [HTTPManager loadRosterFor:[[Schedule coursesOnYear:self.year month:self.month day:self.day] objectAtIndex:[indexPath indexAtPosition:1]]
+                        onDate:[NSString stringWithFormat:@"%d-%d-%d", self.year, self.month, self.day]
+                  withDelegate:self];
+    [self loadingRosterStart];
+}
+
+- (void)loadingRosterStart
+{
+    
+}
+
+- (void)loadingRosterSuccess
+{
+    AttendanceViewController *attendanceViewController =
+        [[AttendanceViewController alloc] initWithYear:self.year month:self.month weekday:self.weekday day:self.day];
+    UIBarButtonItem *backButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:@"Course"
+                                     style:UIBarButtonItemStyleBordered
+                                    target:nil
+                                    action:nil];
+    [[self navigationItem] setBackBarButtonItem:backButtonItem];
+    [self.navigationController pushViewController:attendanceViewController animated:YES];
+}
+
+- (void)loadingRosterFailed
+{
+    
+}
+
+- (void)loadingScheduleStart{}
+
+- (void)loadingScheduleSuccess{}
+
+- (void)loadingScheduleFailed{}
+
+- (void)loadingUserStart{}
+
+- (void)loadingUserSuccess{}
+
+- (void)loadingUserFailed{}
 
 - (NSString*)tableTitle
 {

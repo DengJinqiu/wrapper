@@ -13,6 +13,7 @@
 		6597E34B183F516F00849302 /* DailyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6597E34A183F516F00849302 /* DailyViewController.m */; };
 		659D9CD2183DBFF6008EBA12 /* YearlyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659D9CD1183DBFF6008EBA12 /* YearlyViewController.m */; };
 		659D9CD9183DD5D8008EBA12 /* YearPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 659D9CD8183DD5D8008EBA12 /* YearPanel.m */; };
+		6F171E24188F7811009721F1 /* Attendance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F171E23188F7811009721F1 /* Attendance.m */; };
 		6FACC8CD188C3EE6006FABC9 /* Term.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FACC8CC188C3EE6006FABC9 /* Term.m */; };
 		6FACC8D0188C5871006FABC9 /* DateTimeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FACC8CF188C5871006FABC9 /* DateTimeParser.m */; };
 		6FACC8D3188C6B59006FABC9 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FACC8D2188C6B59006FABC9 /* Schedule.m */; };
@@ -66,6 +67,8 @@
 		659D9CD1183DBFF6008EBA12 /* YearlyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearlyViewController.m; sourceTree = "<group>"; };
 		659D9CD7183DD5D8008EBA12 /* YearPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearPanel.h; sourceTree = "<group>"; };
 		659D9CD8183DD5D8008EBA12 /* YearPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearPanel.m; sourceTree = "<group>"; };
+		6F171E22188F7811009721F1 /* Attendance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attendance.h; sourceTree = "<group>"; };
+		6F171E23188F7811009721F1 /* Attendance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attendance.m; sourceTree = "<group>"; };
 		6FACC8CB188C3EE6006FABC9 /* Term.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Term.h; sourceTree = "<group>"; };
 		6FACC8CC188C3EE6006FABC9 /* Term.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Term.m; sourceTree = "<group>"; };
 		6FACC8CE188C5871006FABC9 /* DateTimeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTimeParser.h; sourceTree = "<group>"; };
@@ -260,6 +263,8 @@
 				6FACC8D2188C6B59006FABC9 /* Schedule.m */,
 				FE90AABF18527884001AD462 /* Course.h */,
 				FE90AAC018527884001AD462 /* Course.m */,
+				6F171E22188F7811009721F1 /* Attendance.h */,
+				6F171E23188F7811009721F1 /* Attendance.m */,
 				FE70BC9318641280009B0FC2 /* HTTPManager.h */,
 				FE70BC9418641280009B0FC2 /* HTTPManager.m */,
 				FE70BC9618641467009B0FC2 /* HTTPManagerDelegate.h */,
@@ -448,6 +453,7 @@
 				FE70BC9518641280009B0FC2 /* HTTPManager.m in Sources */,
 				FEEFB40B1850837D00F5F182 /* TitleTableViewController.m in Sources */,
 				A564F4A8183D795300785E9E /* main.m in Sources */,
+				6F171E24188F7811009721F1 /* Attendance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

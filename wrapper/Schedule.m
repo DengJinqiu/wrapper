@@ -10,9 +10,9 @@
 
 @implementation Schedule
 
-static NSMutableDictionary* _courses;
-
 static NSMutableArray* _index;
+
+static NSMutableDictionary* _courses;
 
 static NSMutableDictionary* _schedule;
 
@@ -20,33 +20,27 @@ static NSMutableSet* _monthsContainCourses;
 
 + (void)clearSchedule
 {
-    _courses = nil;
     _index = nil;
     _schedule = nil;
     _monthsContainCourses = nil;
 }
 
-+ (void)addWithCourseId:(NSNumber *)courseId courseName:(NSString *)courseName
-             schoolName:(NSString *)schoolName instrumentName:(NSString *)instrumentName
-            programType:(NSString *)programType courseType:(NSString *)courseType
++ (void)addCourse:(Course *)course
 {
-    Course *course = [[Course alloc] initWithCourseId:courseId courseName:courseName
-                                           schoolName:schoolName instrumentName:instrumentName
-                                          programType:programType courseType:courseType];
-    if (!_courses) {
-        _courses = [[NSMutableDictionary alloc] init];
-    }
     if (!_index) {
         _index = [[NSMutableArray alloc] init];
     }
     if (!_schedule) {
         _schedule = [[NSMutableDictionary alloc] init];
     }
+    if (!_courses) {
+        _courses = [[NSMutableDictionary alloc] init];
+    }
     if (!_monthsContainCourses) {
         _monthsContainCourses = [[NSMutableSet alloc] init];
     }
-    [_courses setObject:course forKey:courseId];
-    [_index addObject:courseId];
+    [_index addObject:course];
+    [_courses setObject:course forKey:course.courseId];
 }
 
 + (void)addScheduleForCourse:(NSNumber*)courseId onYear:(NSInteger)year month:(NSInteger)month andDay:(NSInteger)day
@@ -63,12 +57,12 @@ static NSMutableSet* _monthsContainCourses;
 
 + (Course*)courseOfIndex:(NSInteger)index
 {
-    return [self courseOfId:[_index objectAtIndex:index]];
+    return [_index objectAtIndex:index];
 }
 
-+ (Course*)courseOfId:(NSNumber*)couseId
++ (Course*)courseOfId:(NSNumber *)courseId
 {
-    return [_courses objectForKey:couseId];
+    return [_courses objectForKey:courseId];
 }
 
 + (NSMutableArray*)coursesOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day

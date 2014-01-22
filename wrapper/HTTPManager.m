@@ -12,6 +12,7 @@
 #import "Teacher.h"
 #import "Schedule.h"
 #import "SchoolCalendar.h"
+#import "Attendance.h"
 
 @implementation HTTPManager
 
@@ -33,12 +34,12 @@ static HTTPManager *_manager;
     [[HTTPManager getInstance] GET:@"users/verify" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([[(NSDictionary*)responseObject objectForKey:@"type"] isEqualToString:@"Teacher"]) {
              [Teacher createInstanceWithUserId:[(NSDictionary*)responseObject objectForKey:@"id"]];
-            [delegate creatingUserSuccess];
+            [delegate loadingUserSuccess];
         } else {
-            [delegate creatingUserFailed];
+            [delegate loadingUserFailed];
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [delegate creatingUserFailed];
+        [delegate loadingUserFailed];
     }];
 }
 
@@ -61,21 +62,22 @@ static HTTPManager *_manager;
     [[HTTPManager getInstance] GET:relativeURL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         for (NSDictionary* course in (NSArray*)responseObject) {
             if ([[course objectForKey:@"term_id"] isEqualToNumber:[Term getInstance].termId]) {
-                [Schedule addWithCourseId:[course objectForKey:@"id"]
-                               courseName:[course objectForKey:@"name"]
-                               schoolName:[course objectForKey:@"school_name"]
-                           instrumentName:[course objectForKey:@"instrument_name"]
-                              programType:[course objectForKey:@"program_type"]
-                               courseType:[course objectForKey:@"course_type"]];
+                Course* c = [[Course alloc] initWithCourseId:[course objectForKey:@"id"]
+                                                  courseName:[course objectForKey:@"name"]
+                                                  schoolName:[course objectForKey:@"school_name"]
+                                              instrumentName:[course objectForKey:@"instrument_name"]
+                                                 programType:[course objectForKey:@"program_type"]
+                                                  courseType:[course objectForKey:@"course_type"]];
+                [Schedule addCourse:c];
             }
         }
-        [self loadScheduleFor:0 WithDelegate:delegate];
+        [self loadScheduleFor:0 withDelegate:delegate];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [	delegate loadingScheduleFailed];
     }];
 }
 
-+ (void)loadScheduleFor:(NSInteger)courseIndex WithDelegate:(id<HTTPManagerDelegate>)delegate
++ (void)loadScheduleFor:(NSInteger)courseIndex withDelegate:(id<HTTPManagerDelegate>)delegate
 {
     if (courseIndex < [Schedule coursesNum]) {
         NSString *relativeURL = [NSString stringWithFormat:@"courses/%@/schedules", [Schedule courseOfIndex:courseIndex].courseId];
@@ -105,13 +107,35 @@ static HTTPManager *_manager;
                     }
                 }
             }
-            [self loadScheduleFor:courseIndex+1 WithDelegate:delegate];
+            [self loadScheduleFor:courseIndex+1 withDelegate:delegate];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [delegate loadingScheduleFailed];
         }];
     } else {
         [delegate loadingScheduleSuccess];
     }
+}
+
++ (void)loadRosterFor:(NSNumber*)courseId onDate:(NSString *)date withDelegate:(id<HTTPManagerDelegate>)delegate
+{
+    NSDictionary *parameters = @{@"date": date};
+    NSString *relativeURL = [NSString stringWithFormat:@"courses/%@/rosters", courseId];
+    [[HTTPManager getInstance] GET:relativeURL parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        [Attendance clearAttendance];
+        for (NSDictionary* attendance in (NSArray*)responseObject) {
+            Attendance* a = [[Attendance alloc] initWithAttendanceId:[attendance objectForKey:@"attendance_id"]
+                                                 attendanceMarkingId:[attendance objectForKey:@"attendance_marking_id"]
+                                                            rosterId:[attendance objectForKey:@"roster_id"]
+                                                    studentFirstName:[attendance objectForKey:@"student_first_name"]
+                                                     studentLastName:[attendance objectForKey:@"student_last_name"]
+                                                    teacherFirstName:[attendance objectForKey:@"teacher_first_name"]
+                                                     teacherLastName:[attendance objectForKey:@"teacher_last_name"]];
+            [Attendance addAttendance:a];
+        }
+        [delegate loadingRosterSuccess];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [delegate loadingRosterFailed];
+    }];
 }
 
 @end
