@@ -82,7 +82,7 @@
     self.wrongEmailAndPassword.textColor = [UIColor greenColor];
     self.signIn.enabled = NO;
     
-    [self loadingDataStart];
+    [self loadingScheduleStart];
     [HTTPManager loadTermWithDelegate:self];
 }
 
@@ -94,12 +94,9 @@
     self.signIn.enabled = YES;
 }
 
-- (void)loadingDataStart
-{
-    
-}
+- (void)loadingScheduleStart{}
 
-- (void)loadingDataSuccess
+- (void)loadingScheduleSuccess
 {
     self.wrongEmailAndPassword.text = @"";
     self.email.text = @"";
@@ -122,12 +119,18 @@
     [self.navigationController pushViewController:monthlyViewController animated:YES];
 }
 
-- (void)loadingDataFailed
+- (void)loadingScheduleFailed
 {
     self.wrongEmailAndPassword.text = @"Cannot load data for this user.";
     self.wrongEmailAndPassword.textColor = [UIColor redColor];
     self.password.text = @"";
     self.signIn.enabled = YES;
 }
+
+- (void)loadingCourseStart{}
+
+- (void)loadingCourseSuccess{}
+
+- (void)loadingCourseFailed{}
 
 @end

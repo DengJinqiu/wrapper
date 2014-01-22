@@ -12,6 +12,10 @@
 
 @interface Course : NSObject
 
+- (instancetype)initWithCourseId:(NSNumber*)courseId courseName:(NSString*)courseName
+              schoolName:(NSString*)schoolName instrumentName:(NSString*)instrumentName
+             programType:(NSString*)programType courseType:(NSString*)courseType;
+
 @property (nonatomic) NSNumber* courseId;
 
 @property (nonatomic) NSString* courseName;

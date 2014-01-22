@@ -26,10 +26,13 @@ static NSMutableSet* _monthsContainCourses;
     _monthsContainCourses = nil;
 }
 
-+ (void)addWithCourseId:(NSNumber*)courseId
++ (void)addWithCourseId:(NSNumber *)courseId courseName:(NSString *)courseName
+             schoolName:(NSString *)schoolName instrumentName:(NSString *)instrumentName
+            programType:(NSString *)programType courseType:(NSString *)courseType
 {
-    Course *course = [[Course alloc] init];
-    course.courseId = courseId;
+    Course *course = [[Course alloc] initWithCourseId:courseId courseName:courseName
+                                           schoolName:schoolName instrumentName:instrumentName
+                                          programType:programType courseType:courseType];
     if (!_courses) {
         _courses = [[NSMutableDictionary alloc] init];
     }

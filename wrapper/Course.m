@@ -10,4 +10,17 @@
 
 @implementation Course
 
+- (instancetype)initWithCourseId:(NSNumber *)courseId courseName:(NSString *)courseName
+              schoolName:(NSString *)schoolName instrumentName:(NSString *)instrumentName
+             programType:(NSString *)programType courseType:(NSString *)courseType
+{
+    self.courseId = courseId;
+    self.courseName = courseName;
+    self.schoolName = schoolName;
+    self.instrumentName = instrumentName;
+    self.programType = programType;
+    self.courseType = courseType;
+    return self;
+}
+
 @end

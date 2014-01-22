@@ -16,11 +16,11 @@
 
 - (void)creatingUserFailed;
 
-- (void)loadingDataStart;
+- (void)loadingScheduleStart;
 
-- (void)loadingDataSuccess;
+- (void)loadingScheduleSuccess;
 
-- (void)loadingDataFailed;
+- (void)loadingScheduleFailed;
 
 @end
     

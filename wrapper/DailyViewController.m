@@ -14,8 +14,10 @@
 #import "AttendanceViewController.h"
 #import "Course.h"
 #import "Teacher.h"
+#import "Schedule.h"
+#import "HTTPManagerDelegate.h"
 
-@interface DailyViewController () 
+@interface DailyViewController ()
 
 @property (nonatomic) NSInteger year;
 
@@ -25,19 +27,11 @@
 
 @property (nonatomic) NSInteger day;
 
-@property (nonatomic) NSMutableArray* courseIndexOnCell;
+@property (nonatomic) NSMutableArray* courseIds;
 
 @end
 
 @implementation DailyViewController
-
-- (NSMutableArray*)courseIndexOnCell
-{
-    if (!_courseIndexOnCell) {
-        _courseIndexOnCell = [[NSMutableArray alloc] init];
-    }
-    return _courseIndexOnCell;
-}
 
 - (id)initWithYear:(NSInteger)year month:(NSInteger)month weekday:(NSInteger)weekday day:(NSInteger)day
 {
@@ -47,28 +41,26 @@
         self.month = month;
         self.weekday = weekday;
         self.day = day;
+        _courseIds = [[NSMutableArray alloc] init];
+        for (NSNumber* courseId in [Schedule coursesOnYear:year month:month day:day]) {
+            [_courseIds addObject:courseId];
+        }
     }
     return self;
 }
 
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    int num = 0;
-//    for (NSNumber* courseId in [User getInstance].courseIds) {
-//        if ([[Course getCourse:courseId] attendanceOnYear:self.year month:self.month day:self.day]) {
-//            num += 1;
-//            [self.courseIndexOnCell addObject:[Course getCourse:courseId]];
-//        }
-//    }
-//    return num;
-//}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.courseIds count];
+}
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
-    Course* course = [self.courseIndexOnCell objectAtIndex:[indexPath indexAtPosition:1]];
+    Course* course = [Schedule courseOfId:[self.courseIds objectAtIndex:[indexPath indexAtPosition:1]]];
+    
     cell.textLabel.text = course.courseName;
     cell.detailTextLabel.text = course.schoolName;
     

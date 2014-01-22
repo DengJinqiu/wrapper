@@ -11,7 +11,9 @@
 
 @interface Schedule : NSObject
 
-+ (void)addWithCourseId:(NSNumber*)courseId;
++ (void)addWithCourseId:(NSNumber*)courseId courseName:(NSString*)courseName
+             schoolName:(NSString*)schoolName instrumentName:(NSString*)instrumentName
+            programType:(NSString*)programType courseType:(NSString*)courseType;
 
 + (NSInteger)coursesNum;
 

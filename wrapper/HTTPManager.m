@@ -51,7 +51,7 @@ static HTTPManager *_manager;
                                 andTermId:[(NSDictionary*)responseObject objectForKey:@"id"]];
         [self loadCoursesWithDelegate:delegate];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [delegate loadingDataFailed];
+        [delegate loadingScheduleFailed];
     }];
 }
 
@@ -60,11 +60,18 @@ static HTTPManager *_manager;
     NSString *relativeURL = [NSString stringWithFormat:@"teachers/%@/courses", [Teacher getInstance].teacherId];
     [[HTTPManager getInstance] GET:relativeURL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         for (NSDictionary* course in (NSArray*)responseObject) {
-            [Schedule addWithCourseId:[course objectForKey:@"id"]];
+            if ([[course objectForKey:@"term_id"] isEqualToNumber:[Term getInstance].termId]) {
+                [Schedule addWithCourseId:[course objectForKey:@"id"]
+                               courseName:[course objectForKey:@"name"]
+                               schoolName:[course objectForKey:@"school_name"]
+                           instrumentName:[course objectForKey:@"instrument_name"]
+                              programType:[course objectForKey:@"program_type"]
+                               courseType:[course objectForKey:@"course_type"]];
+            }
         }
         [self loadScheduleFor:0 WithDelegate:delegate];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [delegate loadingDataFailed];
+        [	delegate loadingScheduleFailed];
     }];
 }
 
@@ -100,10 +107,10 @@ static HTTPManager *_manager;
             }
             [self loadScheduleFor:courseIndex+1 WithDelegate:delegate];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            [delegate loadingDataFailed];
+            [delegate loadingScheduleFailed];
         }];
     } else {
-        [delegate loadingDataSuccess];
+        [delegate loadingScheduleSuccess];
     }
 }
 
