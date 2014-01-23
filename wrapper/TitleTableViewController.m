@@ -19,7 +19,8 @@
     [super viewDidLoad];
 	CGRect screenRect = [[UIScreen mainScreen] bounds];
 
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 280, 30)];
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 280, 50)];
+    title.numberOfLines = 3;
     title.text = [self tableTitle];
     title.textAlignment = NSTextAlignmentCenter;
     [title setFont:[UIFont systemFontOfSize:12]];

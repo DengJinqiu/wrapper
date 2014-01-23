@@ -110,7 +110,7 @@
 
 - (void)updateLeftBarButtonItem:(NSInteger)year
 {
-    NSString *yearString = [NSString stringWithFormat:@"%ld", (long)year];
+    NSString *yearString = [NSString stringWithFormat:@"%d", year];
     if (![self.viewControllerBelow.navigationItem.backBarButtonItem.title isEqualToString:yearString]) {
         UIBarButtonItem *backButtonItem =
             [[UIBarButtonItem alloc] initWithTitle:yearString

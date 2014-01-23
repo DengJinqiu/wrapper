@@ -24,7 +24,7 @@
 
 - (void)loadingRosterStart;
 
-- (void)loadingRosterSuccess;
+- (void)loadingRosterSuccessWithCourseId:(NSNumber*)courseId;
 
 - (void)loadingRosterFailed;
 

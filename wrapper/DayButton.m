@@ -17,7 +17,7 @@
     if (self) {
         _weekday = weekday;
         _day = day;
-        [self setTitle:[NSString stringWithFormat:@"%ld", (long)self.day] forState:UIControlStateNormal];
+        [self setTitle:[NSString stringWithFormat:@"%d", self.day] forState:UIControlStateNormal];
     }
     return self;
 }

@@ -76,15 +76,15 @@
     
 }
 
-- (void)loadingRosterSuccess
+- (void)loadingRosterSuccessWithCourseId:(NSNumber *)courseId
 {
     AttendanceViewController *attendanceViewController =
-        [[AttendanceViewController alloc] initWithYear:self.year month:self.month weekday:self.weekday day:self.day];
+        [[AttendanceViewController alloc] initWithYear:self.year month:self.month weekday:self.weekday day:self.day courseId:courseId];
     UIBarButtonItem *backButtonItem =
-    [[UIBarButtonItem alloc] initWithTitle:@"Course"
-                                     style:UIBarButtonItemStyleBordered
-                                    target:nil
-                                    action:nil];
+        [[UIBarButtonItem alloc] initWithTitle:@"Course"
+                                         style:UIBarButtonItemStyleBordered
+                                        target:nil
+                                        action:nil];
     [[self navigationItem] setBackBarButtonItem:backButtonItem];
     [self.navigationController pushViewController:attendanceViewController animated:YES];
 }
@@ -108,10 +108,10 @@
 
 - (NSString*)tableTitle
 {
-    return [NSString stringWithFormat:@"%@ %@ %ld, %ld",
+    return [NSString stringWithFormat:@"%@ %@ %d, %d",
             [CalendarLabels weekdayFullNames][self.weekday],
             [CalendarLabels monthFullNames][self.month],
-            (long)self.day, (long)self.year];
+            self.day, self.year];
 }
 
 @end

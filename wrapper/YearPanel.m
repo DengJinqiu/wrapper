@@ -15,7 +15,7 @@
 {
     self = [super initWithYear:year originY:y];
     if (self) {
-        [[super panelLabel] setText:[NSString stringWithFormat:@"%ld", (long)self.year]];
+        [[super panelLabel] setText:[NSString stringWithFormat:@"%d", self.year]];
     }
     return self;
 }

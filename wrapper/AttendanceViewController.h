@@ -11,6 +11,6 @@
 
 @interface AttendanceViewController : TitleTableViewController
 
-- (id)initWithYear:(NSInteger)year month:(NSInteger)month weekday:(NSInteger)weekday day:(NSInteger)day;
+- (id)initWithYear:(NSInteger)year month:(NSInteger)month weekday:(NSInteger)weekday day:(NSInteger)day courseId:(NSNumber*)courseId;
 
 @end

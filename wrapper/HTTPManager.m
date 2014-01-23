@@ -132,7 +132,7 @@ static HTTPManager *_manager;
                                                      teacherLastName:[attendance objectForKey:@"teacher_last_name"]];
             [Attendance addAttendance:a];
         }
-        [delegate loadingRosterSuccess];
+        [delegate loadingRosterSuccessWithCourseId:courseId];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [delegate loadingRosterFailed];
     }];

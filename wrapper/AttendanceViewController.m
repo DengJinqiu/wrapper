@@ -10,6 +10,8 @@
 #import "Teacher.h"
 #import "Course.h"
 #import "Attendance.h"
+#import "Schedule.h"
+#import "CalendarLabels.h"
 
 @interface AttendanceViewController ()
 
@@ -21,6 +23,8 @@
 
 @property (nonatomic) NSInteger day;
 
+@property (nonatomic) NSNumber* courseId;
+
 @property (nonatomic) Attendance* attendance;
 
 @property (nonatomic) NSMutableArray* students;
@@ -29,7 +33,7 @@
 
 @implementation AttendanceViewController
 
-- (id)initWithYear:(NSInteger)year month:(NSInteger)month weekday:(NSInteger)weekday day:(NSInteger)day
+- (instancetype)initWithYear:(NSInteger)year month:(NSInteger)month weekday:(NSInteger)weekday day:(NSInteger)day courseId:(NSNumber *)courseId
 {
     self = [super init];
     if (self) {
@@ -37,6 +41,7 @@
         self.month = month;
         self.weekday = weekday;
         self.day = day;
+        self.courseId = courseId;
     }
     return self;
 }
@@ -70,23 +75,27 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+    
+    Attendance* attendance = [Attendance attendanceForIndex:[indexPath indexAtPosition:1]];
 
-//    Student* student = [self.students objectAtIndex:[indexPath indexAtPosition:1]];
-//    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [student firstName], [student lastName]];
-//    
-//    if ([[self.attendance.studentAttendance objectForKey:student.studentId] boolValue]) {
-//    	cell.accessoryType = UITableViewCellAccessoryCheckmark;
-//    } else {
-//        cell.accessoryType = UITableViewCellAccessoryNone;
-//    }
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", attendance.studentFirstName, attendance.studentLastName  ];
+    
+    if ([attendance.attendanceId intValue] >= 0) {
+    	cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
     return cell;
 }
 
 - (NSString*)tableTitle
 {
-//    return [NSString stringWithFormat:@"%@, %@", self.attendance.course.courseName, self.attendance.course.schoolName];
-    return @"ddd";
+    Course* course = [Schedule courseOfId:self.courseId];
+    return [NSString stringWithFormat:@"%@ %@ %d, %d \n %@ - %@ - %@ \n %@ - %@", [CalendarLabels weekdayFullNames][self.weekday],
+            [CalendarLabels monthFullNames][self.month],
+            self.day, self.year, course.courseName, course.instrumentName,
+            course.schoolName, course.programType, course.courseType];
 }
 
 @end

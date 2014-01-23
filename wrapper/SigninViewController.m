@@ -131,6 +131,6 @@
 
 - (void)loadingRosterFailed{}
 
-- (void)loadingRosterSuccess{}
+- (void)loadingRosterSuccessWithCourseId:(NSNumber *)courseId{}
 
 @end
