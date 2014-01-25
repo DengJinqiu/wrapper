@@ -10,4 +10,6 @@
 
 @interface TitleTableViewController : UIViewController
 
+@property (nonatomic) UITableView* tableView;
+
 @end

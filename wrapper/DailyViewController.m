@@ -44,6 +44,12 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSIndexPath* tableSelection = [self.tableView indexPathForSelectedRow];
+    [self.tableView deselectRowAtIndexPath:tableSelection animated:YES];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [[Schedule coursesOnYear:self.year month:self.month day:self.day] count];
@@ -53,6 +59,7 @@
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
 
     Course* course = [Schedule courseOfId:[[Schedule coursesOnYear:self.year month:self.month day:self.day]
                                            objectAtIndex:[indexPath indexAtPosition:1]]];

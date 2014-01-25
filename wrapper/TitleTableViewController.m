@@ -29,10 +29,10 @@
     NSInteger titleHeight = title.frame.size.height;
     CGRect tableFrame = CGRectMake(0, titleHeight, screenRect.size.width, screenRect.size.height-titleHeight);
     
-    UITableView *table = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
-    table.dataSource = self;
-    table.delegate = self;
-    [self.view addSubview:table];
+    self.tableView = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    [self.view addSubview:self.tableView];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
 }

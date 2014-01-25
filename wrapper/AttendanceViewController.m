@@ -61,9 +61,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Attendance* attendance = [Attendance attendanceOfIndex:[indexPath indexAtPosition:1]];
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    
+//    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(300, 0, 100, 100)];
+//    label.text = @"dddddddd";
+//    [cell.contentView addSubview:label];
+//    [cell.contentView bringSubviewToFront:label];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
