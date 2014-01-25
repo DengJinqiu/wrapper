@@ -138,4 +138,34 @@ static HTTPManager *_manager;
     }];
 }
 
++ (void)updateAttendanceForAttendanceId:(NSNumber *)attendanceId rosterId:(NSNumber *)rosterId teacherId:(NSNumber *)teacherId
+                    attendanceMarkingId:(NSNumber *)attendanceMarkingId date:(NSString *)date
+{
+    NSDictionary *parameters = @{@"roster_id": rosterId, @"teacher_id": teacherId,
+                                 @"attendance_marking_id": attendanceMarkingId, @"date": date};
+    NSString *relativeURL = [NSString stringWithFormat:@"attendances/%@", attendanceId];
+    [[HTTPManager getInstance] GET:relativeURL parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        [Attendance clearAttendance];
+        for (NSDictionary* attendance in (NSArray*)responseObject) {
+            Attendance* a = [[Attendance alloc] initWithAttendanceId:[attendance objectForKey:@"attendance_id"]
+                                                 attendanceMarkingId:[attendance objectForKey:@"attendance_marking_id"]
+                                                            rosterId:[attendance objectForKey:@"roster_id"]
+                                                    studentFirstName:[attendance objectForKey:@"student_first_name"]
+                                                     studentLastName:[attendance objectForKey:@"student_last_name"]
+                                                    teacherFirstName:[attendance objectForKey:@"teacher_first_name"]
+                                                     teacherLastName:[attendance objectForKey:@"teacher_last_name"]];
+            [Attendance addAttendance:a];
+        }
+//        [delegate loadingRosterSuccessWithCourseId:courseId];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        [delegate loadingRosterFailed];
+    }];
+}
+
++ (void)createAttendanceForRosterId:(NSNumber *)rosterId teacherId:(NSNumber *)teacherId
+                attendanceMarkingId:(NSNumber *)attendanceMarkingId date:(NSString *)date
+{
+    
+}
+
 @end

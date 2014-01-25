@@ -28,5 +28,9 @@
 
 - (void)loadingRosterFailed;
 
+- (void)changingAttendanceStart;
+
+//- (void)changingAttendanceSuccessWithAttendance
+
 @end
     

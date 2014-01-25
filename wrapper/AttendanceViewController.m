@@ -61,15 +61,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    Student* student = [self.students objectAtIndex:[indexPath indexAtPosition:1]];
-//    [self.attendance changeAttendance:student.studentId];
-//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    
-//    if ([[self.attendance.studentAttendance objectForKey:student.studentId] boolValue]) {
-//        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-//    } else {
-//        cell.accessoryType = UITableViewCellAccessoryNone;
-//    }
+    Attendance* attendance = [Attendance attendanceForIndex:[indexPath indexAtPosition:1]];
+    
+    
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
