@@ -144,7 +144,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		659D9CD6183DD5A2008EBA12 /* view */ = {
+		659D9CD6183DD5A2008EBA12 /* 2 */ = {
 			isa = PBXGroup;
 			children = (
 				FEEFB3FD18501ED700F5F182 /* CalendarLabels.h */,
@@ -152,7 +152,7 @@
 				FEEFB3FC18501DEC00F5F182 /* button */,
 				FEEFB3FB18501DDD00F5F182 /* panel */,
 			);
-			name = view;
+			name = 2;
 			sourceTree = "<group>";
 		};
 		A564F48F183D795300785E9E = {
@@ -190,7 +190,7 @@
 		A564F4A1183D795300785E9E /* wrapper */ = {
 			isa = PBXGroup;
 			children = (
-				659D9CD6183DD5A2008EBA12 /* view */,
+				659D9CD6183DD5A2008EBA12 /* 2 */,
 				A564F4D2183DA42600785E9E /* controller */,
 				A564F4D3183DA49F00785E9E /* model */,
 				A564F4CA183D799D00785E9E /* iphone.storyboard */,

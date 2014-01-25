@@ -22,6 +22,7 @@ static NSMutableSet* _monthsContainCourses;
 {
     _index = nil;
     _schedule = nil;
+    _courses = nil;
     _monthsContainCourses = nil;
 }
 

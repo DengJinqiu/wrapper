@@ -31,7 +31,9 @@
 
 + (void) addAttendance:(Attendance*)attendance;
 
-+ (Attendance*)attendanceForIndex:(NSInteger)index;
++ (Attendance*)attendanceOfIndex:(NSInteger)index;
+
++ (Attendance*)attendanceOfId:(NSNumber*)attendanceId;
 
 + (void)clearAttendance;
 

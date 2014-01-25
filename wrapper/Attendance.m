@@ -12,6 +12,8 @@
 
 static NSMutableArray* _index;
 
+static NSMutableDictionary* _attendances;
+
 - (instancetype)initWithAttendanceId:(NSNumber *)attendanceId attendanceMarkingId:(NSNumber *)attendanceMarkingId
                             rosterId:(NSNumber *)rosterId studentFirstName:(NSString *)studentFirstName
                      studentLastName:(NSString *)studentLastName teacherFirstName:(NSString *)teacherFirstName
@@ -35,22 +37,32 @@ static NSMutableArray* _index;
     if (!_index) {
         _index = [[NSMutableArray alloc] init];
     }
+    if (!_attendances) {
+        _attendances = [[NSMutableDictionary alloc] init];
+    }
+    [_attendances setObject:attendance forKey:attendance.attendanceId];
     [_index addObject:attendance];
 }
 
 + (void)clearAttendance
 {
     _index = nil;
+    _attendances = nil;
 }
 
-+ (Attendance*)attendanceForIndex:(NSInteger)index
++ (Attendance*)attendanceOfIndex:(NSInteger)index
 {
     return [_index objectAtIndex:index];
 }
 
++ (Attendance*)attendanceOfId:(NSNumber *)attendanceId
+{
+    return [_attendances objectForKey:attendanceId];
+}
+
 + (NSInteger)AttendancesNum
 {
-    return [_index count];
+    return [_attendances count];
 }
 
 @end

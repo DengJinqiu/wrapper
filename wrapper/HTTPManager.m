@@ -71,49 +71,46 @@ static HTTPManager *_manager;
                 [Schedule addCourse:c];
             }
         }
-        [self loadScheduleFor:0 withDelegate:delegate];
+        [self loadSchedulesWithDelegate:delegate];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [	delegate loadingScheduleFailed];
+        [delegate loadingScheduleFailed];
     }];
 }
 
-+ (void)loadScheduleFor:(NSInteger)courseIndex withDelegate:(id<HTTPManagerDelegate>)delegate
++ (void)loadSchedulesWithDelegate:(id<HTTPManagerDelegate>)delegate
 {
-    if (courseIndex < [Schedule coursesNum]) {
-        NSString *relativeURL = [NSString stringWithFormat:@"courses/%@/schedules", [Schedule courseOfIndex:courseIndex].courseId];
-        [[HTTPManager getInstance] GET:relativeURL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-            NSNumber* courseId = [Schedule courseOfIndex:courseIndex].courseId;
-            for (NSDictionary* schedule in (NSArray*)responseObject) {
-                NSInteger weekDay = [[schedule objectForKey:@"day_of_week"] intValue];
+    NSString *relativeURL = @"schedules";
+    [[HTTPManager getInstance] GET:relativeURL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        for (NSDictionary* schedule in (NSArray*)responseObject) {
+            NSInteger weekDay = [[schedule objectForKey:@"day_of_week"] intValue];
+            
+            NSString* startDate = [schedule objectForKey:@"start_date"];
+            NSInteger startYear = [DateTimeParser year:startDate];
+            NSInteger startMonth = [DateTimeParser month:startDate];
+            NSInteger startDay = [DateTimeParser day:startDate];
+            
+            NSString* endDate = [schedule objectForKey:@"end_date"];
+            NSInteger endYear = [DateTimeParser year:endDate];
+            NSInteger endMonth = [DateTimeParser month:endDate];
+            NSInteger endDay = [DateTimeParser day:endDate];
+            
+            NSNumber* courseId = [schedule objectForKey:@"course_id"];
                 
-                NSString* startDate = [schedule objectForKey:@"start_date"];
-                NSInteger startYear = [DateTimeParser year:startDate];
-                NSInteger startMonth = [DateTimeParser month:startDate];
-                NSInteger startDay = [DateTimeParser day:startDate];
-                
-                NSString* endDate = [schedule objectForKey:@"end_date"];
-                NSInteger endYear = [DateTimeParser year:endDate];
-                NSInteger endMonth = [DateTimeParser month:endDate];
-                NSInteger endDay = [DateTimeParser day:endDate];
-                
-                for (NSInteger day = 0; ; day++) {
-                    NSDateComponents* dayComponents = [[SchoolCalendar getInstance] year:startYear month:startMonth day:startDay+day];
-                    if (dayComponents.weekday == weekDay) {
-                        [Schedule addScheduleForCourse:courseId onYear:dayComponents.year
-                                                 month:dayComponents.month andDay:dayComponents.day];
-                    }
-                    if (dayComponents.day == endDay && dayComponents.month == endMonth && dayComponents.year == endYear) {
-                        break;
-                    }
+            for (NSInteger day = 0; ; day++) {
+                NSDateComponents* dayComponents = [[SchoolCalendar getInstance] year:startYear month:startMonth day:startDay+day];
+                if (dayComponents.weekday == weekDay) {
+                    [Schedule addScheduleForCourse:courseId onYear:dayComponents.year
+                                             month:dayComponents.month andDay:dayComponents.day];
+                }
+                if (dayComponents.day == endDay && dayComponents.month == endMonth && dayComponents.year == endYear) {
+                    break;
                 }
             }
-            [self loadScheduleFor:courseIndex+1 withDelegate:delegate];
-        } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            [delegate loadingScheduleFailed];
-        }];
-    } else {
+        }
         [delegate loadingScheduleSuccess];
-    }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [delegate loadingScheduleFailed];
+    }];
 }
 
 + (void)loadRosterFor:(NSNumber*)courseId onDate:(NSString *)date withDelegate:(id<HTTPManagerDelegate>)delegate

@@ -61,7 +61,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Attendance* attendance = [Attendance attendanceForIndex:[indexPath indexAtPosition:1]];
+    Attendance* attendance = [Attendance attendanceOfIndex:[indexPath indexAtPosition:1]];
     
     
 }
@@ -70,7 +70,7 @@
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     
-    Attendance* attendance = [Attendance attendanceForIndex:[indexPath indexAtPosition:1]];
+    Attendance* attendance = [Attendance attendanceOfIndex:[indexPath indexAtPosition:1]];
 
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", attendance.studentFirstName, attendance.studentLastName  ];
     
