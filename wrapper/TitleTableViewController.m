@@ -37,6 +37,25 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
 }
 
+- (NSMutableDictionary*)cellsSelected
+{
+    if (!_cellsSelected) {
+        _cellsSelected = [[NSMutableDictionary alloc] init];
+    }
+    return _cellsSelected;
+}
+
+#define CELL_HEIGHT 44
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([[self.cellsSelected objectForKey:[NSNumber numberWithInteger:[indexPath indexAtPosition:1]]] boolValue] == YES) {
+        return CELL_HEIGHT * 3;
+    } else {
+        return CELL_HEIGHT;
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 0;

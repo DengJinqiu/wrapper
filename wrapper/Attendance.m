@@ -40,7 +40,7 @@ static NSMutableDictionary* _attendances;
     if (!_attendances) {
         _attendances = [[NSMutableDictionary alloc] init];
     }
-    [_attendances setObject:attendance forKey:attendance.attendanceId];
+    [_attendances setObject:attendance forKey:attendance.rosterId];
     [_index addObject:attendance];
 }
 
@@ -55,12 +55,12 @@ static NSMutableDictionary* _attendances;
     return [_index objectAtIndex:index];
 }
 
-+ (Attendance*)attendanceOfId:(NSNumber *)attendanceId
++ (Attendance*)attendanceOfId:(NSNumber *)rosterId
 {
-    return [_attendances objectForKey:attendanceId];
+    return [_attendances objectForKey:rosterId];
 }
 
-+ (NSInteger)AttendancesNum
++ (NSInteger)attendancesNum
 {
     return [_attendances count];
 }

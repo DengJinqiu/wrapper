@@ -33,10 +33,10 @@
 
 + (Attendance*)attendanceOfIndex:(NSInteger)index;
 
-+ (Attendance*)attendanceOfId:(NSNumber*)attendanceId;
++ (Attendance*)attendanceOfId:(NSNumber*)rosterId;
 
 + (void)clearAttendance;
 
-+ (NSInteger)AttendancesNum;
++ (NSInteger)attendancesNum;
 
 @end

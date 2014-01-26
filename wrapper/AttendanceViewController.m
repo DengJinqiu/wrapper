@@ -56,15 +56,23 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [Attendance AttendancesNum];
+    return [Attendance attendancesNum];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    BOOL isSelected = ![[self.cellsSelected objectForKey:[NSNumber numberWithInteger:[indexPath indexAtPosition:1]]] boolValue];
+    [self.cellsSelected setObject:[NSNumber numberWithBool:isSelected]
+                           forKey:[NSNumber numberWithInteger:[indexPath indexAtPosition:1]]];
+    
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    
     UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
     
-//    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(300, 0, 100, 100)];
-//    label.text = @"dddddddd";
+//    UIButton* label = [[UIButton alloc] initWithFrame:cell.frame];
+//    [label setTitle:@"dddddddd" forState:UIControlStateNormal];
+//    label.
 //    [cell.contentView addSubview:label];
 //    [cell.contentView bringSubviewToFront:label];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

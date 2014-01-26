@@ -12,4 +12,6 @@
 
 @property (nonatomic) UITableView* tableView;
 
+@property (nonatomic) NSMutableDictionary* cellsSelected;
+
 @end
