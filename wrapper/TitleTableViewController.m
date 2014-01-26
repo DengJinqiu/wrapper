@@ -32,8 +32,9 @@
     self.tableView = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.tableFooterView = [[UIView alloc] init];
+   
     [self.view addSubview:self.tableView];
-    
     [self.view setBackgroundColor:[UIColor whiteColor]];
 }
 
