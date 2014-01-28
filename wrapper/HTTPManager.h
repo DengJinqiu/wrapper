@@ -17,6 +17,8 @@
 
 + (void)loadTermWithDelegate:(id<HTTPManagerDelegate>)delegate;
 
++ (void)loadAttendanceMarkingWithDelegate:(id<HTTPManagerDelegate>)delegate;
+
 + (void)loadCoursesWithDelegate:(id<HTTPManagerDelegate>)delegate;
 
 + (void)loadSchedulesWithDelegate:(id<HTTPManagerDelegate>)delegate;

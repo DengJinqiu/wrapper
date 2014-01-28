@@ -46,6 +46,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     NSIndexPath* tableSelection = [self.tableView indexPathForSelectedRow];
     [self.tableView deselectRowAtIndexPath:tableSelection animated:YES];
 }
@@ -59,14 +60,13 @@
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
 
     Course* course = [Schedule courseOfId:[[Schedule coursesOnYear:self.year month:self.month day:self.day]
                                            objectAtIndex:[indexPath indexAtPosition:1]]];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", course.courseName, course.courseType];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@ - %@", course.schoolName, course.instrumentName, course.programType];
-    
+        
     return cell;
 }
 

@@ -12,8 +12,10 @@
 #import "Attendance.h"
 #import "Schedule.h"
 #import "CalendarLabels.h"
+#import "AttendanceMarking.h"
+#import "SelectionPicker.h"
 
-@interface AttendanceViewController ()
+@interface AttendanceViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (nonatomic) NSInteger year;
 
@@ -65,17 +67,39 @@
     [self.cellsSelected setObject:[NSNumber numberWithBool:isSelected]
                            forKey:[NSNumber numberWithInteger:[indexPath indexAtPosition:1]]];
     
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    Attendance* attendance = [Attendance attendanceOfIndex:[indexPath indexAtPosition:1]];
+    
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
     
-    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-//    UIButton* label = [[UIButton alloc] initWithFrame:cell.frame];
-//    [label setTitle:@"dddddddd" forState:UIControlStateNormal];
-//    label.
-//    [cell.contentView addSubview:label];
-//    [cell.contentView bringSubviewToFront:label];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [AttendanceMarking attendanceMarkingsCount];
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [AttendanceMarking getAttendanceMarkingWithIndex:row].name;
+}
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
+{
+    return self.tableView.frame.size.width;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -84,13 +108,17 @@
     
     Attendance* attendance = [Attendance attendanceOfIndex:[indexPath indexAtPosition:1]];
 
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", attendance.studentFirstName, attendance.studentLastName  ];
+    NSString* name = [NSString stringWithFormat:@"%@ %@", attendance.studentFirstName, attendance.studentLastName];
+    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, self.tableView.frame.size.width-15, 44)];
+    [nameLabel setText:name];
+    [cell.contentView addSubview:nameLabel];
     
-    if ([attendance.attendanceId intValue] >= 0) {
-    	cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
+    SelectionPicker* selectionPicker = [[SelectionPicker alloc] initWithPickerViewDelegate:self andPickerViewDataSource:self];
+    CGRect frame = selectionPicker.frame;
+    frame.origin.x = 15;
+    frame.origin.y = 44;
+    selectionPicker.frame = frame;
+    [cell.contentView addSubview:selectionPicker];
     
     return cell;
 }

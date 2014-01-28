@@ -14,11 +14,11 @@
 
 @implementation TitleTableViewController
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-	CGRect screenRect = [[UIScreen mainScreen] bounds];
-
+    [super viewWillAppear:animated];
+	CGRect viewRect = self.view.frame;
+    
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 280, 50)];
     title.numberOfLines = 3;
     title.text = [self tableTitle];
@@ -27,7 +27,7 @@
     [self.view addSubview:title];
     
     NSInteger titleHeight = title.frame.size.height;
-    CGRect tableFrame = CGRectMake(0, titleHeight, screenRect.size.width, screenRect.size.height-titleHeight);
+    CGRect tableFrame = CGRectMake(0, titleHeight, viewRect.size.width, viewRect.size.height - titleHeight);
     
     self.tableView = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
     self.tableView.dataSource = self;
@@ -47,11 +47,12 @@
 }
 
 #define CELL_HEIGHT 44
+#define CELL_LARGE_HEIGHT 206
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[self.cellsSelected objectForKey:[NSNumber numberWithInteger:[indexPath indexAtPosition:1]]] boolValue] == YES) {
-        return CELL_HEIGHT * 3;
+        return CELL_LARGE_HEIGHT;
     } else {
         return CELL_HEIGHT;
     }

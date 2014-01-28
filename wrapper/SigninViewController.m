@@ -52,6 +52,7 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     self.email.delegate = self;
     self.password.delegate = self;
 }

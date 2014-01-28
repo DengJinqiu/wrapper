@@ -13,6 +13,7 @@
 #import "Schedule.h"
 #import "SchoolCalendar.h"
 #import "Attendance.h"
+#import "AttendanceMarking.h"
 
 @implementation HTTPManager
 
@@ -50,6 +51,22 @@ static HTTPManager *_manager;
         [Term createInstanceWithStartYear:[[(NSDictionary*)responseObject objectForKey:@"start_date"] intValue]
                                   endYear:[[(NSDictionary*)responseObject objectForKey:@"end_date"] intValue]
                                 andTermId:[(NSDictionary*)responseObject objectForKey:@"id"]];
+        [self loadAttendanceMarkingWithDelegate:delegate];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [delegate loadingScheduleFailed];
+    }];
+}
+
++ (void)loadAttendanceMarkingWithDelegate:(id<HTTPManagerDelegate>)delegate
+{
+    NSString *relativeURL = @"attendance_markings";
+    [[HTTPManager getInstance] GET:relativeURL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        for (NSDictionary* attendanceMarking in (NSArray*)responseObject) {
+            AttendanceMarking* a = [[AttendanceMarking alloc] initWithAttendanceMarkingId:[attendanceMarking objectForKey:@"id"]
+                                                                                   abbrev:[attendanceMarking objectForKey:@"abbrev"]
+                                                                                     name:[attendanceMarking objectForKey:@"name"]];
+            [AttendanceMarking addAttendanceMarking:a];
+        }
         [self loadCoursesWithDelegate:delegate];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [delegate loadingScheduleFailed];

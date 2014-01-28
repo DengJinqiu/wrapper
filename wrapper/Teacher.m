@@ -10,6 +10,7 @@
 #import "Course.h"
 #import "Term.h"
 #import "Schedule.h"
+#import "AttendanceMarking.h"
 
 @implementation Teacher
 
@@ -31,6 +32,7 @@ static Teacher* _teacher;
     _teacher = nil;
     [Term clearTerm];
     [Schedule clearSchedule];
+    [AttendanceMarking clearAttendanceMarkings];
 }
 
 @end
