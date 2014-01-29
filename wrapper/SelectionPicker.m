@@ -25,29 +25,32 @@
         whiteBackground.backgroundColor = [UIColor whiteColor];
         [self addSubview:whiteBackground];
         
-        UIButton *delet = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        delet.frame = CGRectMake(0, 2, 50, 50);
-        delet.layer.cornerRadius = 50 / 2;
-        [delet setTitle:@"delete" forState:UIControlStateNormal];
-        delet.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5];
-        delet.layer.borderWidth = 2;
-        delet.layer.borderColor = [[UIColor grayColor] CGColor];
-        [self addSubview:delet];
+        ButtonWithTag *remove = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        self.remove = remove;
+        remove.frame = CGRectMake(0, 2, 50, 50);
+        remove.layer.cornerRadius = 50 / 2;
+        [remove setTitle:@"delete" forState:UIControlStateNormal];
+//        remove.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5];
+        remove.layer.borderWidth = 2;
+        remove.layer.borderColor = [[UIColor grayColor] CGColor];
+        [self addSubview:remove];
         
-        UIButton *cancel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        ButtonWithTag *cancel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        self.cancel = cancel;
         cancel.frame = CGRectMake(0, 56, 50, 50);
         cancel.layer.cornerRadius = 50 / 2;
         [cancel setTitle:@"cancel" forState:UIControlStateNormal];
-        cancel.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:0.5];
+//        cancel.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:0.5];
         cancel.layer.borderWidth = 2;
         cancel.layer.borderColor = [[UIColor grayColor] CGColor];
         [self addSubview:cancel];
         
-        UIButton *done = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        ButtonWithTag *done = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        self.done = done;
         done.frame = CGRectMake(0, 110, 50, 50);
         done.layer.cornerRadius = 50 / 2;
         [done setTitle:@"done" forState:UIControlStateNormal];
-        done.backgroundColor = [UIColor colorWithRed:0 green:1 blue:0 alpha:0.5];
+//        done.backgroundColor = [UIColor colorWithRed:0 green:1 blue:0 alpha:0.5];
         done.layer.borderWidth = 2;
         done.layer.borderColor = [[UIColor grayColor] CGColor];
         [self addSubview:done];

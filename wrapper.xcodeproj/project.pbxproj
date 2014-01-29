@@ -15,10 +15,12 @@
 		659D9CD9183DD5D8008EBA12 /* YearPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 659D9CD8183DD5D8008EBA12 /* YearPanel.m */; };
 		6F13E6BE1896DD3100644A50 /* AttendanceMarking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F13E6BD1896DD3100644A50 /* AttendanceMarking.m */; };
 		6F171E24188F7811009721F1 /* Attendance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F171E23188F7811009721F1 /* Attendance.m */; };
+		6F232924189860630067F085 /* ButtonWithTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F232923189860630067F085 /* ButtonWithTag.m */; };
 		6FACC8CD188C3EE6006FABC9 /* Term.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FACC8CC188C3EE6006FABC9 /* Term.m */; };
 		6FACC8D0188C5871006FABC9 /* DateTimeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FACC8CF188C5871006FABC9 /* DateTimeParser.m */; };
 		6FACC8D3188C6B59006FABC9 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FACC8D2188C6B59006FABC9 /* Schedule.m */; };
 		6FFD1575189804A500BE0DBB /* SelectionPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFD1574189804A500BE0DBB /* SelectionPicker.m */; };
+		6FFD157818984CB000BE0DBB /* TwoSidesLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFD157718984CB000BE0DBB /* TwoSidesLabel.m */; };
 		A564F49C183D795300785E9E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A564F49B183D795300785E9E /* Foundation.framework */; };
 		A564F49E183D795300785E9E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A564F49D183D795300785E9E /* CoreGraphics.framework */; };
 		A564F4A0183D795300785E9E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A564F49F183D795300785E9E /* UIKit.framework */; };
@@ -73,6 +75,8 @@
 		6F13E6BD1896DD3100644A50 /* AttendanceMarking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttendanceMarking.m; sourceTree = "<group>"; };
 		6F171E22188F7811009721F1 /* Attendance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attendance.h; sourceTree = "<group>"; };
 		6F171E23188F7811009721F1 /* Attendance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attendance.m; sourceTree = "<group>"; };
+		6F232922189860630067F085 /* ButtonWithTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonWithTag.h; sourceTree = "<group>"; };
+		6F232923189860630067F085 /* ButtonWithTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonWithTag.m; sourceTree = "<group>"; };
 		6FACC8CB188C3EE6006FABC9 /* Term.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Term.h; sourceTree = "<group>"; };
 		6FACC8CC188C3EE6006FABC9 /* Term.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Term.m; sourceTree = "<group>"; };
 		6FACC8CE188C5871006FABC9 /* DateTimeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTimeParser.h; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 		6FACC8D2188C6B59006FABC9 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		6FFD1573189804A500BE0DBB /* SelectionPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionPicker.h; sourceTree = "<group>"; };
 		6FFD1574189804A500BE0DBB /* SelectionPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionPicker.m; sourceTree = "<group>"; };
+		6FFD157618984CB000BE0DBB /* TwoSidesLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoSidesLabel.h; sourceTree = "<group>"; };
+		6FFD157718984CB000BE0DBB /* TwoSidesLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoSidesLabel.m; sourceTree = "<group>"; };
 		8A155502F79940A09BF381D3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A564F498183D795300785E9E /* wrapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wrapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A564F49B183D795300785E9E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -157,6 +163,10 @@
 				FEEFB3FE18501ED700F5F182 /* CalendarLabels.m */,
 				6FFD1573189804A500BE0DBB /* SelectionPicker.h */,
 				6FFD1574189804A500BE0DBB /* SelectionPicker.m */,
+				6F232922189860630067F085 /* ButtonWithTag.h */,
+				6F232923189860630067F085 /* ButtonWithTag.m */,
+				6FFD157618984CB000BE0DBB /* TwoSidesLabel.h */,
+				6FFD157718984CB000BE0DBB /* TwoSidesLabel.m */,
 				FEEFB3FC18501DEC00F5F182 /* button */,
 				FEEFB3FB18501DDD00F5F182 /* panel */,
 			);
@@ -456,6 +466,7 @@
 				6FACC8D0188C5871006FABC9 /* DateTimeParser.m in Sources */,
 				A564F4D6183DA55F00785E9E /* SchoolCalendar.m in Sources */,
 				FEEFB408185078C600F5F182 /* AttendanceViewController.m in Sources */,
+				6F232924189860630067F085 /* ButtonWithTag.m in Sources */,
 				A564F4CE183D98AA00785E9E /* MonthlyViewController.m in Sources */,
 				6FACC8D3188C6B59006FABC9 /* Schedule.m in Sources */,
 				FE90AAC71852834D001AD462 /* Teacher.m in Sources */,
@@ -465,6 +476,7 @@
 				A564F4A8183D795300785E9E /* main.m in Sources */,
 				6FFD1575189804A500BE0DBB /* SelectionPicker.m in Sources */,
 				6F13E6BE1896DD3100644A50 /* AttendanceMarking.m in Sources */,
+				6FFD157818984CB000BE0DBB /* TwoSidesLabel.m in Sources */,
 				6F171E24188F7811009721F1 /* Attendance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

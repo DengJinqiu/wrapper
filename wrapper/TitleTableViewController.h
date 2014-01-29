@@ -10,7 +10,7 @@
 
 @interface TitleTableViewController : UIViewController
 
-@property (nonatomic) UITableView* tableView;
+@property (weak, nonatomic) UITableView* tableView;
 
 @property (nonatomic) NSMutableDictionary* cellsSelected;
 

@@ -14,6 +14,7 @@
 #import "CalendarLabels.h"
 #import "AttendanceMarking.h"
 #import "SelectionPicker.h"
+#import "TwoSidesLabel.h"
 
 @interface AttendanceViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 
@@ -67,12 +68,8 @@
     [self.cellsSelected setObject:[NSNumber numberWithBool:isSelected]
                            forKey:[NSNumber numberWithInteger:[indexPath indexAtPosition:1]]];
     
-    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    Attendance* attendance = [Attendance attendanceOfIndex:[indexPath indexAtPosition:1]];
-    
-    [self.tableView beginUpdates];
-    [self.tableView endUpdates];
+    [tableView beginUpdates];
+    [tableView endUpdates];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -97,11 +94,6 @@
     return [AttendanceMarking getAttendanceMarkingWithIndex:row].name;
 }
 
-- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
-{
-    return self.tableView.frame.size.width;
-}
-
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
@@ -109,8 +101,15 @@
     Attendance* attendance = [Attendance attendanceOfIndex:[indexPath indexAtPosition:1]];
 
     NSString* name = [NSString stringWithFormat:@"%@ %@", attendance.studentFirstName, attendance.studentLastName];
-    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, self.tableView.frame.size.width-15, 44)];
-    [nameLabel setText:name];
+    NSString* label;
+    if ([attendance.attendanceId intValue] == -1) {
+        label = @"no record";
+    } else {
+        label = [AttendanceMarking getAttendanceMarkingWithId:attendance.attendanceId].name;
+    }
+    TwoSidesLabel *nameLabel = [[TwoSidesLabel alloc] initWithFrame:CGRectMake(15, 0, tableView.frame.size.width-25, 44)];
+    [nameLabel.leftLabel setText:name];
+    [nameLabel.rightLabel setText:label];
     [cell.contentView addSubview:nameLabel];
     
     SelectionPicker* selectionPicker = [[SelectionPicker alloc] initWithPickerViewDelegate:self andPickerViewDataSource:self];
@@ -120,7 +119,34 @@
     selectionPicker.frame = frame;
     [cell.contentView addSubview:selectionPicker];
     
+    selectionPicker.remove.tag = [indexPath indexAtPosition:1];
+    [selectionPicker.remove addTarget:self action:@selector(deleteAttendanceMarking:) forControlEvents:UIControlEventTouchUpInside];
+
+    selectionPicker.cancel.tag = [indexPath indexAtPosition:1];
+    [selectionPicker.cancel addTarget:self action:@selector(cancelAttendanceMarking:) forControlEvents:UIControlEventTouchUpInside];
+
+    selectionPicker.done.tag = [indexPath indexAtPosition:1];
+    [selectionPicker.done addTarget:self action:@selector(updateAttendanceMarking:) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
+}
+
+- (void)deleteAttendanceMarking:(id)sender
+{
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:((ButtonWithTag*)sender).tag inSection:1];
+    [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+}
+
+- (void)updateAttendanceMarking:(id)sender
+{
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:((ButtonWithTag*)sender).tag inSection:1];
+    [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+}
+
+- (void)cancelAttendanceMarking:(id)sender
+{
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:((ButtonWithTag*)sender).tag inSection:1];
+    [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
 }
 
 - (NSString*)tableTitle

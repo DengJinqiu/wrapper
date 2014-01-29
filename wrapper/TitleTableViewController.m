@@ -29,7 +29,8 @@
     NSInteger titleHeight = title.frame.size.height;
     CGRect tableFrame = CGRectMake(0, titleHeight, viewRect.size.width, viewRect.size.height - titleHeight);
     
-    self.tableView = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
+    UITableView* tableView = tableView = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
+    self.tableView = tableView;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] init];
