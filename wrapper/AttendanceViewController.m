@@ -253,4 +253,22 @@
     [self.indexesUnableSelected removeObject:[NSNumber numberWithInteger:index]];
 }
 
+- (void)loadingRosterFailed {}
+
+- (void)loadingRosterStart {}
+
+- (void)loadingRosterSuccessWithCourseId:(NSNumber *)courseId {}
+
+- (void)loadingScheduleFailed {}
+
+- (void)loadingScheduleSuccess {}
+
+- (void)loadingScheduleStart {}
+
+- (void)loadingUserStart {}
+
+- (void)loadingUserFailed {}
+
+- (void)loadingUserSuccess {}
+
 @end

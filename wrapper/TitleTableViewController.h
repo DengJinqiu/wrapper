@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) UITableView* tableView;
 
+@property (weak, nonatomic) UILabel* titleLabel;
+
 @property (nonatomic) NSInteger indexSelected;
 
 @property (nonatomic) NSMutableSet* indexesUnableSelected;

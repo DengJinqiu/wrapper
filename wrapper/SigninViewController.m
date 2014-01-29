@@ -128,10 +128,17 @@
     self.signIn.enabled = YES;
 }
 
-- (void)loadingRosterStart{}
+- (void)loadingRosterStart {}
 
-- (void)loadingRosterFailed{}
+- (void)loadingRosterFailed {}
 
-- (void)loadingRosterSuccessWithCourseId:(NSNumber *)courseId{}
+- (void)loadingRosterSuccessWithCourseId:(NSNumber *)courseId {}
+
+- (void)changingAttendanceSuccessWithAttendanceId:(NSNumber *)attendanceId
+                              AttendanceMarkingId:(NSNumber *)attendanceMarkingId RowIndex:(NSInteger)index {}
+
+- (void)changingAttendanceStartWithRowIndex:(NSInteger)index {}
+
+- (void)changingAttendanceFailedWithRowIndex:(NSInteger)index {}
 
 @end

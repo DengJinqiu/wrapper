@@ -14,20 +14,26 @@
 
 @implementation TitleTableViewController
 
+- (void)loadView
+{
+    [super loadView];
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 280, 50)];
+    title.numberOfLines = 3;
+    title.textAlignment = NSTextAlignmentCenter;
+    [title setFont:[UIFont systemFontOfSize:12]];
+    [self.view addSubview:title];
+    self.titleLabel = title;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
 	CGRect viewRect = self.view.frame;
     self.indexSelected = -1;
     
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 280, 50)];
-    title.numberOfLines = 3;
-    title.text = [self tableTitle];
-    title.textAlignment = NSTextAlignmentCenter;
-    [title setFont:[UIFont systemFontOfSize:12]];
-    [self.view addSubview:title];
+    self.titleLabel.text = [self tableTitle];
     
-    NSInteger titleHeight = title.frame.size.height;
+    NSInteger titleHeight = self.titleLabel.frame.size.height;
     CGRect tableFrame = CGRectMake(0, titleHeight, viewRect.size.width, viewRect.size.height - titleHeight);
     
     UITableView* tableView = tableView = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];

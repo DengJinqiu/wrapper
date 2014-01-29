@@ -28,6 +28,8 @@
 
 @property (nonatomic) NSInteger day;
 
+@property (weak, nonatomic) UILabel* note;
+
 @end
 
 @implementation DailyViewController
@@ -44,9 +46,20 @@
     return self;
 }
 
+- (void)loadView
+{
+    [super loadView];
+    UILabel* note = [[UILabel alloc] initWithFrame:CGRectMake(20, 16, 280, 50)];
+    note.textAlignment = NSTextAlignmentCenter;
+    [note setFont:[UIFont systemFontOfSize:12]];
+    [self.view addSubview:note];
+    self.note = note;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.note.text = @"";
     NSIndexPath* tableSelection = [self.tableView indexPathForSelectedRow];
     [self.tableView deselectRowAtIndexPath:tableSelection animated:YES];
 }
@@ -80,7 +93,8 @@
 
 - (void)loadingRosterStart
 {
-    
+    self.note.text = @"loading roster ...";
+    self.note.textColor = [UIColor greenColor];
 }
 
 - (void)loadingRosterSuccessWithCourseId:(NSNumber *)courseId
@@ -96,22 +110,28 @@
     [self.navigationController pushViewController:attendanceViewController animated:YES];
 }
 
-- (void)loadingRosterFailed
-{
-    
+- (void)loadingRosterFailed {
+    self.note.text = @"loading roster failed ...";
+    self.note.textColor = [UIColor redColor];
 }
 
-- (void)loadingScheduleStart{}
+- (void)loadingScheduleStart {}
 
-- (void)loadingScheduleSuccess{}
+- (void)loadingScheduleSuccess {}
 
-- (void)loadingScheduleFailed{}
+- (void)loadingScheduleFailed {}
 
-- (void)loadingUserStart{}
+- (void)loadingUserStart {}
 
-- (void)loadingUserSuccess{}
+- (void)loadingUserSuccess {}
 
-- (void)loadingUserFailed{}
+- (void)loadingUserFailed {}
+
+- (void)changingAttendanceSuccessWithAttendanceId:(NSNumber *)attendanceId AttendanceMarkingId:(NSNumber *)attendanceMarkingId RowIndex:(NSInteger)index {}
+
+- (void)changingAttendanceStartWithRowIndex:(NSInteger)index {}
+
+- (void)changingAttendanceFailedWithRowIndex:(NSInteger)index {}
 
 - (NSString*)tableTitle
 {
