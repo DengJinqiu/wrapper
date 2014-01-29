@@ -161,19 +161,34 @@ static HTTPManager *_manager;
     if ([attendanceId intValue] == -1) {
         NSString *relativeURL = @"attendances/";
         [[HTTPManager getInstance] POST:relativeURL parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-            [delegate changingAttendanceSuccess];
+            [delegate changingAttendanceSuccessWithAttendanceId:[((NSDictionary*)responseObject) objectForKey:@"attendance_id"]
+                                            AttendanceMarkingId:attendanceMarkingId
+                                                       RowIndex:index];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [delegate changingAttendanceFailedWithRowIndex:index];
         }];
     } else {
         NSString *relativeURL = [NSString stringWithFormat:@"attendances/%@", attendanceId];
         [[HTTPManager getInstance] PUT:relativeURL parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-            
+            [delegate changingAttendanceSuccessWithAttendanceId:[((NSDictionary*)responseObject) objectForKey:@"attendance_id"]
+                                            AttendanceMarkingId:attendanceMarkingId
+                                                       RowIndex:index];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            
+            [delegate changingAttendanceFailedWithRowIndex:index];
         }];
     }
+}
 
++ (void)deleteAttendanceForAttendanceId:(NSNumber *)attendanceId withDelegate:(id<HTTPManagerDelegate>)delegate andIndex:(NSInteger)index
+{
+    NSString *relativeURL = [NSString stringWithFormat:@"attendances/%@", attendanceId];
+    [[HTTPManager getInstance] DELETE:relativeURL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        [delegate changingAttendanceSuccessWithAttendanceId:[NSNumber numberWithInteger:-1]
+                                        AttendanceMarkingId:nil
+                                                   RowIndex:index];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [delegate changingAttendanceFailedWithRowIndex:index];
+    }];
 }
 
 @end

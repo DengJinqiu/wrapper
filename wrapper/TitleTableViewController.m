@@ -40,6 +40,14 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
 }
 
+- (NSMutableSet*)indexesUnableSelected
+{
+    if (!_indexesUnableSelected) {
+        _indexesUnableSelected = [[NSMutableSet alloc] init];
+    }
+    return _indexesUnableSelected;
+}
+
 #define CELL_HEIGHT 44
 #define CELL_LARGE_HEIGHT 206
 

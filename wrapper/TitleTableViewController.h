@@ -14,4 +14,6 @@
 
 @property (nonatomic) NSInteger indexSelected;
 
+@property (nonatomic) NSMutableSet* indexesUnableSelected;
+
 @end

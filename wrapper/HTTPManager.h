@@ -29,4 +29,6 @@
                     attendanceMarkingId:(NSNumber*)attendanceMarkingId date:(NSString*)date
                            withDelegate:(id<HTTPManagerDelegate>)delegate andIndex:(NSInteger)index;
 
++ (void)deleteAttendanceForAttendanceId:(NSNumber *)attendanceId withDelegate:(id<HTTPManagerDelegate>)delegate  andIndex:(NSInteger)index;
+
 @end

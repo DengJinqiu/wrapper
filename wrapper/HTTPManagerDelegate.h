@@ -28,9 +28,10 @@
 
 - (void)loadingRosterFailed;
 
-- (void)changingAttendanceStart;
+- (void)changingAttendanceStartWithRowIndex:(NSInteger)index;
 
-- (void)changingAttendanceSuccess;
+- (void)changingAttendanceSuccessWithAttendanceId:(NSNumber*)attendanceId AttendanceMarkingId:(NSNumber*)attendanceMarkingId
+                                         RowIndex:(NSInteger)index;
 
 - (void)changingAttendanceFailedWithRowIndex:(NSInteger)index;
 

@@ -7,16 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ButtonWithTag.h"
 
 @interface SelectionPicker : UIView
 
 - (instancetype)initWithPickerViewDelegate:(id<UIPickerViewDelegate>)delegate
                    andPickerViewDataSource:(id<UIPickerViewDataSource>)dataSource;
 
-@property (weak, nonatomic) ButtonWithTag* remove;
-@property (weak, nonatomic) ButtonWithTag* cancel;
-@property (weak, nonatomic) ButtonWithTag* done;
+@property (weak, nonatomic) UIButton* remove;
+@property (weak, nonatomic) UIButton* cancel;
+@property (weak, nonatomic) UIButton* done;
 
 @property (weak, nonatomic) UIPickerView* picker;
 
