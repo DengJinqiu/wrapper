@@ -30,7 +30,9 @@
 
 - (void)changingAttendanceStart;
 
-//- (void)changingAttendanceSuccessWithAttendance
+- (void)changingAttendanceSuccess;
+
+- (void)changingAttendanceFailedWithRowIndex:(NSInteger)index;
 
 @end
     

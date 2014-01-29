@@ -18,4 +18,6 @@
 @property (weak, nonatomic) ButtonWithTag* cancel;
 @property (weak, nonatomic) ButtonWithTag* done;
 
+@property (weak, nonatomic) UIPickerView* picker;
+
 @end

@@ -18,6 +18,7 @@
 {
     [super viewWillAppear:animated];
 	CGRect viewRect = self.view.frame;
+    self.indexSelected = -1;
     
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 280, 50)];
     title.numberOfLines = 3;
@@ -39,20 +40,12 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
 }
 
-- (NSMutableDictionary*)cellsSelected
-{
-    if (!_cellsSelected) {
-        _cellsSelected = [[NSMutableDictionary alloc] init];
-    }
-    return _cellsSelected;
-}
-
 #define CELL_HEIGHT 44
 #define CELL_LARGE_HEIGHT 206
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[self.cellsSelected objectForKey:[NSNumber numberWithInteger:[indexPath indexAtPosition:1]]] boolValue] == YES) {
+    if (self.indexSelected == [indexPath indexAtPosition:1]) {
         return CELL_LARGE_HEIGHT;
     } else {
         return CELL_HEIGHT;

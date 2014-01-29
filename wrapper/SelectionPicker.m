@@ -19,6 +19,7 @@
         picker.delegate = delegate;
         picker.dataSource = dataSource;
         picker.showsSelectionIndicator = YES;
+        self.picker = picker;
         [self addSubview:picker];
         
         UILabel* whiteBackground = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 162)];

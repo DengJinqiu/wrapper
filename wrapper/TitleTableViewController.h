@@ -12,6 +12,6 @@
 
 @property (weak, nonatomic) UITableView* tableView;
 
-@property (nonatomic) NSMutableDictionary* cellsSelected;
+@property (nonatomic) NSInteger indexSelected;
 
 @end

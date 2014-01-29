@@ -16,15 +16,17 @@
 
 @property (nonatomic) NSString* name;
 
-+ (AttendanceMarking*)getAttendanceMarkingWithId:(NSNumber*)attendanceMarkingId;
++ (AttendanceMarking*)attendanceMarkingWithId:(NSNumber*)attendanceMarkingId;
 
-+ (AttendanceMarking*)getAttendanceMarkingWithIndex:(NSInteger)index;
++ (AttendanceMarking*)attendanceMarkingWithIndex:(NSInteger)index;
 
 + (void)addAttendanceMarking:(AttendanceMarking*)attendanceMarking;
 
 + (void)clearAttendanceMarkings;
 
 + (NSInteger)attendanceMarkingsCount;
+
++ (NSInteger)idToIndex:(NSNumber*)attendanceMarkingId;
 
 - (instancetype)initWithAttendanceMarkingId:(NSNumber*)attendanceMarkingId abbrev:(NSString*)abbrev name:(NSString*)name;
 

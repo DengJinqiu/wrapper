@@ -26,12 +26,12 @@ static NSMutableArray* _index;
     [_attendanceMarkings setObject:attendanceMarking forKey:attendanceMarking.attendanceMarkingId];
 }
 
-+ (AttendanceMarking*)getAttendanceMarkingWithId:(NSNumber *)attendanceMarkingId
++ (AttendanceMarking*)attendanceMarkingWithId:(NSNumber *)attendanceMarkingId
 {
     return [_attendanceMarkings objectForKey:attendanceMarkingId];
 }
 
-+ (AttendanceMarking*)getAttendanceMarkingWithIndex:(NSInteger)index
++ (AttendanceMarking*)attendanceMarkingWithIndex:(NSInteger)index
 {
     return [_index objectAtIndex:index];
 }
@@ -56,6 +56,16 @@ static NSMutableArray* _index;
 + (NSInteger)attendanceMarkingsCount
 {
     return _attendanceMarkings.count;
+}
+
++ (NSInteger)idToIndex:(NSNumber *)attendanceMarkingId
+{
+    for (int i = 0; i < [_index count]; i++) {
+        if ([((AttendanceMarking*)_index[i]).attendanceMarkingId isEqualToNumber:attendanceMarkingId]) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 @end

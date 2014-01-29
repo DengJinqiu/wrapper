@@ -26,9 +26,7 @@
 + (void)loadRosterFor:(NSNumber*)courseId onDate:(NSString*)date withDelegate:(id<HTTPManagerDelegate>)delegate;
 
 + (void)updateAttendanceForAttendanceId:(NSNumber*)attendanceId rosterId:(NSNumber*)rosterId teacherId:(NSNumber*)teacherId
-                    attendanceMarkingId:(NSNumber*)attendanceMarkingId date:(NSString*)date;
-
-+ (void)createAttendanceForRosterId:(NSNumber*)rosterId teacherId:(NSNumber*)teacherId
-                attendanceMarkingId:(NSNumber*)attendanceMarkingId date:(NSString*)date;
+                    attendanceMarkingId:(NSNumber*)attendanceMarkingId date:(NSString*)date
+                           withDelegate:(id<HTTPManagerDelegate>)delegate andIndex:(NSInteger)index;
 
 @end

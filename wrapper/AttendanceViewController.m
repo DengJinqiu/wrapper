@@ -15,8 +15,9 @@
 #import "AttendanceMarking.h"
 #import "SelectionPicker.h"
 #import "TwoSidesLabel.h"
+#import "HTTPManager.h"
 
-@interface AttendanceViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface AttendanceViewController () <UIPickerViewDelegate, UIPickerViewDataSource, HTTPManagerDelegate>
 
 @property (nonatomic) NSInteger year;
 
@@ -32,6 +33,8 @@
 
 @property (nonatomic) NSMutableArray* students;
 
+@property (nonatomic) NSInteger pickerRowIndexSelected;
+
 @end
 
 @implementation AttendanceViewController
@@ -45,6 +48,8 @@
         self.weekday = weekday;
         self.day = day;
         self.courseId = courseId;
+        
+        self.pickerRowIndexSelected = -1;
     }
     return self;
 }
@@ -64,9 +69,26 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BOOL isSelected = ![[self.cellsSelected objectForKey:[NSNumber numberWithInteger:[indexPath indexAtPosition:1]]] boolValue];
-    [self.cellsSelected setObject:[NSNumber numberWithBool:isSelected]
-                           forKey:[NSNumber numberWithInteger:[indexPath indexAtPosition:1]]];
+    if (self.indexSelected == [indexPath indexAtPosition:1]) {
+        self.indexSelected = -1;
+        self.pickerRowIndexSelected = -1;
+    } else {
+        self.indexSelected = [indexPath indexAtPosition:1];
+        Attendance* attendance = [Attendance attendanceOfIndex:[indexPath indexAtPosition:1]];
+        UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+        if ([attendance.attendanceId intValue] == -1) {
+            self.pickerRowIndexSelected = 0;
+        } else {
+            self.pickerRowIndexSelected = [AttendanceMarking idToIndex:attendance.attendanceMarkingId];
+        }
+        for (UIView* view in cell.contentView.subviews) {
+            if ([view isKindOfClass:[SelectionPicker class]]) {
+                [((SelectionPicker*) view).picker selectRow:self.pickerRowIndexSelected
+                                                inComponent:0 animated:YES];
+                break;
+            }
+        }
+    }
     
     [tableView beginUpdates];
     [tableView endUpdates];
@@ -76,7 +98,8 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    
+    self.pickerRowIndexSelected = row;
+    NSLog(@"%d", self.pickerRowIndexSelected);
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
@@ -91,7 +114,7 @@
 
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [AttendanceMarking getAttendanceMarkingWithIndex:row].name;
+    return [AttendanceMarking attendanceMarkingWithIndex:row].name;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -105,7 +128,7 @@
     if ([attendance.attendanceId intValue] == -1) {
         label = @"no record";
     } else {
-        label = [AttendanceMarking getAttendanceMarkingWithId:attendance.attendanceId].name;
+        label = [AttendanceMarking attendanceMarkingWithId:attendance.attendanceId].name;
     }
     TwoSidesLabel *nameLabel = [[TwoSidesLabel alloc] initWithFrame:CGRectMake(15, 0, tableView.frame.size.width-25, 44)];
     [nameLabel.leftLabel setText:name];
@@ -133,8 +156,18 @@
 
 - (void)deleteAttendanceMarking:(id)sender
 {
-    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:((ButtonWithTag*)sender).tag inSection:1];
+    NSInteger index = ((ButtonWithTag*)sender).tag;
+    
+    Attendance* attendance = [Attendance attendanceOfIndex:index];
+    
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:index inSection:1];
     [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+    [HTTPManager updateAttendanceForAttendanceId:attendance.attendanceId
+                                        rosterId:attendance.rosterId
+                                       teacherId:[Teacher getInstance].teacherId
+                             attendanceMarkingId:nil
+                                            date:[NSString stringWithFormat:@"%d-%d-%d", self.year, self.month, self.day]
+                                    withDelegate:self andIndex:index];
 }
 
 - (void)updateAttendanceMarking:(id)sender
