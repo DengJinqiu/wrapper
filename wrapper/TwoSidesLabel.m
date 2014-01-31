@@ -15,9 +15,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        UILabel* leftLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width/1.5, frame.size.height)];
-        UILabel* rightLabel = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width/1.5, 0,
-                                                                        frame.size.width-frame.size.width/1.5, frame.size.height)];
+        UILabel* leftLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width/3, frame.size.height)];
+        UILabel* rightLabel = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width/3, 0,
+                                                                        frame.size.width-frame.size.width/3, frame.size.height)];
         leftLabel.textAlignment = NSTextAlignmentLeft;
         rightLabel.textAlignment = NSTextAlignmentRight;
         self.leftLabel = leftLabel;

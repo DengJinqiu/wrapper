@@ -96,7 +96,7 @@ static HTTPManager *_manager;
 
 + (void)loadSchedulesWithDelegate:(id<HTTPManagerDelegate>)delegate
 {
-    NSString *relativeURL = @"schedules";
+    NSString *relativeURL = [NSString stringWithFormat:@"teachers/%@/schedules", [Teacher getInstance].teacherId];
     [[HTTPManager getInstance] GET:relativeURL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         for (NSDictionary* schedule in (NSArray*)responseObject) {
             NSInteger weekDay = [[schedule objectForKey:@"day_of_week"] intValue];
