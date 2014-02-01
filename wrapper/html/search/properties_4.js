@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['month',['month',['../interface_calendar_button.html#a0376fff10e4b7543fda1c00b81585828',1,'CalendarButton::month()'],['../interface_month_panel.html#af3fa55f0361f4a149e3a1267546e37d5',1,'MonthPanel::month()']]]
+  ['indexesunableselected',['indexesUnableSelected',['../interface_title_table_view_controller.html#a97663dd3b86d043d6371a80216ecaf1d',1,'TitleTableViewController']]],
+  ['indexselected',['indexSelected',['../interface_title_table_view_controller.html#a836ce3317d51d9812f9407611df8327e',1,'TitleTableViewController']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['remove',['remove',['../interface_selection_picker.html#a060c08f65fc47029ed1902e796a03925',1,'SelectionPicker']]],
-  ['rightlabel',['rightLabel',['../interface_two_sides_label.html#a91d247769e9ab61c90583be8048c30e7',1,'TwoSidesLabel']]]
+  ['name',['name',['../interface_attendance_marking.html#a235155acb5a8b489b9829a09b6ac4b93',1,'AttendanceMarking']]],
+  ['navigatetomonthlyview_3a',['navigateToMonthlyView:',['../interface_yearly_view_controller.html#aeccf85df5945090d882092f84ae1f534',1,'YearlyViewController']]]
 ];

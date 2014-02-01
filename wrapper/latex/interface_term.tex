@@ -1,6 +1,10 @@
 \hypertarget{interface_term}{\section{Term Class Reference}
 \label{interface_term}\index{Term@{Term}}
 }
+
+
+{\ttfamily \#import $<$Term.\+h$>$}
+
 Inheritance diagram for Term\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -10,34 +14,90 @@ Inheritance diagram for Term\+:\begin{figure}[H]
 \subsection*{Instance Methods}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{interface_term_ae7418c7e7d2d690f10d789fdcf77bd1d}{(N\+S\+Integer) -\/ {\bfseries total\+Year\+Number}}\label{interface_term_ae7418c7e7d2d690f10d789fdcf77bd1d}
-
+(N\+S\+Integer) -\/ \hyperlink{interface_term_ae7418c7e7d2d690f10d789fdcf77bd1d}{total\+Year\+Number}
 \end{DoxyCompactItemize}
 \subsection*{Class Methods}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{interface_term_ac2d139ddaf21d295e532930469acba21}{(void) + {\bfseries create\+Instance\+With\+Start\+Year\+:end\+Year\+:and\+Term\+Id\+:}}\label{interface_term_ac2d139ddaf21d295e532930469acba21}
-
+(void) + \hyperlink{interface_term_ac2d139ddaf21d295e532930469acba21}{create\+Instance\+With\+Start\+Year\+:end\+Year\+:and\+Term\+Id\+:}
 \item 
-\hypertarget{interface_term_a4cd86e0f1005b3506cca47654a8be9bb}{(\hyperlink{interface_term}{Term} $\ast$) + {\bfseries get\+Instance}}\label{interface_term_a4cd86e0f1005b3506cca47654a8be9bb}
-
+(\hyperlink{interface_term}{Term} $\ast$) + \hyperlink{interface_term_a4cd86e0f1005b3506cca47654a8be9bb}{get\+Instance}
 \item 
-\hypertarget{interface_term_ae115c46bc052f8f55e5175a497960be4}{(void) + {\bfseries clear\+Term}}\label{interface_term_ae115c46bc052f8f55e5175a497960be4}
-
+(void) + \hyperlink{interface_term_ae115c46bc052f8f55e5175a497960be4}{clear\+Term}
 \end{DoxyCompactItemize}
 \subsection*{Properties}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{interface_term_a1beacd986e807047abb0da06dd10e5fa}{N\+S\+Number $\ast$ {\bfseries term\+Id}}\label{interface_term_a1beacd986e807047abb0da06dd10e5fa}
-
+N\+S\+Number $\ast$ \hyperlink{interface_term_a1beacd986e807047abb0da06dd10e5fa}{term\+Id}
 \item 
-\hypertarget{interface_term_a28f6215d7c7ae2f56b9fb2299ef586f8}{N\+S\+Integer {\bfseries start\+Year}}\label{interface_term_a28f6215d7c7ae2f56b9fb2299ef586f8}
-
+N\+S\+Integer \hyperlink{interface_term_a28f6215d7c7ae2f56b9fb2299ef586f8}{start\+Year}
 \item 
-\hypertarget{interface_term_a3143ae8c527f7ca31d687a60742d908b}{N\+S\+Integer {\bfseries end\+Year}}\label{interface_term_a3143ae8c527f7ca31d687a60742d908b}
-
+N\+S\+Integer \hyperlink{interface_term_a3143ae8c527f7ca31d687a60742d908b}{end\+Year}
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+The term. 
+
+\subsection{Method Documentation}
+\hypertarget{interface_term_ae115c46bc052f8f55e5175a497960be4}{\index{Term@{Term}!clear\+Term@{clear\+Term}}
+\index{clear\+Term@{clear\+Term}!Term@{Term}}
+\subsubsection[{clear\+Term}]{\setlength{\rightskip}{0pt plus 5cm}+ (void) clear\+Term 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}\label{interface_term_ae115c46bc052f8f55e5175a497960be4}
+Clear the information of a term. \hypertarget{interface_term_ac2d139ddaf21d295e532930469acba21}{\index{Term@{Term}!create\+Instance\+With\+Start\+Year\+:end\+Year\+:and\+Term\+Id\+:@{create\+Instance\+With\+Start\+Year\+:end\+Year\+:and\+Term\+Id\+:}}
+\index{create\+Instance\+With\+Start\+Year\+:end\+Year\+:and\+Term\+Id\+:@{create\+Instance\+With\+Start\+Year\+:end\+Year\+:and\+Term\+Id\+:}!Term@{Term}}
+\subsubsection[{create\+Instance\+With\+Start\+Year\+:end\+Year\+:and\+Term\+Id\+:}]{\setlength{\rightskip}{0pt plus 5cm}+ (void) create\+Instance\+With\+Start\+Year\+: 
+\begin{DoxyParamCaption}
+\item[{(N\+S\+Integer)}]{start\+Year}
+\item[{endYear:(N\+S\+Integer)}]{end\+Year}
+\item[{andTermId:(N\+S\+Number$\ast$)}]{term\+Id}
+\end{DoxyParamCaption}
+}}\label{interface_term_ac2d139ddaf21d295e532930469acba21}
+Create an instance of a term. 
+\begin{DoxyParams}{Parameters}
+{\em start\+Year} & The start year of the term. \\
+\hline
+{\em end\+Year} & The end year of the term. \\
+\hline
+{\em term\+Id} & The term id. \\
+\hline
+\end{DoxyParams}
+\hypertarget{interface_term_a4cd86e0f1005b3506cca47654a8be9bb}{\index{Term@{Term}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Term@{Term}}
+\subsubsection[{get\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}+ ({\bf Term} $\ast$) get\+Instance 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}\label{interface_term_a4cd86e0f1005b3506cca47654a8be9bb}
+Get an instance of a term. \begin{DoxyReturn}{Returns}
+An instance of term. 
+\end{DoxyReturn}
+\hypertarget{interface_term_ae7418c7e7d2d690f10d789fdcf77bd1d}{\index{Term@{Term}!total\+Year\+Number@{total\+Year\+Number}}
+\index{total\+Year\+Number@{total\+Year\+Number}!Term@{Term}}
+\subsubsection[{total\+Year\+Number}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\+S\+Integer) total\+Year\+Number 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}\label{interface_term_ae7418c7e7d2d690f10d789fdcf77bd1d}
+The number of total year. \begin{DoxyReturn}{Returns}
+The number of total year. 
+\end{DoxyReturn}
+
+
+\subsection{Property Documentation}
+\hypertarget{interface_term_a3143ae8c527f7ca31d687a60742d908b}{\index{Term@{Term}!end\+Year@{end\+Year}}
+\index{end\+Year@{end\+Year}!Term@{Term}}
+\subsubsection[{end\+Year}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\+S\+Integer) end\+Year\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [assign]}}}\label{interface_term_a3143ae8c527f7ca31d687a60742d908b}
+The end year. \hypertarget{interface_term_a28f6215d7c7ae2f56b9fb2299ef586f8}{\index{Term@{Term}!start\+Year@{start\+Year}}
+\index{start\+Year@{start\+Year}!Term@{Term}}
+\subsubsection[{start\+Year}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\+S\+Integer) start\+Year\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [assign]}}}\label{interface_term_a28f6215d7c7ae2f56b9fb2299ef586f8}
+The start year. \hypertarget{interface_term_a1beacd986e807047abb0da06dd10e5fa}{\index{Term@{Term}!term\+Id@{term\+Id}}
+\index{term\+Id@{term\+Id}!Term@{Term}}
+\subsubsection[{term\+Id}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\+S\+Number$\ast$) term\+Id\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [assign]}}}\label{interface_term_a1beacd986e807047abb0da06dd10e5fa}
+The term id. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
