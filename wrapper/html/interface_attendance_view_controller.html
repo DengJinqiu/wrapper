@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,6 +88,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">AttendanceViewController Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#import &lt;<a class="el" href="_attendance_view_controller_8h_source.html">AttendanceViewController.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for AttendanceViewController:</div>
 <div class="dyncontent">
@@ -100,26 +102,80 @@ Inheritance diagram for AttendanceViewController:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Instance Methods</h2></td></tr>
-<tr class="memitem:af8b1b06a44d046d768a3091ce56b93dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af8b1b06a44d046d768a3091ce56b93dd"></a>
-(id)&#160;</td><td class="memItemRight" valign="bottom">- <b>initWithYear:month:weekday:day:courseId:</b></td></tr>
+<tr class="memitem:af8b1b06a44d046d768a3091ce56b93dd"><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_attendance_view_controller.html#af8b1b06a44d046d768a3091ce56b93dd">initWithYear:month:weekday:day:courseId:</a></td></tr>
 <tr class="separator:af8b1b06a44d046d768a3091ce56b93dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header properties_interface_title_table_view_controller"><td colspan="2" onclick="javascript:toggleInherit('properties_interface_title_table_view_controller')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="interface_title_table_view_controller.html">TitleTableViewController</a></td></tr>
-<tr class="memitem:a28fd55d5b91428c42c821986765afc79 inherit properties_interface_title_table_view_controller"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28fd55d5b91428c42c821986765afc79"></a>
-UITableView *&#160;</td><td class="memItemRight" valign="bottom"><b>tableView</b></td></tr>
+<tr class="memitem:a28fd55d5b91428c42c821986765afc79 inherit properties_interface_title_table_view_controller"><td class="memItemLeft" align="right" valign="top">UITableView *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_title_table_view_controller.html#a28fd55d5b91428c42c821986765afc79">tableView</a></td></tr>
 <tr class="separator:a28fd55d5b91428c42c821986765afc79 inherit properties_interface_title_table_view_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0cf26350746393ad93fae7c1dc0f071 inherit properties_interface_title_table_view_controller"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0cf26350746393ad93fae7c1dc0f071"></a>
-UILabel *&#160;</td><td class="memItemRight" valign="bottom"><b>titleLabel</b></td></tr>
+<tr class="memitem:ac0cf26350746393ad93fae7c1dc0f071 inherit properties_interface_title_table_view_controller"><td class="memItemLeft" align="right" valign="top">UILabel *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_title_table_view_controller.html#ac0cf26350746393ad93fae7c1dc0f071">titleLabel</a></td></tr>
 <tr class="separator:ac0cf26350746393ad93fae7c1dc0f071 inherit properties_interface_title_table_view_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a836ce3317d51d9812f9407611df8327e inherit properties_interface_title_table_view_controller"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a836ce3317d51d9812f9407611df8327e"></a>
-NSInteger&#160;</td><td class="memItemRight" valign="bottom"><b>indexSelected</b></td></tr>
+<tr class="memitem:a836ce3317d51d9812f9407611df8327e inherit properties_interface_title_table_view_controller"><td class="memItemLeft" align="right" valign="top">NSInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_title_table_view_controller.html#a836ce3317d51d9812f9407611df8327e">indexSelected</a></td></tr>
 <tr class="separator:a836ce3317d51d9812f9407611df8327e inherit properties_interface_title_table_view_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97663dd3b86d043d6371a80216ecaf1d inherit properties_interface_title_table_view_controller"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97663dd3b86d043d6371a80216ecaf1d"></a>
-NSMutableSet *&#160;</td><td class="memItemRight" valign="bottom"><b>indexesUnableSelected</b></td></tr>
+<tr class="memitem:a97663dd3b86d043d6371a80216ecaf1d inherit properties_interface_title_table_view_controller"><td class="memItemLeft" align="right" valign="top">NSMutableSet *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_title_table_view_controller.html#a97663dd3b86d043d6371a80216ecaf1d">indexesUnableSelected</a></td></tr>
 <tr class="separator:a97663dd3b86d043d6371a80216ecaf1d inherit properties_interface_title_table_view_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The attendace view controller. </p>
+</div><h2 class="groupheader">Method Documentation</h2>
+<a class="anchor" id="af8b1b06a44d046d768a3091ce56b93dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (instancetype) initWithYear: </td>
+          <td></td>
+          <td class="paramtype">(NSInteger)&#160;</td>
+          <td class="paramname"><em>year</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">month:</td>
+          <td></td>
+          <td class="paramtype">(NSInteger)&#160;</td>
+          <td class="paramname"><em>month</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">weekday:</td>
+          <td></td>
+          <td class="paramtype">(NSInteger)&#160;</td>
+          <td class="paramname"><em>weekday</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">day:</td>
+          <td></td>
+          <td class="paramtype">(NSInteger)&#160;</td>
+          <td class="paramname"><em>day</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">courseId:</td>
+          <td></td>
+          <td class="paramtype">(NSNumber*)&#160;</td>
+          <td class="paramname"><em>courseId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initialize this panel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">year</td><td>The year. </td></tr>
+    <tr><td class="paramname">month</td><td>The month. </td></tr>
+    <tr><td class="paramname">weekday</td><td>The week day. </td></tr>
+    <tr><td class="paramname">day</td><td>The day. </td></tr>
+    <tr><td class="paramname">courseId</td><td>The courseId. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The controller. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_attendance_view_controller_8h_source.html">AttendanceViewController.h</a></li>
 <li>AttendanceViewController.m</li>
@@ -127,7 +183,7 @@ NSMutableSet *&#160;</td><td class="memItemRight" valign="bottom"><b>indexesUnab
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 1 2014 10:14:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 1 2014 11:05:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

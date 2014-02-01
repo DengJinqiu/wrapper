@@ -10,8 +10,15 @@
 #import "MonthButton.h"
 #import "SchoolCalendar.h"
 
+/**
+ *  The yearly view controller.
+ */
 @interface YearlyViewController : UIViewController
 
+/**
+ *  Navigate to the monthly view.
+ *  @param sender The button trigger the navigation.
+ */
 - (void)navigateToMonthlyView:(MonthButton*)sender;
 
 @end

@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "CalendarButton.h"
 
+/**
+ *  The month button.
+ */
 @interface MonthButton : CalendarButton
 
 @end

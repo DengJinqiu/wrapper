@@ -8,14 +8,32 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  The calendar panel.
+ */
 @interface CalendarPanel : UIView
 
+/**
+ *  The year of this panel.
+ */
 @property (nonatomic, readonly) NSInteger year;
 
+/**
+ *  The buttons on this panel.
+ */
 @property (nonatomic) NSMutableArray *calendarButtons;
 
+/**
+ *  Initialize this panel.
+ *  @param year The year.
+ *  @param originY The y coordinate of this panel.
+ *  @returns The panel
+ */
 - (id)initWithYear:(NSInteger)year originY:(NSInteger)y;
 
+/**
+ *  The label of this panel.
+ */
 - (UILabel*) panelLabel;
 
 @end

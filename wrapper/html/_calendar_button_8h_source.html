@@ -68,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,26 +92,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#import &lt;UIKit/UIKit.h&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="interface_calendar_button.html">   11</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_calendar_button.html">CalendarButton</a> : UIButton</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">@property</span> (nonatomic, readonly) NSInteger month;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">@property</span> (nonatomic, readonly) NSInteger year;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;- (id)initWithYear:(NSInteger)year month:(NSInteger)month originX:(NSInteger)x originY:(NSInteger)y;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;- (void)markAsRed;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="interface_calendar_button.html">   14</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_calendar_button.html">CalendarButton</a> : UIButton</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="interface_calendar_button.html#a0376fff10e4b7543fda1c00b81585828">   19</a></span>&#160;<span class="keyword">@property</span> (nonatomic, readonly) NSInteger <a class="code" href="interface_calendar_button.html#a0376fff10e4b7543fda1c00b81585828">month</a>;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;- (void)markAsGray;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;- (void)markAsGreen;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">@end</span></div>
-<div class="ttc" id="interface_calendar_button_html"><div class="ttname"><a href="interface_calendar_button.html">CalendarButton</a></div><div class="ttdef"><b>Definition:</b> CalendarButton.h:11</div></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="interface_calendar_button.html#ad84a0f3277c87c767e149d4498bb94b2">   24</a></span>&#160;<span class="keyword">@property</span> (nonatomic, readonly) NSInteger <a class="code" href="interface_calendar_button.html#ad84a0f3277c87c767e149d4498bb94b2">year</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;- (id)initWithYear:(NSInteger)year month:(NSInteger)month originX:(NSInteger)x originY:(NSInteger)y;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;- (void)<a class="code" href="interface_calendar_button.html#ac19bd8ddd5723e4700bfd15bc31791e6">markAsRed</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;- (void)<a class="code" href="interface_calendar_button.html#a588a452598d23eeeeb201003fbab896e">markAsGray</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;- (void)<a class="code" href="interface_calendar_button.html#adb8abbee02c42e396d6d23eb61bd9d1f">markAsGreen</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">@end</span></div>
+<div class="ttc" id="interface_calendar_button_html"><div class="ttname"><a href="interface_calendar_button.html">CalendarButton</a></div><div class="ttdef"><b>Definition:</b> CalendarButton.h:14</div></div>
+<div class="ttc" id="interface_calendar_button_html_a588a452598d23eeeeb201003fbab896e"><div class="ttname"><a href="interface_calendar_button.html#a588a452598d23eeeeb201003fbab896e">-[CalendarButton markAsGray]</a></div><div class="ttdeci">void markAsGray()</div><div class="ttdef"><b>Definition:</b> CalendarButton.m:52</div></div>
+<div class="ttc" id="interface_calendar_button_html_ad84a0f3277c87c767e149d4498bb94b2"><div class="ttname"><a href="interface_calendar_button.html#ad84a0f3277c87c767e149d4498bb94b2">CalendarButton::year</a></div><div class="ttdeci">NSInteger year</div><div class="ttdef"><b>Definition:</b> CalendarButton.h:24</div></div>
+<div class="ttc" id="interface_calendar_button_html_adb8abbee02c42e396d6d23eb61bd9d1f"><div class="ttname"><a href="interface_calendar_button.html#adb8abbee02c42e396d6d23eb61bd9d1f">-[CalendarButton markAsGreen]</a></div><div class="ttdeci">void markAsGreen()</div><div class="ttdef"><b>Definition:</b> CalendarButton.m:46</div></div>
+<div class="ttc" id="interface_calendar_button_html_a0376fff10e4b7543fda1c00b81585828"><div class="ttname"><a href="interface_calendar_button.html#a0376fff10e4b7543fda1c00b81585828">CalendarButton::month</a></div><div class="ttdeci">NSInteger month</div><div class="ttdef"><b>Definition:</b> CalendarButton.h:19</div></div>
+<div class="ttc" id="interface_calendar_button_html_ac19bd8ddd5723e4700bfd15bc31791e6"><div class="ttname"><a href="interface_calendar_button.html#ac19bd8ddd5723e4700bfd15bc31791e6">-[CalendarButton markAsRed]</a></div><div class="ttdeci">void markAsRed()</div><div class="ttdef"><b>Definition:</b> CalendarButton.m:38</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 1 2014 10:14:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 1 2014 11:05:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

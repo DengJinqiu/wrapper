@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,6 +88,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">MonthlyViewController Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#import &lt;<a class="el" href="_monthly_view_controller_8h_source.html">MonthlyViewController.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for MonthlyViewController:</div>
 <div class="dyncontent">
@@ -99,10 +101,47 @@ Inheritance diagram for MonthlyViewController:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Instance Methods</h2></td></tr>
-<tr class="memitem:a84779aaad5a20f68e7b09cf3001d5140"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84779aaad5a20f68e7b09cf3001d5140"></a>
-(id)&#160;</td><td class="memItemRight" valign="bottom">- <b>initWithStartYear:startMonth:</b></td></tr>
+<tr class="memitem:a84779aaad5a20f68e7b09cf3001d5140"><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_monthly_view_controller.html#a84779aaad5a20f68e7b09cf3001d5140">initWithStartYear:startMonth:</a></td></tr>
 <tr class="separator:a84779aaad5a20f68e7b09cf3001d5140"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The monthly view controller. </p>
+</div><h2 class="groupheader">Method Documentation</h2>
+<a class="anchor" id="a84779aaad5a20f68e7b09cf3001d5140"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (id) initWithStartYear: </td>
+          <td></td>
+          <td class="paramtype">(NSInteger)&#160;</td>
+          <td class="paramname"><em>startYear</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">startMonth:</td>
+          <td></td>
+          <td class="paramtype">(NSInteger)&#160;</td>
+          <td class="paramname"><em>startMonth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initialize this panel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startYear</td><td>The year appeared at first. </td></tr>
+    <tr><td class="paramname">startMonth</td><td>The month appeared at first. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The panel. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_monthly_view_controller_8h_source.html">MonthlyViewController.h</a></li>
 <li>MonthlyViewController.m</li>
@@ -110,7 +149,7 @@ Instance Methods</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 1 2014 10:14:29 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 1 2014 11:05:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

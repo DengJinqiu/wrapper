@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,6 +88,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">TitleTableViewController Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#import &lt;<a class="el" href="_title_table_view_controller_8h_source.html">TitleTableViewController.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for TitleTableViewController:</div>
 <div class="dyncontent">
@@ -101,19 +103,102 @@ Inheritance diagram for TitleTableViewController:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a28fd55d5b91428c42c821986765afc79"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28fd55d5b91428c42c821986765afc79"></a>
-UITableView *&#160;</td><td class="memItemRight" valign="bottom"><b>tableView</b></td></tr>
+<tr class="memitem:a28fd55d5b91428c42c821986765afc79"><td class="memItemLeft" align="right" valign="top">UITableView *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_title_table_view_controller.html#a28fd55d5b91428c42c821986765afc79">tableView</a></td></tr>
 <tr class="separator:a28fd55d5b91428c42c821986765afc79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0cf26350746393ad93fae7c1dc0f071"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0cf26350746393ad93fae7c1dc0f071"></a>
-UILabel *&#160;</td><td class="memItemRight" valign="bottom"><b>titleLabel</b></td></tr>
+<tr class="memitem:ac0cf26350746393ad93fae7c1dc0f071"><td class="memItemLeft" align="right" valign="top">UILabel *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_title_table_view_controller.html#ac0cf26350746393ad93fae7c1dc0f071">titleLabel</a></td></tr>
 <tr class="separator:ac0cf26350746393ad93fae7c1dc0f071"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a836ce3317d51d9812f9407611df8327e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a836ce3317d51d9812f9407611df8327e"></a>
-NSInteger&#160;</td><td class="memItemRight" valign="bottom"><b>indexSelected</b></td></tr>
+<tr class="memitem:a836ce3317d51d9812f9407611df8327e"><td class="memItemLeft" align="right" valign="top">NSInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_title_table_view_controller.html#a836ce3317d51d9812f9407611df8327e">indexSelected</a></td></tr>
 <tr class="separator:a836ce3317d51d9812f9407611df8327e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97663dd3b86d043d6371a80216ecaf1d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97663dd3b86d043d6371a80216ecaf1d"></a>
-NSMutableSet *&#160;</td><td class="memItemRight" valign="bottom"><b>indexesUnableSelected</b></td></tr>
+<tr class="memitem:a97663dd3b86d043d6371a80216ecaf1d"><td class="memItemLeft" align="right" valign="top">NSMutableSet *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_title_table_view_controller.html#a97663dd3b86d043d6371a80216ecaf1d">indexesUnableSelected</a></td></tr>
 <tr class="separator:a97663dd3b86d043d6371a80216ecaf1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Table view with title. </p>
+</div><h2 class="groupheader">Property Documentation</h2>
+<a class="anchor" id="a97663dd3b86d043d6371a80216ecaf1d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSMutableSet *) indexesUnableSelected</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">assign</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The index of row which cannot be selected. </p>
+
+</div>
+</div>
+<a class="anchor" id="a836ce3317d51d9812f9407611df8327e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSInteger) indexSelected</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">assign</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The index of selected row. </p>
+
+</div>
+</div>
+<a class="anchor" id="a28fd55d5b91428c42c821986765afc79"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (UITableView*) tableView</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">weak</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The table view. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac0cf26350746393ad93fae7c1dc0f071"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (UILabel*) titleLabel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">weak</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The title. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_title_table_view_controller_8h_source.html">TitleTableViewController.h</a></li>
 <li>TitleTableViewController.m</li>
@@ -121,7 +206,7 @@ NSMutableSet *&#160;</td><td class="memItemRight" valign="bottom"><b>indexesUnab
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 1 2014 10:14:29 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 1 2014 11:05:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

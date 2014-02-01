@@ -168,6 +168,16 @@
 			name = view;
 			sourceTree = "<group>";
 		};
+		6FAC8988189D52A3004012FC /* HTTPManager */ = {
+			isa = PBXGroup;
+			children = (
+				FE70BC9318641280009B0FC2 /* HTTPManager.h */,
+				FE70BC9418641280009B0FC2 /* HTTPManager.m */,
+				FE70BC9618641467009B0FC2 /* HTTPManagerDelegate.h */,
+			);
+			name = HTTPManager;
+			sourceTree = "<group>";
+		};
 		A564F48F183D795300785E9E = {
 			isa = PBXGroup;
 			children = (
@@ -280,11 +290,9 @@
 				FE90AAC018527884001AD462 /* Course.m */,
 				6F171E22188F7811009721F1 /* Attendance.h */,
 				6F171E23188F7811009721F1 /* Attendance.m */,
-				FE70BC9318641280009B0FC2 /* HTTPManager.h */,
-				FE70BC9418641280009B0FC2 /* HTTPManager.m */,
-				FE70BC9618641467009B0FC2 /* HTTPManagerDelegate.h */,
 				6FACC8CE188C5871006FABC9 /* DateTimeParser.h */,
 				6FACC8CF188C5871006FABC9 /* DateTimeParser.m */,
+				6FAC8988189D52A3004012FC /* HTTPManager */,
 			);
 			name = model;
 			sourceTree = "<group>";

@@ -8,14 +8,29 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  Table view with title.
+ */
 @interface TitleTableViewController : UIViewController
 
+/**
+ *  The table view.
+ */
 @property (weak, nonatomic) UITableView* tableView;
 
+/**
+ *  The title.
+ */
 @property (weak, nonatomic) UILabel* titleLabel;
 
+/**
+ *  The index of selected row.
+ */
 @property (nonatomic) NSInteger indexSelected;
 
+/**
+ *  The index of row which cannot be selected.
+ */
 @property (nonatomic) NSMutableSet* indexesUnableSelected;
 
 @end

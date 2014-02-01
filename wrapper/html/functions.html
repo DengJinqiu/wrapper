@@ -69,6 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li class="current"><a href="functions.html"><span>All</span></a></li>
       <li><a href="functions_func.html"><span>Functions</span></a></li>
+      <li><a href="functions_prop.html"><span>Properties</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -77,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,8 +89,57 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="contents">
 <div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div><ul>
+<li>cancel
+: <a class="el" href="interface_selection_picker.html#ad419e9278ed75268dda0e48c5ce43822">SelectionPicker</a>
+</li>
+<li>day
+: <a class="el" href="interface_day_button.html#a1a1e6a38a27c7ffafcd2b47c9e677ce3">DayButton</a>
+</li>
+<li>done
+: <a class="el" href="interface_selection_picker.html#aa43b12e68fd0c7c20745380fc60b6b88">SelectionPicker</a>
+</li>
+<li>indexesUnableSelected
+: <a class="el" href="interface_title_table_view_controller.html#a97663dd3b86d043d6371a80216ecaf1d">TitleTableViewController</a>
+</li>
+<li>indexSelected
+: <a class="el" href="interface_title_table_view_controller.html#a836ce3317d51d9812f9407611df8327e">TitleTableViewController</a>
+</li>
 <li>initWithPickerViewDelegate:andPickerViewDataSource:
 : <a class="el" href="interface_selection_picker.html#ad5fcb03fe065cf8fcaf765825562cfc1">SelectionPicker</a>
+</li>
+<li>initWithStartYear:startMonth:
+: <a class="el" href="interface_monthly_view_controller.html#a84779aaad5a20f68e7b09cf3001d5140">MonthlyViewController</a>
+</li>
+<li>initWithYear:month:originX:originY:
+: <a class="el" href="interface_calendar_button.html#a575053cfafe6a9790ff7b823e67cdd8f">CalendarButton</a>
+</li>
+<li>initWithYear:month:originY:
+: <a class="el" href="interface_month_panel.html#a81281be5f309c549595979d15ea23f1a">MonthPanel</a>
+</li>
+<li>initWithYear:month:weekday:day:
+: <a class="el" href="interface_daily_view_controller.html#a878944aa1f745382d93c4dce2f22b431">DailyViewController</a>
+</li>
+<li>initWithYear:month:weekday:day:courseId:
+: <a class="el" href="interface_attendance_view_controller.html#af8b1b06a44d046d768a3091ce56b93dd">AttendanceViewController</a>
+</li>
+<li>initWithYear:month:weekday:day:originX:originY:
+: <a class="el" href="interface_day_button.html#aaa3527d1ba28e02fbccf327df41bff5f">DayButton</a>
+</li>
+<li>leftLabel
+: <a class="el" href="interface_two_sides_label.html#ae2c5763f3d4b956e6572efb8af215605">TwoSidesLabel</a>
+</li>
+<li>markAsGray
+: <a class="el" href="interface_calendar_button.html#a588a452598d23eeeeb201003fbab896e">CalendarButton</a>
+</li>
+<li>markAsGreen
+: <a class="el" href="interface_calendar_button.html#adb8abbee02c42e396d6d23eb61bd9d1f">CalendarButton</a>
+</li>
+<li>markAsRed
+: <a class="el" href="interface_calendar_button.html#ac19bd8ddd5723e4700bfd15bc31791e6">CalendarButton</a>
+</li>
+<li>month
+: <a class="el" href="interface_calendar_button.html#a0376fff10e4b7543fda1c00b81585828">CalendarButton</a>
+, <a class="el" href="interface_month_panel.html#af3fa55f0361f4a149e3a1267546e37d5">MonthPanel</a>
 </li>
 <li>monthFullNames
 : <a class="el" href="interface_calendar_labels.html#a38a5230b8cef47a05b1574d2235c0084">CalendarLabels</a>
@@ -97,17 +147,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>monthLabels
 : <a class="el" href="interface_calendar_labels.html#ae5c1ae4bfefd17cb6b5ee6455f16d191">CalendarLabels</a>
 </li>
+<li>navigateToMonthlyView:
+: <a class="el" href="interface_yearly_view_controller.html#aeccf85df5945090d882092f84ae1f534">YearlyViewController</a>
+</li>
+<li>picker
+: <a class="el" href="interface_selection_picker.html#aa2a3f2d050d8e454ee7158ab17735c5f">SelectionPicker</a>
+</li>
+<li>remove
+: <a class="el" href="interface_selection_picker.html#a060c08f65fc47029ed1902e796a03925">SelectionPicker</a>
+</li>
+<li>rightLabel
+: <a class="el" href="interface_two_sides_label.html#a91d247769e9ab61c90583be8048c30e7">TwoSidesLabel</a>
+</li>
+<li>tableView
+: <a class="el" href="interface_title_table_view_controller.html#a28fd55d5b91428c42c821986765afc79">TitleTableViewController</a>
+</li>
+<li>titleLabel
+: <a class="el" href="interface_title_table_view_controller.html#ac0cf26350746393ad93fae7c1dc0f071">TitleTableViewController</a>
+</li>
+<li>weekday
+: <a class="el" href="interface_day_button.html#a992bfe27780dcf5616639d4259a7b1b6">DayButton</a>
+</li>
 <li>weekdayFullNames
 : <a class="el" href="interface_calendar_labels.html#aa21867365c68e93d1cadeaf55df805ec">CalendarLabels</a>
 </li>
 <li>weekdayLabels
 : <a class="el" href="interface_calendar_labels.html#ad293ccff4cf8f0ec9e195f6745adbd53">CalendarLabels</a>
 </li>
+<li>year
+: <a class="el" href="interface_calendar_button.html#ad84a0f3277c87c767e149d4498bb94b2">CalendarButton</a>
+</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 1 2014 10:14:30 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 1 2014 11:05:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

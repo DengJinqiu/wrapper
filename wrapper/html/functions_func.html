@@ -69,6 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="functions.html"><span>All</span></a></li>
       <li class="current"><a href="functions_func.html"><span>Functions</span></a></li>
+      <li><a href="functions_prop.html"><span>Properties</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -77,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -91,11 +92,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>initWithPickerViewDelegate:andPickerViewDataSource:
 : <a class="el" href="interface_selection_picker.html#ad5fcb03fe065cf8fcaf765825562cfc1">SelectionPicker</a>
 </li>
+<li>initWithStartYear:startMonth:
+: <a class="el" href="interface_monthly_view_controller.html#a84779aaad5a20f68e7b09cf3001d5140">MonthlyViewController</a>
+</li>
+<li>initWithYear:month:originX:originY:
+: <a class="el" href="interface_calendar_button.html#a575053cfafe6a9790ff7b823e67cdd8f">CalendarButton</a>
+</li>
+<li>initWithYear:month:originY:
+: <a class="el" href="interface_month_panel.html#a81281be5f309c549595979d15ea23f1a">MonthPanel</a>
+</li>
+<li>initWithYear:month:weekday:day:
+: <a class="el" href="interface_daily_view_controller.html#a878944aa1f745382d93c4dce2f22b431">DailyViewController</a>
+</li>
+<li>initWithYear:month:weekday:day:courseId:
+: <a class="el" href="interface_attendance_view_controller.html#af8b1b06a44d046d768a3091ce56b93dd">AttendanceViewController</a>
+</li>
+<li>initWithYear:month:weekday:day:originX:originY:
+: <a class="el" href="interface_day_button.html#aaa3527d1ba28e02fbccf327df41bff5f">DayButton</a>
+</li>
+<li>markAsGray
+: <a class="el" href="interface_calendar_button.html#a588a452598d23eeeeb201003fbab896e">CalendarButton</a>
+</li>
+<li>markAsGreen
+: <a class="el" href="interface_calendar_button.html#adb8abbee02c42e396d6d23eb61bd9d1f">CalendarButton</a>
+</li>
+<li>markAsRed
+: <a class="el" href="interface_calendar_button.html#ac19bd8ddd5723e4700bfd15bc31791e6">CalendarButton</a>
+</li>
 <li>monthFullNames
 : <a class="el" href="interface_calendar_labels.html#a38a5230b8cef47a05b1574d2235c0084">CalendarLabels</a>
 </li>
 <li>monthLabels
 : <a class="el" href="interface_calendar_labels.html#ae5c1ae4bfefd17cb6b5ee6455f16d191">CalendarLabels</a>
+</li>
+<li>navigateToMonthlyView:
+: <a class="el" href="interface_yearly_view_controller.html#aeccf85df5945090d882092f84ae1f534">YearlyViewController</a>
 </li>
 <li>weekdayFullNames
 : <a class="el" href="interface_calendar_labels.html#aa21867365c68e93d1cadeaf55df805ec">CalendarLabels</a>
@@ -107,7 +138,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 1 2014 10:14:30 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 1 2014 11:05:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

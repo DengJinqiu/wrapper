@@ -10,8 +10,19 @@
 #import "SchoolCalendar.h"
 #import "TitleTableViewController.h"
 
+/**
+ *  The daily view controller.
+ */
 @interface DailyViewController : TitleTableViewController
 
+/**
+ *  Initialzie this controller.
+ *  @param year The year.
+ *  @param month The month.
+ *  @param weekday The week day.
+ *  @param day The day.
+ *  @returns The controller.
+ */
 - (id)initWithYear:(NSInteger)year month:(NSInteger)month weekday:(NSInteger)weekday day:(NSInteger)day;
 
 @end

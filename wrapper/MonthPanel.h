@@ -11,8 +11,18 @@
 
 @interface MonthPanel : CalendarPanel
 
+/**
+ *  The panel of one month.
+ */
 @property (nonatomic, readonly) NSInteger month;
 
+/**
+ *  Initialize this panel
+ *  @param year The year.
+ *  @param month The month.
+ *  @param originY The y coordinate of this panel.
+ *  @returns The panel.
+ */
 - (id)initWithYear:(NSInteger)year month:(NSInteger)month originY:(NSInteger)y;
 
 @end

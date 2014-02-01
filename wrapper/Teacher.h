@@ -8,14 +8,31 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  The teacher.
+ */
 @interface Teacher : NSObject
 
+/**
+ *  Initialize a teacher.
+ *  @param teacherId The teacherId.
+ */
 + (void)createInstanceWithUserId:(NSNumber*)teacherId;
 
+/**
+ *  The instance of a teacher.
+ *  @returns Teacher.
+ */
 + (Teacher*)getInstance;
 
+/**
+ *  Teacher sign out.
+ */
 + (void)signOut;
 
+/**
+ *  The teacherId.
+ */
 @property (nonatomic) NSNumber* teacherId;
 
 @end

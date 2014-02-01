@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,6 +88,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">TwoSidesLabel Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#import &lt;<a class="el" href="_two_sides_label_8h_source.html">TwoSidesLabel.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for TwoSidesLabel:</div>
 <div class="dyncontent">
@@ -99,20 +101,63 @@ Inheritance diagram for TwoSidesLabel:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a91d247769e9ab61c90583be8048c30e7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91d247769e9ab61c90583be8048c30e7"></a>
-UILabel *&#160;</td><td class="memItemRight" valign="bottom"><b>rightLabel</b></td></tr>
+<tr class="memitem:a91d247769e9ab61c90583be8048c30e7"><td class="memItemLeft" align="right" valign="top">UILabel *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_two_sides_label.html#a91d247769e9ab61c90583be8048c30e7">rightLabel</a></td></tr>
 <tr class="separator:a91d247769e9ab61c90583be8048c30e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2c5763f3d4b956e6572efb8af215605"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae2c5763f3d4b956e6572efb8af215605"></a>
-UILabel *&#160;</td><td class="memItemRight" valign="bottom"><b>leftLabel</b></td></tr>
+<tr class="memitem:ae2c5763f3d4b956e6572efb8af215605"><td class="memItemLeft" align="right" valign="top">UILabel *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_two_sides_label.html#ae2c5763f3d4b956e6572efb8af215605">leftLabel</a></td></tr>
 <tr class="separator:ae2c5763f3d4b956e6572efb8af215605"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The label which contains two strings, aligned on right and left. </p>
+</div><h2 class="groupheader">Property Documentation</h2>
+<a class="anchor" id="ae2c5763f3d4b956e6572efb8af215605"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (UILabel*) leftLabel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">weak</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The left string. </p>
+
+</div>
+</div>
+<a class="anchor" id="a91d247769e9ab61c90583be8048c30e7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (UILabel*) rightLabel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">weak</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The right string. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_two_sides_label_8h_source.html">TwoSidesLabel.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 1 2014 10:14:29 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 1 2014 11:05:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

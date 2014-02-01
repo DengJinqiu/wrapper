@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,21 +107,17 @@ Instance Methods</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a060c08f65fc47029ed1902e796a03925"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a060c08f65fc47029ed1902e796a03925"></a>
-UIButton *&#160;</td><td class="memItemRight" valign="bottom"><b>remove</b></td></tr>
+<tr class="memitem:a060c08f65fc47029ed1902e796a03925"><td class="memItemLeft" align="right" valign="top">UIButton *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_selection_picker.html#a060c08f65fc47029ed1902e796a03925">remove</a></td></tr>
 <tr class="separator:a060c08f65fc47029ed1902e796a03925"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad419e9278ed75268dda0e48c5ce43822"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad419e9278ed75268dda0e48c5ce43822"></a>
-UIButton *&#160;</td><td class="memItemRight" valign="bottom"><b>cancel</b></td></tr>
+<tr class="memitem:ad419e9278ed75268dda0e48c5ce43822"><td class="memItemLeft" align="right" valign="top">UIButton *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_selection_picker.html#ad419e9278ed75268dda0e48c5ce43822">cancel</a></td></tr>
 <tr class="separator:ad419e9278ed75268dda0e48c5ce43822"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa43b12e68fd0c7c20745380fc60b6b88"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa43b12e68fd0c7c20745380fc60b6b88"></a>
-UIButton *&#160;</td><td class="memItemRight" valign="bottom"><b>done</b></td></tr>
+<tr class="memitem:aa43b12e68fd0c7c20745380fc60b6b88"><td class="memItemLeft" align="right" valign="top">UIButton *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_selection_picker.html#aa43b12e68fd0c7c20745380fc60b6b88">done</a></td></tr>
 <tr class="separator:aa43b12e68fd0c7c20745380fc60b6b88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2a3f2d050d8e454ee7158ab17735c5f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2a3f2d050d8e454ee7158ab17735c5f"></a>
-UIPickerView *&#160;</td><td class="memItemRight" valign="bottom"><b>picker</b></td></tr>
+<tr class="memitem:aa2a3f2d050d8e454ee7158ab17735c5f"><td class="memItemLeft" align="right" valign="top">UIPickerView *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_selection_picker.html#aa2a3f2d050d8e454ee7158ab17735c5f">picker</a></td></tr>
 <tr class="separator:aa2a3f2d050d8e454ee7158ab17735c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A picker with three buttons, reomve, cancel and done </p>
+<div class="textblock"><p>A picker with three buttons, reomve, cancel and done. </p>
 </div><h2 class="groupheader">Method Documentation</h2>
 <a class="anchor" id="ad5fcb03fe065cf8fcaf765825562cfc1"></a>
 <div class="memitem">
@@ -146,15 +142,100 @@ UIPickerView *&#160;</td><td class="memItemRight" valign="bottom"><b>picker</b><
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initalize the picker with delegate and data source </p>
+<p>Initalize the picker with delegate and data source. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">delegate</td><td>the picker delegate </td></tr>
-    <tr><td class="paramname">dataSource</td><td>the picker data source </td></tr>
+    <tr><td class="paramname">delegate</td><td>The picker delegate. </td></tr>
+    <tr><td class="paramname">dataSource</td><td>The picker data source. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The selection picker </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The selection picker. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Property Documentation</h2>
+<a class="anchor" id="ad419e9278ed75268dda0e48c5ce43822"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (UIButton*) cancel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">weak</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The cancel button. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa43b12e68fd0c7c20745380fc60b6b88"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (UIButton*) done</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">weak</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The done button. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa2a3f2d050d8e454ee7158ab17735c5f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (UIPickerView*) picker</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">weak</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The picker. </p>
+
+</div>
+</div>
+<a class="anchor" id="a060c08f65fc47029ed1902e796a03925"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (UIButton*) remove</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">weak</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The remove button. </p>
 
 </div>
 </div>
@@ -165,7 +246,7 @@ UIPickerView *&#160;</td><td class="memItemRight" valign="bottom"><b>picker</b><
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 1 2014 10:14:29 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 1 2014 11:05:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

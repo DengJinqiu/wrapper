@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  The sign in view controller.
+ */
 @interface SigninViewController : UIViewController
 
 @end

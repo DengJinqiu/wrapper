@@ -68,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,22 +92,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#import &lt;UIKit/UIKit.h&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="interface_title_table_view_controller.html">   11</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_title_table_view_controller.html">TitleTableViewController</a> : UIViewController</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) UITableView* tableView;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) UILabel* titleLabel;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">@property</span> (nonatomic) NSInteger indexSelected;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">@property</span> (nonatomic) NSMutableSet* indexesUnableSelected;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="interface_title_table_view_controller.html">   14</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_title_table_view_controller.html">TitleTableViewController</a> : UIViewController</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="interface_title_table_view_controller.html#a28fd55d5b91428c42c821986765afc79">   19</a></span>&#160;<span class="keyword">@property</span> (weak, nonatomic) UITableView* <a class="code" href="interface_title_table_view_controller.html#a28fd55d5b91428c42c821986765afc79">tableView</a>;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">@end</span></div>
-<div class="ttc" id="interface_title_table_view_controller_html"><div class="ttname"><a href="interface_title_table_view_controller.html">TitleTableViewController</a></div><div class="ttdef"><b>Definition:</b> TitleTableViewController.h:11</div></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="interface_title_table_view_controller.html#ac0cf26350746393ad93fae7c1dc0f071">   24</a></span>&#160;<span class="keyword">@property</span> (weak, nonatomic) UILabel* <a class="code" href="interface_title_table_view_controller.html#ac0cf26350746393ad93fae7c1dc0f071">titleLabel</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="interface_title_table_view_controller.html#a836ce3317d51d9812f9407611df8327e">   29</a></span>&#160;<span class="keyword">@property</span> (nonatomic) NSInteger <a class="code" href="interface_title_table_view_controller.html#a836ce3317d51d9812f9407611df8327e">indexSelected</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="interface_title_table_view_controller.html#a97663dd3b86d043d6371a80216ecaf1d">   34</a></span>&#160;<span class="keyword">@property</span> (nonatomic) NSMutableSet* <a class="code" href="interface_title_table_view_controller.html#a97663dd3b86d043d6371a80216ecaf1d">indexesUnableSelected</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">@end</span></div>
+<div class="ttc" id="interface_title_table_view_controller_html_ac0cf26350746393ad93fae7c1dc0f071"><div class="ttname"><a href="interface_title_table_view_controller.html#ac0cf26350746393ad93fae7c1dc0f071">TitleTableViewController::titleLabel</a></div><div class="ttdeci">UILabel * titleLabel</div><div class="ttdef"><b>Definition:</b> TitleTableViewController.h:24</div></div>
+<div class="ttc" id="interface_title_table_view_controller_html"><div class="ttname"><a href="interface_title_table_view_controller.html">TitleTableViewController</a></div><div class="ttdef"><b>Definition:</b> TitleTableViewController.h:14</div></div>
+<div class="ttc" id="interface_title_table_view_controller_html_a97663dd3b86d043d6371a80216ecaf1d"><div class="ttname"><a href="interface_title_table_view_controller.html#a97663dd3b86d043d6371a80216ecaf1d">TitleTableViewController::indexesUnableSelected</a></div><div class="ttdeci">NSMutableSet * indexesUnableSelected</div><div class="ttdef"><b>Definition:</b> TitleTableViewController.h:34</div></div>
+<div class="ttc" id="interface_title_table_view_controller_html_a28fd55d5b91428c42c821986765afc79"><div class="ttname"><a href="interface_title_table_view_controller.html#a28fd55d5b91428c42c821986765afc79">TitleTableViewController::tableView</a></div><div class="ttdeci">UITableView * tableView</div><div class="ttdef"><b>Definition:</b> TitleTableViewController.h:19</div></div>
+<div class="ttc" id="interface_title_table_view_controller_html_a836ce3317d51d9812f9407611df8327e"><div class="ttname"><a href="interface_title_table_view_controller.html#a836ce3317d51d9812f9407611df8327e">TitleTableViewController::indexSelected</a></div><div class="ttdeci">NSInteger indexSelected</div><div class="ttdef"><b>Definition:</b> TitleTableViewController.h:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 1 2014 10:14:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 1 2014 11:05:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

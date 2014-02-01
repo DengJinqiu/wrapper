@@ -68,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,18 +97,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;- (instancetype)initWithPickerViewDelegate:(<span class="keywordtype">id</span>&lt;UIPickerViewDelegate&gt;)delegate</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                   andPickerViewDataSource:(<span class="keywordtype">id</span>&lt;UIPickerViewDataSource&gt;)dataSource;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) UIButton* <span class="keyword">remove</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) UIButton* cancel;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) UIButton* done;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) UIPickerView* picker;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="interface_selection_picker.html#a060c08f65fc47029ed1902e796a03925">   28</a></span>&#160;<span class="keyword">@property</span> (weak, nonatomic) UIButton* <span class="keyword">remove</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="interface_selection_picker.html#ad419e9278ed75268dda0e48c5ce43822">   33</a></span>&#160;<span class="keyword">@property</span> (weak, nonatomic) UIButton* <a class="code" href="interface_selection_picker.html#ad419e9278ed75268dda0e48c5ce43822">cancel</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="interface_selection_picker.html#aa43b12e68fd0c7c20745380fc60b6b88">   38</a></span>&#160;<span class="keyword">@property</span> (weak, nonatomic) UIButton* <a class="code" href="interface_selection_picker.html#aa43b12e68fd0c7c20745380fc60b6b88">done</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="interface_selection_picker.html#aa2a3f2d050d8e454ee7158ab17735c5f">   43</a></span>&#160;<span class="keyword">@property</span> (weak, nonatomic) UIPickerView* <a class="code" href="interface_selection_picker.html#aa2a3f2d050d8e454ee7158ab17735c5f">picker</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">@end</span></div>
 <div class="ttc" id="interface_selection_picker_html"><div class="ttname"><a href="interface_selection_picker.html">SelectionPicker</a></div><div class="ttdef"><b>Definition:</b> SelectionPicker.h:14</div></div>
+<div class="ttc" id="interface_selection_picker_html_aa2a3f2d050d8e454ee7158ab17735c5f"><div class="ttname"><a href="interface_selection_picker.html#aa2a3f2d050d8e454ee7158ab17735c5f">SelectionPicker::picker</a></div><div class="ttdeci">UIPickerView * picker</div><div class="ttdef"><b>Definition:</b> SelectionPicker.h:43</div></div>
+<div class="ttc" id="interface_selection_picker_html_ad419e9278ed75268dda0e48c5ce43822"><div class="ttname"><a href="interface_selection_picker.html#ad419e9278ed75268dda0e48c5ce43822">SelectionPicker::cancel</a></div><div class="ttdeci">UIButton * cancel</div><div class="ttdef"><b>Definition:</b> SelectionPicker.h:33</div></div>
+<div class="ttc" id="interface_selection_picker_html_aa43b12e68fd0c7c20745380fc60b6b88"><div class="ttname"><a href="interface_selection_picker.html#aa43b12e68fd0c7c20745380fc60b6b88">SelectionPicker::done</a></div><div class="ttdeci">UIButton * done</div><div class="ttdef"><b>Definition:</b> SelectionPicker.h:38</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 1 2014 10:14:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 1 2014 11:05:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

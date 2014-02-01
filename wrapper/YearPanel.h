@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "CalendarPanel.h"
 
+/**
+ *  The panel of one year.
+ */
 @interface YearPanel : CalendarPanel
 
 @end

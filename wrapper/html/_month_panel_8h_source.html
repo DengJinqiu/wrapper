@@ -68,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -95,17 +95,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="interface_month_panel.html">   12</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_month_panel.html">MonthPanel</a> : <a class="code" href="class_calendar_panel.html">CalendarPanel</a></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">@property</span> (nonatomic, readonly) NSInteger month;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;- (id)initWithYear:(NSInteger)year month:(NSInteger)month originY:(NSInteger)y;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="interface_month_panel.html#af3fa55f0361f4a149e3a1267546e37d5">   17</a></span>&#160;<span class="keyword">@property</span> (nonatomic, readonly) NSInteger <a class="code" href="interface_month_panel.html#af3fa55f0361f4a149e3a1267546e37d5">month</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;- (id)initWithYear:(NSInteger)year <a class="code" href="interface_month_panel.html#af3fa55f0361f4a149e3a1267546e37d5">month</a>:(NSInteger)<a class="code" href="interface_month_panel.html#af3fa55f0361f4a149e3a1267546e37d5">month</a> originY:(NSInteger)y;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">@end</span></div>
 <div class="ttc" id="class_calendar_panel_html"><div class="ttname"><a href="class_calendar_panel.html">CalendarPanel</a></div><div class="ttdef"><b>Definition:</b> CalendarPanel.m:11</div></div>
+<div class="ttc" id="interface_month_panel_html_af3fa55f0361f4a149e3a1267546e37d5"><div class="ttname"><a href="interface_month_panel.html#af3fa55f0361f4a149e3a1267546e37d5">MonthPanel::month</a></div><div class="ttdeci">NSInteger month</div><div class="ttdef"><b>Definition:</b> MonthPanel.h:17</div></div>
 <div class="ttc" id="interface_month_panel_html"><div class="ttname"><a href="interface_month_panel.html">MonthPanel</a></div><div class="ttdef"><b>Definition:</b> MonthPanel.h:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 1 2014 10:14:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 1 2014 11:05:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

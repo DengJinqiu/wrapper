@@ -68,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,18 +92,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#import &lt;UIKit/UIKit.h&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="interface_two_sides_label.html">   11</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_two_sides_label.html">TwoSidesLabel</a> : UIView</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) UILabel* rightLabel;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) UILabel* leftLabel;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">@end</span></div>
-<div class="ttc" id="interface_two_sides_label_html"><div class="ttname"><a href="interface_two_sides_label.html">TwoSidesLabel</a></div><div class="ttdef"><b>Definition:</b> TwoSidesLabel.h:11</div></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="interface_two_sides_label.html">   14</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_two_sides_label.html">TwoSidesLabel</a> : UIView</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="interface_two_sides_label.html#a91d247769e9ab61c90583be8048c30e7">   19</a></span>&#160;<span class="keyword">@property</span> (weak, nonatomic) UILabel* <a class="code" href="interface_two_sides_label.html#a91d247769e9ab61c90583be8048c30e7">rightLabel</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="interface_two_sides_label.html#ae2c5763f3d4b956e6572efb8af215605">   24</a></span>&#160;<span class="keyword">@property</span> (weak, nonatomic) UILabel* <a class="code" href="interface_two_sides_label.html#ae2c5763f3d4b956e6572efb8af215605">leftLabel</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">@end</span></div>
+<div class="ttc" id="interface_two_sides_label_html_ae2c5763f3d4b956e6572efb8af215605"><div class="ttname"><a href="interface_two_sides_label.html#ae2c5763f3d4b956e6572efb8af215605">TwoSidesLabel::leftLabel</a></div><div class="ttdeci">UILabel * leftLabel</div><div class="ttdef"><b>Definition:</b> TwoSidesLabel.h:24</div></div>
+<div class="ttc" id="interface_two_sides_label_html"><div class="ttname"><a href="interface_two_sides_label.html">TwoSidesLabel</a></div><div class="ttdef"><b>Definition:</b> TwoSidesLabel.h:14</div></div>
+<div class="ttc" id="interface_two_sides_label_html_a91d247769e9ab61c90583be8048c30e7"><div class="ttname"><a href="interface_two_sides_label.html#a91d247769e9ab61c90583be8048c30e7">TwoSidesLabel::rightLabel</a></div><div class="ttdeci">UILabel * rightLabel</div><div class="ttdef"><b>Definition:</b> TwoSidesLabel.h:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 1 2014 10:14:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 1 2014 11:05:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

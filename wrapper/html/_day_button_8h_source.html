@@ -68,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -93,22 +93,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#import &lt;UIKit/UIKit.h&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#import &quot;CalendarButton.h&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="interface_day_button.html">   12</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_day_button.html">DayButton</a> : <a class="code" href="interface_calendar_button.html">CalendarButton</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">@property</span> (nonatomic) NSInteger day;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">@property</span> (nonatomic) NSInteger weekday;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;- (id)initWithYear:(NSInteger)year month:(NSInteger)month weekday:(NSInteger)weekday</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;               day:(NSInteger)day originX:(NSInteger)x originY:(NSInteger)y;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">@end</span></div>
-<div class="ttc" id="interface_calendar_button_html"><div class="ttname"><a href="interface_calendar_button.html">CalendarButton</a></div><div class="ttdef"><b>Definition:</b> CalendarButton.h:11</div></div>
-<div class="ttc" id="interface_day_button_html"><div class="ttname"><a href="interface_day_button.html">DayButton</a></div><div class="ttdef"><b>Definition:</b> DayButton.h:12</div></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="interface_day_button.html">   15</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_day_button.html">DayButton</a> : <a class="code" href="interface_calendar_button.html">CalendarButton</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="interface_day_button.html#a1a1e6a38a27c7ffafcd2b47c9e677ce3">   20</a></span>&#160;<span class="keyword">@property</span> (nonatomic) NSInteger <a class="code" href="interface_day_button.html#a1a1e6a38a27c7ffafcd2b47c9e677ce3">day</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="interface_day_button.html#a992bfe27780dcf5616639d4259a7b1b6">   25</a></span>&#160;<span class="keyword">@property</span> (nonatomic) NSInteger <a class="code" href="interface_day_button.html#a992bfe27780dcf5616639d4259a7b1b6">weekday</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;- (id)initWithYear:(NSInteger)year month:(NSInteger)month weekday:(NSInteger)weekday</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;               day:(NSInteger)day originX:(NSInteger)x originY:(NSInteger)y;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">@end</span></div>
+<div class="ttc" id="interface_calendar_button_html"><div class="ttname"><a href="interface_calendar_button.html">CalendarButton</a></div><div class="ttdef"><b>Definition:</b> CalendarButton.h:14</div></div>
+<div class="ttc" id="interface_day_button_html_a1a1e6a38a27c7ffafcd2b47c9e677ce3"><div class="ttname"><a href="interface_day_button.html#a1a1e6a38a27c7ffafcd2b47c9e677ce3">DayButton::day</a></div><div class="ttdeci">NSInteger day</div><div class="ttdef"><b>Definition:</b> DayButton.h:20</div></div>
+<div class="ttc" id="interface_day_button_html_a992bfe27780dcf5616639d4259a7b1b6"><div class="ttname"><a href="interface_day_button.html#a992bfe27780dcf5616639d4259a7b1b6">DayButton::weekday</a></div><div class="ttdeci">NSInteger weekday</div><div class="ttdef"><b>Definition:</b> DayButton.h:25</div></div>
+<div class="ttc" id="interface_day_button_html"><div class="ttname"><a href="interface_day_button.html">DayButton</a></div><div class="ttdef"><b>Definition:</b> DayButton.h:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 1 2014 10:14:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 1 2014 11:05:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
