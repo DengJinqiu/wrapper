@@ -1,14 +1,21 @@
 var searchData=
 [
   ['abbrev',['abbrev',['../interface_attendance_marking.html#af637cdd49ba462876b3fe6e6957049fc',1,'AttendanceMarking']]],
+  ['addattendance_3a',['addAttendance:',['../interface_attendance.html#a568770e9ffe9657d639935eef3853fd0',1,'Attendance']]],
   ['addattendancemarking_3a',['addAttendanceMarking:',['../interface_attendance_marking.html#a8b7521298b1e5f2da13a553c07b96641',1,'AttendanceMarking']]],
+  ['addcourse_3a',['addCourse:',['../interface_schedule.html#aaf0faf41937c9aadd2f2ff4d48a1c05c',1,'Schedule']]],
+  ['addscheduleforcourse_3aonyear_3amonth_3aandday_3a',['addScheduleForCourse:onYear:month:andDay:',['../interface_schedule.html#a98322100b735481ca7bf493035f11598',1,'Schedule']]],
   ['appdelegate',['AppDelegate',['../interface_app_delegate.html',1,'']]],
   ['attendance',['Attendance',['../interface_attendance.html',1,'']]],
+  ['attendanceid',['attendanceId',['../interface_attendance.html#a47331d4a3bf6a66898af099cf7e8ceb3',1,'Attendance']]],
   ['attendancemarking',['AttendanceMarking',['../interface_attendance_marking.html',1,'']]],
-  ['attendancemarkingid',['attendanceMarkingId',['../interface_attendance_marking.html#a211012d0e662142f3b002b57f133b0db',1,'AttendanceMarking']]],
+  ['attendancemarkingid',['attendanceMarkingId',['../interface_attendance.html#a2a250e9bc55299c5f2c4936f1346a396',1,'Attendance::attendanceMarkingId()'],['../interface_attendance_marking.html#a211012d0e662142f3b002b57f133b0db',1,'AttendanceMarking::attendanceMarkingId()']]],
   ['attendancemarkingscount',['attendanceMarkingsCount',['../interface_attendance_marking.html#a18d628d46cf571cb46ac74e514903d88',1,'AttendanceMarking']]],
   ['attendancemarkingwithid_3a',['attendanceMarkingWithId:',['../interface_attendance_marking.html#a8433859ec71fc8803abc240a003f3810',1,'AttendanceMarking']]],
   ['attendancemarkingwithindex_3a',['attendanceMarkingWithIndex:',['../interface_attendance_marking.html#a864de84c57b2c40cab4c11f81b593049',1,'AttendanceMarking']]],
+  ['attendanceofid_3a',['attendanceOfId:',['../interface_attendance.html#a3eaa11e5bc98ef472695fd08e6755e19',1,'Attendance']]],
+  ['attendanceofindex_3a',['attendanceOfIndex:',['../interface_attendance.html#a5cb36b2e19d15648d4286c4806205d0f',1,'Attendance']]],
+  ['attendancesnum',['attendancesNum',['../interface_attendance.html#a5e9f293e1ce3603c9e795e76a06eac88',1,'Attendance']]],
   ['attendanceviewcontroller',['AttendanceViewController',['../interface_attendance_view_controller.html',1,'']]],
   ['attendanceviewcontroller_28_29',['AttendanceViewController()',['../category_attendance_view_controller_07_08.html',1,'']]]
 ];

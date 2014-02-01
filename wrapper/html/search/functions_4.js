@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['markasgray',['markAsGray',['../interface_calendar_button.html#a588a452598d23eeeeb201003fbab896e',1,'CalendarButton']]],
-  ['markasgreen',['markAsGreen',['../interface_calendar_button.html#adb8abbee02c42e396d6d23eb61bd9d1f',1,'CalendarButton']]],
-  ['markasred',['markAsRed',['../interface_calendar_button.html#ac19bd8ddd5723e4700bfd15bc31791e6',1,'CalendarButton']]],
-  ['monthfullnames',['monthFullNames',['../interface_calendar_labels.html#a38a5230b8cef47a05b1574d2235c0084',1,'CalendarLabels']]],
-  ['monthlabels',['monthLabels',['../interface_calendar_labels.html#ae5c1ae4bfefd17cb6b5ee6455f16d191',1,'CalendarLabels']]]
+  ['hascourseonyear_3amonth_3a',['hasCourseOnYear:month:',['../interface_schedule.html#a17a17dcc7d2d32962be64766309e4a7f',1,'Schedule']]],
+  ['hascourseonyear_3amonth_3aday_3a',['hasCourseOnYear:month:day:',['../interface_schedule.html#aa38b3bb92219023117fe0686f68fb8bc',1,'Schedule']]],
+  ['hour_3a',['hour:',['../interface_date_time_parser.html#af7098a270403be453d8a197baacb7c46',1,'DateTimeParser']]]
 ];
