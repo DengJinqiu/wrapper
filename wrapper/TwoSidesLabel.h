@@ -8,10 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  The label which contains two strings, aligned on right and left.
+ */
 @interface TwoSidesLabel : UIView
 
+/**
+ *  The right string.
+ */
 @property (weak, nonatomic) UILabel* rightLabel;
 
+/**
+ *  The left string.
+ */
 @property (weak, nonatomic) UILabel* leftLabel;
 
 @end
