@@ -12,7 +12,7 @@
 @interface MonthPanel : CalendarPanel
 
 /**
- *  The panel of one month.
+ *  The panel of one month on the monthly calendar.
  */
 @property (nonatomic, readonly) NSInteger month;
 

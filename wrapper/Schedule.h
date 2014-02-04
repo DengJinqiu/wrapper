@@ -10,19 +10,19 @@
 #import "Course.h"
 
 /**
- *  The schdeule of a course.
+ *  The schedule of all the courses.
  */
 @interface Schedule : NSObject
 
 /**
- *  Add course.
+ *  Add a course.
  *  @param course The course.
  */
 + (void)addCourse:(Course*)course;
 
 /**
  *  Get a course of an index.
- *  @param index The index.
+ *  @param index The index of the course.
  *  @returns The course.
  */
 + (Course*)courseOfIndex:(NSInteger)index;
@@ -35,8 +35,8 @@
 + (Course*)courseOfId:(NSNumber*)courseId;
 
 /**
- *  Get the course num.
- *  @returns The number of course.
+ *  Get the number of courses.
+ *  @returns The number of courses.
  */
 + (NSInteger)coursesNum;
 
@@ -46,7 +46,7 @@
 + (void)clearSchedule;
 
 /**
- *  Add the course on one day.
+ *  Add the course on the year, month and day.
  *  @param courseId The course id.
  *  @param year The year.
  *  @param month The month.
@@ -55,7 +55,7 @@
 + (void)addScheduleForCourse:(NSNumber*)courseId onYear:(NSInteger)year month:(NSInteger)month andDay:(NSInteger)day;
 
 /**
- *  Get the course on one day.
+ *  Get the course on the year, month and day.
  *  @param year The year.
  *  @param month The month.
  *  @param day The day.
@@ -64,7 +64,7 @@
 + (NSMutableArray*)coursesOnYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 
 /**
- *  Whether there is a course on one month.
+ *  Whether there is a course on the year and month.
  *  @param year The year.
  *  @param month The month.
  *  @returns Whether there is a course on one month.
@@ -72,7 +72,7 @@
 + (BOOL)hasCourseOnYear:(NSInteger)year month:(NSInteger)month;
 
 /**
- *  Whether there is a course on one day.
+ *  Whether there is a course on the year, month and day.
  *  @param year The year.
  *  @param month The month.
  *  @param day The day.

@@ -49,7 +49,7 @@
 @property (nonatomic) NSString* teacherLastName;
 
 /**
- *  Initialize an attendance.
+ *  Initialize an attendance with the attendance id, attendance marking id, roster id, student first name, student first name, teacher first name and teacher last name.
  *  @param attendanceId The attendance id.
  *  @param attendanceMarkingId The attendance marking id.
  *  @param rosterId The roster id.
@@ -78,7 +78,7 @@
 + (Attendance*)attendanceOfIndex:(NSInteger)index;
 
 /**
- *  Get an attendance of an id.
+ *  Get an attendance of an roster id.
  *  @param rosterId The roster id.
  *  @returns The attendance.
  */
@@ -90,7 +90,7 @@
 + (void)clearAttendance;
 
 /**
- *  The attendance number.
+ *  The number of attendances.
  *  @returns The attendance number.
  */
 + (NSInteger)attendancesNum;

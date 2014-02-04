@@ -29,14 +29,14 @@
 @property (nonatomic) NSString* name;
 
 /**
- *  The attendance marking of an id.
+ *  The attendance marking of an attendance marking id.
  *  @param attendanceMarkingId attendance marking id.
  *  @returns The attendance marking.
  */
 + (AttendanceMarking*)attendanceMarkingWithId:(NSNumber*)attendanceMarkingId;
 
 /**
- *  The attendance marking of an index.
+ *  The attendance marking of an attendance marking index.
  *  @param index The index.
  *  @returns The attendance marking.
  */

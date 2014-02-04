@@ -10,7 +10,7 @@
 #import "SchoolCalendar.h"
 
 /**
- *  The monthly view controller.
+ *  The monthly view controller represent a monthly calendar.
  */
 @interface MonthlyViewController : UIViewController
 

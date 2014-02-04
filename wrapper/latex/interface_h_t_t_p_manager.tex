@@ -1,0 +1,182 @@
+\hypertarget{interface_h_t_t_p_manager}{\section{\-H\-T\-T\-P\-Manager \-Class \-Reference}
+\label{interface_h_t_t_p_manager}\index{\-H\-T\-T\-P\-Manager@{\-H\-T\-T\-P\-Manager}}
+}
+
+
+{\ttfamily \#import $<$\-H\-T\-T\-P\-Manager.\-h$>$}
+
+\subsection*{\-Static \-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+(\hyperlink{interface_h_t_t_p_manager}{\-H\-T\-T\-P\-Manager} $\ast$) + \hyperlink{interface_h_t_t_p_manager_a2476228b452731c9f984c91ce08d90b4}{get\-Instance}
+\item 
+(void) + \hyperlink{interface_h_t_t_p_manager_a394e5d96ca7b2c7d15f4e66d697333bf}{load\-Teacher\-With\-Email\-:password\-:delegate\-:}
+\item 
+(void) + \hyperlink{interface_h_t_t_p_manager_a32189e50eb0e77717fbfe7b9ac435822}{load\-Term\-With\-Delegate\-:}
+\item 
+(void) + \hyperlink{interface_h_t_t_p_manager_a646f3a02b67b3e3dfe333d5e99061735}{load\-Attendance\-Marking\-With\-Delegate\-:}
+\item 
+(void) + \hyperlink{interface_h_t_t_p_manager_a67085a1f0d8ac7608d728a30fc7bb6b4}{load\-Courses\-With\-Delegate\-:}
+\item 
+(void) + \hyperlink{interface_h_t_t_p_manager_a4c84623e4df46ebd225c9aec5fd7627a}{load\-Schedules\-With\-Delegate\-:}
+\item 
+(void) + \hyperlink{interface_h_t_t_p_manager_a4a0a7677d96e5e07b4c8a1e4e85fb7fb}{load\-Roster\-For\-:on\-Date\-:with\-Delegate\-:}
+\item 
+(void) + \hyperlink{interface_h_t_t_p_manager_a173519d82e3f0db823a6ea90095a2eaf}{update\-Attendance\-For\-Attendance\-Id\-:roster\-Id\-:teacher\-Id\-:attendance\-Marking\-Id\-:date\-:with\-Delegate\-:and\-Index\-:}
+\item 
+(void) + \hyperlink{interface_h_t_t_p_manager_a1602c57ee43246282495892a2959b417}{delete\-Attendance\-For\-Attendance\-Id\-:with\-Delegate\-:and\-Index\-:}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-The http manager used to connect with a \-R\-E\-S\-Tful database. 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{interface_h_t_t_p_manager_a1602c57ee43246282495892a2959b417}{\index{\-H\-T\-T\-P\-Manager@{\-H\-T\-T\-P\-Manager}!delete\-Attendance\-For\-Attendance\-Id\-:with\-Delegate\-:and\-Index\-:@{delete\-Attendance\-For\-Attendance\-Id\-:with\-Delegate\-:and\-Index\-:}}
+\index{delete\-Attendance\-For\-Attendance\-Id\-:with\-Delegate\-:and\-Index\-:@{delete\-Attendance\-For\-Attendance\-Id\-:with\-Delegate\-:and\-Index\-:}!HTTPManager@{\-H\-T\-T\-P\-Manager}}
+\subsubsection[{delete\-Attendance\-For\-Attendance\-Id\-:with\-Delegate\-:and\-Index\-:}]{\setlength{\rightskip}{0pt plus 5cm}+ (void) delete\-Attendance\-For\-Attendance\-Id\-: 
+\begin{DoxyParamCaption}
+\item[{dummy(\-N\-S\-Number $\ast$)}]{attendance\-Id}
+\item[{withDelegate:(id$<${\bf \-H\-T\-T\-P\-Manager\-Delegate}$>$)}]{delegate}
+\item[{andIndex:(\-N\-S\-Integer)}]{index}
+\end{DoxyParamCaption}
+}}\label{interface_h_t_t_p_manager_a1602c57ee43246282495892a2959b417}
+\-Delete the attendance. 
+\begin{DoxyParams}{\-Parameters}
+{\em attendance\-Id} & \-The attendance id. \\
+\hline
+{\em delegate} & \-The \-H\-T\-T\-P manager delegate. \\
+\hline
+{\em index} & \-The attendance index. \\
+\hline
+\end{DoxyParams}
+\hypertarget{interface_h_t_t_p_manager_a2476228b452731c9f984c91ce08d90b4}{\index{\-H\-T\-T\-P\-Manager@{\-H\-T\-T\-P\-Manager}!get\-Instance@{get\-Instance}}
+\index{get\-Instance@{get\-Instance}!HTTPManager@{\-H\-T\-T\-P\-Manager}}
+\subsubsection[{get\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}+ ({\bf \-H\-T\-T\-P\-Manager} $\ast$) {\bf get\-Instance} 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}\label{interface_h_t_t_p_manager_a2476228b452731c9f984c91ce08d90b4}
+\-Get an instance of the http manager. \begin{DoxyReturn}{\-Returns}
+\-The instance of http manager. 
+\end{DoxyReturn}
+\hypertarget{interface_h_t_t_p_manager_a646f3a02b67b3e3dfe333d5e99061735}{\index{\-H\-T\-T\-P\-Manager@{\-H\-T\-T\-P\-Manager}!load\-Attendance\-Marking\-With\-Delegate\-:@{load\-Attendance\-Marking\-With\-Delegate\-:}}
+\index{load\-Attendance\-Marking\-With\-Delegate\-:@{load\-Attendance\-Marking\-With\-Delegate\-:}!HTTPManager@{\-H\-T\-T\-P\-Manager}}
+\subsubsection[{load\-Attendance\-Marking\-With\-Delegate\-:}]{\setlength{\rightskip}{0pt plus 5cm}+ (void) {\bf load\-Attendance\-Marking\-With\-Delegate\-:} 
+\begin{DoxyParamCaption}
+\item[{dummy(id$<${\bf \-H\-T\-T\-P\-Manager\-Delegate}$>$)}]{delegate}
+\end{DoxyParamCaption}
+}}\label{interface_h_t_t_p_manager_a646f3a02b67b3e3dfe333d5e99061735}
+\-Load attendance markings with the delegate. 
+\begin{DoxyParams}{\-Parameters}
+{\em delegate} & \-The \-H\-T\-T\-P manager delegate. \\
+\hline
+\end{DoxyParams}
+\hypertarget{interface_h_t_t_p_manager_a67085a1f0d8ac7608d728a30fc7bb6b4}{\index{\-H\-T\-T\-P\-Manager@{\-H\-T\-T\-P\-Manager}!load\-Courses\-With\-Delegate\-:@{load\-Courses\-With\-Delegate\-:}}
+\index{load\-Courses\-With\-Delegate\-:@{load\-Courses\-With\-Delegate\-:}!HTTPManager@{\-H\-T\-T\-P\-Manager}}
+\subsubsection[{load\-Courses\-With\-Delegate\-:}]{\setlength{\rightskip}{0pt plus 5cm}+ (void) {\bf load\-Courses\-With\-Delegate\-:} 
+\begin{DoxyParamCaption}
+\item[{dummy(id$<${\bf \-H\-T\-T\-P\-Manager\-Delegate}$>$)}]{delegate}
+\end{DoxyParamCaption}
+}}\label{interface_h_t_t_p_manager_a67085a1f0d8ac7608d728a30fc7bb6b4}
+\-Load course of a teacher with the delegate. 
+\begin{DoxyParams}{\-Parameters}
+{\em delegate} & \-The \-H\-T\-T\-P manager delegate. \\
+\hline
+\end{DoxyParams}
+\hypertarget{interface_h_t_t_p_manager_a4a0a7677d96e5e07b4c8a1e4e85fb7fb}{\index{\-H\-T\-T\-P\-Manager@{\-H\-T\-T\-P\-Manager}!load\-Roster\-For\-:on\-Date\-:with\-Delegate\-:@{load\-Roster\-For\-:on\-Date\-:with\-Delegate\-:}}
+\index{load\-Roster\-For\-:on\-Date\-:with\-Delegate\-:@{load\-Roster\-For\-:on\-Date\-:with\-Delegate\-:}!HTTPManager@{\-H\-T\-T\-P\-Manager}}
+\subsubsection[{load\-Roster\-For\-:on\-Date\-:with\-Delegate\-:}]{\setlength{\rightskip}{0pt plus 5cm}+ (void) load\-Roster\-For\-: 
+\begin{DoxyParamCaption}
+\item[{dummy(\-N\-S\-Number$\ast$)}]{course\-Id}
+\item[{onDate:(\-N\-S\-String$\ast$)}]{date}
+\item[{withDelegate:(id$<${\bf \-H\-T\-T\-P\-Manager\-Delegate}$>$)}]{delegate}
+\end{DoxyParamCaption}
+}}\label{interface_h_t_t_p_manager_a4a0a7677d96e5e07b4c8a1e4e85fb7fb}
+\-Load roster of a course 
+\begin{DoxyParams}{\-Parameters}
+{\em course\-Id} & \-The course id. \\
+\hline
+{\em date} & \-The date. \\
+\hline
+{\em delagate} & \-The \-H\-T\-T\-P manger delegate. \\
+\hline
+\end{DoxyParams}
+\hypertarget{interface_h_t_t_p_manager_a4c84623e4df46ebd225c9aec5fd7627a}{\index{\-H\-T\-T\-P\-Manager@{\-H\-T\-T\-P\-Manager}!load\-Schedules\-With\-Delegate\-:@{load\-Schedules\-With\-Delegate\-:}}
+\index{load\-Schedules\-With\-Delegate\-:@{load\-Schedules\-With\-Delegate\-:}!HTTPManager@{\-H\-T\-T\-P\-Manager}}
+\subsubsection[{load\-Schedules\-With\-Delegate\-:}]{\setlength{\rightskip}{0pt plus 5cm}+ (void) {\bf load\-Schedules\-With\-Delegate\-:} 
+\begin{DoxyParamCaption}
+\item[{dummy(id$<${\bf \-H\-T\-T\-P\-Manager\-Delegate}$>$)}]{delegate}
+\end{DoxyParamCaption}
+}}\label{interface_h_t_t_p_manager_a4c84623e4df46ebd225c9aec5fd7627a}
+\-Load the schedule of all the courses of a teacher with the delegate. 
+\begin{DoxyParams}{\-Parameters}
+{\em delegate} & \-The \-H\-T\-T\-P manager delegate. \\
+\hline
+\end{DoxyParams}
+\hypertarget{interface_h_t_t_p_manager_a394e5d96ca7b2c7d15f4e66d697333bf}{\index{\-H\-T\-T\-P\-Manager@{\-H\-T\-T\-P\-Manager}!load\-Teacher\-With\-Email\-:password\-:delegate\-:@{load\-Teacher\-With\-Email\-:password\-:delegate\-:}}
+\index{load\-Teacher\-With\-Email\-:password\-:delegate\-:@{load\-Teacher\-With\-Email\-:password\-:delegate\-:}!HTTPManager@{\-H\-T\-T\-P\-Manager}}
+\subsubsection[{load\-Teacher\-With\-Email\-:password\-:delegate\-:}]{\setlength{\rightskip}{0pt plus 5cm}+ (void) load\-Teacher\-With\-Email\-: 
+\begin{DoxyParamCaption}
+\item[{dummy(\-N\-S\-String$\ast$)}]{email}
+\item[{password:(\-N\-S\-String$\ast$)}]{password}
+\item[{delegate:(id$<${\bf \-H\-T\-T\-P\-Manager\-Delegate}$>$)}]{delegate}
+\end{DoxyParamCaption}
+}}\label{interface_h_t_t_p_manager_a394e5d96ca7b2c7d15f4e66d697333bf}
+\-Load a teacher with the email, password and delegate. 
+\begin{DoxyParams}{\-Parameters}
+{\em email} & \-The email. \\
+\hline
+{\em password} & \-The password. \\
+\hline
+{\em delegate} & \-The \-H\-T\-T\-P manager delegate. \\
+\hline
+\end{DoxyParams}
+\hypertarget{interface_h_t_t_p_manager_a32189e50eb0e77717fbfe7b9ac435822}{\index{\-H\-T\-T\-P\-Manager@{\-H\-T\-T\-P\-Manager}!load\-Term\-With\-Delegate\-:@{load\-Term\-With\-Delegate\-:}}
+\index{load\-Term\-With\-Delegate\-:@{load\-Term\-With\-Delegate\-:}!HTTPManager@{\-H\-T\-T\-P\-Manager}}
+\subsubsection[{load\-Term\-With\-Delegate\-:}]{\setlength{\rightskip}{0pt plus 5cm}+ (void) {\bf load\-Term\-With\-Delegate\-:} 
+\begin{DoxyParamCaption}
+\item[{dummy(id$<${\bf \-H\-T\-T\-P\-Manager\-Delegate}$>$)}]{delegate}
+\end{DoxyParamCaption}
+}}\label{interface_h_t_t_p_manager_a32189e50eb0e77717fbfe7b9ac435822}
+\-Load a term with the delegate. 
+\begin{DoxyParams}{\-Parameters}
+{\em delegate} & \-The \-H\-T\-T\-P manager delegate. \\
+\hline
+\end{DoxyParams}
+\hypertarget{interface_h_t_t_p_manager_a173519d82e3f0db823a6ea90095a2eaf}{\index{\-H\-T\-T\-P\-Manager@{\-H\-T\-T\-P\-Manager}!update\-Attendance\-For\-Attendance\-Id\-:roster\-Id\-:teacher\-Id\-:attendance\-Marking\-Id\-:date\-:with\-Delegate\-:and\-Index\-:@{update\-Attendance\-For\-Attendance\-Id\-:roster\-Id\-:teacher\-Id\-:attendance\-Marking\-Id\-:date\-:with\-Delegate\-:and\-Index\-:}}
+\index{update\-Attendance\-For\-Attendance\-Id\-:roster\-Id\-:teacher\-Id\-:attendance\-Marking\-Id\-:date\-:with\-Delegate\-:and\-Index\-:@{update\-Attendance\-For\-Attendance\-Id\-:roster\-Id\-:teacher\-Id\-:attendance\-Marking\-Id\-:date\-:with\-Delegate\-:and\-Index\-:}!HTTPManager@{\-H\-T\-T\-P\-Manager}}
+\subsubsection[{update\-Attendance\-For\-Attendance\-Id\-:roster\-Id\-:teacher\-Id\-:attendance\-Marking\-Id\-:date\-:with\-Delegate\-:and\-Index\-:}]{\setlength{\rightskip}{0pt plus 5cm}+ (void) update\-Attendance\-For\-Attendance\-Id\-: 
+\begin{DoxyParamCaption}
+\item[{dummy(\-N\-S\-Number$\ast$)}]{attendance\-Id}
+\item[{rosterId:(\-N\-S\-Number$\ast$)}]{roster\-Id}
+\item[{teacherId:(\-N\-S\-Number$\ast$)}]{teacher\-Id}
+\item[{attendanceMarkingId:(\-N\-S\-Number$\ast$)}]{attendance\-Marking\-Id}
+\item[{date:(\-N\-S\-String$\ast$)}]{date}
+\item[{withDelegate:(id$<${\bf \-H\-T\-T\-P\-Manager\-Delegate}$>$)}]{delegate}
+\item[{andIndex:(\-N\-S\-Integer)}]{index}
+\end{DoxyParamCaption}
+}}\label{interface_h_t_t_p_manager_a173519d82e3f0db823a6ea90095a2eaf}
+\-Update the attendance of a roster id, if there is no attendance, a new attendance will be created else the attendance will be updated. 
+\begin{DoxyParams}{\-Parameters}
+{\em attendance\-Id} & \-The attendance id, if equals -\/1, there is no attendance. \\
+\hline
+{\em roster\-Id} & \-The roster id. \\
+\hline
+{\em teacher\-Id} & \-The id of the teacher who marks this attendance. \\
+\hline
+{\em attendance\-Marking\-Id} & \-The attendance marking id. \\
+\hline
+{\em date} & \-The date of this attendance. \\
+\hline
+{\em delegate} & \-The \-H\-T\-T\-P manager delegate. \\
+\hline
+{\em index} & \-The attendance index. \\
+\hline
+\end{DoxyParams}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\-H\-T\-T\-P\-Manager.\-h\item 
+\-H\-T\-T\-P\-Manager.\-m\end{DoxyCompactItemize}

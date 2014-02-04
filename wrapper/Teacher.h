@@ -14,7 +14,7 @@
 @interface Teacher : NSObject
 
 /**
- *  Initialize a teacher.
+ *  Initialize a teacher with the teacher id.
  *  @param teacherId The teacherId.
  */
 + (void)createInstanceWithUserId:(NSNumber*)teacherId;

@@ -10,7 +10,7 @@
 #import "CalendarPanel.h"
 
 /**
- *  The panel of one year.
+ *  The panel represent one year in the yearly view calendar.
  */
 @interface YearPanel : CalendarPanel
 

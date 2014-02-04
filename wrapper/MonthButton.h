@@ -10,7 +10,7 @@
 #import "CalendarButton.h"
 
 /**
- *  The month button.
+ *  The button represent a button on the yearly view calendar.
  */
 @interface MonthButton : CalendarButton
 

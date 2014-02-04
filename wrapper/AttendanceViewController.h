@@ -10,12 +10,12 @@
 #import "TitleTableViewController.h"
 
 /**
- *  The attendace view controller.
+ *  The attendace view controller shows all the students of a course on one day.
  */
 @interface AttendanceViewController : TitleTableViewController
 
 /**
- *  Initialize this panel.
+ *  Initialize this view controller.
  *  @param year The year.
  *  @param month The month.
  *  @param weekday The week day.

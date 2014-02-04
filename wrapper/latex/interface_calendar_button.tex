@@ -1,97 +1,97 @@
-\hypertarget{interface_calendar_button}{\section{Calendar\+Button Class Reference}
-\label{interface_calendar_button}\index{Calendar\+Button@{Calendar\+Button}}
+\hypertarget{interface_calendar_button}{\section{\-Calendar\-Button \-Class \-Reference}
+\label{interface_calendar_button}\index{\-Calendar\-Button@{\-Calendar\-Button}}
 }
 
 
-{\ttfamily \#import $<$Calendar\+Button.\+h$>$}
+{\ttfamily \#import $<$\-Calendar\-Button.\-h$>$}
 
-Inheritance diagram for Calendar\+Button\+:\begin{figure}[H]
+\-Inheritance diagram for \-Calendar\-Button\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{interface_calendar_button}
+\includegraphics[height=2.000000cm]{interface_calendar_button}
 \end{center}
 \end{figure}
-\subsection*{Instance Methods}
+\subsection*{\-Public \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
-(id) -\/ \hyperlink{interface_calendar_button_a575053cfafe6a9790ff7b823e67cdd8f}{init\+With\+Year\+:month\+:origin\+X\+:origin\+Y\+:}
+(id) -\/ \hyperlink{interface_calendar_button_a575053cfafe6a9790ff7b823e67cdd8f}{init\-With\-Year\-:month\-:origin\-X\-:origin\-Y\-:}
 \item 
-(void) -\/ \hyperlink{interface_calendar_button_ac19bd8ddd5723e4700bfd15bc31791e6}{mark\+As\+Red}
+(void) -\/ \hyperlink{interface_calendar_button_ac19bd8ddd5723e4700bfd15bc31791e6}{mark\-As\-Red}
 \item 
-(void) -\/ \hyperlink{interface_calendar_button_a588a452598d23eeeeb201003fbab896e}{mark\+As\+Gray}
+(void) -\/ \hyperlink{interface_calendar_button_a588a452598d23eeeeb201003fbab896e}{mark\-As\-Gray}
 \item 
-(void) -\/ \hyperlink{interface_calendar_button_adb8abbee02c42e396d6d23eb61bd9d1f}{mark\+As\+Green}
+(void) -\/ \hyperlink{interface_calendar_button_adb8abbee02c42e396d6d23eb61bd9d1f}{mark\-As\-Green}
 \end{DoxyCompactItemize}
-\subsection*{Properties}
+\subsection*{\-Properties}
 \begin{DoxyCompactItemize}
 \item 
-N\+S\+Integer \hyperlink{interface_calendar_button_a0376fff10e4b7543fda1c00b81585828}{month}
+\-N\-S\-Integer \hyperlink{interface_calendar_button_a0376fff10e4b7543fda1c00b81585828}{month}
 \item 
-N\+S\+Integer \hyperlink{interface_calendar_button_ad84a0f3277c87c767e149d4498bb94b2}{year}
+\-N\-S\-Integer \hyperlink{interface_calendar_button_ad84a0f3277c87c767e149d4498bb94b2}{year}
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-The calendar button. 
+\subsection{\-Detailed \-Description}
+\-The button displayed on the calendar which has a label shows the date or the week day. 
 
-\subsection{Method Documentation}
-\hypertarget{interface_calendar_button_a575053cfafe6a9790ff7b823e67cdd8f}{\index{Calendar\+Button@{Calendar\+Button}!init\+With\+Year\+:month\+:origin\+X\+:origin\+Y\+:@{init\+With\+Year\+:month\+:origin\+X\+:origin\+Y\+:}}
-\index{init\+With\+Year\+:month\+:origin\+X\+:origin\+Y\+:@{init\+With\+Year\+:month\+:origin\+X\+:origin\+Y\+:}!CalendarButton@{Calendar\+Button}}
-\subsubsection[{init\+With\+Year\+:month\+:origin\+X\+:origin\+Y\+:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) init\+With\+Year\+: 
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{interface_calendar_button_a575053cfafe6a9790ff7b823e67cdd8f}{\index{\-Calendar\-Button@{\-Calendar\-Button}!init\-With\-Year\-:month\-:origin\-X\-:origin\-Y\-:@{init\-With\-Year\-:month\-:origin\-X\-:origin\-Y\-:}}
+\index{init\-With\-Year\-:month\-:origin\-X\-:origin\-Y\-:@{init\-With\-Year\-:month\-:origin\-X\-:origin\-Y\-:}!CalendarButton@{\-Calendar\-Button}}
+\subsubsection[{init\-With\-Year\-:month\-:origin\-X\-:origin\-Y\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) init\-With\-Year\-: 
 \begin{DoxyParamCaption}
-\item[{(N\+S\+Integer)}]{year}
-\item[{month:(N\+S\+Integer)}]{month}
-\item[{originX:(N\+S\+Integer)}]{x}
-\item[{originY:(N\+S\+Integer)}]{y}
+\item[{dummy(\-N\-S\-Integer)}]{year}
+\item[{month:(\-N\-S\-Integer)}]{month}
+\item[{originX:(\-N\-S\-Integer)}]{x}
+\item[{originY:(\-N\-S\-Integer)}]{y}
 \end{DoxyParamCaption}
 }}\label{interface_calendar_button_a575053cfafe6a9790ff7b823e67cdd8f}
-Initialize this button. 
-\begin{DoxyParams}{Parameters}
-{\em year} & The year. \\
+\-Initialize this button with year, month and the left-\/up corner coordinate. 
+\begin{DoxyParams}{\-Parameters}
+{\em year} & \-The year. \\
 \hline
-{\em month} & The month. \\
+{\em month} & \-The month. \\
 \hline
-{\em origin\+X} & The x coordinate of the left-\/up corner. \\
+{\em origin\-X} & \-The x coordinate of the left-\/up corner. \\
 \hline
-{\em origin\+Y} & The y coordinate of the left-\/up corner. \\
+{\em origin\-Y} & \-The y coordinate of the left-\/up corner. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The button. 
+\begin{DoxyReturn}{\-Returns}
+\-The button. 
 \end{DoxyReturn}
-\hypertarget{interface_calendar_button_a588a452598d23eeeeb201003fbab896e}{\index{Calendar\+Button@{Calendar\+Button}!mark\+As\+Gray@{mark\+As\+Gray}}
-\index{mark\+As\+Gray@{mark\+As\+Gray}!CalendarButton@{Calendar\+Button}}
-\subsubsection[{mark\+As\+Gray}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) mark\+As\+Gray 
+\hypertarget{interface_calendar_button_a588a452598d23eeeeb201003fbab896e}{\index{\-Calendar\-Button@{\-Calendar\-Button}!mark\-As\-Gray@{mark\-As\-Gray}}
+\index{mark\-As\-Gray@{mark\-As\-Gray}!CalendarButton@{\-Calendar\-Button}}
+\subsubsection[{mark\-As\-Gray}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) {\bf mark\-As\-Gray} 
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 }}\label{interface_calendar_button_a588a452598d23eeeeb201003fbab896e}
-Mark this button as gray. \hypertarget{interface_calendar_button_adb8abbee02c42e396d6d23eb61bd9d1f}{\index{Calendar\+Button@{Calendar\+Button}!mark\+As\+Green@{mark\+As\+Green}}
-\index{mark\+As\+Green@{mark\+As\+Green}!CalendarButton@{Calendar\+Button}}
-\subsubsection[{mark\+As\+Green}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) mark\+As\+Green 
+\-Mark this button as gray. \hypertarget{interface_calendar_button_adb8abbee02c42e396d6d23eb61bd9d1f}{\index{\-Calendar\-Button@{\-Calendar\-Button}!mark\-As\-Green@{mark\-As\-Green}}
+\index{mark\-As\-Green@{mark\-As\-Green}!CalendarButton@{\-Calendar\-Button}}
+\subsubsection[{mark\-As\-Green}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) {\bf mark\-As\-Green} 
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 }}\label{interface_calendar_button_adb8abbee02c42e396d6d23eb61bd9d1f}
-Mark this button as green. \hypertarget{interface_calendar_button_ac19bd8ddd5723e4700bfd15bc31791e6}{\index{Calendar\+Button@{Calendar\+Button}!mark\+As\+Red@{mark\+As\+Red}}
-\index{mark\+As\+Red@{mark\+As\+Red}!CalendarButton@{Calendar\+Button}}
-\subsubsection[{mark\+As\+Red}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) mark\+As\+Red 
+\-Mark this button as green. \hypertarget{interface_calendar_button_ac19bd8ddd5723e4700bfd15bc31791e6}{\index{\-Calendar\-Button@{\-Calendar\-Button}!mark\-As\-Red@{mark\-As\-Red}}
+\index{mark\-As\-Red@{mark\-As\-Red}!CalendarButton@{\-Calendar\-Button}}
+\subsubsection[{mark\-As\-Red}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) {\bf mark\-As\-Red} 
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 }}\label{interface_calendar_button_ac19bd8ddd5723e4700bfd15bc31791e6}
-Mark the button as red. 
+\-Mark the button as red. 
 
-\subsection{Property Documentation}
-\hypertarget{interface_calendar_button_a0376fff10e4b7543fda1c00b81585828}{\index{Calendar\+Button@{Calendar\+Button}!month@{month}}
-\index{month@{month}!CalendarButton@{Calendar\+Button}}
-\subsubsection[{month}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\+S\+Integer) month\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [nonatomic]}, {\ttfamily [assign]}}}\label{interface_calendar_button_a0376fff10e4b7543fda1c00b81585828}
-The month of this button. \hypertarget{interface_calendar_button_ad84a0f3277c87c767e149d4498bb94b2}{\index{Calendar\+Button@{Calendar\+Button}!year@{year}}
-\index{year@{year}!CalendarButton@{Calendar\+Button}}
-\subsubsection[{year}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\+S\+Integer) year\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [nonatomic]}, {\ttfamily [assign]}}}\label{interface_calendar_button_ad84a0f3277c87c767e149d4498bb94b2}
-The year of this button. 
+\subsection{\-Property \-Documentation}
+\hypertarget{interface_calendar_button_a0376fff10e4b7543fda1c00b81585828}{\index{\-Calendar\-Button@{\-Calendar\-Button}!month@{month}}
+\index{month@{month}!CalendarButton@{\-Calendar\-Button}}
+\subsubsection[{month}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (\-N\-S\-Integer) {\bf month}\hspace{0.3cm}{\ttfamily  \mbox{[}read, assign\mbox{]}}}}\label{interface_calendar_button_a0376fff10e4b7543fda1c00b81585828}
+\-The month of this button, 1 =$>$ \-January, 2 =$>$ \-February ... \hypertarget{interface_calendar_button_ad84a0f3277c87c767e149d4498bb94b2}{\index{\-Calendar\-Button@{\-Calendar\-Button}!year@{year}}
+\index{year@{year}!CalendarButton@{\-Calendar\-Button}}
+\subsubsection[{year}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (\-N\-S\-Integer) {\bf year}\hspace{0.3cm}{\ttfamily  \mbox{[}read, assign\mbox{]}}}}\label{interface_calendar_button_ad84a0f3277c87c767e149d4498bb94b2}
+\-The year of this button. 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-Calendar\+Button.\+h\item 
-Calendar\+Button.\+m\end{DoxyCompactItemize}
+\-Calendar\-Button.\-h\item 
+\-Calendar\-Button.\-m\end{DoxyCompactItemize}
