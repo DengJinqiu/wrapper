@@ -21,13 +21,6 @@
 + (void)addCourse:(Course*)course;
 
 /**
- *  Get a course of an index.
- *  @param index The index.
- *  @returns The course.
- */
-+ (Course*)courseOfIndex:(NSInteger)index;
-
-/**
  *  Get a course of an id
  *  @param courseId The course id.
  *  @returns The course.
