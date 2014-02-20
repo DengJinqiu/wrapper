@@ -1,185 +1,180 @@
-\hypertarget{interface_schedule}{\section{Schedule Class Reference}
-\label{interface_schedule}\index{Schedule@{Schedule}}
+\hypertarget{interface_schedule}{\section{\-Schedule \-Class \-Reference}
+\label{interface_schedule}\index{\-Schedule@{\-Schedule}}
 }
 
 
-{\ttfamily \#import $<$Schedule.\+h$>$}
+{\ttfamily \#import $<$\-Schedule.\-h$>$}
 
-Inheritance diagram for Schedule\+:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[height=2.000000cm]{interface_schedule}
-\end{center}
-\end{figure}
-\subsection*{Class Methods}
+\subsection*{\-Static \-Public \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
-(void) + \hyperlink{interface_schedule_aaf0faf41937c9aadd2f2ff4d48a1c05c}{add\+Course\+:}
+(void) + \hyperlink{interface_schedule_aaf0faf41937c9aadd2f2ff4d48a1c05c}{add\-Course\-:}
 \item 
-(\hyperlink{interface_course}{Course} $\ast$) + \hyperlink{interface_schedule_a03e94ae11617def2eab930763bdf12ff}{course\+Of\+Index\+:}
+(\hyperlink{interface_course}{\-Course} $\ast$) + \hyperlink{interface_schedule_a1597a7da87d6847b844554153ab90f03}{course\-Of\-Index\-:}
 \item 
-(\hyperlink{interface_course}{Course} $\ast$) + \hyperlink{interface_schedule_a73f0de53e33bdca11901f0fe114e87a4}{course\+Of\+Id\+:}
+(\hyperlink{interface_course}{\-Course} $\ast$) + \hyperlink{interface_schedule_a84efb6cfc6aa857fd80172b1cabd0188}{course\-Of\-Id\-:}
 \item 
-(N\+S\+Integer) + \hyperlink{interface_schedule_a76bd11cfa62f71354bde9e3f7079e2e5}{courses\+Num}
+(\-N\-S\-Integer) + \hyperlink{interface_schedule_a76bd11cfa62f71354bde9e3f7079e2e5}{courses\-Num}
 \item 
-(void) + \hyperlink{interface_schedule_a0e70c390bb07cd134cbc7f0090ef52b0}{clear\+Schedule}
+(void) + \hyperlink{interface_schedule_a0e70c390bb07cd134cbc7f0090ef52b0}{clear\-Schedule}
 \item 
-(void) + \hyperlink{interface_schedule_a98322100b735481ca7bf493035f11598}{add\+Schedule\+For\+Course\+:on\+Year\+:month\+:and\+Day\+:}
+(void) + \hyperlink{interface_schedule_a98322100b735481ca7bf493035f11598}{add\-Schedule\-For\-Course\-:on\-Year\-:month\-:and\-Day\-:}
 \item 
-(N\+S\+Mutable\+Array $\ast$) + \hyperlink{interface_schedule_a61fa3ed66f093a19097af1eb7e030099}{courses\+On\+Year\+:month\+:day\+:}
+(\-N\-S\-Mutable\-Array $\ast$) + \hyperlink{interface_schedule_a8791be3ca1856cd3e2ab601d69093b3e}{courses\-On\-Year\-:month\-:day\-:}
 \item 
-(B\+O\+O\+L) + \hyperlink{interface_schedule_a17a17dcc7d2d32962be64766309e4a7f}{has\+Course\+On\+Year\+:month\+:}
+(\-B\-O\-O\-L) + \hyperlink{interface_schedule_a17a17dcc7d2d32962be64766309e4a7f}{has\-Course\-On\-Year\-:month\-:}
 \item 
-(B\+O\+O\+L) + \hyperlink{interface_schedule_aa38b3bb92219023117fe0686f68fb8bc}{has\+Course\+On\+Year\+:month\+:day\+:}
+(\-B\-O\-O\-L) + \hyperlink{interface_schedule_aa38b3bb92219023117fe0686f68fb8bc}{has\-Course\-On\-Year\-:month\-:day\-:}
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-The schdeule of a course. 
+\subsection{\-Detailed \-Description}
+\-The schedule of all the courses. 
 
-\subsection{Method Documentation}
-\hypertarget{interface_schedule_aaf0faf41937c9aadd2f2ff4d48a1c05c}{\index{Schedule@{Schedule}!add\+Course\+:@{add\+Course\+:}}
-\index{add\+Course\+:@{add\+Course\+:}!Schedule@{Schedule}}
-\subsubsection[{add\+Course\+:}]{\setlength{\rightskip}{0pt plus 5cm}+ (void) add\+Course\+: 
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{interface_schedule_aaf0faf41937c9aadd2f2ff4d48a1c05c}{\index{\-Schedule@{\-Schedule}!add\-Course\-:@{add\-Course\-:}}
+\index{add\-Course\-:@{add\-Course\-:}!Schedule@{\-Schedule}}
+\subsubsection[{add\-Course\-:}]{\setlength{\rightskip}{0pt plus 5cm}+ (void) {\bf add\-Course\-:} 
 \begin{DoxyParamCaption}
-\item[{({\bf Course} $\ast$)}]{course}
+\item[{dummy({\bf \-Course}$\ast$)}]{course}
 \end{DoxyParamCaption}
 }}\label{interface_schedule_aaf0faf41937c9aadd2f2ff4d48a1c05c}
-Add course. 
-\begin{DoxyParams}{Parameters}
-{\em course} & The course. \\
+\-Add a course. 
+\begin{DoxyParams}{\-Parameters}
+{\em course} & \-The course. \\
 \hline
 \end{DoxyParams}
-\hypertarget{interface_schedule_a98322100b735481ca7bf493035f11598}{\index{Schedule@{Schedule}!add\+Schedule\+For\+Course\+:on\+Year\+:month\+:and\+Day\+:@{add\+Schedule\+For\+Course\+:on\+Year\+:month\+:and\+Day\+:}}
-\index{add\+Schedule\+For\+Course\+:on\+Year\+:month\+:and\+Day\+:@{add\+Schedule\+For\+Course\+:on\+Year\+:month\+:and\+Day\+:}!Schedule@{Schedule}}
-\subsubsection[{add\+Schedule\+For\+Course\+:on\+Year\+:month\+:and\+Day\+:}]{\setlength{\rightskip}{0pt plus 5cm}+ (void) add\+Schedule\+For\+Course\+: 
+\hypertarget{interface_schedule_a98322100b735481ca7bf493035f11598}{\index{\-Schedule@{\-Schedule}!add\-Schedule\-For\-Course\-:on\-Year\-:month\-:and\-Day\-:@{add\-Schedule\-For\-Course\-:on\-Year\-:month\-:and\-Day\-:}}
+\index{add\-Schedule\-For\-Course\-:on\-Year\-:month\-:and\-Day\-:@{add\-Schedule\-For\-Course\-:on\-Year\-:month\-:and\-Day\-:}!Schedule@{\-Schedule}}
+\subsubsection[{add\-Schedule\-For\-Course\-:on\-Year\-:month\-:and\-Day\-:}]{\setlength{\rightskip}{0pt plus 5cm}+ (void) add\-Schedule\-For\-Course\-: 
 \begin{DoxyParamCaption}
-\item[{(N\+S\+Number $\ast$)}]{course\+Id}
-\item[{onYear:(N\+S\+Integer)}]{year}
-\item[{month:(N\+S\+Integer)}]{month}
-\item[{andDay:(N\+S\+Integer)}]{day}
+\item[{dummy(\-N\-S\-Number$\ast$)}]{course\-Id}
+\item[{onYear:(\-N\-S\-Integer)}]{year}
+\item[{month:(\-N\-S\-Integer)}]{month}
+\item[{andDay:(\-N\-S\-Integer)}]{day}
 \end{DoxyParamCaption}
 }}\label{interface_schedule_a98322100b735481ca7bf493035f11598}
-Add the course on one day. 
-\begin{DoxyParams}{Parameters}
-{\em course\+Id} & The course id. \\
+\-Add the course on the year, month and day. 
+\begin{DoxyParams}{\-Parameters}
+{\em course\-Id} & \-The course id. \\
 \hline
-{\em year} & The year. \\
+{\em year} & \-The year. \\
 \hline
-{\em month} & The month. \\
+{\em month} & \-The month. \\
 \hline
-{\em day} & The day. \\
+{\em day} & \-The day. \\
 \hline
 \end{DoxyParams}
-\hypertarget{interface_schedule_a0e70c390bb07cd134cbc7f0090ef52b0}{\index{Schedule@{Schedule}!clear\+Schedule@{clear\+Schedule}}
-\index{clear\+Schedule@{clear\+Schedule}!Schedule@{Schedule}}
-\subsubsection[{clear\+Schedule}]{\setlength{\rightskip}{0pt plus 5cm}+ (void) clear\+Schedule 
+\hypertarget{interface_schedule_a0e70c390bb07cd134cbc7f0090ef52b0}{\index{\-Schedule@{\-Schedule}!clear\-Schedule@{clear\-Schedule}}
+\index{clear\-Schedule@{clear\-Schedule}!Schedule@{\-Schedule}}
+\subsubsection[{clear\-Schedule}]{\setlength{\rightskip}{0pt plus 5cm}+ (void) {\bf clear\-Schedule} 
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 }}\label{interface_schedule_a0e70c390bb07cd134cbc7f0090ef52b0}
-Clear the schedule. \hypertarget{interface_schedule_a73f0de53e33bdca11901f0fe114e87a4}{\index{Schedule@{Schedule}!course\+Of\+Id\+:@{course\+Of\+Id\+:}}
-\index{course\+Of\+Id\+:@{course\+Of\+Id\+:}!Schedule@{Schedule}}
-\subsubsection[{course\+Of\+Id\+:}]{\setlength{\rightskip}{0pt plus 5cm}+ ({\bf Course}$\ast$) course\+Of\+Id\+: 
+\-Clear the schedule. \hypertarget{interface_schedule_a84efb6cfc6aa857fd80172b1cabd0188}{\index{\-Schedule@{\-Schedule}!course\-Of\-Id\-:@{course\-Of\-Id\-:}}
+\index{course\-Of\-Id\-:@{course\-Of\-Id\-:}!Schedule@{\-Schedule}}
+\subsubsection[{course\-Of\-Id\-:}]{\setlength{\rightskip}{0pt plus 5cm}+ ({\bf \-Course} $\ast$) {\bf course\-Of\-Id\-:} 
 \begin{DoxyParamCaption}
-\item[{(N\+S\+Number $\ast$)}]{course\+Id}
+\item[{dummy(\-N\-S\-Number$\ast$)}]{course\-Id}
 \end{DoxyParamCaption}
-}}\label{interface_schedule_a73f0de53e33bdca11901f0fe114e87a4}
-Get a course of an id 
-\begin{DoxyParams}{Parameters}
-{\em course\+Id} & The course id. \\
+}}\label{interface_schedule_a84efb6cfc6aa857fd80172b1cabd0188}
+\-Get a course of an id 
+\begin{DoxyParams}{\-Parameters}
+{\em course\-Id} & \-The course id. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The course. 
+\begin{DoxyReturn}{\-Returns}
+\-The course. 
 \end{DoxyReturn}
-\hypertarget{interface_schedule_a03e94ae11617def2eab930763bdf12ff}{\index{Schedule@{Schedule}!course\+Of\+Index\+:@{course\+Of\+Index\+:}}
-\index{course\+Of\+Index\+:@{course\+Of\+Index\+:}!Schedule@{Schedule}}
-\subsubsection[{course\+Of\+Index\+:}]{\setlength{\rightskip}{0pt plus 5cm}+ ({\bf Course}$\ast$) course\+Of\+Index\+: 
+\hypertarget{interface_schedule_a1597a7da87d6847b844554153ab90f03}{\index{\-Schedule@{\-Schedule}!course\-Of\-Index\-:@{course\-Of\-Index\-:}}
+\index{course\-Of\-Index\-:@{course\-Of\-Index\-:}!Schedule@{\-Schedule}}
+\subsubsection[{course\-Of\-Index\-:}]{\setlength{\rightskip}{0pt plus 5cm}+ ({\bf \-Course} $\ast$) {\bf course\-Of\-Index\-:} 
 \begin{DoxyParamCaption}
-\item[{(N\+S\+Integer)}]{index}
+\item[{dummy(\-N\-S\-Integer)}]{index}
 \end{DoxyParamCaption}
-}}\label{interface_schedule_a03e94ae11617def2eab930763bdf12ff}
-Get a course of an index. 
-\begin{DoxyParams}{Parameters}
-{\em index} & The index. \\
+}}\label{interface_schedule_a1597a7da87d6847b844554153ab90f03}
+\-Get a course of an index. 
+\begin{DoxyParams}{\-Parameters}
+{\em index} & \-The index of the course. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The course. 
+\begin{DoxyReturn}{\-Returns}
+\-The course. 
 \end{DoxyReturn}
-\hypertarget{interface_schedule_a76bd11cfa62f71354bde9e3f7079e2e5}{\index{Schedule@{Schedule}!courses\+Num@{courses\+Num}}
-\index{courses\+Num@{courses\+Num}!Schedule@{Schedule}}
-\subsubsection[{courses\+Num}]{\setlength{\rightskip}{0pt plus 5cm}+ (N\+S\+Integer) courses\+Num 
+\hypertarget{interface_schedule_a76bd11cfa62f71354bde9e3f7079e2e5}{\index{\-Schedule@{\-Schedule}!courses\-Num@{courses\-Num}}
+\index{courses\-Num@{courses\-Num}!Schedule@{\-Schedule}}
+\subsubsection[{courses\-Num}]{\setlength{\rightskip}{0pt plus 5cm}+ (\-N\-S\-Integer) {\bf courses\-Num} 
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 }}\label{interface_schedule_a76bd11cfa62f71354bde9e3f7079e2e5}
-Get the course num. \begin{DoxyReturn}{Returns}
-The number of course. 
+\-Get the number of courses. \begin{DoxyReturn}{\-Returns}
+\-The number of courses. 
 \end{DoxyReturn}
-\hypertarget{interface_schedule_a61fa3ed66f093a19097af1eb7e030099}{\index{Schedule@{Schedule}!courses\+On\+Year\+:month\+:day\+:@{courses\+On\+Year\+:month\+:day\+:}}
-\index{courses\+On\+Year\+:month\+:day\+:@{courses\+On\+Year\+:month\+:day\+:}!Schedule@{Schedule}}
-\subsubsection[{courses\+On\+Year\+:month\+:day\+:}]{\setlength{\rightskip}{0pt plus 5cm}+ (N\+S\+Mutable\+Array$\ast$) courses\+On\+Year\+: 
+\hypertarget{interface_schedule_a8791be3ca1856cd3e2ab601d69093b3e}{\index{\-Schedule@{\-Schedule}!courses\-On\-Year\-:month\-:day\-:@{courses\-On\-Year\-:month\-:day\-:}}
+\index{courses\-On\-Year\-:month\-:day\-:@{courses\-On\-Year\-:month\-:day\-:}!Schedule@{\-Schedule}}
+\subsubsection[{courses\-On\-Year\-:month\-:day\-:}]{\setlength{\rightskip}{0pt plus 5cm}+ (\-N\-S\-Mutable\-Array $\ast$) courses\-On\-Year\-: 
 \begin{DoxyParamCaption}
-\item[{(N\+S\+Integer)}]{year}
-\item[{month:(N\+S\+Integer)}]{month}
-\item[{day:(N\+S\+Integer)}]{day}
+\item[{dummy(\-N\-S\-Integer)}]{year}
+\item[{month:(\-N\-S\-Integer)}]{month}
+\item[{day:(\-N\-S\-Integer)}]{day}
 \end{DoxyParamCaption}
-}}\label{interface_schedule_a61fa3ed66f093a19097af1eb7e030099}
-Get the course on one day. 
-\begin{DoxyParams}{Parameters}
-{\em year} & The year. \\
+}}\label{interface_schedule_a8791be3ca1856cd3e2ab601d69093b3e}
+\-Get the course on the year, month and day. 
+\begin{DoxyParams}{\-Parameters}
+{\em year} & \-The year. \\
 \hline
-{\em month} & The month. \\
+{\em month} & \-The month. \\
 \hline
-{\em day} & The day. \\
+{\em day} & \-The day. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The courses. 
+\begin{DoxyReturn}{\-Returns}
+\-The courses. 
 \end{DoxyReturn}
-\hypertarget{interface_schedule_a17a17dcc7d2d32962be64766309e4a7f}{\index{Schedule@{Schedule}!has\+Course\+On\+Year\+:month\+:@{has\+Course\+On\+Year\+:month\+:}}
-\index{has\+Course\+On\+Year\+:month\+:@{has\+Course\+On\+Year\+:month\+:}!Schedule@{Schedule}}
-\subsubsection[{has\+Course\+On\+Year\+:month\+:}]{\setlength{\rightskip}{0pt plus 5cm}+ (B\+O\+O\+L) has\+Course\+On\+Year\+: 
+\hypertarget{interface_schedule_a17a17dcc7d2d32962be64766309e4a7f}{\index{\-Schedule@{\-Schedule}!has\-Course\-On\-Year\-:month\-:@{has\-Course\-On\-Year\-:month\-:}}
+\index{has\-Course\-On\-Year\-:month\-:@{has\-Course\-On\-Year\-:month\-:}!Schedule@{\-Schedule}}
+\subsubsection[{has\-Course\-On\-Year\-:month\-:}]{\setlength{\rightskip}{0pt plus 5cm}+ (\-B\-O\-O\-L) has\-Course\-On\-Year\-: 
 \begin{DoxyParamCaption}
-\item[{(N\+S\+Integer)}]{year}
-\item[{month:(N\+S\+Integer)}]{month}
+\item[{dummy(\-N\-S\-Integer)}]{year}
+\item[{month:(\-N\-S\-Integer)}]{month}
 \end{DoxyParamCaption}
 }}\label{interface_schedule_a17a17dcc7d2d32962be64766309e4a7f}
-Whether there is a course on one month. 
-\begin{DoxyParams}{Parameters}
-{\em year} & The year. \\
+\-Whether there is a course on the year and month. 
+\begin{DoxyParams}{\-Parameters}
+{\em year} & \-The year. \\
 \hline
-{\em month} & The month. \\
+{\em month} & \-The month. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Whether there is a course on one month. 
+\begin{DoxyReturn}{\-Returns}
+\-Whether there is a course on one month. 
 \end{DoxyReturn}
-\hypertarget{interface_schedule_aa38b3bb92219023117fe0686f68fb8bc}{\index{Schedule@{Schedule}!has\+Course\+On\+Year\+:month\+:day\+:@{has\+Course\+On\+Year\+:month\+:day\+:}}
-\index{has\+Course\+On\+Year\+:month\+:day\+:@{has\+Course\+On\+Year\+:month\+:day\+:}!Schedule@{Schedule}}
-\subsubsection[{has\+Course\+On\+Year\+:month\+:day\+:}]{\setlength{\rightskip}{0pt plus 5cm}+ (B\+O\+O\+L) has\+Course\+On\+Year\+: 
+\hypertarget{interface_schedule_aa38b3bb92219023117fe0686f68fb8bc}{\index{\-Schedule@{\-Schedule}!has\-Course\-On\-Year\-:month\-:day\-:@{has\-Course\-On\-Year\-:month\-:day\-:}}
+\index{has\-Course\-On\-Year\-:month\-:day\-:@{has\-Course\-On\-Year\-:month\-:day\-:}!Schedule@{\-Schedule}}
+\subsubsection[{has\-Course\-On\-Year\-:month\-:day\-:}]{\setlength{\rightskip}{0pt plus 5cm}+ (\-B\-O\-O\-L) has\-Course\-On\-Year\-: 
 \begin{DoxyParamCaption}
-\item[{(N\+S\+Integer)}]{year}
-\item[{month:(N\+S\+Integer)}]{month}
-\item[{day:(N\+S\+Integer)}]{day}
+\item[{dummy(\-N\-S\-Integer)}]{year}
+\item[{month:(\-N\-S\-Integer)}]{month}
+\item[{day:(\-N\-S\-Integer)}]{day}
 \end{DoxyParamCaption}
 }}\label{interface_schedule_aa38b3bb92219023117fe0686f68fb8bc}
-Whether there is a course on one day. 
-\begin{DoxyParams}{Parameters}
-{\em year} & The year. \\
+\-Whether there is a course on the year, month and day. 
+\begin{DoxyParams}{\-Parameters}
+{\em year} & \-The year. \\
 \hline
-{\em month} & The month. \\
+{\em month} & \-The month. \\
 \hline
-{\em day} & The day. \\
+{\em day} & \-The day. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Whether there is a course on one day. 
+\begin{DoxyReturn}{\-Returns}
+\-Whether there is a course on one day. 
 \end{DoxyReturn}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-Schedule.\+h\end{DoxyCompactItemize}
+\-Schedule.\-h\item 
+\-Schedule.\-m\end{DoxyCompactItemize}

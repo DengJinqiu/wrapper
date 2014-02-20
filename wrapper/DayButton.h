@@ -10,7 +10,7 @@
 #import "CalendarButton.h"
 
 /**
- *  The day button.
+ *  The day button represent a day on the monthly view calendar.
  */
 @interface DayButton : CalendarButton
 

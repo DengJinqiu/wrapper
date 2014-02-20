@@ -11,12 +11,12 @@
 #import "TitleTableViewController.h"
 
 /**
- *  The daily view controller.
+ *  The daily view controller which is a table view with a title. The title shows the general information, and the table view list the details.
  */
 @interface DailyViewController : TitleTableViewController
 
 /**
- *  Initialzie this controller.
+ *  Initialzie this controller with year, month, week day and day.
  *  @param year The year.
  *  @param month The month.
  *  @param weekday The week day.

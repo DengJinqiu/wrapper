@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 /**
- *  The calendar panel.
+ *  The calendar panel represent a panel on calender.
  */
 @interface CalendarPanel : UIView
 

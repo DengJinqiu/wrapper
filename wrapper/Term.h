@@ -14,7 +14,7 @@
 @interface Term : NSObject
 
 /**
- *  Create an instance of a term.
+ *  Create an instance of a term with the start year, end year and term id.
  *  @param startYear The start year of the term.
  *  @param endYear The end year of the term.
  *  @param termId The term id.

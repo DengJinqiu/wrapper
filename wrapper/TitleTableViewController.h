@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 /**
- *  Table view with title.
+ *  Table view with a title.
  */
 @interface TitleTableViewController : UIViewController
 
@@ -19,7 +19,7 @@
 @property (weak, nonatomic) UITableView* tableView;
 
 /**
- *  The title.
+ *  The title of the table view.
  */
 @property (weak, nonatomic) UILabel* titleLabel;
 

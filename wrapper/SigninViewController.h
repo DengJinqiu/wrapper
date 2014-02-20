@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 /**
- *  The sign in view controller.
+ *  The sign in view controller allows input user name and password.
  */
 @interface SigninViewController : UIViewController
 

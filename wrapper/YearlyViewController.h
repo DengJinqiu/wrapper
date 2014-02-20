@@ -11,7 +11,7 @@
 #import "SchoolCalendar.h"
 
 /**
- *  The yearly view controller.
+ *  The yearly view controller which lists the months during the term.
  */
 @interface YearlyViewController : UIViewController
 

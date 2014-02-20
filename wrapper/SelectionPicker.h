@@ -38,7 +38,7 @@
 @property (weak, nonatomic) UIButton* done;
 
 /** 
- *  The picker.
+ *  The picker which contains several items to select.
  */
 @property (weak, nonatomic) UIPickerView* picker;
 
